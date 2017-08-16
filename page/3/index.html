@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Luck、Time">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Luck、Time">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -150,6 +150,115 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-C语言/clocks_per_sec是什么" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>VC++6.0中time.h下宏定义的常量。其值为1000。VC++6.0中该符号常量定义如下：</p>
+<p>#define CLOCKS_PER_SEC 1000<br>此外，VC++6.0中把TC2.0中time.h下宏定义的常量CLK_TCK也宏定义成CLOCKS_PER_SEC，这样TC2.0下值为18.2的CLK_TCK在VC6.0下值变为1000。该宏定义如下：</p>
+<p>#define CLK_TCK CLOCKS_PER_SEC<br>CLOCKS_PER_SEC，它用来表示一秒钟会有多少个时钟计时单元，其定义如下：</p>
+<p>#define CLOCKS_PER_SEC ((clock_t)1000)<br>可以看到每过千分之一秒（1毫秒），调用clock()函数返回的值就加1。<br>可以使用公式clock()/CLOCKS_PER_SEC来计算一个进程自身的运行时间。<br>详见百科</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/C语言/clocks_per_sec是什么/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C语言/day-05--局部变量-全局变量-静态变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//varibole      变量时间 空间 生命期 和作用域  </p>
+<p>//局部变量 ： 仅在定义的语句块中有效<br>//全局变量 ：　仅在本文件中使用　　全局变量　文件的全范围，不受欢迎，尽量少用<br>//静态变量 ：  在本文件中使用，第<br>/<em><br>全局变量就是对于整个程序，都可以调用的变量，但程序里面不一定就只是一个程序，也可能调用其他子程序。<br>只在子程序里面声明并起到作用的就是局部变量<br>静态变量就是指变量的地址不变，也就是说变量，本质上就是一个寄存器或者存储区，每个存储的位置都是有固定的地址，以便访问，但有时候，并不一定要一个变量就占据一个地址，如果我变量所储存的数据并不需要长期存在，那么在我不需要的时候搜索，就释放那个地址，以便其他程序利用这个地址，我不确定这个就叫自动型变量，我是没有用自动型变量来表示啦。其实也没有必要纠结于他们的表述，你只要知道变量本身就是一个存储空间罢了，并且知道怎样控制变量的作用位置，以及控制变量的存储空间就OK了。
+</em>/</p>
+<p>#include<iostream></iostream></p>
+<p>using namespace std;</p>
+<p>int counter();<br>int c;          //全局变量     输出结果 1 2  3<br>main()<br>{<br> cout&lt;&lt; counter() &lt;&lt; endl;<br> cout&lt;&lt; counter() &lt;&lt; endl;<br> cout&lt;&lt; counter() &lt;&lt; endl;<br>}</p>
+<p>int counter()<br>{</p>
+<p>//    int c = 0;<br> c++;<br> return c;          //输出结果     1  1  1     c 每次都会被初始化为  0<br>}</p>
+<p>/<em><br>int counter()//计数器函数<br>{<br>  static int c = 0;      //静态变量 输出结果 ：1 2 3    不会释放空间，直到程序结束。。<br> c++;<br> return c;<br>}
+</em>/</p>
+<p>//     全局变量    extern  类型 变量名          但不能声明静态变量<br>//extern int c; </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/C语言/day-05--局部变量-全局变量-静态变量/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-C语言/c++面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -470,6 +579,67 @@ free(void *p); 释放。
 
 
   
+    <article id="post-C语言/swap--指针两数交换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>/*#include <iostream></iostream></p>
+<p>using namespace std;</p>
+<p>main()<br>{<br>———————(一)———————————-<br> int i = 90 ;<br> int* p = NULL;<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;            //00000000</p>
+<p>//cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;<br> p = &i;<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;             //0012ff44</p>
+<p>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;       //90<br> i = 80;        //i改变值，但地址不变。。因此p指向地址不变，但<em>p（</em>&amp;p）改变了。<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;             //0012ff44</p>
+<p>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;         //80<br> *p = 150;        //将指向地址的值改变，也改变i的值。</p>
+<p>cout &lt;&lt; “ P =  “ &lt;&lt;  p &lt;&lt; endl;          //0012ff44<br>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;       //150<br>cout &lt;&lt; “ i =  “ &lt;&lt;  i &lt;&lt; endl;      //150<br><em>/<br>/</em>int a = 100;<br>int b = 300;<br>swap(&amp;a, &amp;b);<br>//swap(a ,b);<br>int<em> p = &a;<br>int</em> q = &b;<br>cout &lt;&lt; “<em>p = “ &lt;&lt; </em>p &lt;&lt;endl;   //100<br>cout &lt;&lt; “<em>q = “ &lt;&lt; </em>q &lt;&lt;endl;   //300<br>swap(p, q);<br>cout &lt;&lt; “<em>p = “ &lt;&lt; </em>p &lt;&lt;endl;    //300<br>cout &lt;&lt; “<em>q = “ &lt;&lt; </em>q &lt;&lt;endl;     //100<br>cout &lt;&lt; “a = “ &lt;&lt; a &lt;&lt;endl;      //100<br>cout &lt;&lt; “b = “ &lt;&lt; b &lt;&lt;endl;    //300          //只改变地址指向，不改变函数地址<br>return 0;<br>}</p>
+<p>void swap(int a,int b)<br>{<br> int t = a ;<br> a = b;<br> b = t;</p>
+<p>}</p>
+<p>void swap(int<em> a,int</em> b)<br>{<br> int* t = a ;<br> a = b;<br> b = t;</p>
+<p>}*/</p>
+<p>#include <iostream></iostream></p>
+<p>using namespace std;<br> void swap(int &amp;a, int &amp;b)<br>{<br>    //方法一：<br>    //int tmp = 0;<br>   // tmp = b;<br>   // b = a;<br>   // a = tmp;<br>    //方法二：<br>    //a = a+b;<br>    //b = a-b;<br>    //a = a -b;<br>    //同理<br> //    a = a - b; //-1 = 3-4<br> //    b = a + b; // 3 = -1 + 4<br> //    a = b - a; // 4 = 3 - -1;<br>  //方法三：<br>    //a ^= b ^= a ^= b;  //a=a^b; b=b^a; a=a^b; 恩，理解了。异或运算得出的(a^b)。与a异或得出b，与b异或得出a<br>    //方法四：<br>    a = a+b-(b=a);  //  b= 3; a = 3+3-3;<br>}  </p>
+<p>int main(void)<br>{<br>    int a = 3;<br>    int b = 4;<br> int t =a^b;<br> cout &lt;&lt; t &lt;&lt;endl;<br> b=b^t;<br> cout &lt;&lt; b &lt;&lt;endl;<br> a=t^b;<br> cout &lt;&lt; a &lt;&lt;endl;</p>
+<p> cout &lt;&lt; “a = “ &lt;&lt; a &lt;</p>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/C语言/swap--指针两数交换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C语言/day-04-（a）哈诺塔函数-hanoi---形参-实参分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -564,22 +734,17 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);           //有n个牌子，
 
 
   
-    <article id="post-C语言/day-05--局部变量-全局变量-静态变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C语言/getch（）-getche（）getchar()区别解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>//varibole      变量时间 空间 生命期 和作用域  </p>
-<p>//局部变量 ： 仅在定义的语句块中有效<br>//全局变量 ：　仅在本文件中使用　　全局变量　文件的全范围，不受欢迎，尽量少用<br>//静态变量 ：  在本文件中使用，第<br>/<em><br>全局变量就是对于整个程序，都可以调用的变量，但程序里面不一定就只是一个程序，也可能调用其他子程序。<br>只在子程序里面声明并起到作用的就是局部变量<br>静态变量就是指变量的地址不变，也就是说变量，本质上就是一个寄存器或者存储区，每个存储的位置都是有固定的地址，以便访问，但有时候，并不一定要一个变量就占据一个地址，如果我变量所储存的数据并不需要长期存在，那么在我不需要的时候搜索，就释放那个地址，以便其他程序利用这个地址，我不确定这个就叫自动型变量，我是没有用自动型变量来表示啦。其实也没有必要纠结于他们的表述，你只要知道变量本身就是一个存储空间罢了，并且知道怎样控制变量的作用位置，以及控制变量的存储空间就OK了。
-</em>/</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;</p>
-<p>int counter();<br>int c;          //全局变量     输出结果 1 2  3<br>main()<br>{<br> cout&lt;&lt; counter() &lt;&lt; endl;<br> cout&lt;&lt; counter() &lt;&lt; endl;<br> cout&lt;&lt; counter() &lt;&lt; endl;<br>}</p>
-<p>int counter()<br>{</p>
-<p>//    int c = 0;<br> c++;<br> return c;          //输出结果     1  1  1     c 每次都会被初始化为  0<br>}</p>
-<p>/<em><br>int counter()//计数器函数<br>{<br>  static int c = 0;      //静态变量 输出结果 ：1 2 3    不会释放空间，直到程序结束。。<br> c++;<br> return c;<br>}
-</em>/</p>
-<p>//     全局变量    extern  类型 变量名          但不能声明静态变量<br>//extern int c; </p>
+        <p>getch()、getche()和getchar()函数<br>(1) getch()和getche()函数<br>这两个函数都是从键盘上读入一个字符。其调用格式为:<br>getch();<br>getche();<br>两者的区别是: getch()函数不将读入的字符回显在显示屏幕上, 而getche()<br>函数却将读入的字符回显到显示屏幕上。<br>例1:  </p>
+<p>#include<br>main()<br>{<br>char c, ch;<br>c=getch(); /<em>从键盘上读入一个字符不回显送给字符变量c</em>/<br>putchar©; /<em>输出该字符</em>/<br>ch=getche(); /<em>从键盘上带回显的读入一个字符送给字符变量ch</em>/<br>putchar(ch);<br>}<br>利用回显和不回显的特点, 这两个函数经常用于交互输入的过程中完成暂停<br>等功能。<br>例2:  </p>
+<p>#include<br>main()<br>{<br>char c, s[20];<br>printf(“Name:”);<br>gets(s);<br>printf(“Press any key to continue…”);<br>getch(); /<em>等待输入任一键</em>/<br>}  </p>
+<p>(2) getchar()函数<br>getchar()函数也是从键盘上读入一个字符, 并带回显。它与前面两个函数<br>的区别在于: getchar()函数等待输入直到按回车才结束, 回车前的所有输入字<br>符都会逐个显示在屏幕上。但只有第一个字符作为函数的返回值。<br>getchar()函数的调用格式为:<br>getchar();<br>例3:  </p>
+<p>#include<br>main()<br>{<br>char c;<br>c=getchar(); /<em>从键盘读入字符直到回车结束</em>/<br>putchar©; /<em>显示输入的第一个字符</em>/<br>getch(); /<em>等待按任一健</em>/<br>}<br>例4 </p>
+<p>#include<br>main()<br>{<br>char c;<br>while ((c=getchar())!=’\n’) /<em>每个getchar()依次读入一个字符</em>/<br>printf(“%c”,c); /<em>按照原样输出</em>/<br>getch(); /<em>等待按任一健</em>/<br>}</p>
 
       
 
@@ -592,119 +757,7 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);           //有n个牌子，
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/day-05--局部变量-全局变量-静态变量/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/clocks_per_sec是什么" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>VC++6.0中time.h下宏定义的常量。其值为1000。VC++6.0中该符号常量定义如下：</p>
-<p>#define CLOCKS_PER_SEC 1000<br>此外，VC++6.0中把TC2.0中time.h下宏定义的常量CLK_TCK也宏定义成CLOCKS_PER_SEC，这样TC2.0下值为18.2的CLK_TCK在VC6.0下值变为1000。该宏定义如下：</p>
-<p>#define CLK_TCK CLOCKS_PER_SEC<br>CLOCKS_PER_SEC，它用来表示一秒钟会有多少个时钟计时单元，其定义如下：</p>
-<p>#define CLOCKS_PER_SEC ((clock_t)1000)<br>可以看到每过千分之一秒（1毫秒），调用clock()函数返回的值就加1。<br>可以使用公式clock()/CLOCKS_PER_SEC来计算一个进程自身的运行时间。<br>详见百科</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/clocks_per_sec是什么/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/swap--指针两数交换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/*#include <iostream></iostream></p>
-<p>using namespace std;</p>
-<p>main()<br>{<br>———————(一)———————————-<br> int i = 90 ;<br> int* p = NULL;<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;            //00000000</p>
-<p>//cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;<br> p = &i;<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;             //0012ff44</p>
-<p>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;       //90<br> i = 80;        //i改变值，但地址不变。。因此p指向地址不变，但<em>p（</em>&amp;p）改变了。<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;             //0012ff44</p>
-<p>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;         //80<br> *p = 150;        //将指向地址的值改变，也改变i的值。</p>
-<p>cout &lt;&lt; “ P =  “ &lt;&lt;  p &lt;&lt; endl;          //0012ff44<br>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;       //150<br>cout &lt;&lt; “ i =  “ &lt;&lt;  i &lt;&lt; endl;      //150<br><em>/<br>/</em>int a = 100;<br>int b = 300;<br>swap(&amp;a, &amp;b);<br>//swap(a ,b);<br>int<em> p = &a;<br>int</em> q = &b;<br>cout &lt;&lt; “<em>p = “ &lt;&lt; </em>p &lt;&lt;endl;   //100<br>cout &lt;&lt; “<em>q = “ &lt;&lt; </em>q &lt;&lt;endl;   //300<br>swap(p, q);<br>cout &lt;&lt; “<em>p = “ &lt;&lt; </em>p &lt;&lt;endl;    //300<br>cout &lt;&lt; “<em>q = “ &lt;&lt; </em>q &lt;&lt;endl;     //100<br>cout &lt;&lt; “a = “ &lt;&lt; a &lt;&lt;endl;      //100<br>cout &lt;&lt; “b = “ &lt;&lt; b &lt;&lt;endl;    //300          //只改变地址指向，不改变函数地址<br>return 0;<br>}</p>
-<p>void swap(int a,int b)<br>{<br> int t = a ;<br> a = b;<br> b = t;</p>
-<p>}</p>
-<p>void swap(int<em> a,int</em> b)<br>{<br> int* t = a ;<br> a = b;<br> b = t;</p>
-<p>}*/</p>
-<p>#include <iostream></iostream></p>
-<p>using namespace std;<br> void swap(int &amp;a, int &amp;b)<br>{<br>    //方法一：<br>    //int tmp = 0;<br>   // tmp = b;<br>   // b = a;<br>   // a = tmp;<br>    //方法二：<br>    //a = a+b;<br>    //b = a-b;<br>    //a = a -b;<br>    //同理<br> //    a = a - b; //-1 = 3-4<br> //    b = a + b; // 3 = -1 + 4<br> //    a = b - a; // 4 = 3 - -1;<br>  //方法三：<br>    //a ^= b ^= a ^= b;  //a=a^b; b=b^a; a=a^b; 恩，理解了。异或运算得出的(a^b)。与a异或得出b，与b异或得出a<br>    //方法四：<br>    a = a+b-(b=a);  //  b= 3; a = 3+3-3;<br>}  </p>
-<p>int main(void)<br>{<br>    int a = 3;<br>    int b = 4;<br> int t =a^b;<br> cout &lt;&lt; t &lt;&lt;endl;<br> b=b^t;<br> cout &lt;&lt; b &lt;&lt;endl;<br> a=t^b;<br> cout &lt;&lt; a &lt;&lt;endl;</p>
-<p> cout &lt;&lt; “a = “ &lt;&lt; a &lt;</p>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/swap--指针两数交换/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/C语言/getch（）-getche（）getchar()区别解析/">展开全文 >></a>
         </p>
       
 
@@ -824,59 +877,6 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);           //有n个牌子，
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/C语言/day-04（b）文件的分割-/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/getch（）-getche（）getchar()区别解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>getch()、getche()和getchar()函数<br>(1) getch()和getche()函数<br>这两个函数都是从键盘上读入一个字符。其调用格式为:<br>getch();<br>getche();<br>两者的区别是: getch()函数不将读入的字符回显在显示屏幕上, 而getche()<br>函数却将读入的字符回显到显示屏幕上。<br>例1:  </p>
-<p>#include<br>main()<br>{<br>char c, ch;<br>c=getch(); /<em>从键盘上读入一个字符不回显送给字符变量c</em>/<br>putchar©; /<em>输出该字符</em>/<br>ch=getche(); /<em>从键盘上带回显的读入一个字符送给字符变量ch</em>/<br>putchar(ch);<br>}<br>利用回显和不回显的特点, 这两个函数经常用于交互输入的过程中完成暂停<br>等功能。<br>例2:  </p>
-<p>#include<br>main()<br>{<br>char c, s[20];<br>printf(“Name:”);<br>gets(s);<br>printf(“Press any key to continue…”);<br>getch(); /<em>等待输入任一键</em>/<br>}  </p>
-<p>(2) getchar()函数<br>getchar()函数也是从键盘上读入一个字符, 并带回显。它与前面两个函数<br>的区别在于: getchar()函数等待输入直到按回车才结束, 回车前的所有输入字<br>符都会逐个显示在屏幕上。但只有第一个字符作为函数的返回值。<br>getchar()函数的调用格式为:<br>getchar();<br>例3:  </p>
-<p>#include<br>main()<br>{<br>char c;<br>c=getchar(); /<em>从键盘读入字符直到回车结束</em>/<br>putchar©; /<em>显示输入的第一个字符</em>/<br>getch(); /<em>等待按任一健</em>/<br>}<br>例4 </p>
-<p>#include<br>main()<br>{<br>char c;<br>while ((c=getchar())!=’\n’) /<em>每个getchar()依次读入一个字符</em>/<br>printf(“%c”,c); /<em>按照原样输出</em>/<br>getch(); /<em>等待按任一健</em>/<br>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/getch（）-getche（）getchar()区别解析/">展开全文 >></a>
         </p>
       
 
@@ -1126,7 +1126,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1138,7 +1138,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">

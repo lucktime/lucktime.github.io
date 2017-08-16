@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Luck、Time">
 <meta property="og:url" content="http://yoursite.com/page/11/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Luck、Time">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,25 +151,22 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-PHP成长之路/（5）PHP之yii2-文件夹的功能与结构介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/（6）PHP之Yii2入口脚本的熟悉" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自：<a href="http://www.yiibai.com/" target="_blank" rel="external">http://www.yiibai.com/</a><br>文件夹目录：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-fc83d604b275a788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>assets - 此文件夹包含在网页中引用的所有 .js和.css文件<br>commands - 此文件夹包括可从终端中使用的控制器<br>config - 此文件夹包含配置文件用于管理数据库，应用程序和应用参数<br>mail - 此文件夹包含邮件布局<br>models - 该文件夹包函在应用程序中使用的模型<br>runtime − 此文件夹是用于存储运行时数据</p>
-<p>tests − 此文件夹包含所有的测试(验收，单元测试，功能)</p>
-<p>vendor - 此文件夹包含由Composer提供所有的第三方软件包。<br>views − 此文件夹为视图文件夹目录，由控制器显示。layout 文件夹是用于页面模板</p>
-<p>web − 网站入口点</p>
-<p>yii2的应用程序结构，采用的是MVC软件设计模式。<br><img src="http://upload-images.jianshu.io/upload_images/1764965-81a7187401bafd1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>下面的列表包含了所有Yii2的对象 -</p>
-<p>####模型，视图和控制器<br>模型数据表示(通常从数据库)。视图是用于显示的数据。控制器是用于处理请求和产生响应。</p>
-<p>####组件 - Components<br>创建一个可重复使用的功能，用户可以编写自己的组件。组件只是包含逻辑对象。例如，组件可以是一个重量转换器。</p>
-<p>####应用程序组件 - Application components<br>这些都是在整个应用只实例化的一个对象。 组件和应用组件之间的主要区别是，后者在整个应用程序只有一个实例。</p>
-<p>####小工具 - Widgets<br>Widget是含有逻辑和渲染代码可重用的对象。一个小部件可以是，例如，一个画廊滑块。</p>
-<p>####过滤器 -Filters<br>过滤器是在控制器动作的执行之前或之后运行的对象。</p>
-<p>####模块 - Modules<br>可以认为模块就是可重用的子应用程序，包括模型，视图，控制器等等。</p>
-<p>####扩展 - Extensions<br>扩展是可以由 Composer 来管理的软件包。</p>
+        <p>转自：<a href="http://www.yiibai.com/yii2/yii_entry_scripts.html" target="_blank" rel="external">http://www.yiibai.com/yii2/yii_entry_scripts.html</a><br>入口脚本是负责启动一个请求处理周期。用户访问只是通过PHP脚本。<br>下图显示了一个应用程序的结构 -<br>Yii入口脚本<br>Entry Scripts Structure</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-dd43b0d8af818193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>Web应用程序(以及控制台应用程序)具有一个<b>单一入口脚本</b>。终端用户从入口脚本发起一个请求。然后，入口脚本实例化应用实例并将请求转发给它们。</p>
+<p><b>控制台应用程序入口脚本通常存储在一个项目基本路径并命名为yii.php。</b><br><b>Web应用程序入口脚本必须存储在Web访问的目录下。它通常是index.php。</b></p>
+<p>###入口脚本执行以下操作<br>定义常量<br>注册 Composer 自动加载<br>包括 Yii 文件<br>加载配置<br>创建和配置一个应用程序实例<br>处理传入的请求<br>以下是基本的应用程序入口脚本的模板-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">   defined(&apos;YII_ENV&apos;) or define(&apos;YII_ENV&apos;, &apos;dev&apos;);</div><div class="line"> </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/../vendor/autoload.php&apos;);</div><div class="line">   //include yii files</div><div class="line">   require(__DIR__ . &apos;/../vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load application config</div><div class="line">   $config = require(__DIR__ . &apos;/../config/web.php&apos;);</div><div class="line">  </div><div class="line">   //create, config, and process reques</div><div class="line">   (new yii\web\Application($config))-&gt;run();</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>以下是控制台应用程序的入口脚本 -<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env php</div><div class="line">&lt;?php</div><div class="line">   /** </div><div class="line">   * Yii console bootstrap file. </div><div class="line">   * @link http://www.yiiframework.com/ </div><div class="line">   * @copyright Copyright (c) 2008 Yii Software LLC </div><div class="line">   * @license http://www.yiiframework.com/license/ </div><div class="line">   */</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">  </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/vendor/autoload.php&apos;);</div><div class="line">   require(__DIR__ . &apos;/vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load config</div><div class="line">   $config = require(__DIR__ . &apos;/config/console.php&apos;);</div><div class="line">  </div><div class="line">   //apply config the application instance </div><div class="line">   $application = new yii\console\Application($config);  </div><div class="line"></div><div class="line">   //process request</div><div class="line">   $exitCode = $application-&gt;run();</div><div class="line">   exit($exitCode);</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>定义全局常量最好的地方是入口脚本。有三个Yii常量被定义-<br>YII_DEBUG − 定义是否在调试模式。如果设置为true，那么将看到更多的日志数据和细节错误的调用堆栈。</p>
+<p>YII_ENV − 定义环境模式。默认值是prod。</p>
+<p>可用值为 prod, dev 和 test. 它们在配置文件中用来定义：例如，一个不同的数据库连接(本地和远程)或其它值。</p>
+<p>YII_ENABLE_ERROR_HANDLER − 指定是否启用默认Yii的错误处理程序。</p>
+<p>定义一个全局常数，常用下面的代码-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//defining global constants </div><div class="line">defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true); </div><div class="line">which is equivalent to: </div><div class="line">if(!defined(&apos;YII_DEBUG&apos;)) &#123; </div><div class="line">   define(&apos;YII_DEBUG&apos;, true); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注 - 全局常量应在入口脚本的开头定义，以便包含其他PHP文件时生效。</p>
 
       
 
@@ -182,7 +179,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（5）PHP之yii2-文件夹的功能与结构介绍/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（6）PHP之Yii2入口脚本的熟悉/">展开全文 >></a>
         </p>
       
 
@@ -390,6 +387,66 @@
 
 
   
+    <article id="post-ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU”</p>
+<p><a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">升级版，更新了watch功能</a></p>
+<p>以下是操作步骤<br>官方提供的有个叫cordova-plugin-geolocation的插件，在<a href="http://lib.csdn.net/base/ios" target="_blank" rel="external">iOS</a>上可以直接使用，但是在天朝因为某些网络原因不能给正常使用，或者是国内安卓环境混乱，不再支持cordova-plugin-geolocation 插件功能。 于是在github上找到合适的资源插件，以供使用。</p>
+<ol>
+<li>申请百度的秘钥 <a href="http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key" target="_blank" rel="external">百度秘钥申请地址</a></li>
+<li><p>安装插件：<br>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”API_KEY”</p>
+</li>
+<li><p>使用方法<br>在需要获取位置信息的地方直接使用以下代码:<br>baidu_location.getCurrentPosition(function ( message ) { console.debug(message); }, function ( message ) { console.debug(message); });</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function successCallback(data)&#123;</div><div class="line">              console.log(&quot;lontitude:&quot; + data.longitude);</div><div class="line">	          console.log(&quot;latitude:&quot; + data.latitude);</div><div class="line">				// alert(data.longitude);</div><div class="line"></div><div class="line">				//更新操作</div><div class="line">				// console.log(&quot;time:&quot; + data.time);</div><div class="line">				console.log(&quot;describe:&quot; + data.describe);</div><div class="line">				// alert(&quot;successCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				function failedCallback(data)&#123;</div><div class="line">                 //  失败的提示操作</div><div class="line">				alert(&quot;failedCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				baidu_location.watchPosition(successCallback, failedCallback,10);</div><div class="line">//第一个函数是成功的回调，第二个是失败的回调。</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.注意事项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">a).此插件只能在手机端测试，我的模拟器也无法定位。web更不可能，会出现baidu_location 没有被定义的问题。</div><div class="line">b).要先ionic remove platform android</div><div class="line">然后再执行ionic platform add android命令，不然插件不能正确的执行，事实上，每一次修改插件的内容，都要执行上面的两个操作，才能使插件正常运行.</div><div class="line">c).如果你使用sdk23版本进行打包的，你就要注意了，在最新的android6.0上面，和以前的权限授权机制已经不同，如果使用23版本的进行打包。</div><div class="line">d).在android6.0以上的手机上运行不会给出获取地理位置权限的弹窗，务必改为23以下的版本进行编译获取成功的话，默认是只给出经纬度信息的，如果要获取定位的地址的具体信息，要在插件里面的BaiduLocation.java</div><div class="line">文件把 option.setIsNeedAddress(false);</div><div class="line"> 改为 option.setIsNeedAddress(true);</div><div class="line">e).默认返回的是一个字符串，对于现在json这么流行的情况下，当然是获得json格式的数据比较让人喜欢，这个时候坐着已经替我们封装好了，只需要在BaiduLocation.java</div><div class="line">文件中把 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, sb.toString());</div><div class="line"> 改为 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, json.toString());，你就可以获得一个json格式的字符串了</div></pre></td></tr></table></figure></p>
+<p>最后<br>上面的内容大多数是在github上找到的，这里只是写上了自己遇到的一些问题，分享出来，这里附上github地址：<a href="https://github.com/liangzhenghui/cordova-qdc-baidu-location" target="_blank" rel="external">GitHub地址</a><br>升级版github地址：<a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">GitHub地址</a>  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ionic-使用指南/bntake--driver-App的热更新留念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -441,13 +498,31 @@
 
 
   
-    <article id="post-ionic-使用指南/ionic-2-使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ionic-使用指南/ionic简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>文章推荐：<a href="https://www.xiaomiwujiecao.com/page/730.html" target="_blank" rel="external">https://www.xiaomiwujiecao.com/page/730.html</a></p>
-<p>1.安装<br>2.创建新应用<br>3.创建新页面<br>4.小技巧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ionic g page contactPage 快速创建一个新的页面。</div><div class="line"></div><div class="line">contact-page/contact-page.html</div><div class="line">contact-page/contact-page.ts</div><div class="line">contact-page/contact-page.scss</div></pre></td></tr></table></figure></p>
+        <p>版本：ionic  1.7.16<br>cordova 6.3.0<br>node 4.2.0</p>
+<p>sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16</p>
+<p><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a></p>
+<p>sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0</p>
+<p>sudo npm install jshint –save-dev<br>sudo npm install async –save-dev</p>
+<p>sudo npm install uglify-js<br>  sudo npm install clean-css<br>  sudo npm install ng-annotate</p>
+<p>sudo npm install mv –save-dev </p>
+<p>sudo npm install cordova-uglify –save-dev </p>
+<p>npm update<br>npm rebuild</p>
+<p>sudo npm update -g cordova@latest<br>npm install grunt-contrib-imagemin –save-dev </p>
+<p>sudo  gulp templatecache<br>sudo gulp ng_annotate<br>sudo gulp useref</p>
+<p> cd myApp$ ionic platform add ios$ ionic build ios$ ionic emulate ios</p>
+<p>最后： ionic serve</p>
+<p>npm install -g cordova@6.1.1npm install -g ionic@1.7.16</p>
+<p>卸载ionic和cordova：<br>npm uninstall -g ionic cordova</p>
+<p>cordova platform add ios@4.0.1  添加4.0.1设备<br>cordova plugin add cordova-plugin-screen-orientation<br> 禁止屏幕旋转<br>adb logcat 查看运行的模拟器日志<br>android adv  android 模拟器<br>android  打开android 管理工具<br>chown 组权限管理<br>ionic emulate android  模拟器运行<br>ionic platform add android  添加设备<br>ionic platform remove ios 删除设备<br>chown -R -v liujian:staff styles.css   修改组权限<br>chown -R -v liujian:staff side-menu-app-google-map/<br>ll  == ls -l 查看文件权限<br> vi ~/.bash_profile 修改环境变量<br>source ~/.bash_profile 生效</p>
+<p>history  查看历史记录</p>
+<p>ionic plugin list 查看安装哪些插件</p>
+<p>git status  清除状态<br>git branch -a   查看分支情况<br>git branch newbranchname  创建新分支<br>git checkout newbranch  切换到新分支<br>git pull origin develop  拉取远程分支到本地分支，并合并分支<br>git push origin develop   推送本次提交的数据到远程分支<br>git merge develop   合并本地develop分支<br>git fetch 更新远程分支变换，但不合并。<br>git add . 提交的文件的信息添加到索引<br>git commit   提交当前工作空间的修改内容<br> touch .gitignore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"># phpstorm project files</div><div class="line">.idea</div><div class="line"></div><div class="line"># netbeans project files</div><div class="line">nbproject</div><div class="line"></div><div class="line"># zend studio for eclipse project files</div><div class="line">.buildpath</div><div class="line">.project</div><div class="line">.settings</div><div class="line"></div><div class="line"># windows thumbnail cache</div><div class="line">Thumbs.db</div><div class="line"></div><div class="line"># composer vendor dir</div><div class="line">/vendor</div><div class="line"></div><div class="line"># composer itself is not needed</div><div class="line">composer.phar</div><div class="line"></div><div class="line"># Mac DS_Store Files</div><div class="line">.DS_Store</div><div class="line"></div><div class="line"># phpunit itself is not needed</div><div class="line">phpunit.phar</div><div class="line"># local phpunit config</div><div class="line">/phpunit.xml</div><div class="line">/runtime</div><div class="line">/config</div><div class="line">/web/assets</div><div class="line">/web/uploads/</div></pre></td></tr></table></figure></p>
+<p> set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=../gradle-2.2.1-all.zip  设置android 下载的问题。。</p>
 
       
 
@@ -460,67 +535,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-2-使用指南/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU”</p>
-<p><a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">升级版，更新了watch功能</a></p>
-<p>以下是操作步骤<br>官方提供的有个叫cordova-plugin-geolocation的插件，在<a href="http://lib.csdn.net/base/ios" target="_blank" rel="external">iOS</a>上可以直接使用，但是在天朝因为某些网络原因不能给正常使用，或者是国内安卓环境混乱，不再支持cordova-plugin-geolocation 插件功能。 于是在github上找到合适的资源插件，以供使用。</p>
-<ol>
-<li>申请百度的秘钥 <a href="http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key" target="_blank" rel="external">百度秘钥申请地址</a></li>
-<li><p>安装插件：<br>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”API_KEY”</p>
-</li>
-<li><p>使用方法<br>在需要获取位置信息的地方直接使用以下代码:<br>baidu_location.getCurrentPosition(function ( message ) { console.debug(message); }, function ( message ) { console.debug(message); });</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function successCallback(data)&#123;</div><div class="line">              console.log(&quot;lontitude:&quot; + data.longitude);</div><div class="line">	          console.log(&quot;latitude:&quot; + data.latitude);</div><div class="line">				// alert(data.longitude);</div><div class="line"></div><div class="line">				//更新操作</div><div class="line">				// console.log(&quot;time:&quot; + data.time);</div><div class="line">				console.log(&quot;describe:&quot; + data.describe);</div><div class="line">				// alert(&quot;successCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				function failedCallback(data)&#123;</div><div class="line">                 //  失败的提示操作</div><div class="line">				alert(&quot;failedCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				baidu_location.watchPosition(successCallback, failedCallback,10);</div><div class="line">//第一个函数是成功的回调，第二个是失败的回调。</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>4.注意事项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">a).此插件只能在手机端测试，我的模拟器也无法定位。web更不可能，会出现baidu_location 没有被定义的问题。</div><div class="line">b).要先ionic remove platform android</div><div class="line">然后再执行ionic platform add android命令，不然插件不能正确的执行，事实上，每一次修改插件的内容，都要执行上面的两个操作，才能使插件正常运行.</div><div class="line">c).如果你使用sdk23版本进行打包的，你就要注意了，在最新的android6.0上面，和以前的权限授权机制已经不同，如果使用23版本的进行打包。</div><div class="line">d).在android6.0以上的手机上运行不会给出获取地理位置权限的弹窗，务必改为23以下的版本进行编译获取成功的话，默认是只给出经纬度信息的，如果要获取定位的地址的具体信息，要在插件里面的BaiduLocation.java</div><div class="line">文件把 option.setIsNeedAddress(false);</div><div class="line"> 改为 option.setIsNeedAddress(true);</div><div class="line">e).默认返回的是一个字符串，对于现在json这么流行的情况下，当然是获得json格式的数据比较让人喜欢，这个时候坐着已经替我们封装好了，只需要在BaiduLocation.java</div><div class="line">文件中把 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, sb.toString());</div><div class="line"> 改为 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, json.toString());，你就可以获得一个json格式的字符串了</div></pre></td></tr></table></figure></p>
-<p>最后<br>上面的内容大多数是在github上找到的，这里只是写上了自己遇到的一些问题，分享出来，这里附上github地址：<a href="https://github.com/liangzhenghui/cordova-qdc-baidu-location" target="_blank" rel="external">GitHub地址</a><br>升级版github地址：<a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">GitHub地址</a>  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic简单使用/">展开全文 >></a>
         </p>
       
 
@@ -609,31 +624,13 @@
 
 
   
-    <article id="post-ionic-使用指南/ionic简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ionic-使用指南/ionic-2-使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>版本：ionic  1.7.16<br>cordova 6.3.0<br>node 4.2.0</p>
-<p>sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16</p>
-<p><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a></p>
-<p>sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0</p>
-<p>sudo npm install jshint –save-dev<br>sudo npm install async –save-dev</p>
-<p>sudo npm install uglify-js<br>  sudo npm install clean-css<br>  sudo npm install ng-annotate</p>
-<p>sudo npm install mv –save-dev </p>
-<p>sudo npm install cordova-uglify –save-dev </p>
-<p>npm update<br>npm rebuild</p>
-<p>sudo npm update -g cordova@latest<br>npm install grunt-contrib-imagemin –save-dev </p>
-<p>sudo  gulp templatecache<br>sudo gulp ng_annotate<br>sudo gulp useref</p>
-<p> cd myApp$ ionic platform add ios$ ionic build ios$ ionic emulate ios</p>
-<p>最后： ionic serve</p>
-<p>npm install -g cordova@6.1.1npm install -g ionic@1.7.16</p>
-<p>卸载ionic和cordova：<br>npm uninstall -g ionic cordova</p>
-<p>cordova platform add ios@4.0.1  添加4.0.1设备<br>cordova plugin add cordova-plugin-screen-orientation<br> 禁止屏幕旋转<br>adb logcat 查看运行的模拟器日志<br>android adv  android 模拟器<br>android  打开android 管理工具<br>chown 组权限管理<br>ionic emulate android  模拟器运行<br>ionic platform add android  添加设备<br>ionic platform remove ios 删除设备<br>chown -R -v liujian:staff styles.css   修改组权限<br>chown -R -v liujian:staff side-menu-app-google-map/<br>ll  == ls -l 查看文件权限<br> vi ~/.bash_profile 修改环境变量<br>source ~/.bash_profile 生效</p>
-<p>history  查看历史记录</p>
-<p>ionic plugin list 查看安装哪些插件</p>
-<p>git status  清除状态<br>git branch -a   查看分支情况<br>git branch newbranchname  创建新分支<br>git checkout newbranch  切换到新分支<br>git pull origin develop  拉取远程分支到本地分支，并合并分支<br>git push origin develop   推送本次提交的数据到远程分支<br>git merge develop   合并本地develop分支<br>git fetch 更新远程分支变换，但不合并。<br>git add . 提交的文件的信息添加到索引<br>git commit   提交当前工作空间的修改内容<br> touch .gitignore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"># phpstorm project files</div><div class="line">.idea</div><div class="line"></div><div class="line"># netbeans project files</div><div class="line">nbproject</div><div class="line"></div><div class="line"># zend studio for eclipse project files</div><div class="line">.buildpath</div><div class="line">.project</div><div class="line">.settings</div><div class="line"></div><div class="line"># windows thumbnail cache</div><div class="line">Thumbs.db</div><div class="line"></div><div class="line"># composer vendor dir</div><div class="line">/vendor</div><div class="line"></div><div class="line"># composer itself is not needed</div><div class="line">composer.phar</div><div class="line"></div><div class="line"># Mac DS_Store Files</div><div class="line">.DS_Store</div><div class="line"></div><div class="line"># phpunit itself is not needed</div><div class="line">phpunit.phar</div><div class="line"># local phpunit config</div><div class="line">/phpunit.xml</div><div class="line">/runtime</div><div class="line">/config</div><div class="line">/web/assets</div><div class="line">/web/uploads/</div></pre></td></tr></table></figure></p>
-<p> set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=../gradle-2.2.1-all.zip  设置android 下载的问题。。</p>
+        <p>文章推荐：<a href="https://www.xiaomiwujiecao.com/page/730.html" target="_blank" rel="external">https://www.xiaomiwujiecao.com/page/730.html</a></p>
+<p>1.安装<br>2.创建新应用<br>3.创建新页面<br>4.小技巧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ionic g page contactPage 快速创建一个新的页面。</div><div class="line"></div><div class="line">contact-page/contact-page.html</div><div class="line">contact-page/contact-page.ts</div><div class="line">contact-page/contact-page.scss</div></pre></td></tr></table></figure></p>
 
       
 
@@ -646,7 +643,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic简单使用/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-2-使用指南/">展开全文 >></a>
         </p>
       
 
@@ -834,7 +831,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,7 +843,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">

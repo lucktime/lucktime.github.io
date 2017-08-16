@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Luck、Time">
 <meta property="og:url" content="http://yoursite.com/page/18/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Luck、Time">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,34 +151,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-C语言/10--B-类型转换------友元函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-阅读笔记/鲁迅的世界" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>/<em><br>四大类型转换<br>1，static_cast&lt; int &gt;(100.5)  静态数据类型之间转化<br>    有类型指针和void</em> 之间转换<br>    无名对象支持转换<br>2，const_cast      把常量转换成变量 ，只能用一次<br> eg：<br> const date;<br> const_cast &lt;&gt;(date)<br>   xxx_cast&lt;类型&gt;(数据)<br>3，reinterpret_cast 最危险的转换 不同类型指针之间的转换<br>4，dynamic_cast 动态类型转换（父类子类之间的转换）<br>父类向子类转换时需要把关。dynamic_cast&lt;子类<em>&gt;(父类地址)
-</em>/</p>
-<p>register int n;//直接将数据存在寄存器中，快速的访问变量。。但是寄存器空间有量</p>
-<p>//========================<br>//========================</p>
-<p>#include <iostream></iostream></p>
-<p>#include <string><br>using namespace std;</string></p>
-<p>class A{<br> const int date; //注意是常量<br>public:<br> A(int d=4 ): date(d){}<br>virtual    void show() const{<br> cout &lt;&lt; “date = “ &lt;&lt; date &lt;&lt;endl;<br> }</p>
-<p> void set(int d){<br> const_cast<int&>(date) = d;<br> }</int&></p>
-<p>};</p>
-<p>class B : public A<br>{</p>
-<p>public :<br> void say()<br> {<br> cout &lt;&lt; “welcome to Nanyang” &lt;&lt;endl;<br> }<br>};</p>
-<p>int main()<br>{</p>
-<p>static_cast<a>(100).show();  //======静态转换<br>A obj(200);<br>obj.show();<br>obj.set(300);<br>obj.show();</a></p>
-<p>int n = 1;<br>typedef unsigned int UI; //重新进行数据类型定义,1定义一个&amp;类型的变量，2把变量名改为想起的悲鸣&amp; 3在左边加typedef，4这样就给&amp;类型起了新的别名。<br>typedef unsigned char UC;   //搜别名用法，没理解 (作用：整型变量在内存中放置方法)<br>UC<em> p = NULL;<br>p = reinterpret_cast&lt;UC</em>&gt;(&amp;n);</p>
-<p>for(int i = 0; i &lt; 4 ; i++ )<br> cout &lt;&lt; (int)*p++&lt;&lt;’ ‘;<br>cout &lt;&lt;endl;//数据 n = 1，在计算机的位置中可能保存位置不同。。0001或者1000，不同计算机，储存位置都有可能</p>
-<p>A oa;<br>B ob;<br>B<em> pb = NULL;<br>A</em> pa = &oa;<br>pb = dynamic_cast<b*>(pa);//warning<br>cout &lt;&lt;”pb = “&lt;&lt;pb&lt;&lt;endl;<br>}<br>//====================================<br>//====================================<br>//====================================<br>//========友元函数==静态成员===============<br>友元函数：<br>是什么： 在类内部用friend 声明<br>怎么用：外面的函数或者另一个类，直接访问某个类私有成员的桥梁<br>静态成员 ：static members<br>凡是所有对象共用一份数据，都需要生命静态数据成员<br>所有的同一类对象，都是用一份数据<br>静态数据又称为类变量（属于这个类，被该类全体成员共享）（像全局变量一样，在所有函数之外初始化）<br>class Counter{<br>static int cnt；<br>}<br>int Counter ：： cnt；<br>int Counter ：： cnt  = 0；//静态变量初始化<br>或：</b*></p>
-<p>#include <iostream></iostream></p>
-<p>#include <string><br>using namespace std;</string></p>
-<p>class A{<br> int date;<br>public:<br> A(int d) :date(d){}<br> A() :date(0){}<br> ~A(){<br> cout &lt;&lt; “~A()” &lt;&lt; endl;<br> }<br> void show(){<br> cout &lt;&lt; “DATE = “ &lt;&lt; date &lt;&lt;endl;<br> }<br>//friend A add(A a1, A a2);       //友元函数。只要是类A成员，都可以访问(A类把B类当做友元，B类不一定是A的友元，不能继承)<br>friend class B;<br>friend A add(const A&amp; a1,const A&amp; a2);       //凡是调用对象，且不打算复制一份值给形参。可以用引用。。可以少调用构造，析构函数(用const + 引用，是不需要改变数据采用，如果需要交换数据或改变数值，则不用const)<br>};<br>//=======================================友元类<br>class B<br>{<br>public:<br> void twice(A a){<br> a.date *= 2;//指明对象的来源 a.date<br> cout &lt;&lt; a.date&lt;&lt;endl;<br> }</p>
-<p>};<br>//=======================================友元函数<br> A add(const A&amp; a1, const A&amp; a2){                   //定义一个A类型的函数,如果没有友元函数的声明，则不通过编译（但是，如果函数在类内部实现，则可以编译成功）<br> int sum = a1.date + a2.date;<br> return A(sum);<br> }</p>
-<p>class Sb111<br>{<br>public:<br>string name;<br>static string teacher;<br>static int room;<br>Sb111(const string&amp;  n):name(n){}<br>void show(){<br> cout &lt;&lt; “我是 “ &lt;&lt; name &lt;&lt; “，在 “ &lt;&lt; room;<br> cout &lt;&lt; “教室听  “ &lt;&lt; teacher &lt;&lt; “讲课” &lt;&lt;endl;<br> }<br>static void newTeacher(const string &amp; t)<br>{<br> teacher = t;<br>}<br>};<br>string Sb111 :: teacher = “刘思”;<br>int Sb111 :: room =123;</p>
-<p>int main(int argc, char argv[])<br>{<br>A a1=8;<br>A a2 =9;<br>add(a1,a2).show(); //a1与a2的和，返回的值也是类A</p>
-<p>B ob;<br>ob.twice(20);<br>Sb111 s1(“张三 “);<br>s1.show();//静态成员<br>Sb111 :: newTeacher(“赵二”);<br>s1.show();<br>s1.newTeacher(“王八”);<br>s1.show();<br>}</p>
+        <ol>
+<li>凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不比以为不幸的。</li>
+</ol>
 
       
 
@@ -191,108 +171,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/10--B-类型转换------友元函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/">韩语</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ㅍ [    p ]<br>파  【n 】葱 pa<br>피   【n】血 pi<br>커 피 【n】咖啡 ko pi<br>포  도 【n】 葡萄 pou tou<br>스 킨 푸 드  se kin pu de    SKIN FOOD<br>区分   ㅍ 和 ㅂ<br>[p]  【b】</p>
-<p>ㅃ<br>发音时，口型和 ㅂ 相似，但声门要紧闭，使气流后喉腔受阻，然后冲破声门而出，此现象发音器官紧张，所以被称为紧音<br>빠  뻐 뽀 뿌 삐 </p>
-<p>뽀 뽀 【n】亲亲 bou bou<br>빨 라 【adv】快 ba la<br>삐 삐 【n】 寻呼机 bibi<br>아 빠 【n】 爸爸 a ba<br>오 빠 【n】 哥哥 ou ba</p>
-<p>ㅃ ㅂ 的区别<br>ㅃ 为紧音<br>ㅂ 为松音<br>实用口语 ： 안 녕 히 가 세 요<br>（主人对客人说 ） an nai hi ka sai yo、<br>안 넹 히 겨 게 요<br>（客人对主人说） an nai hi gai sai yo<br>무 지 무 지  예 뻐 요<br>（非常非常地 漂亮） mu ji mu ji yi bou yo<br>무 혁 : 밥 먹 을 래 ?<br>니 랑 뽀 뽀 할 래?<br>bab moun el lai？<br>ni la bou bou hal lai？<br>你想睡觉还是亲亲？</p>
-<p>ㅁ 发音时，先吸气 然后紧闭双唇，使气流从鼻腔泄出，然后震动声带，并且双唇破裂成音<br>미 남  米娜木<br>보 고 또 보 고  看了又看</p>
-<p>ㅂ 发音时，吸气。之后双唇紧闭。阻止气流，然后让气流冲开，爆破成音，介于汉语拼音”b“和”p“之间<br>双唇慢慢放松 ~ 松音</p>
-<p>ㅍ 发音和辅音相似，但发音要收复<br>ㄴ 发音时，吸气。然后舌尖顶住上牙齿，阻止气流。之后再松开，然后让气流通过鼻腔。声带振动成音，类似于汉语中的n </p>
-<p>나 []<br>너<br>노<br>니</p>
-<p>누 나  姐姐 男孩叫姐姐<br>너 무 【adv】非常<br>너 무 너 무  非常非常</p>
-<p>ㄷ 다 모 茶母<br>发音时，先吸气。之后舌尖抵住上齿龈，租住气流。然后让气流慢慢松开，保持一段时间。是介于汉语发音发音 ”d“ ”T“之间</p>
-<p>ㄷ 오 다  来 【自】<br>포 도 葡萄【n】<br>디 디 다 【动】踩<br>다 이 어 트<br>ㅌ &lt;&gt;<br>送气音<br>与ㅍ 音一样 必须把腹部气流送出来，前面的准备则和松音ㄷ 基本相同，发音和汉语的T相似<br>타  터 토 투 티<br>바 보 笨蛋【pa bou】<br>타 다  乘 骑<br>토 마 토 西红柿【ta ma tou】<br>파  티 聚会 【pa ti】<br>투 자 </p>
-<p>ㄸ  发音时，口型依然和松音 ㄷ相似，但气流冲开时，发音器官紧张，类似于汉语的”d“、<br>따 다 [摘]<br> 또  又 再【dou】</p>
-<p>ㄹ<br>뽀 로로<br>发音时，发音部位依然和 ㄷ 相同，即舌尖抵住上齿龈，不过在气流冲开时，让舌尖请弹一下，同时振动声带即可 和L音相似</p>
-<p>우 리  我们<br>나 리 国家<br>라 디 오  收音机<br>아 리 랑 阿里郎</p>
-<p>实用口语<br>또 만 나 요 再见 （dou man na yo）</p>
-<p>어 디 가 요  去哪儿<br>이  안 에 , 너 있 다  （心中有你 巴黎恋人）<br>yi an nei ，no xi da </p>
-<p>复习 </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/韩语发音/" class="article-tag-list-link color5">韩语发音</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/阅读笔记/鲁迅的世界/">展开全文 >></a>
         </p>
       
 
@@ -383,6 +262,76 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/韩语---/ㅏ--ㅓ-ㅗ--ㅜ--ㅣ-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C语言/10--B-类型转换------友元函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>/<em><br>四大类型转换<br>1，static_cast&lt; int &gt;(100.5)  静态数据类型之间转化<br>    有类型指针和void</em> 之间转换<br>    无名对象支持转换<br>2，const_cast      把常量转换成变量 ，只能用一次<br> eg：<br> const date;<br> const_cast &lt;&gt;(date)<br>   xxx_cast&lt;类型&gt;(数据)<br>3，reinterpret_cast 最危险的转换 不同类型指针之间的转换<br>4，dynamic_cast 动态类型转换（父类子类之间的转换）<br>父类向子类转换时需要把关。dynamic_cast&lt;子类<em>&gt;(父类地址)
+</em>/</p>
+<p>register int n;//直接将数据存在寄存器中，快速的访问变量。。但是寄存器空间有量</p>
+<p>//========================<br>//========================</p>
+<p>#include <iostream></iostream></p>
+<p>#include <string><br>using namespace std;</string></p>
+<p>class A{<br> const int date; //注意是常量<br>public:<br> A(int d=4 ): date(d){}<br>virtual    void show() const{<br> cout &lt;&lt; “date = “ &lt;&lt; date &lt;&lt;endl;<br> }</p>
+<p> void set(int d){<br> const_cast<int&>(date) = d;<br> }</int&></p>
+<p>};</p>
+<p>class B : public A<br>{</p>
+<p>public :<br> void say()<br> {<br> cout &lt;&lt; “welcome to Nanyang” &lt;&lt;endl;<br> }<br>};</p>
+<p>int main()<br>{</p>
+<p>static_cast<a>(100).show();  //======静态转换<br>A obj(200);<br>obj.show();<br>obj.set(300);<br>obj.show();</a></p>
+<p>int n = 1;<br>typedef unsigned int UI; //重新进行数据类型定义,1定义一个&amp;类型的变量，2把变量名改为想起的悲鸣&amp; 3在左边加typedef，4这样就给&amp;类型起了新的别名。<br>typedef unsigned char UC;   //搜别名用法，没理解 (作用：整型变量在内存中放置方法)<br>UC<em> p = NULL;<br>p = reinterpret_cast&lt;UC</em>&gt;(&amp;n);</p>
+<p>for(int i = 0; i &lt; 4 ; i++ )<br> cout &lt;&lt; (int)*p++&lt;&lt;’ ‘;<br>cout &lt;&lt;endl;//数据 n = 1，在计算机的位置中可能保存位置不同。。0001或者1000，不同计算机，储存位置都有可能</p>
+<p>A oa;<br>B ob;<br>B<em> pb = NULL;<br>A</em> pa = &oa;<br>pb = dynamic_cast<b*>(pa);//warning<br>cout &lt;&lt;”pb = “&lt;&lt;pb&lt;&lt;endl;<br>}<br>//====================================<br>//====================================<br>//====================================<br>//========友元函数==静态成员===============<br>友元函数：<br>是什么： 在类内部用friend 声明<br>怎么用：外面的函数或者另一个类，直接访问某个类私有成员的桥梁<br>静态成员 ：static members<br>凡是所有对象共用一份数据，都需要生命静态数据成员<br>所有的同一类对象，都是用一份数据<br>静态数据又称为类变量（属于这个类，被该类全体成员共享）（像全局变量一样，在所有函数之外初始化）<br>class Counter{<br>static int cnt；<br>}<br>int Counter ：： cnt；<br>int Counter ：： cnt  = 0；//静态变量初始化<br>或：</b*></p>
+<p>#include <iostream></iostream></p>
+<p>#include <string><br>using namespace std;</string></p>
+<p>class A{<br> int date;<br>public:<br> A(int d) :date(d){}<br> A() :date(0){}<br> ~A(){<br> cout &lt;&lt; “~A()” &lt;&lt; endl;<br> }<br> void show(){<br> cout &lt;&lt; “DATE = “ &lt;&lt; date &lt;&lt;endl;<br> }<br>//friend A add(A a1, A a2);       //友元函数。只要是类A成员，都可以访问(A类把B类当做友元，B类不一定是A的友元，不能继承)<br>friend class B;<br>friend A add(const A&amp; a1,const A&amp; a2);       //凡是调用对象，且不打算复制一份值给形参。可以用引用。。可以少调用构造，析构函数(用const + 引用，是不需要改变数据采用，如果需要交换数据或改变数值，则不用const)<br>};<br>//=======================================友元类<br>class B<br>{<br>public:<br> void twice(A a){<br> a.date *= 2;//指明对象的来源 a.date<br> cout &lt;&lt; a.date&lt;&lt;endl;<br> }</p>
+<p>};<br>//=======================================友元函数<br> A add(const A&amp; a1, const A&amp; a2){                   //定义一个A类型的函数,如果没有友元函数的声明，则不通过编译（但是，如果函数在类内部实现，则可以编译成功）<br> int sum = a1.date + a2.date;<br> return A(sum);<br> }</p>
+<p>class Sb111<br>{<br>public:<br>string name;<br>static string teacher;<br>static int room;<br>Sb111(const string&amp;  n):name(n){}<br>void show(){<br> cout &lt;&lt; “我是 “ &lt;&lt; name &lt;&lt; “，在 “ &lt;&lt; room;<br> cout &lt;&lt; “教室听  “ &lt;&lt; teacher &lt;&lt; “讲课” &lt;&lt;endl;<br> }<br>static void newTeacher(const string &amp; t)<br>{<br> teacher = t;<br>}<br>};<br>string Sb111 :: teacher = “刘思”;<br>int Sb111 :: room =123;</p>
+<p>int main(int argc, char argv[])<br>{<br>A a1=8;<br>A a2 =9;<br>add(a1,a2).show(); //a1与a2的和，返回的值也是类A</p>
+<p>B ob;<br>ob.twice(20);<br>Sb111 s1(“张三 “);<br>s1.show();//静态成员<br>Sb111 :: newTeacher(“赵二”);<br>s1.show();<br>s1.newTeacher(“王八”);<br>s1.show();<br>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/C语言/10--B-类型转换------友元函数/">展开全文 >></a>
         </p>
       
 
@@ -583,84 +532,6 @@
 
 
   
-    <article id="post-C语言/11A拷贝构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>//======================================</p>
-<p>//===========拷贝构造函数的重载=========<br>//======================================<br>//======================================<br>//======================================<br>两个指针成员指向默认拷贝构造函数，会出现地址错误。</p>
-<p>#include <iostream></iostream></p>
-<p>using namespace std;</p>
-<p>class A{<br> int date;<br>public:<br> A(int d) :date(d){<br> cout &lt;&lt; “A(int)”&lt;&lt; endl;<br> }</p>
-<p> A(char d) :date(d){<br> cout &lt;&lt; “A(char)”&lt;&lt; endl;<br> }<br> A(bool d) :date(d ? 123:345){<br> 、cout &lt;&lt; “A(bool)”&lt;&lt; endl;<br> }<br> A(int&amp; d) :date(d){<br> cout &lt;&lt; “A(int&amp;)”&lt;&lt; endl;<br> }</p>
-<p> A(const A&amp; o) :date(o.date){<br> cout &lt;&lt; “A(const &amp;)”&lt;&lt; endl;<br> }<br>/<em>    A(const A o) :date(o.date){<br> cout &lt;&lt; “A(const &amp;)”&lt;&lt; endl;<br> }
-</em>///将引用去掉，这样行不行。。不行！为什么？引用是用来初始化变量的别名。传入的数据进行初始化，非引用会将实参复制一部分给形参，此时的形参是新变量，由实参进行初始化<br>//如果没有引用，A a2(a1),调用A（A o）. A o (a1)..相当于反复的创建a1，因此不行。（创建对象时，要调用构造函数。调用构造函数时，又要创建形参，而形参是新的对象，而创建新对象有要调用构造函数，调用构造函数需要形参，这样反反复复编译器编译不能成功）<br> virtual    ~A(){<br> cout &lt;&lt;”~A()” &lt;&lt;endl;  //一个类中存在一个析构函数<br> }<br> void show()const {<br> cout &lt;&lt; “date=”&lt;&lt; date&lt;&lt;endl;<br> }</p>
-<p>};</p>
-<p>void show(A obj)<br>{<br>obj.show();          //拷贝构造函数的使用<br>}</p>
-<p>void func(const A&amp; obj)<br>{<br>obj.show();           //注意传入参数为常量，因此在类中的show函数中，需要定义为常量<br>}<br>int main(int argc,char argv[])<br>{<br>//A a1(3);<br>show(‘v’); //调用类外的show函数，并定义A obj为char 类型的字符串。。用过之后直接析构掉了。。<br>show(23);<br>A a1(3);<br>show(a1);<br>//A a2(true);<br>//A&amp; a3 = a1;<br>//a3.show();<br>//show(a3);<br>//A a4(a1); //这个是采用A（const A&amp; o ）<br>//A a5(‘V’);<br>//A a6();<br>cout &lt;&lt;”======func========” &lt;&lt; endl;<br>func(a1); //因为使用引用，因此在已经有a1的情况下，不会再创建新对象<br>}</p>
-<p>/*<br>//动态数组类，可变长短的数组。。</p>
-<p>#include <iostream></iostream></p>
-<p>#include <string><br>using namespace std;</string></p>
-<p>class A{<br>char* p; //因为是动态数组，不能直接定义数组。<br>int len;</p>
-<p> public:<br>  A(int n) : len(0),p(NULL) {   //构造函数，设置n个数组长度<br>  resize(n);<br>  }</p>
-<p> void resize(int n){          //作用，将数组长度调整为指定长度<br>   char* q = new char[n];        //新传入数组，设定长度<br>   int min = ( n&lt;                 len? n:len );<br>   if(p!=NULL)<br>   {<br>    for(int i=0; i&lt; min; i++)<br>    {                                      //p指向的数据全部转移到q指向的空间<br>    q[i] = p[i];<br>    }<br>   delete []p;<br>   p = q;<br>   for(i = min; i<n; i++)="" p[i]="\0" ;="" }="" len="n;" void="" set(int="" index,char="" value)="" {="" if(index="">0)<br>  p[index] = value;<br> }</n;></p>
-<p> char get(int index){<br> return p[index];<br> }</p>
-<p> ~A(){<br>  if(p!=NULL){<br>  delete[] p;<br>  }<br> }<br> A (const A&amp; o): len(o.len){<br> p = new char [len];<br> for(int i=0; i&lt;len; i++)<br>  p[i] = o.p[i];<br> }       //拷贝构造函数，此算法是深拷贝<br>};        </p>
-<p>int main()<br>{<br>A a1(10);<br>a</p>
-<p>}<br>//此方法是浅显的拷贝<br>*/</p>
-<p>#include <iostream></iostream></p>
-<p>using namespace std;</p>
-<p>class Array{<br>char* p;<br>int len;</p>
-<p>public:<br> Array(int n) : len(n),p(new char[n]){}<br> int size(){<br> return len;<br> }</p>
-<pre><code>~Array(){
-</code></pre><p> delete []p;<br> }</p>
-<p> void fill(char start,int skip)<br> {<br> for(int i = 0;i&lt;len ;i++)<br>  p[i]=start +i*skip;<br> }</p>
-<p> void show(){<br> for(int i=0; i&lt; len; i++ )<br>  cout &lt;&lt; p[i];<br> cout &lt;&lt; endl;<br> }</p>
-<p> Array(const Array&amp; o) :len(o.len){<br> p = new char [len];<br> for(int i=0; i&lt;len; i++)<br>  p[i] = o.p[i];<br> }<br>};</p>
-<p>int main()<br>{<br>Array a1(10);<br>a1.fill(‘a’,1);<br>a1.show();<br>Array a2(a1);<br>a2.fill(‘A’,1);<br>a2.show();<br>a1.show();<br>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/11A拷贝构造函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-C语言/10-多态--抽象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -772,35 +643,42 @@ Person(Person &amp; p)
 
 
   
-    <article id="post-C语言/12-A----i-o流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C语言/11A拷贝构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>输入 ： I  从控制台读取（文件）<br>输出 ： o 从控制台写入（文件）</p>
-<p><iostream><br>cin  键盘 标准输入流<br>cout  屏幕 标准输出流<br>cerr。clog      输出不缓冲，但是不能重定向。用法和cout完全相同<br>endl;程序结束，会将缓冲器全部清空</iostream></p>
-<p>文件的重定向：：将输出信息，输出到文件中。命令 a.out &gt; a.txt;<br>执行文件  &gt; 重定向文件。cerr，clog不能重定向</p>
-<p>i/o操作支持缓冲，支持重定向（缓冲，将文件存在缓冲区，再读出flush。平常在满的时候显示）（输入：char ch; cin &gt;&gt; ch; cout &lt;&lt; ch;键盘输入-》储存在键盘缓冲区-回车-》输入缓冲区–》程序读取：：程序是从输入缓冲区读取）<br>/看到有两个输入语句，但是当第一次输入大于一个字符时，输出，直接从输入缓冲区读出<br>//键盘输入-》储存在键盘缓冲区-回车-》输入缓冲区–》程序读取（理解过程，水倒入净水器中，再从净水去读出。eg：先买水到净水器中，如果净水器只有一杯水，那么只能输出一杯水，再想要水，只能再买。。可是如果，净水器有三杯水，第一次，第二次，第三次输出都不用再买水了）</p>
+        <p>//======================================</p>
+<p>//===========拷贝构造函数的重载=========<br>//======================================<br>//======================================<br>//======================================<br>两个指针成员指向默认拷贝构造函数，会出现地址错误。</p>
 <p>#include <iostream></iostream></p>
-<p>#include <ctime><br>using namespace std;<br>class A{<br>public:<br> operator int (){<br>  cout &lt;&lt; “{int}”;<br> return 100;<br> }<br>};<br> ofstream fout(“a.out”);<br>int main()<br>{<br> A obj;      //{int}<br> int n = obj;    //会输出{int}<br> cout &lt;&lt; n &lt;&lt; endl;     //会输出100<br> cout &lt;&lt; obj &lt;&lt; endl;   //会输出 {int} 100<br>//    char ch,ch2;<br>//    cin &gt;&gt; ch;<br>//    cerr &lt;&lt; ch;//输入再多的也只读取一个字符。。<br>//    cin &gt;&gt;ch2;<br>//    cout &lt;&lt; ch2;//看到有两个输入语句，但是当第一次输入大于一个字符时，输出，直接从输入缓冲区读出<br> //键盘输入-》储存在键盘缓冲区-回车-》输入缓冲区–》程序读取（理解过程，水倒入净水器中，再从净水去读出。eg：先买水到净水器中，如果净水器只有一杯水，那么只能输出一杯水，再想要水，只能再买。。可是如果，净水器有三杯水，第一次，第二次，第三次输出都不用再买水了）<br> cout &lt;&lt; “hello” ;<br>//    cerr &lt;&lt; “world” ;<br> clog &lt;&lt; “good” ;//都是输出语句。cerr主要是输出错误</ctime></p>
-<p> for(int i= 0 ; i&lt; 5; i++){<br>  long t = time(NULL);<br>  while(time(NULL) == t);}<br> cout &lt;&lt; endl;</p>
-<p>}</p>
-<p>//===========================<br>//===========================<br>//===========================<br>理解：加深</p>
+<p>using namespace std;</p>
+<p>class A{<br> int date;<br>public:<br> A(int d) :date(d){<br> cout &lt;&lt; “A(int)”&lt;&lt; endl;<br> }</p>
+<p> A(char d) :date(d){<br> cout &lt;&lt; “A(char)”&lt;&lt; endl;<br> }<br> A(bool d) :date(d ? 123:345){<br> 、cout &lt;&lt; “A(bool)”&lt;&lt; endl;<br> }<br> A(int&amp; d) :date(d){<br> cout &lt;&lt; “A(int&amp;)”&lt;&lt; endl;<br> }</p>
+<p> A(const A&amp; o) :date(o.date){<br> cout &lt;&lt; “A(const &amp;)”&lt;&lt; endl;<br> }<br>/<em>    A(const A o) :date(o.date){<br> cout &lt;&lt; “A(const &amp;)”&lt;&lt; endl;<br> }
+</em>///将引用去掉，这样行不行。。不行！为什么？引用是用来初始化变量的别名。传入的数据进行初始化，非引用会将实参复制一部分给形参，此时的形参是新变量，由实参进行初始化<br>//如果没有引用，A a2(a1),调用A（A o）. A o (a1)..相当于反复的创建a1，因此不行。（创建对象时，要调用构造函数。调用构造函数时，又要创建形参，而形参是新的对象，而创建新对象有要调用构造函数，调用构造函数需要形参，这样反反复复编译器编译不能成功）<br> virtual    ~A(){<br> cout &lt;&lt;”~A()” &lt;&lt;endl;  //一个类中存在一个析构函数<br> }<br> void show()const {<br> cout &lt;&lt; “date=”&lt;&lt; date&lt;&lt;endl;<br> }</p>
+<p>};</p>
+<p>void show(A obj)<br>{<br>obj.show();          //拷贝构造函数的使用<br>}</p>
+<p>void func(const A&amp; obj)<br>{<br>obj.show();           //注意传入参数为常量，因此在类中的show函数中，需要定义为常量<br>}<br>int main(int argc,char argv[])<br>{<br>//A a1(3);<br>show(‘v’); //调用类外的show函数，并定义A obj为char 类型的字符串。。用过之后直接析构掉了。。<br>show(23);<br>A a1(3);<br>show(a1);<br>//A a2(true);<br>//A&amp; a3 = a1;<br>//a3.show();<br>//show(a3);<br>//A a4(a1); //这个是采用A（const A&amp; o ）<br>//A a5(‘V’);<br>//A a6();<br>cout &lt;&lt;”======func========” &lt;&lt; endl;<br>func(a1); //因为使用引用，因此在已经有a1的情况下，不会再创建新对象<br>}</p>
+<p>/*<br>//动态数组类，可变长短的数组。。</p>
 <p>#include <iostream></iostream></p>
-<p>#include <ctime></ctime></p>
-<p>#include <fstream></fstream></p>
 <p>#include <string><br>using namespace std;</string></p>
-<p>int main()<br>{</p>
-<p> ofstream fout(“a.txt”);<br> fout &lt;&lt; “hello world” &lt;&lt;endl;<br> fout &lt;&lt; 123 &lt;&lt; endl;<br> fout &lt;&lt; 3<em>5</em>7*8 &lt;&lt;endl;<br> fout &lt;&lt; ‘V’ &lt;&lt;endl;<br>//    fout.close();</p>
-<p> string str =”” ;<br> int n = 0;<br> double d = 0.0;<br> char ch = ‘\0’;<br> ifstream fin(“a.txt”);<br> getline(fin,str);<br> fin &gt;&gt; n &gt;&gt; d &gt;&gt; ch;//没有这句话的话，只能读一句str，下面的没法读出<br> cout &lt;&lt; “ch = “ &lt;&lt; ch &lt;&lt;endl;<br> cout &lt;&lt; “n = “ &lt;&lt; n &lt;&lt;endl;<br> cout &lt;&lt; “d = “ &lt;&lt; d &lt;&lt;endl;//根据字符类型进行读出<br> cout &lt;&lt; “n = “ &lt;&lt; n &lt;&lt;endl;<br> cout &lt;&lt; “ch = “ &lt;&lt; ch &lt;&lt;endl;<br> cout &lt;&lt; “str = “ &lt;&lt; str &lt;&lt;endl;<br> fin.close();<br>}//从文件中读出。。</p>
+<p>class A{<br>char* p; //因为是动态数组，不能直接定义数组。<br>int len;</p>
+<p> public:<br>  A(int n) : len(0),p(NULL) {   //构造函数，设置n个数组长度<br>  resize(n);<br>  }</p>
+<p> void resize(int n){          //作用，将数组长度调整为指定长度<br>   char* q = new char[n];        //新传入数组，设定长度<br>   int min = ( n&lt;                 len? n:len );<br>   if(p!=NULL)<br>   {<br>    for(int i=0; i&lt; min; i++)<br>    {                                      //p指向的数据全部转移到q指向的空间<br>    q[i] = p[i];<br>    }<br>   delete []p;<br>   p = q;<br>   for(i = min; i<n; i++)="" p[i]="\0" ;="" }="" len="n;" void="" set(int="" index,char="" value)="" {="" if(index="">0)<br>  p[index] = value;<br> }</n;></p>
+<p> char get(int index){<br> return p[index];<br> }</p>
+<p> ~A(){<br>  if(p!=NULL){<br>  delete[] p;<br>  }<br> }<br> A (const A&amp; o): len(o.len){<br> p = new char [len];<br> for(int i=0; i&lt;len; i++)<br>  p[i] = o.p[i];<br> }       //拷贝构造函数，此算法是深拷贝<br>};        </p>
+<p>int main()<br>{<br>A a1(10);<br>a</p>
+<p>}<br>//此方法是浅显的拷贝<br>*/</p>
 <p>#include <iostream></iostream></p>
-<p>#include <ctime></ctime></p>
-<p>#include <fstream></fstream></p>
-<p>#include <string><br>using namespace std;</string></p>
-<p>int main()<br>{</p>
-<p> ofstream fout(“a.txt”);<br> int i;<br> for(i = 0; i &lt; 19; i++)<br>  fout &lt;&lt; i &lt;&lt;endl;</p>
-<p> fout.close();<br> ifstream fin(“a.txt”);<br> if(!fin)<br> {<br> cout &lt;&lt; “error” &lt;&lt;endl;<br> }<br> string s;<br> while(getline(fin,s,’\n’))<br> {<br>  cout&lt;&lt;s&lt;&lt;endl;</p>
-<p> }<br>}//从文件中读出。。</p>
+<p>using namespace std;</p>
+<p>class Array{<br>char* p;<br>int len;</p>
+<p>public:<br> Array(int n) : len(n),p(new char[n]){}<br> int size(){<br> return len;<br> }</p>
+<pre><code>~Array(){
+</code></pre><p> delete []p;<br> }</p>
+<p> void fill(char start,int skip)<br> {<br> for(int i = 0;i&lt;len ;i++)<br>  p[i]=start +i*skip;<br> }</p>
+<p> void show(){<br> for(int i=0; i&lt; len; i++ )<br>  cout &lt;&lt; p[i];<br> cout &lt;&lt; endl;<br> }</p>
+<p> Array(const Array&amp; o) :len(o.len){<br> p = new char [len];<br> for(int i=0; i&lt;len; i++)<br>  p[i] = o.p[i];<br> }<br>};</p>
+<p>int main()<br>{<br>Array a1(10);<br>a1.fill(‘a’,1);<br>a1.show();<br>Array a2(a1);<br>a2.fill(‘A’,1);<br>a2.show();<br>a1.show();<br>}</p>
 
       
 
@@ -813,7 +691,97 @@ Person(Person &amp; p)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/12-A----i-o流/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/C语言/11A拷贝构造函数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C语言/12-B-----文件输入输出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>cin.get();<br>cin.getline();<br>cin.putback();</p>
+<p>cout.put(char);<br>&lt;&lt; endl ; 对应getline（）;</p>
+<p>//技巧：cout.put(cin.get());输出输入的字符</p>
+<p>#include <iostream></iostream></p>
+<p>#include <string></string></p>
+<p>#include <fstream></fstream></p>
+<p>#include <ctime><br>using namespace std;</ctime></p>
+<p>int main()<br>{<br> ofstream fout(“a.txt”);<br>char a,b,c,d;<br>a = cin.get();<br>cin.get(b);     //输入一个字符<br>cin.get(c).get(d);</p>
+<p>fout &lt;&lt; a &lt;&lt; endl;<br>fout &lt;&lt; b &lt;&lt; endl;<br>fout &lt;&lt; c &lt;&lt; endl;<br>fout &lt;&lt; d &lt;&lt; endl;<br>fout.close();<br>string s;<br>ifstream fin(“a.txt”);<br>if(!fin)<br>{<br>cout &lt;&lt; “error” &lt;&lt; endl;<br>}</p>
+<p>while(getline(fin,s,’\n’))<br>{<br> for(int i = 0; i &lt; 5; i++)<br> {<br>  long t = time(NULL);<br>  while(time(NULL) == t);<br>  cout &lt;&lt; s &lt;&lt;flush;<br> }<br>}<br>}<br>//==================================</p>
+<p>#include <iostream></iostream></p>
+<p>#include <fstream></fstream></p>
+<p>#include <string></string></p>
+<p>#include <ctime></ctime></p>
+<p>using namespace std;</p>
+<p>int main(int argc, char* argv[])<br>{</p>
+<p> ifstream fin(argv[1]);<br> char ch;<br> /<em>for(;;)<br> {<br> fin.get(ch);    //输入字符到 ch中<br> if(!fin)<br> break;<br> time_t t = time(NULL);<br> while(time(NULL) == t);<br> cout &lt;&lt; ch &lt;&lt; flush;    //直接从缓存区中读取<br> }<br> fin.close();
+ </em>/</p>
+<p> while(fin.get(ch))     //两种一样<br> {<br> if (!fin)<br> {<br>  break;<br> }<br> time_t t = time(NULL);<br> while(time(NULL) == t);<br> cout &lt;&lt; ch &lt;&lt; flush;<br> }<br> fin.get();<br>}<br>//============================<br>//===========================<br>//==========================<br>//=========================<br>cin.getline（字符数组名，长度）//防止长度溢出，确保长度要比实际长度要长<br>char string1【256】<br>cin。getline（string1,257）//get whole line<br>cin &gt;&gt; string 1;//stop at the 1 blank space;</p>
+<p>getline(cin,str)//从文件中读取<br>//===========================</p>
+<p>#include <iostream></iostream></p>
+<p>#include <fstream><br>using namespace std;</fstream></p>
+<p>#include <string></string></p>
+<p>int main()<br>{</p>
+<p> string str;<br> char buf[20];<br> cout &lt;&lt; “input a line” &lt;&lt; endl;<br> getline(cin,str);<br> cout &lt;&lt; “str = “ &lt;&lt; str &lt;&lt; endl;<br> cout &lt;&lt; “input a line(&lt;20)” &lt;&lt; endl;<br> cin.getline(buf,20);<br> cout &lt;&lt; “buf = “ &lt;&lt; buf &lt;&lt; endl;</p>
+<p> cin.clear(); //但是如果存在cin.clear（）。就可以清空缓存区。。buf没有字节的限制</p>
+<p>//当读的元素大于20，输入错误状态。就不再执行任何输入<br> if (!cin)<br> {<br>  cout &lt;&lt; “read error state” &lt;&lt; endl;<br> }</p>
+<p> int n;<br> cout  &lt;&lt; “input an integer” &lt;&lt; endl;<br> cin &gt;&gt; n;<br> cout &lt;&lt; “n = “ &lt;&lt; n &lt;&lt;endl;<br>}<br>：：有cin。clear（）主看buf 存储</p>
+<p>没cin.clear()</p>
+<p>#include <iostream></iostream></p>
+<p>#include <fstream><br>using namespace std;</fstream></p>
+<p>#include <string></string></p>
+<p>int main()<br>{<br> ifstream fin(“a.txt”);<br> string str;<br> getline(fin,str,’:’); //读字符串，读到： 结束<br> cout &lt;&lt; “username:”&lt;&lt; str&lt;&lt; endl;</p>
+<p> getline(fin,str,’:’);<br> cout &lt;&lt; “password:”&lt;&lt; str&lt;&lt; endl;</p>
+<p> getline(fin,str,’:’);<br> cout &lt;&lt; “user id:”&lt;&lt; str&lt;&lt; endl;</p>
+<p> getline(fin,str,’:’);<br> cout &lt;&lt; “group id:”&lt;&lt; str &lt;&lt; endl;</p>
+<p> getline(fin,str);<br> cout &lt;&lt; “info:” &lt;&lt; str &lt;&lt; endl;<br> cout &lt;&lt; “first ch (only one)” &lt;&lt; endl;<br> char no;<br> char ch = cin.get();<br> fin.clear();<br> char name[20];<br> cout &lt;&lt; ch&lt;&lt; endl;//只输出一个字符<br> cout &lt;&lt; “switch ASCLL “ &lt;&lt; endl;<br> cout &lt;&lt;  cin.get()&lt;&lt; flush; //将输入的字符转换为ASCLL<br> //===================================<br> cin.clear();<br> cout &lt;&lt;” second ch “&lt;<endl; ch="cin.peek();" peek="" 偷看功能（偷看下一个字符施舍么）="" cout="" <<="" <<endl;="" if="" (ch="">= ‘0’ &amp;&amp;ch &lt;= ‘9’ )<br>  {<br>  cin &gt;&gt; no;<br>  cout &lt;&lt; “no = “ &lt;&lt; no &lt;&lt;endl;<br>  }<br>  else<br>  {<br>   cin.getline(name,20);<br>   cout &lt;&lt; “name = “ &lt;&lt; name&lt;&lt; endl;</endl;></p>
+<p>  }<br>//a.txt   内容：china:123456:477:147:please into<br> //从文件中依次读取读取</p>
+<p>}<br>//getline(cin,str,’\n’); 到\n结束<br>//cin.getline(cin,str,’\n’);<br>//peek TK 偷看输入流的字符，返回Ascll<br>//cin.putback   把取走的字符，退回到输入符中</p>
+<p>//putback()</p>
+<p>#include <iostream></iostream></p>
+<p>#include <fstream></fstream></p>
+<p>#include <string><br>using namespace std;<br>int main()<br>{<br> char ch;<br> int n;<br> cout &lt;&lt; “input an integer “&lt;&lt; endl;<br> cin.get(ch);//get会读走一个字符<br> cin &gt;&gt; n;<br> cout &lt;&lt; “ch = “ &lt;&lt; ch &lt;&lt; endl;<br> cout &lt;&lt; “ n = “ &lt;&lt; n &lt;&lt; endl;<br> cout &lt;&lt; “input an integer “&lt;&lt; endl;<br> cin.get(ch);<br> cin.putback(ch);//读走一个字符，再读回去<br> cin &gt;&gt; n;<br> cout &lt;&lt; “ch = “ &lt;&lt; ch &lt;&lt; endl;<br> cout &lt;&lt; “ n = “ &lt;&lt; n &lt;&lt; endl;<br>  //putback(ch 现在是换行符，putback是将第一次输入的3869\n，中的换行符输出了出来)<br>}</string></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/C语言/12-B-----文件输入输出/">展开全文 >></a>
         </p>
       
 
@@ -1038,7 +1006,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,7 +1018,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">

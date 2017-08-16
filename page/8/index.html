@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Luck、Time">
 <meta property="og:url" content="http://yoursite.com/page/8/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Luck、Time">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,6 +151,59 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PHP成长之路/Yii的RestApi的使用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.poluoluo.com/jzxy/201607/490527.html" target="_blank" rel="external">其他资料</a><br>1.设置美化路由和规则：<br>2.设置 .htaccess文件在app\web.htaccess文件中：<br>3.利用gii生成 MVC（Model，View，Controller）<br>4.访问api方式</p>
+<p>1.设置美化路由和规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&apos;urlManager&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">    &apos;showScriptName&apos; =&gt; false,</div><div class="line">    &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">    &apos;enableStrictParsing&apos; =&gt; true,// 美化url</div><div class="line">    &apos;rules&apos; =&gt; [</div><div class="line">       &apos;&apos; =&gt; &apos;site/index&apos;,</div><div class="line">        // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;user&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;player&apos;],</div><div class="line">       [</div><div class="line">           &apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;,</div><div class="line">           &apos;controller&apos; =&gt; &apos;api&apos;,</div><div class="line">           &apos;pluralize&apos; =&gt; false,</div><div class="line">           &apos;extraPatterns&apos; =&gt; [</div><div class="line">           &apos;GET bntaketranslateapi&apos; =&gt; &apos;bntaketranslateapi&apos;, // 自定义GET 方式 actionBntaketranslateapi</div><div class="line">            ],</div><div class="line">       ],</div><div class="line">    //    [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;v1/goods&apos;, &apos;pluralize&apos; =&gt; false],</div><div class="line"></div><div class="line">    ],</div><div class="line">],</div></pre></td></tr></table></figure></p>
+<p>2.设置 .htaccess文件在app\web\.htaccess文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Options +FollowSymLinks</div><div class="line">IndexIgnore /</div><div class="line">RewriteEngine on</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line">RewriteRule . index.php</div></pre></td></tr></table></figure></p>
+<p>3.利用gii生成 MVC（Model，View，Controller）<br>ApiController.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace app\controllers;</div><div class="line"></div><div class="line">use yii\rest\ActiveController;</div><div class="line">use app\models\BntakeAPi;</div><div class="line"></div><div class="line">class ApiController extends ActiveController</div><div class="line">&#123;</div><div class="line">    public $modelClass = &apos;app\models\Api&apos;;</div><div class="line">    public $serializer = [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\rest\Serializer&apos;,</div><div class="line">        &apos;collectionEnvelope&apos; =&gt; &apos;items&apos;,</div><div class="line">    ];</div><div class="line">    public function checkAccess()</div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public function actionBntaketranslateapi($msg = &quot;hello world&quot;,$source=&quot;en&quot;,$target=&quot;zh&quot; )&#123;</div><div class="line">        $bntakeAPiTranslate = new BntakeAPi();</div><div class="line">        $model =  $bntakeAPiTranslate-&gt;TranslateENtoZH($msg,$source,$target);</div><div class="line">        return $model;</div><div class="line">        // return $this-&gt;render(&apos;/staff/testView&apos;,[</div><div class="line">        //     &apos;model&apos; =&gt;$model,</div><div class="line">        // ]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>自定义Model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">        &lt;?php</div><div class="line"></div><div class="line">namespace app\models;</div><div class="line"></div><div class="line">use Yii;</div><div class="line">use yii\base\Model;</div><div class="line">use Stichoza\GoogleTranslate\TranslateClient;      // other language Translate</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * BntakeAPi is the model  for test BntakeAPi</div><div class="line"> */</div><div class="line">class BntakeAPi extends Model</div><div class="line">&#123;</div><div class="line"></div><div class="line">    public function TranslateOtherlang()&#123;</div><div class="line">        $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">        $ka_translate = $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">        $ka_translateArray = $tr-&gt;translate([&apos;I can dance&apos;,&apos;I fine&apos;,&apos;And you&apos;]);</div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8887&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        Yii::trace($ka_translate, &apos;lucky&apos;);</div><div class="line">        Yii::trace($ka_translateArray,&apos;lucky&apos;);</div><div class="line">        $rawResult = $tr-&gt;getResponse(&apos;I can dance&apos;);</div><div class="line">        Yii::trace($tr-&gt;translate([&apos;I can dance&apos;, &apos;I like trains&apos;, &apos;Double rainbow&apos;]),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        Yii::trace( TranslateClient::translate(&apos;en&apos;, &apos;zh&apos;, &apos;Hello again&apos;),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8888&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        // echo</div><div class="line">        return $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // public function TranslateENtoZH($msg)&#123;</div><div class="line">    //     $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">    //     $ka_translate = $tr-&gt;translate($msg);</div><div class="line">    //     return $ka_translate;</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">    public function TranslateENtoZH($msg,$source,$target)&#123;</div><div class="line">        $apiKey = &apos;AIzaSyCtNLSiRhTn-TA0hk1XwKEC5XBFxNMFVwU&apos;;</div><div class="line">        $text = $msg;</div><div class="line">        $url = &apos;https://www.googleapis.com/language/translate/v2?key=&apos; . $apiKey . &apos;&amp;q=&apos; . rawurlencode($text) . &apos;&amp;source=&apos; . $source . &apos;&amp;target=&apos; . $target;</div><div class="line"></div><div class="line">        $handle = curl_init($url);</div><div class="line">        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);</div><div class="line">        $response = curl_exec($handle);</div><div class="line">        $responseDecoded = json_decode($response, true);</div><div class="line">        $responseCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);      //Here we fetch the HTTP response code</div><div class="line">        curl_close($handle);</div><div class="line"></div><div class="line">        if($responseCode != 200) &#123;</div><div class="line">            // echo &apos;Fetching translation failed! Server response code:&apos; . $responseCode . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Error description: &apos; . $responseDecoded[&apos;error&apos;][&apos;errors&apos;][0][&apos;message&apos;];</div><div class="line">            return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            // echo &apos;Source: &apos; . $text . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Translation: &apos; . $responseDecoded[&apos;data&apos;][&apos;translations&apos;][0][&apos;translatedText&apos;];</div><div class="line">             return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">         Yii::trace($responseDecoded,&apos;lucky&apos;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.访问api方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8887/api/bntaketranslateapi?msg=How are you. I am fine&amp;source=en&amp;target=zh</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/Yii的RestApi的使用方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PHP成长之路/composer-安装-失败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -174,6 +227,112 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/PHP成长之路/composer-安装-失败/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP成长之路/composer-忽略版本过高" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>github token::0485eef07eea230539beab9eedc92104d8e7cf7b</p>
+<p><a href="http://www.thinkphp.cn/code/2430.html" target="_blank" rel="external">http://www.thinkphp.cn/code/2430.html</a><br>composer install –ignore-platform-reqs<br>出现问题：<br>        “yii2mod/yii2-braintree”: “^1.0”,<br>        “yii2mod/yii2-enum”: “~1.4”,</p>
+<pre><code>
+</code></pre><p>强制合并<br>git fetch –all<br>git reset –hard origin/master</p>
+<p>// 支付宝支付恢复<br><a href="http://localhost:8888/alipay/pay_asynresult?body=alipay&amp;buyer_email=17612176757&amp;buyer_id=2088802606762209&amp;exterface=create_direct_pay_by_user&amp;is_success=T&amp;notify_id=RqPnCoPT3K9%252Fvwbh3InYwet4PfpRLHHFnh%252FtvcZ3HYsTyCF6ecBQEQOVb%252BnDKgFqFdy1&amp;notify_time=2017-06-27+16%3A09%3A31&amp;notify_type=trade_status_sync&amp;out_trade_no=2017062708085417116&amp;payment_type=1&amp;seller_email=payment2%40bntake-sh.com&amp;seller_id=2088621769512595&amp;subject=%E4%BD%99%E9%A2%9D%E5%85%85%E5%80%BC&amp;total_fee=0.01&amp;trade_no=2017062721001004200292326566&amp;trade_status=TRADE_SUCCESS&amp;sign=g4fp2SXkvSkOXAir0UtZDxCPm5F%2FB5QahrO%2F11%2BlKkC0B%2BT9l03yJLMdnFa6M%2FfBQ3bdcShju2eD042pTd3RMhQR%2Frfv6juCRuaEPUT2LXC3zL5hDw4%2BbVY5boDDcWuBDzT0x3dT3%2BmUsPWj%2BGCE21rkyyJzDYc4NMx62VnXX6o%3D&amp;sign_type=RSA" target="_blank" rel="external">http://localhost:8888/alipay/pay_asynresult?body=alipay&amp;buyer_email=17612176757&amp;buyer_id=2088802606762209&amp;exterface=create_direct_pay_by_user&amp;is_success=T&amp;notify_id=RqPnCoPT3K9%252Fvwbh3InYwet4PfpRLHHFnh%252FtvcZ3HYsTyCF6ecBQEQOVb%252BnDKgFqFdy1&amp;notify_time=2017-06-27+16%3A09%3A31&amp;notify_type=trade_status_sync&amp;out_trade_no=2017062708085417116&amp;payment_type=1&amp;seller_email=payment2%40bntake-sh.com&amp;seller_id=2088621769512595&amp;subject=%E4%BD%99%E9%A2%9D%E5%85%85%E5%80%BC&amp;total_fee=0.01&amp;trade_no=2017062721001004200292326566&amp;trade_status=TRADE_SUCCESS&amp;sign=g4fp2SXkvSkOXAir0UtZDxCPm5F%2FB5QahrO%2F11%2BlKkC0B%2BT9l03yJLMdnFa6M%2FfBQ3bdcShju2eD042pTd3RMhQR%2Frfv6juCRuaEPUT2LXC3zL5hDw4%2BbVY5boDDcWuBDzT0x3dT3%2BmUsPWj%2BGCE21rkyyJzDYc4NMx62VnXX6o%3D&amp;sign_type=RSA</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/composer-忽略版本过高/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP成长之路/curl-了解-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。</p>
+<p>作用 获取表单，PUT请求，认证，模拟不同的浏览器。<br>curl可以处理各种情况的认证页面，例如下载用户名/密码认证方式的页面（在IE中通常是出现一个输入用户名和密码的输入框）</p>
+<p>有些网络资源访问的时候必须经过另外一个网络地址跳转过去，这用术语来说是：referer，引用</p>
+<p>有些网络资源首先需要判断用户使用的是什么浏览器，符合标准了才能够下载或者浏览。<br>此时curl可以把自己“伪装”成任何其他浏览器</p>
+<p>Cookie是服务器经常使用的一种记忆客户信息的方法。如果cookie被记录在了文件中，那么使用命令：<br>curl -b stored_cookies_in_file www.cookiesite. com</p>
+<p>如果是通过OpenSSL加密的https协议传输的网页，curl可以直接访问</p>
+<p>如果是采用证书认证的http地址，证书在本地，那么curl也可以使用</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/curl-了解-/">展开全文 >></a>
         </p>
       
 
@@ -321,17 +480,12 @@ error: 这个用于致命错误（fatal error）信息。
 
 
   
-    <article id="post-PHP成长之路/Yii的RestApi的使用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/linux-常用命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.poluoluo.com/jzxy/201607/490527.html" target="_blank" rel="external">其他资料</a><br>1.设置美化路由和规则：<br>2.设置 .htaccess文件在app\web.htaccess文件中：<br>3.利用gii生成 MVC（Model，View，Controller）<br>4.访问api方式</p>
-<p>1.设置美化路由和规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&apos;urlManager&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">    &apos;showScriptName&apos; =&gt; false,</div><div class="line">    &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">    &apos;enableStrictParsing&apos; =&gt; true,// 美化url</div><div class="line">    &apos;rules&apos; =&gt; [</div><div class="line">       &apos;&apos; =&gt; &apos;site/index&apos;,</div><div class="line">        // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;user&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;player&apos;],</div><div class="line">       [</div><div class="line">           &apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;,</div><div class="line">           &apos;controller&apos; =&gt; &apos;api&apos;,</div><div class="line">           &apos;pluralize&apos; =&gt; false,</div><div class="line">           &apos;extraPatterns&apos; =&gt; [</div><div class="line">           &apos;GET bntaketranslateapi&apos; =&gt; &apos;bntaketranslateapi&apos;, // 自定义GET 方式 actionBntaketranslateapi</div><div class="line">            ],</div><div class="line">       ],</div><div class="line">    //    [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;v1/goods&apos;, &apos;pluralize&apos; =&gt; false],</div><div class="line"></div><div class="line">    ],</div><div class="line">],</div></pre></td></tr></table></figure></p>
-<p>2.设置 .htaccess文件在app\web\.htaccess文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Options +FollowSymLinks</div><div class="line">IndexIgnore /</div><div class="line">RewriteEngine on</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line">RewriteRule . index.php</div></pre></td></tr></table></figure></p>
-<p>3.利用gii生成 MVC（Model，View，Controller）<br>ApiController.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace app\controllers;</div><div class="line"></div><div class="line">use yii\rest\ActiveController;</div><div class="line">use app\models\BntakeAPi;</div><div class="line"></div><div class="line">class ApiController extends ActiveController</div><div class="line">&#123;</div><div class="line">    public $modelClass = &apos;app\models\Api&apos;;</div><div class="line">    public $serializer = [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\rest\Serializer&apos;,</div><div class="line">        &apos;collectionEnvelope&apos; =&gt; &apos;items&apos;,</div><div class="line">    ];</div><div class="line">    public function checkAccess()</div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public function actionBntaketranslateapi($msg = &quot;hello world&quot;,$source=&quot;en&quot;,$target=&quot;zh&quot; )&#123;</div><div class="line">        $bntakeAPiTranslate = new BntakeAPi();</div><div class="line">        $model =  $bntakeAPiTranslate-&gt;TranslateENtoZH($msg,$source,$target);</div><div class="line">        return $model;</div><div class="line">        // return $this-&gt;render(&apos;/staff/testView&apos;,[</div><div class="line">        //     &apos;model&apos; =&gt;$model,</div><div class="line">        // ]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>自定义Model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">        &lt;?php</div><div class="line"></div><div class="line">namespace app\models;</div><div class="line"></div><div class="line">use Yii;</div><div class="line">use yii\base\Model;</div><div class="line">use Stichoza\GoogleTranslate\TranslateClient;      // other language Translate</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * BntakeAPi is the model  for test BntakeAPi</div><div class="line"> */</div><div class="line">class BntakeAPi extends Model</div><div class="line">&#123;</div><div class="line"></div><div class="line">    public function TranslateOtherlang()&#123;</div><div class="line">        $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">        $ka_translate = $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">        $ka_translateArray = $tr-&gt;translate([&apos;I can dance&apos;,&apos;I fine&apos;,&apos;And you&apos;]);</div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8887&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        Yii::trace($ka_translate, &apos;lucky&apos;);</div><div class="line">        Yii::trace($ka_translateArray,&apos;lucky&apos;);</div><div class="line">        $rawResult = $tr-&gt;getResponse(&apos;I can dance&apos;);</div><div class="line">        Yii::trace($tr-&gt;translate([&apos;I can dance&apos;, &apos;I like trains&apos;, &apos;Double rainbow&apos;]),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        Yii::trace( TranslateClient::translate(&apos;en&apos;, &apos;zh&apos;, &apos;Hello again&apos;),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8888&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        // echo</div><div class="line">        return $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // public function TranslateENtoZH($msg)&#123;</div><div class="line">    //     $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">    //     $ka_translate = $tr-&gt;translate($msg);</div><div class="line">    //     return $ka_translate;</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">    public function TranslateENtoZH($msg,$source,$target)&#123;</div><div class="line">        $apiKey = &apos;AIzaSyCtNLSiRhTn-TA0hk1XwKEC5XBFxNMFVwU&apos;;</div><div class="line">        $text = $msg;</div><div class="line">        $url = &apos;https://www.googleapis.com/language/translate/v2?key=&apos; . $apiKey . &apos;&amp;q=&apos; . rawurlencode($text) . &apos;&amp;source=&apos; . $source . &apos;&amp;target=&apos; . $target;</div><div class="line"></div><div class="line">        $handle = curl_init($url);</div><div class="line">        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);</div><div class="line">        $response = curl_exec($handle);</div><div class="line">        $responseDecoded = json_decode($response, true);</div><div class="line">        $responseCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);      //Here we fetch the HTTP response code</div><div class="line">        curl_close($handle);</div><div class="line"></div><div class="line">        if($responseCode != 200) &#123;</div><div class="line">            // echo &apos;Fetching translation failed! Server response code:&apos; . $responseCode . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Error description: &apos; . $responseDecoded[&apos;error&apos;][&apos;errors&apos;][0][&apos;message&apos;];</div><div class="line">            return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            // echo &apos;Source: &apos; . $text . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Translation: &apos; . $responseDecoded[&apos;data&apos;][&apos;translations&apos;][0][&apos;translatedText&apos;];</div><div class="line">             return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">         Yii::trace($responseDecoded,&apos;lucky&apos;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>4.访问api方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8887/api/bntaketranslateapi?msg=How are you. I am fine&amp;source=en&amp;target=zh</div></pre></td></tr></table></figure></p>
+        <p>启动mysql服务 service mysqld start<br>启动网络服务 service network restart<br>进入数据库 mysql -uroot -p<br>创建数据库表  create database onlyyii；</p>
 
       
 
@@ -344,59 +498,7 @@ error: 这个用于致命错误（fatal error）信息。
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/Yii的RestApi的使用方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PHP成长之路/composer-忽略版本过高" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>github token::0485eef07eea230539beab9eedc92104d8e7cf7b</p>
-<p><a href="http://www.thinkphp.cn/code/2430.html" target="_blank" rel="external">http://www.thinkphp.cn/code/2430.html</a><br>composer install –ignore-platform-reqs<br>出现问题：<br>        “yii2mod/yii2-braintree”: “^1.0”,<br>        “yii2mod/yii2-enum”: “~1.4”,</p>
-<pre><code>
-</code></pre><p>强制合并<br>git fetch –all<br>git reset –hard origin/master</p>
-<p>// 支付宝支付恢复<br><a href="http://localhost:8888/alipay/pay_asynresult?body=alipay&amp;buyer_email=17612176757&amp;buyer_id=2088802606762209&amp;exterface=create_direct_pay_by_user&amp;is_success=T&amp;notify_id=RqPnCoPT3K9%252Fvwbh3InYwet4PfpRLHHFnh%252FtvcZ3HYsTyCF6ecBQEQOVb%252BnDKgFqFdy1&amp;notify_time=2017-06-27+16%3A09%3A31&amp;notify_type=trade_status_sync&amp;out_trade_no=2017062708085417116&amp;payment_type=1&amp;seller_email=payment2%40bntake-sh.com&amp;seller_id=2088621769512595&amp;subject=%E4%BD%99%E9%A2%9D%E5%85%85%E5%80%BC&amp;total_fee=0.01&amp;trade_no=2017062721001004200292326566&amp;trade_status=TRADE_SUCCESS&amp;sign=g4fp2SXkvSkOXAir0UtZDxCPm5F%2FB5QahrO%2F11%2BlKkC0B%2BT9l03yJLMdnFa6M%2FfBQ3bdcShju2eD042pTd3RMhQR%2Frfv6juCRuaEPUT2LXC3zL5hDw4%2BbVY5boDDcWuBDzT0x3dT3%2BmUsPWj%2BGCE21rkyyJzDYc4NMx62VnXX6o%3D&amp;sign_type=RSA" target="_blank" rel="external">http://localhost:8888/alipay/pay_asynresult?body=alipay&amp;buyer_email=17612176757&amp;buyer_id=2088802606762209&amp;exterface=create_direct_pay_by_user&amp;is_success=T&amp;notify_id=RqPnCoPT3K9%252Fvwbh3InYwet4PfpRLHHFnh%252FtvcZ3HYsTyCF6ecBQEQOVb%252BnDKgFqFdy1&amp;notify_time=2017-06-27+16%3A09%3A31&amp;notify_type=trade_status_sync&amp;out_trade_no=2017062708085417116&amp;payment_type=1&amp;seller_email=payment2%40bntake-sh.com&amp;seller_id=2088621769512595&amp;subject=%E4%BD%99%E9%A2%9D%E5%85%85%E5%80%BC&amp;total_fee=0.01&amp;trade_no=2017062721001004200292326566&amp;trade_status=TRADE_SUCCESS&amp;sign=g4fp2SXkvSkOXAir0UtZDxCPm5F%2FB5QahrO%2F11%2BlKkC0B%2BT9l03yJLMdnFa6M%2FfBQ3bdcShju2eD042pTd3RMhQR%2Frfv6juCRuaEPUT2LXC3zL5hDw4%2BbVY5boDDcWuBDzT0x3dT3%2BmUsPWj%2BGCE21rkyyJzDYc4NMx62VnXX6o%3D&amp;sign_type=RSA</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/composer-忽略版本过高/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/linux-常用命令记录/">展开全文 >></a>
         </p>
       
 
@@ -448,6 +550,57 @@ error: 这个用于致命错误（fatal error）信息。
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/PHP成长之路/nginx服务器部署Yii2项目的悲与痛/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP成长之路/php-基础知识汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基础题:<br> 1.表单中 get与post提交方法的区别?<br> 答:get是发送请求HTTP协议通过url参数传递进行接收,而post是实体数据,可以通过表单提交大量信息.<br>get和post是不同的请求方式。get请求是明文传递，通过url进行参数的传递。post是数据块传递，不在url上面显示传递的参数。get请求传递的参数字节有限制，字节长度小于url的字节长度，而post请求传递可传递的数据较大。<br>get请求是幂等操作，即同一个url请求返回的是同样的结果，get请求只是为了查找数据，而非修改参数，post请求大多数情况是为了修改数据，虽然两者都可以进行增删改查的操作。<br>post请求相对比于get更安全，因为get请求是明文url传递，在浏览器缓存中url是可以被看到的。而post请求的参数是随着urlencode编码而传递的，所以较为安全。<br>相比于http请求，https请求的更为安全。</p>
+<p>2.Http和Https协议的区别？<br>答：https协议需要到ca申请证书，一般免费证书很少，需要交费。<br>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。<br>http和https使用的是完全不同的连接方式用的端口也不一样,前者是80,后者是443。<br>http的连接很简单,是无状态的。<br>HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议 要比http协议安全</p>
+<p>3.session与cookie的区别?<br> 答：<br>session:储存用户访问的全局唯一变量,存储在服务器上的php指定的目录中的（session_dir）的位置进行的存放<br> cookie:用来存储连续訪問一个页面时所使用，是存储在客户端，对于Cookie来说是存储在用户WIN的Temp目录中的。      两者都可通过时间来设置时间长短。<br>session 用于服务器端存储，cookie适用于客户端信息存储。<br>cookie 和session 的区别：<br>cookie数据存放在客户的浏览器上，session数据放在服务器上。<br>cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session。<br>session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用COOKIE。<br>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。<br>所以个人建议：<br>   将登陆信息等重要信息存放为SESSION<br>   其他信息如果需要保留，可以放在COOKIE中</p>
+<p>3.数据库中的事务是什么?<br> 答:事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，   事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/php-基础知识汇总/">展开全文 >></a>
         </p>
       
 
@@ -536,156 +689,6 @@ error: 这个用于致命错误（fatal error）信息。
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/PHP成长之路/php-【YII支付宝支付】/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PHP成长之路/curl-了解-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。</p>
-<p>作用 获取表单，PUT请求，认证，模拟不同的浏览器。<br>curl可以处理各种情况的认证页面，例如下载用户名/密码认证方式的页面（在IE中通常是出现一个输入用户名和密码的输入框）</p>
-<p>有些网络资源访问的时候必须经过另外一个网络地址跳转过去，这用术语来说是：referer，引用</p>
-<p>有些网络资源首先需要判断用户使用的是什么浏览器，符合标准了才能够下载或者浏览。<br>此时curl可以把自己“伪装”成任何其他浏览器</p>
-<p>Cookie是服务器经常使用的一种记忆客户信息的方法。如果cookie被记录在了文件中，那么使用命令：<br>curl -b stored_cookies_in_file www.cookiesite. com</p>
-<p>如果是通过OpenSSL加密的https协议传输的网页，curl可以直接访问</p>
-<p>如果是采用证书认证的http地址，证书在本地，那么curl也可以使用</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/curl-了解-/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PHP成长之路/linux-常用命令记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>启动mysql服务 service mysqld start<br>启动网络服务 service network restart<br>进入数据库 mysql -uroot -p<br>创建数据库表  create database onlyyii；</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/linux-常用命令记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PHP成长之路/php-一次cdn图片加速的体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.获取图片的真实域名</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/php-一次cdn图片加速的体验/">展开全文 >></a>
         </p>
       
 
@@ -824,7 +827,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,7 +839,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">

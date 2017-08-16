@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Luck、Time">
 <meta property="og:url" content="http://yoursite.com/page/10/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Luck、Time">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,16 +151,13 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-PHP成长之路/【Yii-多数据库连接】配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/yii2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在yii项目中，连接多数据库进行操作。<br>step1：配置main.php 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;db&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,   //数据库1</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div><div class="line">&apos;db2&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=localhost;dbname=test&apos;,     //数据库test</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;test&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div></pre></td></tr></table></figure>
-<p>框架默认是 加载db数据库的，如果想要使用db2数据库的数据。<br>方法一：只需要在现有的model中重写getDb方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public static function getDb()</div><div class="line">&#123;</div><div class="line">  return Yii::$app-&gt;get(&apos;db2&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>方法二：在gii下，进行设置。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-8ef8dfb72caab644.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+        <p>controller ：<br>$count = Yii::$app-&gt;request-&gt;url; // 获取当前的路径</p>
+<p>$count = Yii::$app-&gt;getLayoutPath();   // D:\Xampp\htdocs\bntake-website-operator\basic-dev\views\layouts  layout的布局</p>
 
       
 
@@ -173,7 +170,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/【Yii-多数据库连接】配置/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/yii2/">展开全文 >></a>
         </p>
       
 
@@ -225,6 +222,55 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP成长之路/一次php项目开发的整体体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>bntake-&gt;sender用户的注册和核心功能</p>
+<p>sender的核心功能 <b>下单</b>.。<br>其他必须实现的功能：</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/一次php项目开发的整体体验/">展开全文 >></a>
         </p>
       
 
@@ -307,13 +353,14 @@
 
 
   
-    <article id="post-PHP成长之路/一次php项目开发的整体体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/书城-php-yii书城网页实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>bntake-&gt;sender用户的注册和核心功能</p>
-<p>sender的核心功能 <b>下单</b>.。<br>其他必须实现的功能：</p>
+        <p>###数据库建设：<br>                      分类表 （bookclass）（主键id，分类名（class） ,分类颜色（16 ））<br>                      书籍表 （info）（书籍id，分类id（book_classid），书籍封皮（book_imgurl），书籍详情（book_dec），出版社（R），书籍点击次数（book_count）,书籍下载链接（book_downurl））<br>                      作者书本中间表：（主键id，书籍id，作者id）<br>                      作者表：（作者id，作者名，作者简介，作者其他作品）<br>                      评论中间表表：（作者id，评论id）<br>                      普通用户表：（主键id，用户id，角色（role），用户名，用户评论id）<br>                      评论表：（评论id，评论时间，打分）</p>
+<p>###功能模块建设：<br>                     书籍展示：<br>                                  ：书籍筛选，书籍排行榜<br>                     评论模块：<br>                     书籍分类：<br>                     书籍来源：<br>                     管理员功能： </p>
+<p>函数方法实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">书籍展示：</div><div class="line">(1)书籍列表 function bookList()      排序 评论数</div><div class="line">(2)书籍排行榜 :function book_Aanking_list()  点击数排序</div><div class="line">(3)书籍筛选： function book_Screening_Sort($type_id) 根据评论数，点击数，作者首字符筛选按钮</div><div class="line">(4)书籍分类筛选: function book_Class_Sort($class_id) 根据书籍分类筛选书籍</div></pre></td></tr></table></figure></p>
 
       
 
@@ -326,7 +373,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/一次php项目开发的整体体验/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/书城-php-yii书城网页实现/">展开全文 >></a>
         </p>
       
 
@@ -471,26 +518,25 @@
 
 
   
-    <article id="post-PHP成长之路/（1）PHP基本资料-了解-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/（5）PHP之yii2-文件夹的功能与结构介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.PHP 介绍<br>链接：<a href="http://baike.so.com/doc/7103846-7326839.html" target="_blank" rel="external">PHP 历史百科 </a><br>•缩写：Personal Home Page ==&gt;&gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本<a href="http://baike.so.com/doc/6010-6155.html" target="_blank" rel="external">预处理器</a>“<br>•历史<br>    1995PHP/FI，Rasmus Lorderf，Personal Home Page<br>    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5</p>
-<h2 id="2-PHP-应用场景"><a href="#2-PHP-应用场景" class="headerlink" title="2.PHP 应用场景"></a>2.PHP 应用场景</h2><p>A). 服务器脚本：ＰＨＰ最主要，最重要的应用场景。<br>具备要求：（１）ＰＨＰ解析器　（２）ｗｅｂ服务器　（３）ｗｅｂ浏览器<br>B). 命令行脚本　不需要任何服务器或者浏览器就可以运行，仅仅需要ＰＨＰ解析器来执行脚本代码。<br>运行环境：<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">ｃｒｏｎ </a>  （Ｕｎｉｔ或者Ｌｉｎｕｘ环境）或者　<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">Ｔａｓｋ　Ｓｃｈｅｄｕｌｅｒ</a> （Ｗｉｎｄｏｗ　环境）的日常运行的脚本。<br>脚本也可以处理简单的文本。<br>C). 编写桌面应用程序　能做，但是ＰＨＰ不是开发图形应用程序最好的语言，但如果精通ＰＨＰ，可以通过ＰＨＰ－ＧＴＫ来编写这些程序。ＰＨＰ－ＧＴＫ是ＰＨＰ的扩展，通常发布的ＰＨＰ包中并不包含，需要去网站下载。<br>D).ＰＨＰ扩展库　 例如：mnoGoSearch搜索引擎函数、IRC 网关函数、   多种压缩工具(gzip、bz2)、日历转换、翻译……</p>
-<p><a href="http://www.cnblogs.com/lyyjack/archive/2011/10/22/2221209.html" target="_blank" rel="external">供参考的 php 学习路线</a></p>
-<p>＃＃　３.ＰＨＰ运行环境</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-cd5365f332348b81.png" alt="Paste_Image.png"><br>解释：客户通过浏览器或者PC端向服务器（软件Apache）发送请求。服务器开始执行PHP模块代码。并且通过PHP模块代码，获取数据库的数据。从而反馈给Apache想要的数据。最后在反馈给浏览器软件，将信息展示在页面上。。</p>
-<p>######安装环境 的选择<br>两种方式：通过PHPStudy安装。或者Apache，Mysql，PHP三者分别安装。<br>1.PHPStudy 安装 安装简单，系统已经将环境配置安装好。<br><a href="http://www.phpstudy.net/" target="_blank" rel="external">PHPStudy 安装链接</a></p>
-<p>2.三者分别安装，尽量安装在同一个目录下，便于管理。此方法较为麻烦。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-d6d3344b361b4804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<h2 id="4-安装后检测"><a href="#4-安装后检测" class="headerlink" title="4.安装后检测"></a>4.安装后检测</h2><p>检测：PHP语法是否能运行。<br>//测试php代码可执行<br>$i = 10;<br>$i++;<br>echo “abcd——$i”;</p>
-<p>//显示当前时间（测试时间配置，检测时间是否是当前时间）：<br>echo date(“Y-m-d H:i:s”);</p>
-<p>//连接mysql数据库（测试数据库配置，检测数据库模块是否打开）：<br>$conn = mysql_connect(“localhost”, “root”, “123”);<br>命令行显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-fd9206bfad7f3f65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>浏览器显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-88a507dcf3b7cbe2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>##虚拟主机配置<br>端口监听：<br>端口：就是一个数字，目的是让一台电脑（对外只有一个IP）能够对外提供多项服务（多种功能）。<br>行业默认有如下常见的服务和端口对应：<br>web服务： 80<br>ftp服务： 21<br>邮件收取服务：110<br>邮件发送服务：25<br>mysql数据库服务：3306<br>一台电脑中，有6万多个端口，但通常一台服务器，一般只提供几个或10几个服务。<br>apache的端口监听设置，是指设定apache这个软件针对当前服务器的哪些端口提供web服务：<br>即apache是“服务生”，至于“外界”想要当前服务器提供什么服务，由外界提出“申请”（请求）。<br>通常，浏览器提出的都是web请求，但有些请求可能不在apache的服务范围内（端口不符）。<br>端口修改：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-ceb85261992fe08e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>// strpos()<br>// 1.strpos()<br>// 定义和用法<br>// strpos() 函数返回字符串在另一个字符串中第一次出现的位置。<br>// 如果没有找到该字符串，则返回 false。<br>// 语法<br>// strpos(string,find,start)<br>// 参数  描述<br>// string  必需。规定被搜索的字符串。<br>// find  必需。规定要查找的字符。<br>// start  可选。规定开始搜索的位置。。<br>在javascriptDOM和BOM之间的区别<br>BOM主要是浏览器对象模型，用来获取浏览器的行为动作，和浏览器的属性。比如浏览器的分辨率浏览器的版本号和浏览器的其他信息。<br>DOM是文档对象模型，用来获取浏览器内部网页document的标签属性input.lable.用来修改和获取文档标签的值。</p>
+        <p>转自：<a href="http://www.yiibai.com/" target="_blank" rel="external">http://www.yiibai.com/</a><br>文件夹目录：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-fc83d604b275a788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>assets - 此文件夹包含在网页中引用的所有 .js和.css文件<br>commands - 此文件夹包括可从终端中使用的控制器<br>config - 此文件夹包含配置文件用于管理数据库，应用程序和应用参数<br>mail - 此文件夹包含邮件布局<br>models - 该文件夹包函在应用程序中使用的模型<br>runtime − 此文件夹是用于存储运行时数据</p>
+<p>tests − 此文件夹包含所有的测试(验收，单元测试，功能)</p>
+<p>vendor - 此文件夹包含由Composer提供所有的第三方软件包。<br>views − 此文件夹为视图文件夹目录，由控制器显示。layout 文件夹是用于页面模板</p>
+<p>web − 网站入口点</p>
+<p>yii2的应用程序结构，采用的是MVC软件设计模式。<br><img src="http://upload-images.jianshu.io/upload_images/1764965-81a7187401bafd1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>下面的列表包含了所有Yii2的对象 -</p>
+<p>####模型，视图和控制器<br>模型数据表示(通常从数据库)。视图是用于显示的数据。控制器是用于处理请求和产生响应。</p>
+<p>####组件 - Components<br>创建一个可重复使用的功能，用户可以编写自己的组件。组件只是包含逻辑对象。例如，组件可以是一个重量转换器。</p>
+<p>####应用程序组件 - Application components<br>这些都是在整个应用只实例化的一个对象。 组件和应用组件之间的主要区别是，后者在整个应用程序只有一个实例。</p>
+<p>####小工具 - Widgets<br>Widget是含有逻辑和渲染代码可重用的对象。一个小部件可以是，例如，一个画廊滑块。</p>
+<p>####过滤器 -Filters<br>过滤器是在控制器动作的执行之前或之后运行的对象。</p>
+<p>####模块 - Modules<br>可以认为模块就是可重用的子应用程序，包括模型，视图，控制器等等。</p>
+<p>####扩展 - Extensions<br>扩展是可以由 Composer 来管理的软件包。</p>
 
       
 
@@ -503,7 +549,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（1）PHP基本资料-了解-/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（5）PHP之yii2-文件夹的功能与结构介绍/">展开全文 >></a>
         </p>
       
 
@@ -584,14 +630,26 @@
 
 
   
-    <article id="post-PHP成长之路/书城-php-yii书城网页实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/（1）PHP基本资料-了解-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###数据库建设：<br>                      分类表 （bookclass）（主键id，分类名（class） ,分类颜色（16 ））<br>                      书籍表 （info）（书籍id，分类id（book_classid），书籍封皮（book_imgurl），书籍详情（book_dec），出版社（R），书籍点击次数（book_count）,书籍下载链接（book_downurl））<br>                      作者书本中间表：（主键id，书籍id，作者id）<br>                      作者表：（作者id，作者名，作者简介，作者其他作品）<br>                      评论中间表表：（作者id，评论id）<br>                      普通用户表：（主键id，用户id，角色（role），用户名，用户评论id）<br>                      评论表：（评论id，评论时间，打分）</p>
-<p>###功能模块建设：<br>                     书籍展示：<br>                                  ：书籍筛选，书籍排行榜<br>                     评论模块：<br>                     书籍分类：<br>                     书籍来源：<br>                     管理员功能： </p>
-<p>函数方法实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">书籍展示：</div><div class="line">(1)书籍列表 function bookList()      排序 评论数</div><div class="line">(2)书籍排行榜 :function book_Aanking_list()  点击数排序</div><div class="line">(3)书籍筛选： function book_Screening_Sort($type_id) 根据评论数，点击数，作者首字符筛选按钮</div><div class="line">(4)书籍分类筛选: function book_Class_Sort($class_id) 根据书籍分类筛选书籍</div></pre></td></tr></table></figure></p>
+        <p>##1.PHP 介绍<br>链接：<a href="http://baike.so.com/doc/7103846-7326839.html" target="_blank" rel="external">PHP 历史百科 </a><br>•缩写：Personal Home Page ==&gt;&gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本<a href="http://baike.so.com/doc/6010-6155.html" target="_blank" rel="external">预处理器</a>“<br>•历史<br>    1995PHP/FI，Rasmus Lorderf，Personal Home Page<br>    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5</p>
+<h2 id="2-PHP-应用场景"><a href="#2-PHP-应用场景" class="headerlink" title="2.PHP 应用场景"></a>2.PHP 应用场景</h2><p>A). 服务器脚本：ＰＨＰ最主要，最重要的应用场景。<br>具备要求：（１）ＰＨＰ解析器　（２）ｗｅｂ服务器　（３）ｗｅｂ浏览器<br>B). 命令行脚本　不需要任何服务器或者浏览器就可以运行，仅仅需要ＰＨＰ解析器来执行脚本代码。<br>运行环境：<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">ｃｒｏｎ </a>  （Ｕｎｉｔ或者Ｌｉｎｕｘ环境）或者　<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">Ｔａｓｋ　Ｓｃｈｅｄｕｌｅｒ</a> （Ｗｉｎｄｏｗ　环境）的日常运行的脚本。<br>脚本也可以处理简单的文本。<br>C). 编写桌面应用程序　能做，但是ＰＨＰ不是开发图形应用程序最好的语言，但如果精通ＰＨＰ，可以通过ＰＨＰ－ＧＴＫ来编写这些程序。ＰＨＰ－ＧＴＫ是ＰＨＰ的扩展，通常发布的ＰＨＰ包中并不包含，需要去网站下载。<br>D).ＰＨＰ扩展库　 例如：mnoGoSearch搜索引擎函数、IRC 网关函数、   多种压缩工具(gzip、bz2)、日历转换、翻译……</p>
+<p><a href="http://www.cnblogs.com/lyyjack/archive/2011/10/22/2221209.html" target="_blank" rel="external">供参考的 php 学习路线</a></p>
+<p>＃＃　３.ＰＨＰ运行环境</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-cd5365f332348b81.png" alt="Paste_Image.png"><br>解释：客户通过浏览器或者PC端向服务器（软件Apache）发送请求。服务器开始执行PHP模块代码。并且通过PHP模块代码，获取数据库的数据。从而反馈给Apache想要的数据。最后在反馈给浏览器软件，将信息展示在页面上。。</p>
+<p>######安装环境 的选择<br>两种方式：通过PHPStudy安装。或者Apache，Mysql，PHP三者分别安装。<br>1.PHPStudy 安装 安装简单，系统已经将环境配置安装好。<br><a href="http://www.phpstudy.net/" target="_blank" rel="external">PHPStudy 安装链接</a></p>
+<p>2.三者分别安装，尽量安装在同一个目录下，便于管理。此方法较为麻烦。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-d6d3344b361b4804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<h2 id="4-安装后检测"><a href="#4-安装后检测" class="headerlink" title="4.安装后检测"></a>4.安装后检测</h2><p>检测：PHP语法是否能运行。<br>//测试php代码可执行<br>$i = 10;<br>$i++;<br>echo “abcd——$i”;</p>
+<p>//显示当前时间（测试时间配置，检测时间是否是当前时间）：<br>echo date(“Y-m-d H:i:s”);</p>
+<p>//连接mysql数据库（测试数据库配置，检测数据库模块是否打开）：<br>$conn = mysql_connect(“localhost”, “root”, “123”);<br>命令行显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-fd9206bfad7f3f65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>浏览器显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-88a507dcf3b7cbe2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>##虚拟主机配置<br>端口监听：<br>端口：就是一个数字，目的是让一台电脑（对外只有一个IP）能够对外提供多项服务（多种功能）。<br>行业默认有如下常见的服务和端口对应：<br>web服务： 80<br>ftp服务： 21<br>邮件收取服务：110<br>邮件发送服务：25<br>mysql数据库服务：3306<br>一台电脑中，有6万多个端口，但通常一台服务器，一般只提供几个或10几个服务。<br>apache的端口监听设置，是指设定apache这个软件针对当前服务器的哪些端口提供web服务：<br>即apache是“服务生”，至于“外界”想要当前服务器提供什么服务，由外界提出“申请”（请求）。<br>通常，浏览器提出的都是web请求，但有些请求可能不在apache的服务范围内（端口不符）。<br>端口修改：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-ceb85261992fe08e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>// strpos()<br>// 1.strpos()<br>// 定义和用法<br>// strpos() 函数返回字符串在另一个字符串中第一次出现的位置。<br>// 如果没有找到该字符串，则返回 false。<br>// 语法<br>// strpos(string,find,start)<br>// 参数  描述<br>// string  必需。规定被搜索的字符串。<br>// find  必需。规定要查找的字符。<br>// start  可选。规定开始搜索的位置。。<br>在javascriptDOM和BOM之间的区别<br>BOM主要是浏览器对象模型，用来获取浏览器的行为动作，和浏览器的属性。比如浏览器的分辨率浏览器的版本号和浏览器的其他信息。<br>DOM是文档对象模型，用来获取浏览器内部网页document的标签属性input.lable.用来修改和获取文档标签的值。</p>
 
       
 
@@ -604,65 +662,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/书城-php-yii书城网页实现/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PHP成长之路/（6）PHP之Yii2入口脚本的熟悉" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>转自：<a href="http://www.yiibai.com/yii2/yii_entry_scripts.html" target="_blank" rel="external">http://www.yiibai.com/yii2/yii_entry_scripts.html</a><br>入口脚本是负责启动一个请求处理周期。用户访问只是通过PHP脚本。<br>下图显示了一个应用程序的结构 -<br>Yii入口脚本<br>Entry Scripts Structure</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-dd43b0d8af818193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>Web应用程序(以及控制台应用程序)具有一个<b>单一入口脚本</b>。终端用户从入口脚本发起一个请求。然后，入口脚本实例化应用实例并将请求转发给它们。</p>
-<p><b>控制台应用程序入口脚本通常存储在一个项目基本路径并命名为yii.php。</b><br><b>Web应用程序入口脚本必须存储在Web访问的目录下。它通常是index.php。</b></p>
-<p>###入口脚本执行以下操作<br>定义常量<br>注册 Composer 自动加载<br>包括 Yii 文件<br>加载配置<br>创建和配置一个应用程序实例<br>处理传入的请求<br>以下是基本的应用程序入口脚本的模板-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">   defined(&apos;YII_ENV&apos;) or define(&apos;YII_ENV&apos;, &apos;dev&apos;);</div><div class="line"> </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/../vendor/autoload.php&apos;);</div><div class="line">   //include yii files</div><div class="line">   require(__DIR__ . &apos;/../vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load application config</div><div class="line">   $config = require(__DIR__ . &apos;/../config/web.php&apos;);</div><div class="line">  </div><div class="line">   //create, config, and process reques</div><div class="line">   (new yii\web\Application($config))-&gt;run();</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>以下是控制台应用程序的入口脚本 -<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env php</div><div class="line">&lt;?php</div><div class="line">   /** </div><div class="line">   * Yii console bootstrap file. </div><div class="line">   * @link http://www.yiiframework.com/ </div><div class="line">   * @copyright Copyright (c) 2008 Yii Software LLC </div><div class="line">   * @license http://www.yiiframework.com/license/ </div><div class="line">   */</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">  </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/vendor/autoload.php&apos;);</div><div class="line">   require(__DIR__ . &apos;/vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load config</div><div class="line">   $config = require(__DIR__ . &apos;/config/console.php&apos;);</div><div class="line">  </div><div class="line">   //apply config the application instance </div><div class="line">   $application = new yii\console\Application($config);  </div><div class="line"></div><div class="line">   //process request</div><div class="line">   $exitCode = $application-&gt;run();</div><div class="line">   exit($exitCode);</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>定义全局常量最好的地方是入口脚本。有三个Yii常量被定义-<br>YII_DEBUG − 定义是否在调试模式。如果设置为true，那么将看到更多的日志数据和细节错误的调用堆栈。</p>
-<p>YII_ENV − 定义环境模式。默认值是prod。</p>
-<p>可用值为 prod, dev 和 test. 它们在配置文件中用来定义：例如，一个不同的数据库连接(本地和远程)或其它值。</p>
-<p>YII_ENABLE_ERROR_HANDLER − 指定是否启用默认Yii的错误处理程序。</p>
-<p>定义一个全局常数，常用下面的代码-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//defining global constants </div><div class="line">defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true); </div><div class="line">which is equivalent to: </div><div class="line">if(!defined(&apos;YII_DEBUG&apos;)) &#123; </div><div class="line">   define(&apos;YII_DEBUG&apos;, true); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注 - 全局常量应在入口脚本的开头定义，以便包含其他PHP文件时生效。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（6）PHP之Yii2入口脚本的熟悉/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（1）PHP基本资料-了解-/">展开全文 >></a>
         </p>
       
 
@@ -801,7 +801,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -813,7 +813,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">

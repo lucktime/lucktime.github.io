@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Luck、Time">
 <meta property="og:url" content="http://yoursite.com/page/5/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Luck、Time">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,68 +151,66 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-C语言/菜单循环-金字塔-函数重载-递归-闰年判断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C语言/百科图片IN词微百科科普汇名人百科有奖任务百科商城" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#include <iostream></iostream></p>
-<p>#include <ctime></ctime></p>
-<p>using namespace std;<br>//①    菜单 的技巧<br>/*void meun_information( )<br>{<br>    int n;<br>    cout&lt;&lt;”1–存款”&lt;&lt;endl;</p>
-<p> cout&lt;&lt;”2–取款”&lt;&lt;endl;</p>
-<p> cout&lt;&lt;”3–转账”&lt;&lt;endl;         //语句块的分割</p>
-<p> cout&lt;&lt;”4–查询”&lt;&lt;endl;</p>
-<p>  cout&lt;&lt;”5–退出”&lt;&lt;endl;</p>
-<p>  cout&lt;&lt;”please enter a number you want to enter !”&lt;<endl; cin="">&gt;n;<br> switch(n)<br> {<br> case 1: cout&lt;&lt;”1 –存款”&lt;&lt;endl; break;</endl;></p>
-<p> case 2: cout&lt;&lt;”2 –取款”&lt;&lt;endl; break;</p>
-<p> case 3: cout&lt;&lt;”3 –转账”&lt;&lt;endl; break;</p>
-<p> case 4: cout&lt;&lt;”4 –查询”&lt;&lt;endl; break;</p>
-<p> case 5: cout&lt;&lt;”5 –退出”&lt;&lt;endl; break;</p>
-<p> default: cout&lt;&lt;”输入错误，重新输入”&lt;&lt;endl; meun_information( );break;  //输入错误时，返回菜单。。<br> }<br>}</p>
-<p><em>/<br>//②简单for 循环<br>/</em><br>void  for_loop()<br>{<br> int i,j;<br> cout&lt;&lt;”please input you want to input the number of times!”&lt;<endl; cin="">&gt;j;<br> for(i=1;i&lt;=j;i++)<br> cout&lt;<i<<"次"<<endl; }="" *="" ③="" 机器睡眠设置="" *int="" time_sleep(int="" n)="" {="" while(n="">0)<br> {<br> long t = time(NULL);<br> t += 1;<br> while(t&gt;time(NULL));<br> cout&lt;&lt;t/CLOCKS_PER_SEC&lt;&lt;endl;<br> n–;<br> }<br>}<em>/<br>/</em>运算符的概念<br>①改变变量的值  ++后  –后  =<br>②结果和变量一致    前++ 前–</i<<"次"<<endl;></endl;></p>
-<p> 控制语句<br> ①条件if —else<br> ②分支 switch（int、字符、bool、enum）<br> ③循环  for    while<br> ④跳转 break、goto loop   　continue语句和break语句的区别是：<br>continue语句只结束本次循环，而不终止整个循环的执行。而break语句则是结束整个循环过程，不再判断执行循环的条件是否成立。</p>
-<p><em>/<br>//四：金字塔    设计<br>/</em>int pyramid(int n)<br>{<br> int i;<br> int j;<br> int row=n;<br> int space;<br> for(i=1; i&lt;=row; i++)<br> {<br>   space = row - i;<br>     for(;space&gt;=0;space–)<br>     {                                 //空格语句块  </p>
-<pre><code>  cout&lt;&lt;&apos; &apos;;
- }
-
-  for(j=1;j&lt;=i;j++)
-     {
-      cout&lt;&lt;j;      //打印前半部分
-      }
-      for(j=i-1;j&gt;0;j--)
-         {
-      cout&lt;&lt;j;     //打印 后半部分    唉，这部分想了好久。居然没想到。。
-      }
-cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
-</code></pre><p>}<br>}<br><em>/<br>//五：逻辑短路的理解  判断闰年<br>/</em><br>int judge_leep_year(int n)<br>{<br> int i;<br> int j=1;<br> for(i=0;i&lt;=n;i++)<br> {<br>//    if(i%400==0||(i%4==0&amp;&amp;i%100!=0))         //逻辑短路问题 ||前面为1  &amp;&amp;前面为0  发生逻辑短路<br> if((i%4==0&amp;&amp;i%100!=0)||i%400==0)            //如果一年能被4整除并且不能被100整除，或者能被400整除，那么这一年就是闰年。<br> {<br> cout&lt;&lt;i&lt;&lt;endl;j++;}<br> }<br> cout&lt;&lt;j&lt;&lt;endl;<br>}<br>*/</p>
-<p>//六：函数重载</p>
-<p>/*</p>
-<p>//函数重载 ：相同的函数名，不同的参数表 eg int f_add(a)；和  int f_add(int a,int b)       个数 类型 （double 和int、float）<br>int f_add(int x)<br>{</p>
-<p> return x;<br>}</p>
-<p>int f_add(double x)</p>
-<p>{<br>  return x;<br>}</p>
-<p>int f_add(int x,int y)<br>{<br> return x+y;<br>}</p>
-<p>double f_add(int x, double y)<br>{</p>
-<p> return (double)x+y;<br>}<br>*/</p>
-<p> // 阶乘<br> /<em><br>double factorial(int x){<br> if(x&lt;0)<br> cout&lt;&lt;”不存在负数的阶乘”&lt;&lt;endl;<br> else if(x==1||x==0)<br> return 1;<br> else<br> return x</em>factorial(x-1);//一定要分清是x<em>factorial（x-1），而不是factorial（x）</em>factorial（x-1）<br> }</p>
-<p>*/</p>
-<p>main()<br>{<br>  //  int n;<br>//    meun_information();  //菜单语句块<br>//    for_loop();          //循环语句块<br>//    cout&lt;&lt;”please input you want to sleep time (s)”&lt;<endl; cout<<"please="" input="" how="" many="" years="" leep="" year="" "<<endl;="" cin="">&gt;n;<br>//    time_sleep(n);<br>//    pyramid(n);        //金字塔函数</endl;></p>
-<p>//    judge_leep_year(n);  //判断闰年</p>
-<p>/<em><br>int x,y;<br>double z;<br>cout&lt;&lt;f_add(3)&lt;&lt;endl;<br>cout&lt;&lt;f_add(3.00999)&lt;&lt;endl;<br>cout&lt;&lt;f_add(2,3.000099)&lt;&lt;endl;<br>cout&lt;&lt;f_add(3,5)&lt;&lt;endl;
-</em>/</p>
-<p>/<em><br>          int n;<br>          cin&gt;&gt;n;<br>          cout&lt;&lt;n&lt;&lt;”! = “&lt;&lt;factorial(n)&lt;&lt;endl;
-</em>/<br> return 0 ;<br>}</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;</p>
-<p>/<em>int  return_number()     //int 类型能返回值到调用函数的位置，void不能返回参数<br>{<br> int n;<br> cin&gt;&gt;n;<br> return n;<br>}
-</em>/</p>
-<p>/*<br>简单的四则运算<br>int f_add(int x,int y)<br>{<br> int c;<br> c = x+y;<br> return c;            //只要是int 定义的函数最后一致以return 结尾。。<br>}</p>
-<p>int f_reduce(int x,int y)<br>{<br> int c;<br> c = x - y;<br> return c;<br>}</p>
-<p>int f_mul(int x,int y)<br>{<br> int c ;<br> c = x*y;<br> return c;<br>}</p>
-<p>int f_division(int x,int y)<br>{<br> int c;<br> c = x%y;<br> return c;<br>}<br>//   简单的四则运算    利用语句块。<br>int main()<br>{<br>//    cout&lt;&lt;return_number()&lt;&lt;endl;<br>int a,b,c;<br>do{</p>
-<p> cout&lt;&lt;”please enter number cloose you want to function! “&lt;<endl; cout<<"1--add_function"<<endl;="" cout<<"2--reduce_function"<<endl;="" cout<<"3--mul_function"<<endl;="" cout<<"4--diviction"<<endl;="" cin="">&gt;c;<br>}while(c&gt;4&amp;&amp;c&lt;1);</endl;></p>
-<p>cout&lt;&lt;”please input two number! “&lt;<endl; cin="">&gt;a&gt;&gt;b;<br>    switch(c){<br>    case 1:cout&lt;&lt;a&lt;&lt;”+”&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_add(a,b)&lt;&lt;endl;;break;<br>    case 2:cout&lt;&lt;a&lt;&lt;”-“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_reduce(a,b)&lt;&lt;endl;;break;<br>    case 3:cout&lt;&lt;a&lt;&lt;”<em>“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_mul(a,b)&lt;&lt;endl;;break;<br>    case 4:cout&lt;&lt;a&lt;&lt;”/“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_division(a,b)&lt;&lt;endl;;break;<br>    default:cout&lt;&lt;”等待更新其他功能！”&lt;&lt;endl;break;<br>}<br>} </em>/</endl;></p>
-<p>//函数重载 ：相同的函数名，不同的参数表 eg int f_add(a)；和  int f_add(int a,int b)       个数 类型 （double 和int、float） </p>
+        <p>递归算法</p>
+<p>开放分类：数学术语术语科学自然科学计算机术语</p>
+<p>递归算法是把问题转化为规模缩小了的同类问题的子问题。然后递归调用函数（或过程）来表示问题的解。</p>
+<p>编辑摘要</p>
+<p>目录</p>
+<p>1概述<br>2汉诺塔C语言递归算法<br>递归算法 - 概述</p>
+<p>程序调用自身的编程技巧称为递归（ recursion）。<br>一个过程或函数在其定义或说明中又直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。用递归思想写出的程序往往十分简洁易懂。<br>一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。<br>注意：<br>(1) 递归就是在过程或函数里调用自身;<br>(2) 在使用递增归策略时，必须有一个明确的递归结束条件，称为递归出口，否则将无限进行下去（死锁）。</p>
+<p>递归算法一般用于解决三类问题：<br>(1)数据的定义是按递归定义的。(Fibonacci函数)<br>(2)问题解法按递归算法实现。(回溯)<br>(3)数据的结构形式是按递归定义的。(树的遍历，图的搜索)</p>
+<p>递归的缺点：<br>递归算法解题的运行效率较低。在递归调用的过程当中系统为每一层的返回点、局部量等开辟了栈来存储。递归次数过多容易造成栈溢出等。</p>
+<p>递归算法 - 汉诺塔C语言递归算法</p>
+<p>递归算法 递归算法图册<br>汉 诺（Hanoi）塔问题：古代有一个梵塔，塔内有三个座A、B、C，A座上有64个盘子，盘子大小不等，大的在下，小的在上(如图)。有一个和尚想把这 64个盘子从A座移到C座，但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。在移动过程中可以利用B座，要求 打印移动的步骤。<br>这个问题在盘子比较多的情况下，很难直接写出移动步骤。我们可以先分析盘子比较少的情况。假定盘子从大向小依次为：盘子1，盘子2，…，盘子64。<br>如果只有一个盘子，则不需要利用B座，直接将盘子从A移动到C。<br>如果有2个盘子，可以先将盘子1上的盘子2移动到B；将盘子1移动到c；将盘子2移动到c。这说明了：可以借助B将2个盘子从A移动到C，当然，也可以借助C将2个盘子从A移动到B。<br>如果有3个盘子，那么根据2个盘子的结论，可以借助c将盘子1上的两个盘子从A移动到B；将盘子1从A移动到C，A变成空座；借助A座，将B上的两个盘子移动到C。这说明：可以借助一个空座，将3个盘子从一个座移动到另一个。<br>如果有4个盘子，那么首先借助空座C，将盘子1上的三个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的三个盘子移动到C。<br>上述的思路可以一直扩展到64个盘子的情况：可以借助空座C将盘子1上的63个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的63个盘子移动到C。<br>根据以上的分析，不难写出程序：<br>void Move(char chSour,char chDest)<br>{<br>    /<em>打印移动步骤</em>/<br>    printf(“\nMove the top plate of %c to %c”,chSour,chDest);<br>}<br>Hanoi(int n,char chA,char chB,char chC)<br>{<br>    /<em>检查当前的盘子数量是否为1</em>/<br>    /<em>盘子数量为1，打印结果后，不再继续进行递归</em>/<br>    if(n==1)Move(chA,chC);<br>    /<em>盘子数量大于1，继续进行递归过程</em>/<br>    else<br>    {<br>        Hanoi(n-1,chA,chC,chB);<br>        Move(chA,chC);<br>        Hanoi(n-1,chB,chA,chC);<br>    }<br>}<br>main()<br>{<br>    int n ;<br>    /<em>输入盘子的数量</em>/<br>    printf(“\nPlease input number of the plates: “);<br>    scanf(“%d”,&amp;n);<br>    printf(“\nMoving %d plates from A to C:”,n);</p>
+<pre><code>/*调用函数计算，并打印输出结果*/
+Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
+</code></pre><p>}</p>
+<p>如果n为4，程序输出结果为：<br>Moving 4 plates from A to C:<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of C to A<br>Move the top plate of C to B<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of B to A<br>Move the top plate of C to A<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C</p>
+<p>相关文献</p>
+<p>万方数据期刊论文一类多折叠环面混沌吸引子 - 物理学报 - 200453 ( 7 )<br>万方数据期刊论文基于二叉树思想的任意多边形三角剖分递归算法 - 武汉大学学报(信息科学版) - 200227 ( 5 )<br>万方数据期刊论文基于受控递归算法的时频分析 - 电子科技大学学报 - 201140 ( 5 )<br>经典计算机算法介绍</p>
+<p>算法是计算机科学中一门古老而常新的学科，就像一个人的思维能力一样，其重要性对于计算机性能的分析、应用与改进有着至不言而喻的地位。而随着计 算机科学技术的发展，新的算法也随着新的应用渐渐出现，但总有一些算法由于其本身具有的特点以及对计算机科学发展做出的卓越贡献而成为经典，本任务就是要 介绍这些经典算法。<br>Dijkstra算法<br>哈希表算法<br>贪婪算法<br>随机化算法<br>排序算法    分治算法<br>最优二叉树算法<br>回溯算法<br>舍伍德算法<br>拉斯维加斯算法    分支界限算法<br>递归算法<br>统计算法<br>动态规划算法<br>流水线算法    最大流<br>最小费用流<br>蒙特卡洛算法<br>搜索算法<br>单纯行算法<br>附图</p>
+<p> 递归算<br>递归算法</p>
+<p>点击认领<br>开放分类：数学术语术语科学自然科学计算机术语</p>
+<p>递归算法是把问题转化为规模缩小了的同类问题的子问题。然后递归调用函数（或过程）来表示问题的解。</p>
+<p>编辑摘要</p>
+<p>目录</p>
+<p>1概述<br>2汉诺塔C语言递归算法<br>递归算法 - 概述</p>
+<p>程序调用自身的编程技巧称为递归（ recursion）。<br>一个过程或函数在其定义或说明中又直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。用递归思想写出的程序往往十分简洁易懂。<br>一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。<br>注意：<br>(1) 递归就是在过程或函数里调用自身;<br>(2) 在使用递增归策略时，必须有一个明确的递归结束条件，称为递归出口，否则将无限进行下去（死锁）。</p>
+<p>递归算法一般用于解决三类问题：<br>(1)数据的定义是按递归定义的。(Fibonacci函数)<br>(2)问题解法按递归算法实现。(回溯)<br>(3)数据的结构形式是按递归定义的。(树的遍历，图的搜索)</p>
+<p>递归的缺点：<br>递归算法解题的运行效率较低。在递归调用的过程当中系统为每一层的返回点、局部量等开辟了栈来存储。递归次数过多容易造成栈溢出等。</p>
+<p>递归算法 - 汉诺塔C语言递归算法</p>
+<p>递归算法 递归算法图册<br>汉 诺（Hanoi）塔问题：古代有一个梵塔，塔内有三个座A、B、C，A座上有64个盘子，盘子大小不等，大的在下，小的在上(如图)。有一个和尚想把这 64个盘子从A座移到C座，但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。在移动过程中可以利用B座，要求 打印移动的步骤。<br>这个问题在盘子比较多的情况下，很难直接写出移动步骤。我们可以先分析盘子比较少的情况。假定盘子从大向小依次为：盘子1，盘子2，…，盘子64。<br>如果只有一个盘子，则不需要利用B座，直接将盘子从A移动到C。<br>如果有2个盘子，可以先将盘子1上的盘子2移动到B；将盘子1移动到c；将盘子2移动到c。这说明了：可以借助B将2个盘子从A移动到C，当然，也可以借助C将2个盘子从A移动到B。<br>如果有3个盘子，那么根据2个盘子的结论，可以借助c将盘子1上的两个盘子从A移动到B；将盘子1从A移动到C，A变成空座；借助A座，将B上的两个盘子移动到C。这说明：可以借助一个空座，将3个盘子从一个座移动到另一个。<br>如果有4个盘子，那么首先借助空座C，将盘子1上的三个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的三个盘子移动到C。<br>上述的思路可以一直扩展到64个盘子的情况：可以借助空座C将盘子1上的63个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的63个盘子移动到C。<br>根据以上的分析，不难写出程序：<br>void Move(char chSour,char chDest)<br>{<br>    /<em>打印移动步骤</em>/<br>    printf(“\nMove the top plate of %c to %c”,chSour,chDest);<br>}<br>Hanoi(int n,char chA,char chB,char chC)<br>{<br>    /<em>检查当前的盘子数量是否为1</em>/<br>    /<em>盘子数量为1，打印结果后，不再继续进行递归</em>/<br>    if(n==1)Move(chA,chC);<br>    /<em>盘子数量大于1，继续进行递归过程</em>/<br>    else<br>    {<br>        Hanoi(n-1,chA,chC,chB);<br>        Move(chA,chC);<br>        Hanoi(n-1,chB,chA,chC);<br>    }<br>}<br>main()<br>{<br>    int n ;<br>    /<em>输入盘子的数量</em>/<br>    printf(“\nPlease input number of the plates: “);<br>    scanf(“%d”,&amp;n);<br>    printf(“\nMoving %d plates from A to C:”,n);</p>
+<pre><code>/*调用函数计算，并打印输出结果*/
+Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
+</code></pre><p>}</p>
+<p>如果n为4，程序输出结果为：<br>Moving 4 plates from A to C:<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of C to A<br>Move the top plate of C to B<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of B to A<br>Move the top plate of C to A<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C</p>
+<p>相关文献</p>
+<p>万方数据期刊论文一类多折叠环面混沌吸引子 - 物理学报 - 200453 ( 7 )<br>万方数据期刊论文基于二叉树思想的任意多边形三角剖分递归算法 - 武汉大学学报(信息科学版) - 200227 ( 5 )<br>万方数据期刊论文基于受控递归算法的时频分析 - 电子科技大学学报 - 201140 ( 5 )<br>经典计算机算法介绍</p>
+<p>算法是计算机科学中一门古老而常新的学科，就像一个人的思维能力一样，其重要性对于计算机性能的分析、应用与改进有着至不言而喻的地位。而随着计 算机科学技术的发展，新的算法也随着新的应用渐渐出现，但总有一些算法由于其本身具有的特点以及对计算机科学发展做出的卓越贡献而成为经典，本任务就是要 介绍这些经典算法。<br>Dijkstra算法<br>哈希表算法<br>贪婪算法<br>随机化算法<br>排序算法    分治算法<br>最优二叉树算法<br>回溯算法<br>舍伍德算法<br>拉斯维加斯算法    分支界限算法<br>递归算法<br>统计算法<br>动态规划算法<br>流水线算法    最大流<br>最小费用流<br>蒙特卡洛算法<br>搜索算法<br>单纯行算法<br>附图</p>
+<p>为本词条添加视频和组图相关影像</p>
+<p>开放分类：我来补充<br>数学术语 术语 科学 自然科学 计算机术语 计算机科学技术名词 计算机算法 计算机编程<br>互动百科的词条（含所附图片）系由网友上传，如果涉嫌侵权，请与客服联系，我们将按照法律之相关规定及时进行处理。未经许可，禁止商业网站等复制、抓取本站内容；合理使用者，请注明来源于www.baike.com。</p>
+<p>欢迎加入互动百科大家庭，和互动百科超过770万专业认证智愿者一起，分享你的真知灼见。</p>
+<p>如果你对大家的讨论有兴趣，可以点击“赞”和“鄙视”的大拇指，来表达你的看法。</p>
+<p>讨论区的精彩内容，会被用户顶到最上面，让更多人感受到大家的推荐，你注意到了吗？</p>
+<p>登录后使用互动百科的服务，将会得到个性化的提示和帮助，还有机会和770多万专业认证智愿者沟通。</p>
+<p>互动百科用户登录<br>您也可以使用以下网站账号登录：<br>人人网账号登录<br>QQ账号登录<br>新浪微博账户登录<br>此词条还可添加  信息模块<br> 递归算法图册<br>WIKI热度</p>
+<p>该词条未被认领，赶快点击认领吧！<br>编辑次数：13次 历史版本<br>参与编辑人数：11位<br>最近更新时间：2013-11-13 10:48:11<br>贡献光荣榜</p>
+<p>更多<br>创建者：不*死鸟<br>我爱你的眼睛</p>
+<p>中国语言文学副教授<br>無國界</p>
+<p>大学生<br>hzwjh</p>
+<p>大学生<br>绿领巾</p>
+<p>中国语言文学讲师<br>宫华</p>
+<p>大学生<br>相关词条</p>
+<p>编辑<br>JDBC<br>java数据库连接<br>plascal教程<br>递归可枚举集<br>EOS<br>PHP<br>可计算性理论<br>nesC<br>anaconda<br>pascal语言教…<br>分类热词</p>
+<p>函数<br>中央处理器<br>五角星<br>物理学<br>运算放大器<br>质量<br>圆周率<br>三角函数<br>压力<br>相对论<br>请提意见<br>帮助中心<br>服务热线：86-10-62303127（9:00-21:00）<br>关于我们<br>新闻中心<br>服务协议<br>互动合作<br>友情链接<br>招聘信息<br>联系我们<br>站点地图<br>知识官网<br>百科营销<br>互动在线 版权所有 Powered by HDwiki © 2015</p>
+<p>编辑<br>分享<br>赞</p>
+<p>扫描二维码用手机浏览词条<br>保存二维码可印刷到宣传品<br>你感兴趣</p>
+<p>JDBC JDBC<br>递归可枚举集 递归可枚举集<br>EOS EOS<br>PHP PHP<br>关闭</p>
 
       
 
@@ -225,58 +223,7 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/菜单循环-金字塔-函数重载-递归-闰年判断/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/认识c+结构，和输入输出语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 1.c++包含两种 core c++（主要是指不依赖平台系统的标准c++）和uc++（unix下的c++）<br> 2.在linux的vi编辑器用常用set nonu来设置行号。三种退出vi编辑器方法（1.:wq2.:q!3.ZZ）</p>
-<ol>
-<li>chomd x+a + 文件名  修改文件权限<br>4.系统开发流程    开发~测试~维护~更新<br>5.内核core  外核shell<br>6.栈：取一部分，用一部分。比如生活中的商品  堆：可以随意的使用。比如生活中的空气<br>7.数制2进制（binart     0-1）8进制（0-7）10进制（decimal    0-9）16进制（hexadcimal0-f）数制的转换8（十进制） 1000（二进制）10（八进制）8（十六进制）<br>8.#include是引导文件    &lt;…&gt;是系统自带的头文件。”…”是程序员自己写的头文件<br>9.cout  -  console  （控制台）output（输出）<br>10.cout&lt;&lt;”23+6=”&lt;&lt;23+6&lt;&lt;endl;<br>11.-l  连接库文件  -L  连接库路径  同理-i连接头文件-I连接头文件路径</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/认识c+结构，和输入输出语句/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/C语言/百科图片IN词微百科科普汇名人百科有奖任务百科商城/">展开全文 >></a>
         </p>
       
 
@@ -336,126 +283,6 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/C语言/运算优先级--与或非/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Html/JS-之-jQuery--下拉框" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>获取下拉框的选中的值  // var sender_city= $(“#orderinfo-sender_city”).find(“option:selected”).text();<br>获取下拉框的value   //var sender_city = $(“#orderinfo-sender_city”).val();</p>
-<p>1、jquery获取当前选中select的text值 </p>
-<p>var checkText=$(“#slc1”).find(“option:selected”).text(); </p>
-<p>2、jquery获取当前选中select的value值 </p>
-<p>var checkValue=$(“#slc1”).val(); </p>
-<p>3、jquery获取当前选中select的索引值 </p>
-<p>var index=$(“#slc1 “).get(0).selectedIndex; </p>
-<p>4、jquery设置索引值为1的项为当前选中项 </p>
-<p>$(“#slc1 “).get(0).selectedIndex=1; </p>
-<p>5、jquery设置value值2的项为当前选中项 </p>
-<p>$(“#slc1 “).val(2); </p>
-<p>6、jquery设置text值为”青藤园”的项为当前选中项 </p>
-<p>$(“#slc1 option[text=’青园w’]”).attr(“selected”,true); </p>
-<p>7、为指定select下拉框追加一个option（追加到在末尾） </p>
-<p>$(“#slc2”).append(“”+i+””); </p>
-<p>8、为制定select下拉框插入一个option（插入到第一个位置） </p>
-<p>$(“#slc2”).prepend(“请选择”); </p>
-<p>9、jquery删除select下拉框的最后一个option </p>
-<p>$(“#slc2 option:last”).remove();</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/Html/JS-之-jQuery--下拉框/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Html/bootstrap3-0-之栅格系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>文章来自于<br><a href="http://jingyan.baidu.com/article/6f2f55a1852aa1b5b83e6c5a.html" target="_blank" rel="external">百度经验</a><br><a href="http://v3.bootcss.com/css/#grid" target="_blank" rel="external">bootstrap官方</a></p>
-<p>col-xs-     超小屏幕 手机 (&lt;768px)<br>col-sm-    小屏幕 平板 (≥768px)<br>col-md-   中等屏幕 桌面显示器 (≥992px)<br>col-lg-     大屏幕 大桌面显示器 (≥1200px)<br>col-md-offset-4  偏移量同理</p>
-<p>我们都知道bootstrap3.0使用了四种栅格选项来形成栅格系统，这四种选项在官网上的介绍如下图，很多人不理解，这里跟大家详解一下四种栅格选项之间的区别，其实区别只有一条就是适合不同尺寸的屏幕设备。我们看class前缀这一项，我们姑且以前缀命名这四种栅格选项，他们分别是col-xs ,col-sm,col-md,col-lg，我们懂英文的就知道，lg是large的缩写，md是mid的缩写，sm是small的缩写，xs是<em>**的缩写。这样命名就体现了这几种class适应的屏幕宽度不同。下面我们分别介绍这几种class的特点。<img src="http://upload-images.jianshu.io/upload_images/1764965-4c96c268393a6aff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>col-xs类，用法是&lt;div class=”col-xs-</em>“&gt;。它星号代表1–12的数字。我们知道栅格系统总共有12列，我们在这里使用数字几就代表着该div占用几列的宽度。假如我们在给超级小屏幕开发界面，那么我们使用该类，该类没有任何行为，不管屏幕小到多少，都不会改变div的布局。</p>
-<p>col-sm类，用法是<div class="col-sm-*">。数字的意义同上，但是该类适合屏幕宽度为750的设备，如果在屏幕宽度小于750的设别上，该div就会水平堆叠。这是在超过750屏幕上的样式：<img src="http://upload-images.jianshu.io/upload_images/1764965-5d0fa7f6b8accf91.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">这是在低于750屏幕上的样式：<img src="http://upload-images.jianshu.io/upload_images/1764965-f256e40bc382cb68.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></div></p>
-<p>col-md类：该类适合970像素以上屏幕。通上面讲的道理一样，假如使用屏幕尺寸小于970像素的设备查看网页，div就会垂直堆叠。这是大于970像素的设备：<img src="http://hiphotos.baidu.com/exp/pic/item/62667cd0f703918f92b0d48f533d269758eec4d7.jpg" alt="">这是小于970像素的设备：<img src="http://hiphotos.baidu.com/exp/pic/item/476217f7905298223058d086d5ca7bcb0b46d4c9.jpg" alt=""></p>
-<p>col-lg的行为也是一样的，这里就不演示了</p>
-<p>下面说一下如何组合使用这几个类。我们使用<div class="col-sm-10 col-md-8">这样的方式来表示：在中等屏幕设备上该div占用8列的宽度；在小屏幕上该div占用10列的宽度。</div></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/Html/bootstrap3-0-之栅格系统/">展开全文 >></a>
         </p>
       
 
@@ -567,6 +394,225 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
 
   
+    <article id="post-Html/JS-之-jQuery--下拉框" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>获取下拉框的选中的值  // var sender_city= $(“#orderinfo-sender_city”).find(“option:selected”).text();<br>获取下拉框的value   //var sender_city = $(“#orderinfo-sender_city”).val();</p>
+<p>1、jquery获取当前选中select的text值 </p>
+<p>var checkText=$(“#slc1”).find(“option:selected”).text(); </p>
+<p>2、jquery获取当前选中select的value值 </p>
+<p>var checkValue=$(“#slc1”).val(); </p>
+<p>3、jquery获取当前选中select的索引值 </p>
+<p>var index=$(“#slc1 “).get(0).selectedIndex; </p>
+<p>4、jquery设置索引值为1的项为当前选中项 </p>
+<p>$(“#slc1 “).get(0).selectedIndex=1; </p>
+<p>5、jquery设置value值2的项为当前选中项 </p>
+<p>$(“#slc1 “).val(2); </p>
+<p>6、jquery设置text值为”青藤园”的项为当前选中项 </p>
+<p>$(“#slc1 option[text=’青园w’]”).attr(“selected”,true); </p>
+<p>7、为指定select下拉框追加一个option（追加到在末尾） </p>
+<p>$(“#slc2”).append(“”+i+””); </p>
+<p>8、为制定select下拉框插入一个option（插入到第一个位置） </p>
+<p>$(“#slc2”).prepend(“请选择”); </p>
+<p>9、jquery删除select下拉框的最后一个option </p>
+<p>$(“#slc2 option:last”).remove();</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/Html/JS-之-jQuery--下拉框/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mysql/mysql-时间管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://blog.csdn.net/winter13292/article/details/7888358" target="_blank" rel="external">http://blog.csdn.net/winter13292/article/details/7888358</a><br><a href="http://stackoverflow.com/questions/4654961/mysql-only-within-the-current-month" target="_blank" rel="external">获取这个月起始时间</a></p>
+<p><a href="http://www.w3resource.com/mysql/date-and-time-functions/mysql-month-function.php" target="_blank" rel="external">数据库Date操作</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/Mysql/mysql-时间管理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C语言/菜单循环-金字塔-函数重载-递归-闰年判断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#include <iostream></iostream></p>
+<p>#include <ctime></ctime></p>
+<p>using namespace std;<br>//①    菜单 的技巧<br>/*void meun_information( )<br>{<br>    int n;<br>    cout&lt;&lt;”1–存款”&lt;&lt;endl;</p>
+<p> cout&lt;&lt;”2–取款”&lt;&lt;endl;</p>
+<p> cout&lt;&lt;”3–转账”&lt;&lt;endl;         //语句块的分割</p>
+<p> cout&lt;&lt;”4–查询”&lt;&lt;endl;</p>
+<p>  cout&lt;&lt;”5–退出”&lt;&lt;endl;</p>
+<p>  cout&lt;&lt;”please enter a number you want to enter !”&lt;<endl; cin="">&gt;n;<br> switch(n)<br> {<br> case 1: cout&lt;&lt;”1 –存款”&lt;&lt;endl; break;</endl;></p>
+<p> case 2: cout&lt;&lt;”2 –取款”&lt;&lt;endl; break;</p>
+<p> case 3: cout&lt;&lt;”3 –转账”&lt;&lt;endl; break;</p>
+<p> case 4: cout&lt;&lt;”4 –查询”&lt;&lt;endl; break;</p>
+<p> case 5: cout&lt;&lt;”5 –退出”&lt;&lt;endl; break;</p>
+<p> default: cout&lt;&lt;”输入错误，重新输入”&lt;&lt;endl; meun_information( );break;  //输入错误时，返回菜单。。<br> }<br>}</p>
+<p><em>/<br>//②简单for 循环<br>/</em><br>void  for_loop()<br>{<br> int i,j;<br> cout&lt;&lt;”please input you want to input the number of times!”&lt;<endl; cin="">&gt;j;<br> for(i=1;i&lt;=j;i++)<br> cout&lt;<i<<"次"<<endl; }="" *="" ③="" 机器睡眠设置="" *int="" time_sleep(int="" n)="" {="" while(n="">0)<br> {<br> long t = time(NULL);<br> t += 1;<br> while(t&gt;time(NULL));<br> cout&lt;&lt;t/CLOCKS_PER_SEC&lt;&lt;endl;<br> n–;<br> }<br>}<em>/<br>/</em>运算符的概念<br>①改变变量的值  ++后  –后  =<br>②结果和变量一致    前++ 前–</i<<"次"<<endl;></endl;></p>
+<p> 控制语句<br> ①条件if —else<br> ②分支 switch（int、字符、bool、enum）<br> ③循环  for    while<br> ④跳转 break、goto loop   　continue语句和break语句的区别是：<br>continue语句只结束本次循环，而不终止整个循环的执行。而break语句则是结束整个循环过程，不再判断执行循环的条件是否成立。</p>
+<p><em>/<br>//四：金字塔    设计<br>/</em>int pyramid(int n)<br>{<br> int i;<br> int j;<br> int row=n;<br> int space;<br> for(i=1; i&lt;=row; i++)<br> {<br>   space = row - i;<br>     for(;space&gt;=0;space–)<br>     {                                 //空格语句块  </p>
+<pre><code>  cout&lt;&lt;&apos; &apos;;
+ }
+
+  for(j=1;j&lt;=i;j++)
+     {
+      cout&lt;&lt;j;      //打印前半部分
+      }
+      for(j=i-1;j&gt;0;j--)
+         {
+      cout&lt;&lt;j;     //打印 后半部分    唉，这部分想了好久。居然没想到。。
+      }
+cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
+</code></pre><p>}<br>}<br><em>/<br>//五：逻辑短路的理解  判断闰年<br>/</em><br>int judge_leep_year(int n)<br>{<br> int i;<br> int j=1;<br> for(i=0;i&lt;=n;i++)<br> {<br>//    if(i%400==0||(i%4==0&amp;&amp;i%100!=0))         //逻辑短路问题 ||前面为1  &amp;&amp;前面为0  发生逻辑短路<br> if((i%4==0&amp;&amp;i%100!=0)||i%400==0)            //如果一年能被4整除并且不能被100整除，或者能被400整除，那么这一年就是闰年。<br> {<br> cout&lt;&lt;i&lt;&lt;endl;j++;}<br> }<br> cout&lt;&lt;j&lt;&lt;endl;<br>}<br>*/</p>
+<p>//六：函数重载</p>
+<p>/*</p>
+<p>//函数重载 ：相同的函数名，不同的参数表 eg int f_add(a)；和  int f_add(int a,int b)       个数 类型 （double 和int、float）<br>int f_add(int x)<br>{</p>
+<p> return x;<br>}</p>
+<p>int f_add(double x)</p>
+<p>{<br>  return x;<br>}</p>
+<p>int f_add(int x,int y)<br>{<br> return x+y;<br>}</p>
+<p>double f_add(int x, double y)<br>{</p>
+<p> return (double)x+y;<br>}<br>*/</p>
+<p> // 阶乘<br> /<em><br>double factorial(int x){<br> if(x&lt;0)<br> cout&lt;&lt;”不存在负数的阶乘”&lt;&lt;endl;<br> else if(x==1||x==0)<br> return 1;<br> else<br> return x</em>factorial(x-1);//一定要分清是x<em>factorial（x-1），而不是factorial（x）</em>factorial（x-1）<br> }</p>
+<p>*/</p>
+<p>main()<br>{<br>  //  int n;<br>//    meun_information();  //菜单语句块<br>//    for_loop();          //循环语句块<br>//    cout&lt;&lt;”please input you want to sleep time (s)”&lt;<endl; cout<<"please="" input="" how="" many="" years="" leep="" year="" "<<endl;="" cin="">&gt;n;<br>//    time_sleep(n);<br>//    pyramid(n);        //金字塔函数</endl;></p>
+<p>//    judge_leep_year(n);  //判断闰年</p>
+<p>/<em><br>int x,y;<br>double z;<br>cout&lt;&lt;f_add(3)&lt;&lt;endl;<br>cout&lt;&lt;f_add(3.00999)&lt;&lt;endl;<br>cout&lt;&lt;f_add(2,3.000099)&lt;&lt;endl;<br>cout&lt;&lt;f_add(3,5)&lt;&lt;endl;
+</em>/</p>
+<p>/<em><br>          int n;<br>          cin&gt;&gt;n;<br>          cout&lt;&lt;n&lt;&lt;”! = “&lt;&lt;factorial(n)&lt;&lt;endl;
+</em>/<br> return 0 ;<br>}</p>
+<p>#include<iostream></iostream></p>
+<p>using namespace std;</p>
+<p>/<em>int  return_number()     //int 类型能返回值到调用函数的位置，void不能返回参数<br>{<br> int n;<br> cin&gt;&gt;n;<br> return n;<br>}
+</em>/</p>
+<p>/*<br>简单的四则运算<br>int f_add(int x,int y)<br>{<br> int c;<br> c = x+y;<br> return c;            //只要是int 定义的函数最后一致以return 结尾。。<br>}</p>
+<p>int f_reduce(int x,int y)<br>{<br> int c;<br> c = x - y;<br> return c;<br>}</p>
+<p>int f_mul(int x,int y)<br>{<br> int c ;<br> c = x*y;<br> return c;<br>}</p>
+<p>int f_division(int x,int y)<br>{<br> int c;<br> c = x%y;<br> return c;<br>}<br>//   简单的四则运算    利用语句块。<br>int main()<br>{<br>//    cout&lt;&lt;return_number()&lt;&lt;endl;<br>int a,b,c;<br>do{</p>
+<p> cout&lt;&lt;”please enter number cloose you want to function! “&lt;<endl; cout<<"1--add_function"<<endl;="" cout<<"2--reduce_function"<<endl;="" cout<<"3--mul_function"<<endl;="" cout<<"4--diviction"<<endl;="" cin="">&gt;c;<br>}while(c&gt;4&amp;&amp;c&lt;1);</endl;></p>
+<p>cout&lt;&lt;”please input two number! “&lt;<endl; cin="">&gt;a&gt;&gt;b;<br>    switch(c){<br>    case 1:cout&lt;&lt;a&lt;&lt;”+”&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_add(a,b)&lt;&lt;endl;;break;<br>    case 2:cout&lt;&lt;a&lt;&lt;”-“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_reduce(a,b)&lt;&lt;endl;;break;<br>    case 3:cout&lt;&lt;a&lt;&lt;”<em>“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_mul(a,b)&lt;&lt;endl;;break;<br>    case 4:cout&lt;&lt;a&lt;&lt;”/“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_division(a,b)&lt;&lt;endl;;break;<br>    default:cout&lt;&lt;”等待更新其他功能！”&lt;&lt;endl;break;<br>}<br>} </em>/</endl;></p>
+<p>//函数重载 ：相同的函数名，不同的参数表 eg int f_add(a)；和  int f_add(int a,int b)       个数 类型 （double 和int、float） </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/C语言/菜单循环-金字塔-函数重载-递归-闰年判断/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Mysql/数据库主键设置为int(11)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -617,13 +663,12 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
 
   
-    <article id="post-Mysql/数据库建表-考虑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Html/常用语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
-<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[CREATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) [TABLE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) `pocket_It`.`personal` ( `id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; AUTO_INCREMENT COMMENT &apos;主键，自增id&apos; , `avatar_url`[VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;头像url&apos; , `wechat_id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; COMMENT &apos;wechat表id&apos; , `name` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(50) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;用户姓名和微信昵称数据类型一致&apos; , `voice_url` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html)utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice url语音&apos; ,`voice_add_time` [BIGINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(13) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice 添加时间&apos; ,`birthday` [DATETIME](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;生日（年月日）&apos; , `gender`[BOOLEAN](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) FALSE COMMENT &apos;性别：0:&quot;男&quot; 1:&quot;女&quot;&apos; ,`education` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;学历：0:&quot;高中&quot; 1:&quot;大专&quot; 2:&quot;本科&quot; 3:&quot;硕士&quot; 4:&quot;博士&quot;&apos; , `seniority` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;工作年限&apos; , `salary` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL[DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;500&apos; COMMENT &apos;期望薪资&apos; , `position` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;期望职位&apos; ,`specialty` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;个人特长标签&apos; , `phone` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(20) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULLCOMMENT &apos;联系电话&apos; , `qrcode` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(400) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8[COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;二维码的url&apos; ) ENGINE= InnoDB;</div><div class="line"></div><div class="line">关闭</div></pre></td></tr></table></figure></p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">外链和项目内部链接</div><div class="line">&lt;a href=&quot;http://sender.bntake.com&quot; class=&quot;btn btn-default&quot; style=&quot;color:#ff6c2c;&quot;&gt;&lt;?= Yii::t(&apos;app&apos;, &apos;Place_Order_Web&apos;); ?&gt; &lt;span class=&quot;glyphicon glyphicon-send&quot;&gt;&lt;/span&gt;&lt;/a&gt;</div><div class="line">&lt;a href=&quot;/site/lookforbarcode&quot; class=&quot;btn btn-default&quot; style=&quot;color:#ff6c2c;&quot;&gt;&lt;?= Yii::t(&apos;app&apos;, &apos;Check_Order&apos;); ?&gt; &lt;span class=&quot;glyphicon glyphicon-send&quot;&gt;&lt;/span&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
 
       
 
@@ -636,7 +681,7 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/Mysql/数据库建表-考虑/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/Html/常用语法/">展开全文 >></a>
         </p>
       
 
@@ -666,12 +711,13 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
 
   
-    <article id="post-Html/常用语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mysql/数据库建表-考虑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">外链和项目内部链接</div><div class="line">&lt;a href=&quot;http://sender.bntake.com&quot; class=&quot;btn btn-default&quot; style=&quot;color:#ff6c2c;&quot;&gt;&lt;?= Yii::t(&apos;app&apos;, &apos;Place_Order_Web&apos;); ?&gt; &lt;span class=&quot;glyphicon glyphicon-send&quot;&gt;&lt;/span&gt;&lt;/a&gt;</div><div class="line">&lt;a href=&quot;/site/lookforbarcode&quot; class=&quot;btn btn-default&quot; style=&quot;color:#ff6c2c;&quot;&gt;&lt;?= Yii::t(&apos;app&apos;, &apos;Check_Order&apos;); ?&gt; &lt;span class=&quot;glyphicon glyphicon-send&quot;&gt;&lt;/span&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
+        <p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
+<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[CREATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) [TABLE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) `pocket_It`.`personal` ( `id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; AUTO_INCREMENT COMMENT &apos;主键，自增id&apos; , `avatar_url`[VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;头像url&apos; , `wechat_id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; COMMENT &apos;wechat表id&apos; , `name` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(50) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;用户姓名和微信昵称数据类型一致&apos; , `voice_url` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html)utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice url语音&apos; ,`voice_add_time` [BIGINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(13) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice 添加时间&apos; ,`birthday` [DATETIME](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;生日（年月日）&apos; , `gender`[BOOLEAN](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) FALSE COMMENT &apos;性别：0:&quot;男&quot; 1:&quot;女&quot;&apos; ,`education` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;学历：0:&quot;高中&quot; 1:&quot;大专&quot; 2:&quot;本科&quot; 3:&quot;硕士&quot; 4:&quot;博士&quot;&apos; , `seniority` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;工作年限&apos; , `salary` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL[DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;500&apos; COMMENT &apos;期望薪资&apos; , `position` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;期望职位&apos; ,`specialty` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;个人特长标签&apos; , `phone` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(20) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULLCOMMENT &apos;联系电话&apos; , `qrcode` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(400) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8[COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;二维码的url&apos; ) ENGINE= InnoDB;</div><div class="line"></div><div class="line">关闭</div></pre></td></tr></table></figure></p>
 
       
 
@@ -684,7 +730,7 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/Html/常用语法/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/Mysql/数据库建表-考虑/">展开全文 >></a>
         </p>
       
 
@@ -970,7 +1016,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -982,7 +1028,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">

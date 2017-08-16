@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Luck、Time">
 <meta property="og:url" content="http://yoursite.com/page/17/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Luck、Time">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,36 +151,132 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-C语言/08-类的使用---时钟倒计时" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-融资学习/一个好的项目参考条件和注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/融资学习/一个好的项目参考条件和注意事项/">祭祀优势分析</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/融资学习/一个好的项目参考条件和注意事项/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h2><p>一个好的产品，应该符合行业发展趋势。有着广阔的市场。。</p>
+<h2 id="二："><a href="#二：" class="headerlink" title="二："></a>二：</h2><p>好的产品要有独特的创意，帮助客户解决切实存在的问题。</p>
+<h2 id="三："><a href="#三：" class="headerlink" title="三："></a>三：</h2><p>营销成本低，如果一个产品的营销成本过高，只能说明产品本身不受欢迎。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/融资学习/一个好的项目参考条件和注意事项/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C语言/09-类的继承-和--分数化简，计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#include <iostream></iostream></p>
-<p>#include <ctime> //时钟倒计时<br>using namespace std;</ctime></p>
-<p>class Clock<br>{<br> int h;            //默认为私有类   ，宗旨 数据成员保存成私有的，函数是共有的。。保存数据的安全<br> int m;<br> int s;</p>
-<p>public:                      //类函数共有的<br> void set(int ho, int mi, int se);<br> void tick();<br> void show();<br> void run();<br>};</p>
-<p>void Clock :: set(int ho, int mi, int se)<br>{<br> h = ho;<br> m = mi;                     //对类函数的定义<br> s = se;<br>}</p>
-<p>void Clock :: tick()                //类函数的倒计时操作<br>{<br>//    long t = time(NULL);<br> time_t t = time(NULL);<br> while(time(NULL) == t);<br> if(–s &lt; 0)<br> {<br> s = 59;<br> if(–m &lt; 0)<br>  {<br>  m = 59;<br>   –h;<br>  }</p>
-<p> }</p>
-<p>}</p>
-<p>void Clock :: show() //结构体内部函数的定义<br>{<br> cout &lt;&lt; ‘\r’; //显示的值自动在前面<br> if(h &lt; 10) cout &lt;&lt; 0;<br> cout &lt;&lt; h &lt;&lt; “:”;<br> if(m &lt; 10) cout &lt;&lt; 0;<br> cout &lt;&lt; m &lt;&lt; “:”;<br> if(s &lt; 10) cout &lt;&lt; 0;<br>//    cout &lt;&lt; s &lt;&lt; flush &lt;&lt;endl; //缓存区读出<br> cout &lt;&lt; s &lt;&lt; flush; //缓存区读出   结果不换行<br>}</p>
-<p>void Clock :: run()<br>{<br>//    for(; h!=0 || m!= 0 || s! =0 ;)<br> while(h!=0 || m!=0 || s!=0)   //只要有1个不为0，就继续循环 从左至右，有一个正确就继续循环。<br> //while(h!=0 | m!=0 | s!=0)<br> {<br> tick();<br> show();       //类的实现<br> }<br> cout &lt;&lt; “time out !” &lt;&lt; endl;<br>}</p>
-<p>int main()<br>{<br> Clock c;   //使用对象<br> c.set(0,2,23);  //这是类的输出。。<br> c.run();<br>}</p>
-<p>//———————————————————————————————–<br>//———————————————————————————————–<br>//———————————————————————————————–<br>//————————————————修改后—————————————-<br>//————————————–可以输入值，进行倒计时——————————–<br>//———————主要修改对私有类的调用，采用共有类对私有类函数的调用————–</p>
+        <p>// fraction     ————-分数化简</p>
 <p>#include <iostream></iostream></p>
-<p>#include <ctime> //时钟倒计时<br>using namespace std;</ctime></p>
-<p>class Clock<br>{<br> int h;            //默认为私有类   ，宗旨 数据成员保存成私有的，函数是共有的。。保存数据的安全<br> int m;<br> int s;<br> void fun();<br>public:                      //类函数共有的<br> //void set(int ho, int mi, int se);<br> void set();</p>
-<p> void tick();<br> void show();<br> void run();<br>};</p>
-<p>void Clock :: fun()<br>{<br>cin &gt;&gt; h &gt;&gt; m &gt;&gt; s;<br>//set(h,m,s); //私有类函数不能被主函数调用，需要共有类中间接调用<br>}<br>/<em><br>void Clock :: set(int ho, int mi, int se)<br>{<br> h = ho;<br> m = mi;                     //对类函数的定义<br> s = se;<br>}
-</em>/<br>//————————————————<br>void Clock :: set()<br>{<br> fun();<br>}<br>//————————————————-<br>void Clock :: tick()                //类函数的倒计时操作<br>{<br>//    long t = time(NULL);<br> time_t t = time(NULL);<br> while(time(NULL) == t);<br> if(–s &lt; 0)<br> {<br> s = 59;<br> if(–m &lt; 0)<br>  {<br>  m = 59;<br>   –h;<br>  }</p>
+<p>#include <stdlib.h><br>using namespace std;</stdlib.h></p>
+<p>class Math       //—— 数学类为父类<br>{<br>private :<br>public:<br> double sum;        //—–加法<br> double dif;          //–减法<br> double product;    //乘法<br> double divide;    //除法<br>};</p>
+<p>class Fraction : public Math<br>{<br> int molecule;<br> int denominator;<br>public:<br> void set(int a,int b)  //———-赋值，一会试试引用<br> {<br> molecule = a;<br> denominator = b;</p>
+<p> }<br> void simplify();</p>
+<p>};</p>
+<p>void Fraction :: simplify()<br>{<br> int integer;//—–整数部分<br> /<em>divide = (double)molecule / (double)denominator ;<br> cout &lt;&lt; divide &lt;&lt; endl;
+ </em>/<br> if((double)molecule / (double)denominator &lt; 0)        //———-判断两个数的商是正数还负数<br>  cout &lt;&lt; “ - “ ;</p>
+<p>//———————————————————-<br> molecule = molecule &gt; 0 ? molecule : -molecule ;           //———-将两个数变成绝对值<br>  denominator= denominator &gt; 0 ? denominator : -denominator;</p>
+<p>   if(molecule &gt; denominator)<br> {<br>  integer = molecule / denominator;<br>  molecule = molecule % denominator;           //将假分数变成带分数<br>  cout &lt;&lt; integer&lt;&lt;”  “;<br> }<br> //——————————————————————-<br>  for(int i = molecule; denominator != 0 &amp;&amp; i &gt;= 1; i–) //分母不能为零，并且约分<br> {<br>  if( molecule % i == 0 &amp;&amp; denominator % i == 0 )<br>  {<br>   molecule /= i;<br>   denominator /= i;<br>  }<br> }<br> cout &lt;&lt; molecule&lt;&lt;”/“ &lt;&lt;denominator&lt;&lt; endl;<br>}</p>
+<p>int main()<br>{<br> int a,b;<br> cin &gt;&gt;a&gt;&gt;b;<br>Fraction A;<br>A.set(a,b);<br>A.simplify();<br>}<br>//===========================================<br>//===========================================<br>//============方法二： 继承 重载 构造函数================</p>
+<p>#include <iostream></iostream></p>
+<p>#include <cstring><br>using namespace std;</cstring></p>
+<p>class Frac          //—————–父类<br>{<br> int n;<br> int d;</p>
+<p>public:<br> Frac():n(0),d(1){}<br> Frac(int an, int ad):n(an),d(ad)<br> {<br> reduce();                        //约分<br> }</p>
+<p> void reduce()<br> {<br>  if( d<0 )="" {d="-d;n" =="" -n;}="" 分母不能小于等于="" if(="" d="=0" {="" cout="" <<="" "d="=0!!" \n="" error!!"="" <<endl;}="" int="" absn="(n<0" ?="" -n:="" n);="" 分子变成正数="" for(int="" i="d;">1; i–)<br>  {<br>   if(absn % i == 0&amp;&amp; d % i ==0)<br>   {<br>    n/=i; d/=i;<br>    break;<br>   }<br>  }<br> }//计算机在运行时，先来看看各类函数。//成员函数中，可以直接访问成员函数。。在类外部时，需要传入参数。<br> void show()<br> {<br> cout &lt;&lt; n &lt;&lt; “/“ &lt;&lt; d &lt;&lt;endl;<br> }<br> //——————————<br> double value()<br> {<br> return (double)n/d;<br> }</0></p>
+<p>};<br>//========================================子类，带分数<br>class Dai : public Frac<br>{<br> int i;<br>public :<br> Dai() :i(0){}//无参构造函数<br> Dai(int ai,int an,int ad) : i(ai),Frac(an,ad)//有参构造函数<br> {<br> }<br> void show()<br> {<br> cout &lt;&lt; i &lt;&lt; “  “;<br> Frac ::show();</p>
 <p> }</p>
+<p> double value()<br> {<br>  return i+Frac::value();<br> }</p>
+<p>};</p>
+<p>int  main()<br>{<br>Frac  f1(12,16);<br>Frac f2;<br>f1.show();<br>cout &lt;&lt; f1.value() &lt;&lt; endl;</p>
+<p>f2.show();<br>cout &lt;&lt; f2.value() &lt;&lt; endl;</p>
+<p>Dai f3(3,3,5);<br>Dai f4;<br>f3.show();<br>cout &lt;&lt; f3.value() &lt;&lt; endl;</p>
+<p>f4.show();<br>cout &lt;&lt; f4.value() &lt;&lt; endl;<br>}</p>
+<p>//========================================<br>//========================================<br>//========================================</p>
+<p>#include <iostream></iostream></p>
+<p>using namespace std;</p>
+<p>class Vehilce<br>{<br>protected :<br>int wheels;        //车轮个数<br>double weight;    //车重<br>public:<br> Vehilce():wheels(0),weight(0){}<br> Vehilce(int wh,double we):wheels(wh),weight(we){}<br> ~Vehilce(){<br> cout &lt;&lt; “~Vehilce()” &lt;&lt; endl;<br> }<br> virtual void show() = 0;<br>} ;</p>
+<p>class Car :public Vehilce<br>{<br>int passengers;    //承载人数<br>public:<br> Car(int pa,int wh,double we) : passengers(pa),Vehilce(wh,we){}</p>
+<p> Car() : passengers(0){}<br> ~Car(){<br> cout &lt;&lt; “~Car()” &lt;&lt;endl;<br> }<br> void show()<br> {<br> cout &lt;&lt; “ Car—–” &lt;&lt;endl;<br> }<br>};</p>
+<p>class Truck :public Vehilce<br>{<br>int passengers;      //承载人数<br>double payload;    //承载重量<br>public:<br> Truck(int pa,double pay ,int wh,double we) : passengers(pa),payload(pay),Vehilce(wh,we){}</p>
+<p> Truck() : passengers(0),payload(0){}<br> ~Truck(){<br> cout &lt;&lt; “~Truck()” &lt;&lt;endl;<br> }<br> void show()<br> {<br> cout &lt;&lt; “ Truck()—–” &lt;&lt;endl;<br> }<br>};<br>int main(int argc,char *argv[])<br>{<br>Truck t(4,8,3,4);<br>t.show();<br>Car c(3,NULL,5);<br>c.show();<br>Car (3,NULL,5);</p>
 <p>}</p>
-<p>void Clock :: show() //结构体内部函数的定义<br>{<br> cout &lt;&lt; ‘\r’; //显示的值自动在前面<br> if(h &lt; 10) cout &lt;&lt; 0;<br> cout &lt;&lt; h &lt;&lt; “:”;<br> if(m &lt; 10) cout &lt;&lt; 0;<br> cout &lt;&lt; m &lt;&lt; “:”;<br> if(s &lt; 10) cout &lt;&lt; 0;<br>//    cout &lt;&lt; s &lt;&lt; flush &lt;&lt;endl; //缓存区读出<br> cout &lt;&lt; s &lt;&lt; flush; //缓存区读出   结果不换行<br>}</p>
-<p>void Clock :: run()<br>{</p>
-<p>//    for(; h!=0 || m!= 0 || s! =0 ;)<br> while(h!=0 || m!=0 || s!=0)   //只要有1个不为0，就继续循环 从左至右，有一个正确就继续循环。<br> //while(h!=0 | m!=0 | s!=0)<br> {<br> tick();<br> show();       //类的实现<br> }<br> cout &lt;&lt; “time out !” &lt;&lt; endl;<br>}</p>
-<p>int main()<br>{<br> Clock c;   //使用对象<br> //cout &lt;&lt; “please time “ &lt;&lt; endl;<br> //cin &gt;&gt; c.h &gt;&gt; c.m &gt;&gt; c.s ; //为私有类，该怎么调用呢 只能通过共有函数的间接调用<br> //….间接调用它c.set(c.h,c.m,c.s);  //这是类的输出。。<br> c.set();<br> c.run();<br>}</p>
-<p>//函数名和类名相同，则为构造函数，构造函数在使用中自动调用。因此不用写返回类型<br>//Clock :: Clock(int ho, int mi, int se)<br>//在main中调用方法 Clock c(0,0,23);<br>//结构体内的成员全是公开的，而类只有在自己成员内部访问</p>
 
       
 
@@ -193,7 +289,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/08-类的使用---时钟倒计时/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/C语言/09-类的继承-和--分数化简，计算/">展开全文 >></a>
         </p>
       
 
@@ -293,45 +389,13 @@
 
 
   
-    <article id="post-C语言/09-类的继承-和--分数化简，计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-问题汇总/php问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>// fraction     ————-分数化简</p>
-<p>#include <iostream></iostream></p>
-<p>#include <stdlib.h><br>using namespace std;</stdlib.h></p>
-<p>class Math       //—— 数学类为父类<br>{<br>private :<br>public:<br> double sum;        //—–加法<br> double dif;          //–减法<br> double product;    //乘法<br> double divide;    //除法<br>};</p>
-<p>class Fraction : public Math<br>{<br> int molecule;<br> int denominator;<br>public:<br> void set(int a,int b)  //———-赋值，一会试试引用<br> {<br> molecule = a;<br> denominator = b;</p>
-<p> }<br> void simplify();</p>
-<p>};</p>
-<p>void Fraction :: simplify()<br>{<br> int integer;//—–整数部分<br> /<em>divide = (double)molecule / (double)denominator ;<br> cout &lt;&lt; divide &lt;&lt; endl;
- </em>/<br> if((double)molecule / (double)denominator &lt; 0)        //———-判断两个数的商是正数还负数<br>  cout &lt;&lt; “ - “ ;</p>
-<p>//———————————————————-<br> molecule = molecule &gt; 0 ? molecule : -molecule ;           //———-将两个数变成绝对值<br>  denominator= denominator &gt; 0 ? denominator : -denominator;</p>
-<p>   if(molecule &gt; denominator)<br> {<br>  integer = molecule / denominator;<br>  molecule = molecule % denominator;           //将假分数变成带分数<br>  cout &lt;&lt; integer&lt;&lt;”  “;<br> }<br> //——————————————————————-<br>  for(int i = molecule; denominator != 0 &amp;&amp; i &gt;= 1; i–) //分母不能为零，并且约分<br> {<br>  if( molecule % i == 0 &amp;&amp; denominator % i == 0 )<br>  {<br>   molecule /= i;<br>   denominator /= i;<br>  }<br> }<br> cout &lt;&lt; molecule&lt;&lt;”/“ &lt;&lt;denominator&lt;&lt; endl;<br>}</p>
-<p>int main()<br>{<br> int a,b;<br> cin &gt;&gt;a&gt;&gt;b;<br>Fraction A;<br>A.set(a,b);<br>A.simplify();<br>}<br>//===========================================<br>//===========================================<br>//============方法二： 继承 重载 构造函数================</p>
-<p>#include <iostream></iostream></p>
-<p>#include <cstring><br>using namespace std;</cstring></p>
-<p>class Frac          //—————–父类<br>{<br> int n;<br> int d;</p>
-<p>public:<br> Frac():n(0),d(1){}<br> Frac(int an, int ad):n(an),d(ad)<br> {<br> reduce();                        //约分<br> }</p>
-<p> void reduce()<br> {<br>  if( d<0 )="" {d="-d;n" =="" -n;}="" 分母不能小于等于="" if(="" d="=0" {="" cout="" <<="" "d="=0!!" \n="" error!!"="" <<endl;}="" int="" absn="(n<0" ?="" -n:="" n);="" 分子变成正数="" for(int="" i="d;">1; i–)<br>  {<br>   if(absn % i == 0&amp;&amp; d % i ==0)<br>   {<br>    n/=i; d/=i;<br>    break;<br>   }<br>  }<br> }//计算机在运行时，先来看看各类函数。//成员函数中，可以直接访问成员函数。。在类外部时，需要传入参数。<br> void show()<br> {<br> cout &lt;&lt; n &lt;&lt; “/“ &lt;&lt; d &lt;&lt;endl;<br> }<br> //——————————<br> double value()<br> {<br> return (double)n/d;<br> }</0></p>
-<p>};<br>//========================================子类，带分数<br>class Dai : public Frac<br>{<br> int i;<br>public :<br> Dai() :i(0){}//无参构造函数<br> Dai(int ai,int an,int ad) : i(ai),Frac(an,ad)//有参构造函数<br> {<br> }<br> void show()<br> {<br> cout &lt;&lt; i &lt;&lt; “  “;<br> Frac ::show();</p>
-<p> }</p>
-<p> double value()<br> {<br>  return i+Frac::value();<br> }</p>
-<p>};</p>
-<p>int  main()<br>{<br>Frac  f1(12,16);<br>Frac f2;<br>f1.show();<br>cout &lt;&lt; f1.value() &lt;&lt; endl;</p>
-<p>f2.show();<br>cout &lt;&lt; f2.value() &lt;&lt; endl;</p>
-<p>Dai f3(3,3,5);<br>Dai f4;<br>f3.show();<br>cout &lt;&lt; f3.value() &lt;&lt; endl;</p>
-<p>f4.show();<br>cout &lt;&lt; f4.value() &lt;&lt; endl;<br>}</p>
-<p>//========================================<br>//========================================<br>//========================================</p>
-<p>#include <iostream></iostream></p>
-<p>using namespace std;</p>
-<p>class Vehilce<br>{<br>protected :<br>int wheels;        //车轮个数<br>double weight;    //车重<br>public:<br> Vehilce():wheels(0),weight(0){}<br> Vehilce(int wh,double we):wheels(wh),weight(we){}<br> ~Vehilce(){<br> cout &lt;&lt; “~Vehilce()” &lt;&lt; endl;<br> }<br> virtual void show() = 0;<br>} ;</p>
-<p>class Car :public Vehilce<br>{<br>int passengers;    //承载人数<br>public:<br> Car(int pa,int wh,double we) : passengers(pa),Vehilce(wh,we){}</p>
-<p> Car() : passengers(0){}<br> ~Car(){<br> cout &lt;&lt; “~Car()” &lt;&lt;endl;<br> }<br> void show()<br> {<br> cout &lt;&lt; “ Car—–” &lt;&lt;endl;<br> }<br>};</p>
-<p>class Truck :public Vehilce<br>{<br>int passengers;      //承载人数<br>double payload;    //承载重量<br>public:<br> Truck(int pa,double pay ,int wh,double we) : passengers(pa),payload(pay),Vehilce(wh,we){}</p>
-<p> Truck() : passengers(0),payload(0){}<br> ~Truck(){<br> cout &lt;&lt; “~Truck()” &lt;&lt;endl;<br> }<br> void show()<br> {<br> cout &lt;&lt; “ Truck()—–” &lt;&lt;endl;<br> }<br>};<br>int main(int argc,char *argv[])<br>{<br>Truck t(4,8,3,4);<br>t.show();<br>Car c(3,NULL,5);<br>c.show();<br>Car (3,NULL,5);</p>
-<p>}</p>
+        <p><a href="http://www.jb51.net/article/70023.htm" target="_blank" rel="external">FastCGI 进程意外退出造成500错误</a><br><a href="http://www.tuicool.com/articles/6vaqIz" target="_blank" rel="external">Mac 缺少 ImageMagick安装(libpng)</a></p>
+<p><a href="http://www.jb51.net/article/57317.htm" target="_blank" rel="external">Invalid argument supplied for foreach() 强制转换类型</a><br><a href="">is not defined 多数情况是js内部的方法写错了，而非方法名未被定义</a><br><a href="https://segmentfault.com/q/1010000003958979/a-1020000003960387" target="_blank" rel="external">Operation not permitted   &amp;&amp; command not found</a><br>[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]</p>
 
       
 
@@ -344,7 +408,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/09-类的继承-和--分数化简，计算/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/问题汇总/php问题/">展开全文 >></a>
         </p>
       
 
@@ -459,55 +523,6 @@
 
 
   
-    <article id="post-问题汇总/php问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.jb51.net/article/70023.htm" target="_blank" rel="external">FastCGI 进程意外退出造成500错误</a><br><a href="http://www.tuicool.com/articles/6vaqIz" target="_blank" rel="external">Mac 缺少 ImageMagick安装(libpng)</a></p>
-<p><a href="http://www.jb51.net/article/57317.htm" target="_blank" rel="external">Invalid argument supplied for foreach() 强制转换类型</a><br><a href="">is not defined 多数情况是js内部的方法写错了，而非方法名未被定义</a><br><a href="https://segmentfault.com/q/1010000003958979/a-1020000003960387" target="_blank" rel="external">Operation not permitted   &amp;&amp; command not found</a><br>[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/问题汇总/php问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-阅读笔记/《代码的未来》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -529,54 +544,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/阅读笔记/《代码的未来》/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-阅读笔记/瓦尔登湖" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>梭罗 </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/阅读笔记/瓦尔登湖/">展开全文 >></a>
         </p>
       
 
@@ -658,14 +625,12 @@
 
 
   
-    <article id="post-阅读笔记/鲁迅的世界" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-阅读笔记/瓦尔登湖" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不比以为不幸的。</li>
-</ol>
+        <p>梭罗 </p>
 
       
 
@@ -678,7 +643,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/阅读笔记/鲁迅的世界/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/阅读笔记/瓦尔登湖/">展开全文 >></a>
         </p>
       
 
@@ -858,6 +823,107 @@
 
 
   
+    <article id="post-韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/">韩语</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ㅍ [    p ]<br>파  【n 】葱 pa<br>피   【n】血 pi<br>커 피 【n】咖啡 ko pi<br>포  도 【n】 葡萄 pou tou<br>스 킨 푸 드  se kin pu de    SKIN FOOD<br>区分   ㅍ 和 ㅂ<br>[p]  【b】</p>
+<p>ㅃ<br>发音时，口型和 ㅂ 相似，但声门要紧闭，使气流后喉腔受阻，然后冲破声门而出，此现象发音器官紧张，所以被称为紧音<br>빠  뻐 뽀 뿌 삐 </p>
+<p>뽀 뽀 【n】亲亲 bou bou<br>빨 라 【adv】快 ba la<br>삐 삐 【n】 寻呼机 bibi<br>아 빠 【n】 爸爸 a ba<br>오 빠 【n】 哥哥 ou ba</p>
+<p>ㅃ ㅂ 的区别<br>ㅃ 为紧音<br>ㅂ 为松音<br>实用口语 ： 안 녕 히 가 세 요<br>（主人对客人说 ） an nai hi ka sai yo、<br>안 넹 히 겨 게 요<br>（客人对主人说） an nai hi gai sai yo<br>무 지 무 지  예 뻐 요<br>（非常非常地 漂亮） mu ji mu ji yi bou yo<br>무 혁 : 밥 먹 을 래 ?<br>니 랑 뽀 뽀 할 래?<br>bab moun el lai？<br>ni la bou bou hal lai？<br>你想睡觉还是亲亲？</p>
+<p>ㅁ 发音时，先吸气 然后紧闭双唇，使气流从鼻腔泄出，然后震动声带，并且双唇破裂成音<br>미 남  米娜木<br>보 고 또 보 고  看了又看</p>
+<p>ㅂ 发音时，吸气。之后双唇紧闭。阻止气流，然后让气流冲开，爆破成音，介于汉语拼音”b“和”p“之间<br>双唇慢慢放松 ~ 松音</p>
+<p>ㅍ 发音和辅音相似，但发音要收复<br>ㄴ 发音时，吸气。然后舌尖顶住上牙齿，阻止气流。之后再松开，然后让气流通过鼻腔。声带振动成音，类似于汉语中的n </p>
+<p>나 []<br>너<br>노<br>니</p>
+<p>누 나  姐姐 男孩叫姐姐<br>너 무 【adv】非常<br>너 무 너 무  非常非常</p>
+<p>ㄷ 다 모 茶母<br>发音时，先吸气。之后舌尖抵住上齿龈，租住气流。然后让气流慢慢松开，保持一段时间。是介于汉语发音发音 ”d“ ”T“之间</p>
+<p>ㄷ 오 다  来 【自】<br>포 도 葡萄【n】<br>디 디 다 【动】踩<br>다 이 어 트<br>ㅌ &lt;&gt;<br>送气音<br>与ㅍ 音一样 必须把腹部气流送出来，前面的准备则和松音ㄷ 基本相同，发音和汉语的T相似<br>타  터 토 투 티<br>바 보 笨蛋【pa bou】<br>타 다  乘 骑<br>토 마 토 西红柿【ta ma tou】<br>파  티 聚会 【pa ti】<br>투 자 </p>
+<p>ㄸ  发音时，口型依然和松音 ㄷ相似，但气流冲开时，发音器官紧张，类似于汉语的”d“、<br>따 다 [摘]<br> 또  又 再【dou】</p>
+<p>ㄹ<br>뽀 로로<br>发音时，发音部位依然和 ㄷ 相同，即舌尖抵住上齿龈，不过在气流冲开时，让舌尖请弹一下，同时振动声带即可 和L音相似</p>
+<p>우 리  我们<br>나 리 国家<br>라 디 오  收音机<br>아 리 랑 阿里郎</p>
+<p>实用口语<br>또 만 나 요 再见 （dou man na yo）</p>
+<p>어 디 가 요  去哪儿<br>이  안 에 , 너 있 다  （心中有你 巴黎恋人）<br>yi an nei ，no xi da </p>
+<p>复习 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/韩语发音/" class="article-tag-list-link color5">韩语发音</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
@@ -967,7 +1033,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -979,7 +1045,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">
