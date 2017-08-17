@@ -54,7 +54,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+	        
+				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+	        
+				<li><a href="/aboutme/">个人简介</a></li>
 	        
 			</ul>
 		</nav>
@@ -76,13 +80,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
 		</nav>
@@ -112,29 +116,37 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+		        
+					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
 				</ul>
 			</nav>
@@ -151,29 +163,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-融资学习/一个好的项目参考条件和注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C语言/05---B-------结构体" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/融资学习/一个好的项目参考条件和注意事项/">祭祀优势分析</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/融资学习/一个好的项目参考条件和注意事项/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h2><p>一个好的产品，应该符合行业发展趋势。有着广阔的市场。。</p>
-<h2 id="二："><a href="#二：" class="headerlink" title="二："></a>二：</h2><p>好的产品要有独特的创意，帮助客户解决切实存在的问题。</p>
-<h2 id="三："><a href="#三：" class="headerlink" title="三："></a>三：</h2><p>营销成本低，如果一个产品的营销成本过高，只能说明产品本身不受欢迎。</p>
+        <p>组装，当数据元素类型不一样时，程序员组装新的数据类型。。</p>
+<p>关键字 struct  Liujian    // 定义一种新类型<br>{<br>char name [20];<br>int age;                      //数据元素类型<br>char addr[120];<br>double soore;<br>}；</p>
+<p>分配字节数20+4+120+8=152（首地址对齐，并且是最大偏移量的整数倍）<br>int main（）<br>{</p>
+<p>Liujian a1； //使用结构体</p>
+<p>Liujian a2{ “张三”，“18”，“南阳”，“88”}；//初始化结构体哦<br>a1=a2；<br>a1.name = “张三”; //buxing ，因为数组没分配空间<br>a1.age = 18 ；可以</p>
+<p>#include《cstring》 需要头文件<br>可以通过更好方法 strcpy（字符数组名，字符串）；<br>strlen（字符串或字符数组名）字符长度<br>strcmp（str1，str2） 比较两个字符串<br>strcat（字符数组名，字符串） 将后面的字符串追加到数组名的字符串后头</p>
+<p>}</p>
+<p>#include <iostream><br>//#include <algorithm></algorithm></iostream></p>
+<p>using namespace std;<br>struct Student{<br>int age;<br>char name;<br>double score;<br>float hear;<br>short two;<br>//偏移量分析：1.首地址对其 2.总字符量占最大偏移量的整数倍  4+1+3+8+4+2+2 =24 （最后一个二是因为，总字符量不是8的整数倍，自动补全）<br>};</p>
+<p>struct Student{<br>int age;<br>char name[20];<br>double score;<br>float hear;<br>short two;<br>//偏移量分析：1.首地址对其 2.总字符量占最大偏移量的整数倍  4+20+8+4+2+2 =40 （最后一个二是因为，总字符量不是8的整数倍，自动补全,并且在char分配中是一个一个分配的，不是一下分配20个字节给name）<br>};<br>main()<br>{</p>
+<p> Student a1;<br> cout &lt;&lt; sizeof(a1) &lt;&lt;endl;</p>
+<pre><code>return 0;      
+</code></pre><p>}</p>
+<p>#pragmapack(push) //保存对齐状态</p>
+<p>#pragmapack(4)//设定为4字节对齐</p>
+<p>struct test<br>{</p>
+<pre><code>char m1;
+
+double m4;
+
+int m3;
+</code></pre><p>};</p>
+<p>#pragmapack(pop)//恢复对齐状态</p>
+<p>以上结构的大小为16，下面分析其存储情况，首先为m1分配空间，其偏移量为0，满足我们自己设定的对齐方式（4字节对齐），m1占用1个字节。接着开始为m4分配空间，这时其偏移量为1，需要补足3个字节，这样使偏移量满足为n=4的倍数（因为sizeof(double)大于n）,m4占用8个字节。接着为m3分配空间，这时其偏移量为12，满足为4的倍数，m3占用4个字节。这时已经为所有成员变量分配了空间，共分配了16个字节，满足为n的倍数。如果把上面的#pragmapack(4)改为#pragma pack(8)，那么我们可以得到结构的大小为24。</p>
 
       
 
@@ -182,33 +200,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/融资学习/一个好的项目参考条件和注意事项/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/C语言/05---B-------结构体/">展开全文 >></a>
         </p>
       
 
@@ -238,45 +234,13 @@
 
 
   
-    <article id="post-C语言/09-类的继承-和--分数化简，计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mysql/数据库建表-考虑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>// fraction     ————-分数化简</p>
-<p>#include <iostream></iostream></p>
-<p>#include <stdlib.h><br>using namespace std;</stdlib.h></p>
-<p>class Math       //—— 数学类为父类<br>{<br>private :<br>public:<br> double sum;        //—–加法<br> double dif;          //–减法<br> double product;    //乘法<br> double divide;    //除法<br>};</p>
-<p>class Fraction : public Math<br>{<br> int molecule;<br> int denominator;<br>public:<br> void set(int a,int b)  //———-赋值，一会试试引用<br> {<br> molecule = a;<br> denominator = b;</p>
-<p> }<br> void simplify();</p>
-<p>};</p>
-<p>void Fraction :: simplify()<br>{<br> int integer;//—–整数部分<br> /<em>divide = (double)molecule / (double)denominator ;<br> cout &lt;&lt; divide &lt;&lt; endl;
- </em>/<br> if((double)molecule / (double)denominator &lt; 0)        //———-判断两个数的商是正数还负数<br>  cout &lt;&lt; “ - “ ;</p>
-<p>//———————————————————-<br> molecule = molecule &gt; 0 ? molecule : -molecule ;           //———-将两个数变成绝对值<br>  denominator= denominator &gt; 0 ? denominator : -denominator;</p>
-<p>   if(molecule &gt; denominator)<br> {<br>  integer = molecule / denominator;<br>  molecule = molecule % denominator;           //将假分数变成带分数<br>  cout &lt;&lt; integer&lt;&lt;”  “;<br> }<br> //——————————————————————-<br>  for(int i = molecule; denominator != 0 &amp;&amp; i &gt;= 1; i–) //分母不能为零，并且约分<br> {<br>  if( molecule % i == 0 &amp;&amp; denominator % i == 0 )<br>  {<br>   molecule /= i;<br>   denominator /= i;<br>  }<br> }<br> cout &lt;&lt; molecule&lt;&lt;”/“ &lt;&lt;denominator&lt;&lt; endl;<br>}</p>
-<p>int main()<br>{<br> int a,b;<br> cin &gt;&gt;a&gt;&gt;b;<br>Fraction A;<br>A.set(a,b);<br>A.simplify();<br>}<br>//===========================================<br>//===========================================<br>//============方法二： 继承 重载 构造函数================</p>
-<p>#include <iostream></iostream></p>
-<p>#include <cstring><br>using namespace std;</cstring></p>
-<p>class Frac          //—————–父类<br>{<br> int n;<br> int d;</p>
-<p>public:<br> Frac():n(0),d(1){}<br> Frac(int an, int ad):n(an),d(ad)<br> {<br> reduce();                        //约分<br> }</p>
-<p> void reduce()<br> {<br>  if( d<0 )="" {d="-d;n" =="" -n;}="" 分母不能小于等于="" if(="" d="=0" {="" cout="" <<="" "d="=0!!" \n="" error!!"="" <<endl;}="" int="" absn="(n<0" ?="" -n:="" n);="" 分子变成正数="" for(int="" i="d;">1; i–)<br>  {<br>   if(absn % i == 0&amp;&amp; d % i ==0)<br>   {<br>    n/=i; d/=i;<br>    break;<br>   }<br>  }<br> }//计算机在运行时，先来看看各类函数。//成员函数中，可以直接访问成员函数。。在类外部时，需要传入参数。<br> void show()<br> {<br> cout &lt;&lt; n &lt;&lt; “/“ &lt;&lt; d &lt;&lt;endl;<br> }<br> //——————————<br> double value()<br> {<br> return (double)n/d;<br> }</0></p>
-<p>};<br>//========================================子类，带分数<br>class Dai : public Frac<br>{<br> int i;<br>public :<br> Dai() :i(0){}//无参构造函数<br> Dai(int ai,int an,int ad) : i(ai),Frac(an,ad)//有参构造函数<br> {<br> }<br> void show()<br> {<br> cout &lt;&lt; i &lt;&lt; “  “;<br> Frac ::show();</p>
-<p> }</p>
-<p> double value()<br> {<br>  return i+Frac::value();<br> }</p>
-<p>};</p>
-<p>int  main()<br>{<br>Frac  f1(12,16);<br>Frac f2;<br>f1.show();<br>cout &lt;&lt; f1.value() &lt;&lt; endl;</p>
-<p>f2.show();<br>cout &lt;&lt; f2.value() &lt;&lt; endl;</p>
-<p>Dai f3(3,3,5);<br>Dai f4;<br>f3.show();<br>cout &lt;&lt; f3.value() &lt;&lt; endl;</p>
-<p>f4.show();<br>cout &lt;&lt; f4.value() &lt;&lt; endl;<br>}</p>
-<p>//========================================<br>//========================================<br>//========================================</p>
-<p>#include <iostream></iostream></p>
-<p>using namespace std;</p>
-<p>class Vehilce<br>{<br>protected :<br>int wheels;        //车轮个数<br>double weight;    //车重<br>public:<br> Vehilce():wheels(0),weight(0){}<br> Vehilce(int wh,double we):wheels(wh),weight(we){}<br> ~Vehilce(){<br> cout &lt;&lt; “~Vehilce()” &lt;&lt; endl;<br> }<br> virtual void show() = 0;<br>} ;</p>
-<p>class Car :public Vehilce<br>{<br>int passengers;    //承载人数<br>public:<br> Car(int pa,int wh,double we) : passengers(pa),Vehilce(wh,we){}</p>
-<p> Car() : passengers(0){}<br> ~Car(){<br> cout &lt;&lt; “~Car()” &lt;&lt;endl;<br> }<br> void show()<br> {<br> cout &lt;&lt; “ Car—–” &lt;&lt;endl;<br> }<br>};</p>
-<p>class Truck :public Vehilce<br>{<br>int passengers;      //承载人数<br>double payload;    //承载重量<br>public:<br> Truck(int pa,double pay ,int wh,double we) : passengers(pa),payload(pay),Vehilce(wh,we){}</p>
-<p> Truck() : passengers(0),payload(0){}<br> ~Truck(){<br> cout &lt;&lt; “~Truck()” &lt;&lt;endl;<br> }<br> void show()<br> {<br> cout &lt;&lt; “ Truck()—–” &lt;&lt;endl;<br> }<br>};<br>int main(int argc,char *argv[])<br>{<br>Truck t(4,8,3,4);<br>t.show();<br>Car c(3,NULL,5);<br>c.show();<br>Car (3,NULL,5);</p>
-<p>}</p>
+        <p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
+<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[CREATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) [TABLE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) `pocket_It`.`personal` ( `id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; AUTO_INCREMENT COMMENT &apos;主键，自增id&apos; , `avatar_url`[VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;头像url&apos; , `wechat_id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; COMMENT &apos;wechat表id&apos; , `name` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(50) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;用户姓名和微信昵称数据类型一致&apos; , `voice_url` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html)utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice url语音&apos; ,`voice_add_time` [BIGINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(13) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice 添加时间&apos; ,`birthday` [DATETIME](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;生日（年月日）&apos; , `gender`[BOOLEAN](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) FALSE COMMENT &apos;性别：0:&quot;男&quot; 1:&quot;女&quot;&apos; ,`education` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;学历：0:&quot;高中&quot; 1:&quot;大专&quot; 2:&quot;本科&quot; 3:&quot;硕士&quot; 4:&quot;博士&quot;&apos; , `seniority` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;工作年限&apos; , `salary` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL[DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;500&apos; COMMENT &apos;期望薪资&apos; , `position` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;期望职位&apos; ,`specialty` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;个人特长标签&apos; , `phone` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(20) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULLCOMMENT &apos;联系电话&apos; , `qrcode` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(400) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8[COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;二维码的url&apos; ) ENGINE= InnoDB;</div><div class="line"></div><div class="line">关闭</div></pre></td></tr></table></figure></p>
 
       
 
@@ -289,7 +253,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/09-类的继承-和--分数化简，计算/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/Mysql/数据库建表-考虑/">展开全文 >></a>
         </p>
       
 
@@ -319,34 +283,18 @@
 
 
   
-    <article id="post-C语言/09-继承-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C语言/06-----A-指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>// class.cpp : Defines the entry point for the console application.<br>//</p>
-<p>#include “stdafx.h”</p>
-<p>#include <iostream></iostream></p>
-<p>#include <string><br>using namespace std;</string></p>
-<p>void inr(int&amp; m);<br>void vor(int m);<br>class Animal             //——————-父类<br>{<br>private: //私有<br> char name[20];<br>protected://保护类型<br> int age;<br>public :<br> void show(char* na ,int a);</p>
-<p>};</p>
-<p>class Cat : public Animal                 //子类——————–<br>{<br>public:<br> void fly();<br>};<br>void Cat::fly()<br>{</p>
-<p>cout &lt;&lt; “Im’s cat,i don’t fly!” &lt;&lt; endl;</p>
-<p>}<br>void Animal ::show(char* na ,int a)<br>{<br> strcpy(name,na);<br> this-&gt;age  = a;<br> cout &lt;&lt;”hello,my name is”&lt;&lt; name&lt;&lt;”\n”&lt;&lt;”and my sge is”&lt;&lt;age&lt;&lt;endl;</p>
+        <p>指针是用来保存地址的变量 。。point to<br>指针保存le变量的地址  </p>
+<p>与地址有关的符号：&amp;取地址        数组名也可以是地址<br>int<em>  x  =&d;        //x保存的是d的地址。。即</em>&amp;d 为d值<br>int<em>  y  =&amp;d.year    指针保存le变量的地址<br>int n；<br>n=100；<br>地址：&amp;n       n的地址
+</em>&amp;n   =100 ；—-&gt;    指向地址的变量 </p>
+<p>数组名<br>int a[5];<br>*a 是a[0]</p>
+<p>int main()<br>{<br>    double a;<br>    a  = 13.34;<br>cout &lt;&lt;&amp;d &lt;&lt;&lt;ednl<br>cout &lt;&lt;*&amp;D &lt;&lt;ednl;<br>cout &lt;&lt; d &lt;&lt;Ednl;</p>
+<p>int a[5] = {1,2,3,4,5}<br>cout &lt;&lt;*a&lt;&lt;Ednl;</p>
 <p>}</p>
-<p>int main(int argc, char* argv[])<br>{<br> Animal A;<br> A.show(“tiger”,15);<br> Cat B;<br> B.show(“laoshu”,18); //因为是公有继承animal的私有元素。。。所以能像Animal类一样使用公开的和保护的函数<br> B.fly();</p>
-<p> int m = 15; //c<br> vor(m);          //形参的传入，相当于是m的复制一份给vor函数，用完消失<br> cout &lt;&lt; m &lt;&lt;endl;<br> inr(m);         //数值地址传入，是对地址进行修改。（引用和取别名）是对源参数的再次命名。。而指针是对指针指向进行交换。<br> cout &lt;&lt; m &lt;&lt;endl;</p>
-<p> return 0;<br>}</p>
-<p>void inr(int&amp; m)<br>{<br> ++m;</p>
-<p>}</p>
-<p>void vor(int m)<br>{<br> ++m;</p>
-<p>}<br>void swap (int<em> a, int</em> b)<br>{<br>int <em> t ;
-</em>t = <em>a;
-</em>a =<em>b;
-</em>b =*t<br>}</p>
-<p>void swap(&amp;a,&amp;b)<br>{<br>int t ;<br>t = a;<br>a = b;<br>b = t</p>
-<p>}</p>
-<p>//                  公 – 保护 – 私有<br>//    父类 √ –√   –√<br>//    子类 √ –√   –×<br>//    外   √ –×   –×</p>
 
       
 
@@ -359,56 +307,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/09-继承-/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-问题汇总/php问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.jb51.net/article/70023.htm" target="_blank" rel="external">FastCGI 进程意外退出造成500错误</a><br><a href="http://www.tuicool.com/articles/6vaqIz" target="_blank" rel="external">Mac 缺少 ImageMagick安装(libpng)</a></p>
-<p><a href="http://www.jb51.net/article/57317.htm" target="_blank" rel="external">Invalid argument supplied for foreach() 强制转换类型</a><br><a href="">is not defined 多数情况是js内部的方法写错了，而非方法名未被定义</a><br><a href="https://segmentfault.com/q/1010000003958979/a-1020000003960387" target="_blank" rel="external">Operation not permitted   &amp;&amp; command not found</a><br>[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/问题汇总/php问题/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/C语言/06-----A-指针/">展开全文 >></a>
         </p>
       
 
@@ -523,56 +422,6 @@
 
 
   
-    <article id="post-阅读笔记/《代码的未来》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####一：根据摩尔定律 现在的超级计算机会逐渐变成我们生活中的计算机。那么，不久的将来，1024核的计算机已经算是一般配置了。在这样的环境下，未来的语言编程将会围绕对cpu资源的争夺，语言提供并行处理功能。将多个核心的性能充分的利用起来，来达到性能的最优解。</p>
-<p>####二：近年来（90-2017，一直到将来），虽然内存越来越大，但人们的需求却从没有被满足。这是由于图片，音频，视频的精度越来越高，尺寸越来越大，软件越来越大。未来，个人数据仓库的分析软件将会备受关注，</p>
-<p>####三：宽带，现在家庭网路中宽带已达到100MbitM/s,以后将会更快。可能1Gbit/s。随着宽带速度的增长，各行各业的业务也应该会逐步从本地服务迁移到中央服务。（即各种业务的处理的数据都是从中央计算机实时计算反馈给客户端。就像现在的浏览器）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/阅读笔记/《代码的未来》/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-阅读笔记/人间失格-太宰治" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -625,12 +474,14 @@
 
 
   
-    <article id="post-阅读笔记/瓦尔登湖" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-阅读笔记/《代码的未来》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>梭罗 </p>
+        <p>####一：根据摩尔定律 现在的超级计算机会逐渐变成我们生活中的计算机。那么，不久的将来，1024核的计算机已经算是一般配置了。在这样的环境下，未来的语言编程将会围绕对cpu资源的争夺，语言提供并行处理功能。将多个核心的性能充分的利用起来，来达到性能的最优解。</p>
+<p>####二：近年来（90-2017，一直到将来），虽然内存越来越大，但人们的需求却从没有被满足。这是由于图片，音频，视频的精度越来越高，尺寸越来越大，软件越来越大。未来，个人数据仓库的分析软件将会备受关注，</p>
+<p>####三：宽带，现在家庭网路中宽带已达到100MbitM/s,以后将会更快。可能1Gbit/s。随着宽带速度的增长，各行各业的业务也应该会逐步从本地服务迁移到中央服务。（即各种业务的处理的数据都是从中央计算机实时计算反馈给客户端。就像现在的浏览器）</p>
 
       
 
@@ -643,7 +494,115 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/阅读笔记/瓦尔登湖/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/阅读笔记/《代码的未来》/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C语言/09-类的构造-析构-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//——————-类的继承————-<br>//继承作用，使一个类继承另一个类的所有属性。。<br>//当继承时，通常小范围继承大范围的元素。<br>//eg： 日用品 ，零食，家电  都集成商品的属性元素。。在家电中，电视，冰箱，电脑继承电器的属性</p>
+<p>//—————————————–<br>//—————————————–<br>//—————————————–<br>//—————————————–<br>//—————————————–<br>//———组合的概念 ———————<br>//电脑由液晶屏，主机，鼠标，键盘组成——-<br>//由<strong><em>和</em></strong>组成的新对象——————<br>//电脑之中{由}这些元素属性{组成}，并不是说主机就是电脑，鼠标就是电脑。。—–》组成<br>//而笔记本，一体机{是}电脑。—————》类的继承</p>
+<p>//基类-&gt; 旧类-&gt;父类<br>//派生类 -&gt;新类-&gt;子类</p>
+<p>//派生和继承是同一件事情，只是看的角度不同<br>//eg：父类看子类为派生，子类看父类为继承</p>
+<p>#include <iostream></iostream></p>
+<p>#include <string></string></p>
+<p>#include “stdafx.h”<br>using namespace std;<br>class Person<br>{<br> char name[20];<br> bool gender;<br> int age;</p>
+<p>public: //公有<br> Person( char* name, bool gender, int age ) : gender(gender),age(18)<br> {<br>  if(strlen(name) &gt; 19)<br>  {<br>   cout &lt;&lt; “error !,have a long len name” &lt;<endl; name[19]="\0" ;="" }="" strcpy(this-="">name,name);<br> }</endl;></p>
+<p> void setAge(int age)    //构造函数，才能初始化函数值。。普通函数，不可以<br> {<br> if(age<0) cout="" <<="" "error,the="" age="" <="" 0!!="" "="" <<endl;="" else="" if(age="">200 )<br>  cout &lt;&lt; “error,the age &gt;200!! “ &lt;<endl; else="" this-="">age = age;<br> }</endl;></0)></p>
+<p> void show()<br> {<br>  cout &lt;&lt; “ my name is “&lt;&lt; name &lt;&lt;endl;<br>  cout &lt;&lt; “ is  “&lt;&lt; (gender? “cool”:”beautiful”) &lt;&lt;endl;<br>  cout &lt;&lt; “ and my age is  “&lt;&lt; age &lt;&lt;endl;<br> }<br>};</p>
+<p>int main()<br>{<br>Person p1(“灌饼”,true,23);<br>Person p2(“月饼”,false,23);<br>Person p3(“烧饼”,true,23);<br>p1.setAge(20);<br>p2.setAge(20);<br>p3.setAge(29);<br>p1.show();<br>p2.show();<br>p3.show();</p>
+<p>return 0;<br>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/C语言/09-类的构造-析构-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-问题汇总/php问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.jb51.net/article/70023.htm" target="_blank" rel="external">FastCGI 进程意外退出造成500错误</a><br><a href="http://www.tuicool.com/articles/6vaqIz" target="_blank" rel="external">Mac 缺少 ImageMagick安装(libpng)</a></p>
+<p><a href="http://www.jb51.net/article/57317.htm" target="_blank" rel="external">Invalid argument supplied for foreach() 强制转换类型</a><br><a href="">is not defined 多数情况是js内部的方法写错了，而非方法名未被定义</a><br><a href="https://segmentfault.com/q/1010000003958979/a-1020000003960387" target="_blank" rel="external">Operation not permitted   &amp;&amp; command not found</a><br>[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/问题汇总/php问题/">展开全文 >></a>
         </p>
       
 
@@ -823,43 +782,14 @@
 
 
   
-    <article id="post-韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-阅读笔记/鲁迅的世界" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/">韩语</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ㅍ [    p ]<br>파  【n 】葱 pa<br>피   【n】血 pi<br>커 피 【n】咖啡 ko pi<br>포  도 【n】 葡萄 pou tou<br>스 킨 푸 드  se kin pu de    SKIN FOOD<br>区分   ㅍ 和 ㅂ<br>[p]  【b】</p>
-<p>ㅃ<br>发音时，口型和 ㅂ 相似，但声门要紧闭，使气流后喉腔受阻，然后冲破声门而出，此现象发音器官紧张，所以被称为紧音<br>빠  뻐 뽀 뿌 삐 </p>
-<p>뽀 뽀 【n】亲亲 bou bou<br>빨 라 【adv】快 ba la<br>삐 삐 【n】 寻呼机 bibi<br>아 빠 【n】 爸爸 a ba<br>오 빠 【n】 哥哥 ou ba</p>
-<p>ㅃ ㅂ 的区别<br>ㅃ 为紧音<br>ㅂ 为松音<br>实用口语 ： 안 녕 히 가 세 요<br>（主人对客人说 ） an nai hi ka sai yo、<br>안 넹 히 겨 게 요<br>（客人对主人说） an nai hi gai sai yo<br>무 지 무 지  예 뻐 요<br>（非常非常地 漂亮） mu ji mu ji yi bou yo<br>무 혁 : 밥 먹 을 래 ?<br>니 랑 뽀 뽀 할 래?<br>bab moun el lai？<br>ni la bou bou hal lai？<br>你想睡觉还是亲亲？</p>
-<p>ㅁ 发音时，先吸气 然后紧闭双唇，使气流从鼻腔泄出，然后震动声带，并且双唇破裂成音<br>미 남  米娜木<br>보 고 또 보 고  看了又看</p>
-<p>ㅂ 发音时，吸气。之后双唇紧闭。阻止气流，然后让气流冲开，爆破成音，介于汉语拼音”b“和”p“之间<br>双唇慢慢放松 ~ 松音</p>
-<p>ㅍ 发音和辅音相似，但发音要收复<br>ㄴ 发音时，吸气。然后舌尖顶住上牙齿，阻止气流。之后再松开，然后让气流通过鼻腔。声带振动成音，类似于汉语中的n </p>
-<p>나 []<br>너<br>노<br>니</p>
-<p>누 나  姐姐 男孩叫姐姐<br>너 무 【adv】非常<br>너 무 너 무  非常非常</p>
-<p>ㄷ 다 모 茶母<br>发音时，先吸气。之后舌尖抵住上齿龈，租住气流。然后让气流慢慢松开，保持一段时间。是介于汉语发音发音 ”d“ ”T“之间</p>
-<p>ㄷ 오 다  来 【自】<br>포 도 葡萄【n】<br>디 디 다 【动】踩<br>다 이 어 트<br>ㅌ &lt;&gt;<br>送气音<br>与ㅍ 音一样 必须把腹部气流送出来，前面的准备则和松音ㄷ 基本相同，发音和汉语的T相似<br>타  터 토 투 티<br>바 보 笨蛋【pa bou】<br>타 다  乘 骑<br>토 마 토 西红柿【ta ma tou】<br>파  티 聚会 【pa ti】<br>투 자 </p>
-<p>ㄸ  发音时，口型依然和松音 ㄷ相似，但气流冲开时，发音器官紧张，类似于汉语的”d“、<br>따 다 [摘]<br> 또  又 再【dou】</p>
-<p>ㄹ<br>뽀 로로<br>发音时，发音部位依然和 ㄷ 相同，即舌尖抵住上齿龈，不过在气流冲开时，让舌尖请弹一下，同时振动声带即可 和L音相似</p>
-<p>우 리  我们<br>나 리 国家<br>라 디 오  收音机<br>아 리 랑 阿里郎</p>
-<p>实用口语<br>또 만 나 요 再见 （dou man na yo）</p>
-<p>어 디 가 요  去哪儿<br>이  안 에 , 너 있 다  （心中有你 巴黎恋人）<br>yi an nei ，no xi da </p>
-<p>复习 </p>
+        <ol>
+<li>凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不比以为不幸的。</li>
+</ol>
 
       
 
@@ -868,33 +798,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/韩语发音/" class="article-tag-list-link color5">韩语发音</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/韩语---/ㅍ-ㅃ-ㅁ-ㅍ-ㄷ-ㄹ-/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/阅读笔记/鲁迅的世界/">展开全文 >></a>
         </p>
       
 
@@ -1029,7 +937,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发方式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,6 +954,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">

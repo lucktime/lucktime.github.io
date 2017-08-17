@@ -54,7 +54,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+	        
+				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+	        
+				<li><a href="/aboutme/">个人简介</a></li>
 	        
 			</ul>
 		</nav>
@@ -76,13 +80,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
 		</nav>
@@ -112,29 +116,37 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+		        
+					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
 				</ul>
 			</nav>
@@ -151,12 +163,33 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ios-学习笔记/百事通" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/根据经纬度-求距离" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>编辑一个软件，可以点击一个控制器上的所有图片，文字。然后，自动百度出来这个东西的详情。而不用再打开浏览器搜索这个东西</p>
+        <p>在Info.plist中加入两个缺省没有的字段<br>NSLocationAlwaysUsageDescription<br>NSLocationWhenInUseUsageDescription</p>
+<p>-(void)GetLonAndLat<br>{<br>    //    2. 调用请求：<br>    if ([[[UIDevice currentDevice] systemVersion] doubleValue] &gt; 8.0)<br>    {<br>        //设置定位权限 仅ios8有意义<br>        [self.locationManager requestWhenInUseAuthorization];// 前台定位</p>
+<pre><code>    //  [locationManager requestAlwaysAuthorization];// 前后台同时定位
+}
+
+
+locationManager = [[CLLocationManager alloc] init];    //设置代理
+</code></pre><p>   locationManager.delegate = self;<br>    [CLLocationManager locationServicesEnabled];<br>    locationManager.desiredAccuracy=kCLLocationAccuracyThreeKilometers;<br>    [locationManager startUpdatingLocation];</p>
+<p>}</p>
+<p>-(void)locationManager:(CLLocationManager <em>)manager didUpdateLocations:(NSArray&lt;CLLocation </em>&gt; <em>)locations<br>{<br>        CLLocation </em>cl = [locations objectAtIndex:0];<br>       self.loX  = [[NSString stringWithFormat:@”%f”,cl.coordinate.longitude] doubleValue];<br>       self.LoY  = [[NSString stringWithFormat:@”%f”,cl.coordinate.latitude] doubleValue];</p>
+<p>}<br>//-(void)locationManager:(CLLocationManager <em>)manager didUpdateToLocation:(CLLocation </em>)newLocation fromLocation:(CLLocation <em>)oldLocation{<br>//    NSLog(@”%f,%f”,newLocation.coordinate.latitude,newLocation.coordinate.longitude);<br>//}<br>-(void)locationManager:(CLLocationManager </em>)manager didFailWithError:(NSError *)error{<br>    NSLog(@”%@”,error);<br>}</p>
+<p>/**</p>
+<ul>
+<li>计算距离<br>*</li>
+<li>@param lat1 本地距离  纬度</li>
+<li>@param lat2 本地距离  纬度</li>
+<li>@param lng1 其他距离  经度</li>
+<li>@param lng2 其他距离  经度<br>*</li>
+<li>@return<br>*/</li>
+</ul>
+<p>+(double)distanceBetweenOrderBy:(double)lat1 :(double)lat2 :(double)lng1 :(double)lng2{<br>    double dd = M_PI/180;<br>    double x1=lat1<em>dd,x2=lat2</em>dd;<br>    double y1=lng1<em>dd,y2=lng2</em>dd;<br>    double R = 6371004;<br>    double distance = (2<em>R</em>asin(sqrt(2-2<em>cos(x1)</em>cos(x2)<em>cos(y1-y2) - 2</em>sin(x1)<em>sin(x2))/2)) / 1000;<br>    //km  返回<br>    //     return  distance</em>1000;<br>      NSLog(@”distance距离%f; lat1= %f; lat2 =%f; lng1 = %f; lng2 = %f “,distance,lat1,lat2,lng1,lng2);//一个纬度间距离是111km<br>    //返回 m<br>    return   distance;</p>
+<p>}</p>
 
       
 
@@ -169,7 +202,405 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/百事通/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/根据经纬度-求距离/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/（YQ）进程和线程不得不说的事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>进程：通常指系统中正在运行的一个应用程序。通俗来讲，进程是线程的容器。比如打开win的任务管理器。正在运行的QQ，360，网易云音乐都是一个进程。
+线程：线程是进程的最小执行单位，一个进程最少有一个线程。比如网易云音乐的下载歌曲，缓存视频都是一个线程。
+
+
+ 线程的串行和并行
+ 一个线程的执行任务是串行的。 就像每个窗口排队取钱，需要完成，才能下一个人进行取钱（同一时间内，只有一个线程在运行）。
+ 线程的并发性，由于一个程序的串行不能很好地利用cpu资源，而采用了多线程的方法。还比如取钱，一个银行会有多个柜台进行存取。这样巧妙的利用资源。
+
+  多线程并发性的原理
+  同一时间，CPU只能处理1条线程，只有1条线程在工作（执行）
+  多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度（切换）
+  如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象
+  思考：如果线程非常非常多，会发生什么情况？
+  CPU会在N多线程之间调度，CPU会累死，消耗大量的CPU资源
+  每条线程被调度执行的频次会降低（线程的执行效率降低）
+
+
+ 线程的优缺点
+</code></pre><p>多线程的优点<br>能适当提高程序的执行效率<br>能适当提高资源利用率（CPU、内存利用率）<br>多线程的缺点<br>开启线程需要占用一定的内存空间（默认情况下，主线程占用1M，子线程占用512KB），如果开启大量的线程，会占用大量的内存空间，降低程序的性能<br>线程越多，CPU在调度线程上的开销就越大<br>程序设计更加复杂：比如线程之间的通信、多线程的数据共享<br>4.多线程在iOS开发中的应用<br>主线程:一个iOS程序运行后，默认会开启1条线程，称为“主线程”或“UI线程”<br>主线程的主要作用<br>显示\刷新UI界面<br>处理UI事件（比如点击事件、滚动事件、拖拽事件等）</p>
+<p>主线程的使用注意:别将比较耗时的操作放到主线程中。<br>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/（YQ）进程和线程不得不说的事/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/常用语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//设置尺寸为屏幕尺寸的时候<br> self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];  </p>
+<p>//随机数<br> inputValues[i] = arc4random();<br>//plist 加载控制器<br>            NSString <em>stringVC = _Mydictionary[@”first”][@”pushVC”][row];<br>            UIViewController </em>VC = [[NSClassFromString(stringVC) alloc] init];<br>            VC.navigationItem.title = _Mydictionary[@”first”][@”title”][row];<br>            [self.navigationController pushViewController:VC animated:YES];<br> 方法二，控制器跳转<br>/<em>   NSString </em>demoClassString = [NSString stringWithFormat:@”DemoVC%ld”, indexPath.row];<br>    [self.navigationController pushViewController:[NSClassFromString(demoClassString) new] animated:YES];<br>*/</p>
+<p>iphone中获取屏幕分辨率的方法</p>
+<p>CGRect rect = [[UIScreen mainScreen] bounds];<br>CGSize size = rect.size;<br>CGFloat width = size.width;<br>CGFloat height = size.height;</p>
+<p>Array数组的写入和读出</p>
+<p>按钮只有一个被选中，写入全局变量</p>
+<p>只有一个被选中的其他方法（）</p>
+<pre><code>  btn.selected = YES;
+
+for (UIButton *subBtn in self.array4Btn) {
+    if (subBtn != btn) {
+        subBtn.selected = NO;
+    }
+}
+</code></pre><p>-（void）buttonSelected:(UIButton*)sender{<br>    if (_tmpBtn == nil){<br>        sender.selected = YES;<br>        _tmpBtn = sender;<br>    }<br>    else if (_tmpBtn !=nil &amp;&amp; _tmpBtn == sender){<br>        sender.selected = YES;</p>
+<pre><code>}
+else if (_tmpBtn!= btn &amp;&amp; _tmpBtn!=nil){
+    _tmpBtn.selected = NO;
+    sender.selected = YES;
+    _tmpBtn = btn;
+}
+</code></pre><p>}</p>
+<p>iOS 一句话移除所有子控件</p>
+<p>[view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];</p>
+<p>1、NSCalendar用法<br>-(NSString <em>) getWeek:(NSDate </em>)d<br>{<br>NSCalendar <em>calendar = [[NSCalendar alloc]<br>initWithCalendarIdentifier:NSGregorianCalendar];<br>unsigned units = NSYearCalendarUnit | NSMonthCalendarUnit |<br>NSDayCalendarUnit | NSWeekCalendarUnit;<br>NSDateComponents </em>components = [calendar components:units<br>fromDate:d];<br>[calendar release];<br>switch ([components weekday]) {<br>case1:<br>return @”Monday”; break;<br>case2:<br>return @”Tuesday”; break;<br>case3:<br>return @”Wednesday”; break;<br>case4:<br>return @”Thursday”; break;<br>case5:<br>return @”Friday”; break;<br>case6:<br>return @”Saturday”; break;<br>case7:<br>return @”Sunday”; break;<br>default:<br>return @”NO Week”; break;<br>}<br>NSLog(@”%@”,components);<br>}</p>
+<p>2、将网络数据读取为字符串<br>-(NSString <em>)getDataByURL:(NSString </em>)url {<br>return [[NSString alloc] initWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]] encoding:NSUTF8StringEncoding];<br>}</p>
+<p>3、读取⺴络图⽚<br>-(UIImage <em>)getImageByURL:(NSString </em>)url {<br>return [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];<br>}</p>
+<p>4、多线程(这种方式,只管建立线程,不管回收线程)<br>[NSThread detachNewThreadSelector:@selector(scheduleTask) toTarget:self withObject:nil];<br>-(void)scheduleTask<br>{<br>NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];<br>[pool release];<br>}</p>
+<p>如果有参数,则这么⽤<br>[NSThread detachNewThreadSelector:@selector(scheduleTask:) toTarget:self withObject:[NSDate date]];<br>-(void)scheduleTask:(NSDate <em>)mdate<br>{<br>NSAutoreleasePool </em>pool = [[NSAutoreleasePool alloc] init];<br>[pool release]; }</p>
+<p>在线程⾥运⾏主线程⾥的⽅法<br>[self performSelectorOnMainThread:@selector(moveToMain) withObject:nil waitUntilDone:FALSE];</p>
+<p>5、⽤户缺省值NSUserDefaults读取:<br>NSUserDefaults <em>df = [NSUserDefaults standardUserDefaults];<br>NSArray </em>languages = [df objectForKey:@”AppleLanguages”];<br>NSLog(@”all language is %@”,languages);<br>NSLog(@”index is %@”,[languages objectAtIndex:0]);<br>NSLocale *currentLocale = [NSLocale currentLocale];<br>NSLog(@”language Code is %@”,[currentLocale objectForKey:NSLocaleLanguageCode]);<br>NSLog(@”Country Code is %@”,[currentLocale objectForKey:NSLocaleCountryCode]);</p>
+<p>6、view之间转换的动态效果设置<br>SecondViewController *secondViewController = [[SecondViewController alloc] init];<br>secondViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;//⽔水平翻转<br>[self.navigationController presentModalViewController:secondViewController animated:YES];<br>[secondViewController release];</p>
+<p>7、UIScrollView 滑动用法: -(void)scrollViewDidScroll:(UIScrollView <em>)scrollView<br>{<br>NSLog(@”正在滑动中。。”)<br>}<br>//⽤户直接滑动UIScrollView,可以看到滑动条<br>-(void)scrollViewDidEndDelerating:(UIScrollView </em>)scrollView {<br>}<br>//通过其他控件触发UIScrollView滑动,看不到滑动条<br>-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {<br>}<br>//UIScrollView 设置滑动不超出本⾝身范围<br>[scrollView setBounces:NO]; </p>
+<p>8、iphone的系统目录:<br>//得到Document:目录<br>NSArray <em>paths =<br>NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);<br>NSString </em>documentsDirectory = [paths objectAtIndex:0];<br>//得到temp临时目录<br>NSString <em>temPath = NSTemporaryDirectory();<br>//得到目录上的文件地址<br>NSString </em>address = [paths stringByAppendingPathComponent:@”1.rtf”];</p>
+<p>9、状态栏显⽰示indicator<br>[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;</p>
+<p>10、app Icon显示数字:</p>
+<ul>
+<li><p>(void)applicationDidEnterBackground:(UIApplication *)application<br>{</p>
+<p>[[UIApplication sharedApplication] setApplicationIconBadgeNumber:5];<br>}<br>11、sqlite保存地址:<br>NSArray <em>paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectoryNSUserDomainMask, YES);<br>NSString </em>thePath = [paths objectAtIndex:0];<br>NSString <em>filePath = [thePath stringByAppendingPathComponent:@”kilometer.sqlite”];<br>NSString </em>dbPath = [[[NSBundle mainBundle] resourcePathstringByAppendingPathComponent:@”kilometer2.sqlite”];</p>
+</li>
+</ul>
+<p>12、键盘弹出隐藏,textfield变位置<br>_tspasswordTF = [[UITextField alloc] initWithFrame: CGRectMake(100,<br>150, 260, 30)];<br>_tspasswordTF.backgroundColor = [UIColor redColor];<br>_tspasswordTF.tag = 2;<br>/*<br>Use this method to release shared resources, save user data,<br>_tspasswordTF.delegate = self;<br>[self.window addSubview: _tspasswordTF];</p>
+<ul>
+<li><p>(void)textFieldDidBeginEditing:(UITextField *)textField {<br>[self animateTextField: textField up: YES];<br>}</p>
+</li>
+<li><p>(BOOL)textFieldShouldReturn:(UITextField *)textField {<br>[self animateTextField: textField up: NO];<br>[textField resignFirstResponder];<br>return YES;<br>}</p>
+</li>
+<li>(void) animateTextField: (UITextField*) textField up: (BOOL) up {<br>const int movementDistance = 80;<br>// tweak as needed<br>const float movementDuration = 0.3f;<br>// tweak as needed<br>int movement = (up ? -movementDistance : movementDistance);<br>[UIView beginAnimations: nil context: nil]; [UIView setAnimationBeginsFromCurrentState: YES]; [UIView setAnimationDuration: movementDuration];<br>self.window.frame = CGRectOffset(self.window.frame, 0, movement);<br>[UIView commitAnimations];<br>}</li>
+</ul>
+<p>13、获取图片的尺⼨<br>CGImageRef img = [imageView.image CGImage];<br>NSLog(@”%d”,CGImageGetWidth(img));<br>NSLog(@”%d”,CGImageGetHeight(img));</p>
+<p>14、AlertView,ActionSheet的cancelButton点击事件:</p>
+<ul>
+<li>(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex: (NSInteger)buttonIndex; // before animation and hiding view<br>{<br>NSLog(@”cancel alertView… buttonindex = %d”,buttonIndex); //当⽤用户按下Cancel按钮<br>if (buttonIndex == [alertView cancelButtonIndex]){<br>exit(0);<br>}<br>}</li>
+<li>(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex<br>{<br>NSLog(@”%s %d button = %d cancel actionSheet…..”,<strong>FUNCTION</strong>,<strong>LINE</strong>, buttonIndex);<br>//当⽤用户按下Cancel按钮<br>if (buttonIndex == [actionSheet cancelButtonIndex]) {<br>exit(0);<br>}<br>}<br>15、给window设置全局背景图片<br>self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@””]];</li>
+</ul>
+<p>16、tabcontroller随意切换tabbar<br>-(void)tabBarController:(UITabBarController <em>)tabBarController didSelectViewController:(UIViewController </em>)viewController<br>或者<br>-(BOOL)tabBarController:(UITabBarController <em>)tabBarController shouldSelectViewController:(UIViewController </em>)viewController<br>或者<br>_tabBarController.selectedIndex = tabIndex;</p>
+<p>17、计算字符串⻓度:<br>CGFloat w = [title sizeWithFont:[UIFont fontWithName:@”Arial” size: 18]].width;</p>
+<p>18、计算点到线段的最短距离<br>根据结果坐标使⽤用CLLocation类的函数计算实际距离。 double<br>x1, y1, x2, y2, x3, y3;<br>double px =x2 -x1;<br>double py = y2 -y1;<br>double som = px <em>px + py </em>py;<br>double u =((x3 - x1)<em>px +(y3 - y1)</em>py)/som; if(u &gt; 1)<br>{ u=1; }<br>if (u &lt; 0) { u =0;<br>}<br>//the closest point<br>double x = x1 + u <em>px; double y = y1 + u </em> py; double dx = x - x3; double dy = y - y3;<br>double dist = sqrt(dx<em>dx + dy</em>dy);</p>
+<p>19、UISearchBar背景透明<br>在使用UISearchBar时,将背景⾊设定为clearColor,或者将translucent设为YES,都<br>不能使背景透明,经过一番研究,发现了一种超级简单和实用的⽅法:<br>[[searchbar.subviews objectAtIndex:0] removeFromSuperview];<br>背景完全消除了,只剩下搜索框本身了。</p>
+<p>20、图像与缓存 :<br>UIImageView <em>wallpaper = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@”icon.png”]]; // 会缓存图片<br>UIImageView </em>wallpaper = [[UIImageView alloc] initWithImage: [UIImage imageWithContentsOfFile:@”icon.png”]]; // 不会缓存图⽚片</p>
+<p>21、iphone对视图层的操作<br>// 将textView的边框设置为圆角<br>_textView.layer.cornerRadius = 8;<br>_textView.layer.masksToBounds = YES;<br>//给textView添加一个有色边框<br>_textView.layer.borderWidth = 5;<br>_textView.layer.borderColor = [[UIColor colorWithRed:0.52 green:0.09<br>blue:0.07 alpha:1] CGColor];<br>//textView添加背景图片<br>_textView.layer.contents = (id)[UIImage imageNamed:@”31”].CGImage;</p>
+<p>22、关闭当前应用<br>[[UIApplication sharedApplication] performSelector:@selector(terminateWithSuccess)];</p>
+<p>23、给iPhone程序添加欢迎界面<br>1、将你需要的欢迎界面的图片,存成Default.png<br>[NSThread sleepForTimeInterval:10.0]; 这样欢迎页面就停留10秒后消失了。</p>
+<p>24、NSString NSDate转换<br>NSString<em> myString= @”testing”;<br>NSData</em> data=[myString dataUsingEncoding: [NSString defaultCStringEncodi ng]];<br>NSString* aStr =<br>[[NSString alloc] initWithData:aData encoding:NSASCIIStringEncoding];</p>
+<p>25、UIWebView中的dataDetectorTypes<br>如果你希望在浏览页面时,页面上的电话号码显示成链接形式,点击电话号码就拨打电话,这时你就需要用到dataDetectorTypes了。</p>
+<p>NSURL <em>url = [NSURL URLWithString:@”<a href="http://2015.iteye.com" target="_blank" rel="external">http://2015.iteye.com</a>“];<br>NSURLRequest </em>requestObj = [NSURLRequest requestWithURL:url]; webView.dataDetectorTypes = UIDataDetectorTypePhoneNumber;<br>[webView loadRequest:requestObj];</p>
+<p>26、打开苹果电脑浏览器的代码<br>如您想在 Mac 软件中集成一键打开浏览器功能,可以使用以下代码</p>
+<p>[[NSWorkspace sharedWorkspace] openURLs: urls withAppBundleIdentifier:@”com.apple.Safari”<br>options: NSWorkspaceLaunchDefault additionalEventParamDescriptor: NULL launchIdentifiers: NULL];</p>
+<p>27、设置StatusBar以及NavigationBar的样式<br>[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque; self.navigationController.navigationBar.barStyle = UIBarStyleBlack;</p>
+<p>28、隐藏Status Bar 你可能知道一个简易的方法,那就是在程序的viewDidLoad中加入以下代码:</p>
+<p>[UIApplication sharedApplication].statusBarHidden = YES;<br>此法可以隐藏状态条,但问题在于,状态条所占空间依然无法为程序所用。<br>本篇介绍的方法依然简单,但更为奏效。通过简单的3个步骤,在plist中加入一 个键值来实现。</p>
+<ol>
+<li>点击程序的Info.plist</li>
+<li>右键点击任意一处,选择Add Row</li>
+<li>加入的新键值,命名为UIStatusBarHidden或者Status bar is initially hidden,然后选上这一项。</li>
+</ol>
+<p>29、产生随机数的最佳方案<br>arc4random()会返回一个整型数,因此,返回1至100的随机数可以这样写:<br>arc4random()%100 + 1;</p>
+<p>30、string 和char转换<br>NSString <em>cocoaString = [[NSString alloc] initWithString:@”MyString”];<br>const char </em>myCstring = [cocoaString cString];<br>const char <em>cString = “Hello”;<br>NSString </em>cocoString = [[NSString alloc] initWithCString:cString];</p>
+<ol>
+<li>String Class 的转化<br> NSString <em>stringVC = _Mydictionary[@”first”][@”pushVC”][row];<br> UIViewController </em>VC = [[NSClassFromString(stringVC) alloc] init];<br> VC.navigationItem.title = _Mydictionary[@”first”][@”title”][row];<br> [self.navigationController pushViewController:VC animated:YES];</li>
+</ol>
+<p>31、用UIWebView在当前程序中打开网页 如果URL中带中文的话,必须将URL中的中文转成URL形式的才行。<br>NSString <em>query = [NSString stringWithFormat:@”<a href="http://www.baidu.com?q=苹" target="_blank" rel="external">http://www.baidu.com?q=苹</a> 果”];<br>NSString </em>strUrl = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];<br>NSURL <em>url = [NSURL URLWithString:strUrl];<br>NSURLRequest </em>requestObj = [NSURLRequest requestWithURL:url];<br>[webView loadRequest:requestObj];</p>
+<p>32、阻止ios设备锁屏<br>[[UIApplication sharedApplication] setIdleTimerDisabled:YES];<br>或<br>[UIApplication sharedApplication].idleTimerDisabled = YES; </p>
+<p>33、一条命令卸载Xcode和 iPhone SDK<br>sudo /Developer/Library/uninstall-devtools –mode=all</p>
+<p>34、获取按钮的title<br>-(void)btnPressed:(id)sender {<br>NSString <em>title = [sender titleForState:UIControlStateNormal];<br>NSString </em>newText = [[NSString alloc] initWithFormat:@”%@”,title];<br>label.text = newText;<br>[newText release];<br>}</p>
+<p>35、NSDate to NSString<br>NSString <em>dateStr = [[NSString alloc] initWithFormat:@”%@”, date];<br>或者<br>NSDateFormatter </em>dateFormatter = [[NSDateFormatter alloc] init];<br>[dateFormatter setDateFormat:@”yyyy-MM-dd HH:mm:ss”];<br>NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];<br>NSLog(@”%@”, strDate);<br>[dateFormatter release];</p>
+<p>36、图片由小到大缓慢显示的效果<br>UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];<br>[imageView setImage:[UIImage imageNamed:@”4.jpg”]];<br>self.ANImageView = imageView;<br>[self.view addSubview:imageView];<br>[imageView release];<br>CGContextRef context = UIGraphicsGetCurrentContext();<br>[UIView beginAnimations:nil context:context];<br>[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];<br>[UIView setAnimationDuration:2.5];<br>CGImageRef img = [self.ANImageView.image CGImage];<br>[ANImageView setFrame:CGRectMake(0, 0, CGImageGetWidth(img), CGImageGetHeight(img))];<br>[UIView commitAnimations];<br>NSLog(@”%lu”,CGImageGetWidth(img));<br>NSLog(@”%lu”,CGImageGetHeight(img));</p>
+<p>37、数字转字符串<br>NSString *newText = [[NSString alloc] initWithFormat:@”%d”,number];<br>numberlabel.text = newText;<br>[newText release];</p>
+<p>38、随机函数arc4random() 的使用.<br>在iPhone中,RAND_MAX是0x7fffffff (2147483647),而arc4random()返回的 最大值则是 0x100000000 (4294967296),从而有更好的精度。使用 arc4random()还不需要生成随机种子,因为第一次调用的时候就会自动生成。<br>如:<br>arc4random() 来获取0到100之间浮点数</p>
+<p>#define ARC4RANDOM_MAX 0x100000000<br>double val = floorf(((double)arc4random() / ARC4RANDOM_MAX) * 100.0f);</p>
+<ol>
+<li>self.view.backgroundColor = [UIColor colorWithHue: arc4random() % 2 55 / 255</li>
+<li><ol>
+<li>4.<br>saturation: arc4random() % 2 brightness: arc4random() % 2<br>alpha: 1.0];</li>
+</ol>
+</li>
+</ol>
+<p>39、改变键盘颜色的实现<br>iPhone和iPod touch的键盘颜色其实是可以通过代码更改的,这样能更匹配 App的界面风格,下面是改变iPhone键盘颜⾊色的代码。<br>-(void)textFieldDidBeginEditing:(UITextField <em>)textField {<br>NSArray </em>ws = [[UIApplication sharedApplication] windows];<br>for(UIView <em>w in ws)<br>{<br>NSArray </em>vs = [w subviews];<br>for(UIView *v in vs)<br>{</p>
+<p>if([[NSString stringWithUTF8String:object_getClassName(v)] isEqualToString:@”UIPeripheralHostView”])<br>{<br>v.backgroundColor = [UIColor blueColor];<br>} }<br>} }<br>55 / 255 55 / 255<br>_textField.keyboardAppearance = UIKeyboardAppearanceAlert;//有这个设置属性 才起作用</p>
+<p>40、iPhone上实现Default.png动画 添加一张和Default.png⼀一样的图片,对这个图片进行动画,从而实现Default动画的渐变消 失的效果。<br>UIImageView *splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];<br>splashView.image = [UIImage imageNamed:@”Default.png”];<br>[self.window addSubview:splashView];<br>[self.window bringSubviewToFront:splashView];<br>[UIView beginAnimations:nil context:nil];<br>[UIView setAnimationDuration:2.0];<br>[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:<br>self.window cache:YES];<br>[UIView setAnimationDelegate:self];<br>[UIView setAnimationDidStopSelector:@selector(startupAnimationDone:finished:cont ext:)];<br>splashView.alpha = 0.0;<br>splashView.frame = CGRectMake(-60, -85, 440, 635);<br> [UIView commitAnimations];</p>
+<p>41、将EGO主题色添加到xcode中 打开终端,执行以下命令<br>Shell代码</p>
+<ol>
+<li>mkdir -p ~/Library/Application\ Support/Xcode/Color\ Themes; 2. cd ~/Library/Application\ Support/Xcode/Color\ Themes;</li>
+<li>curl -O <a href="http://developers.enormego.com/assets/egotheme/" target="_blank" rel="external">http://developers.enormego.com/assets/egotheme/</a><br>EGO.xccolortheme<br>然后,重启Xcode,选择Preferences &gt; Fonts &amp; Colors,最后从Color Theme 中选择EGO即可。</li>
+</ol>
+<p>42、将图片保存到图片库中<br>-(void)touchesBegan:(NSSet <em>)touches withEvent:(UIEvent </em>)event {<br>UITouch <em>touch = [touches anyObject];<br>if ([touch tapCount]== 1)<br>{<br>UIImageWriteToSavedPhotosAlbum([ANImageView image], nil, nil, nil);<br>UIAlertView </em>alert = [[UIAlertView alloc] initWithTitle:@”存储照⽚片 message:@”您已将照⽚存于图片库中,打开照片程序即可查” delegate:self cancelButtonTitle:@”OK” otherButtonTitles:nil];</p>
+<p>[alert show];<br>[alert release];<br>}<br>}</p>
+<p>43、读取plist文件<br>//取得文件路径<br>NSString <em>plistPath = [[NSBundle mainBundle] pathForResource:@”文件<br>名” ofType:@”plist”];<br>//读取到一个字典<br>NSDictionary </em>dictionary = [[NSDictionary alloc] initWithContentsOfFile:plistPath];<br>//读取到一个数组<br>NSArray *array = [[NSArray alloc] initWithContentsOfFile:plistPath];</p>
+<p>44、使用#pragma mark 加上这样的标识后,在导航条上会显示源文件上方法列表,这样就可对功能相关的方法进行分隔,方便查看了。<br>设置UITabBarController默认的启动Item //a tabBar<br>UITabBarController <em>tabBarController = [[UITabBarController alloc] init];<br>NSArray </em>controllers = [NSArray arrayWithObjects: nav1, nav2, nav3, nav4, nil];<br>tabBarController.viewControllers = controllers; tabBarController.selectedViewController = nav2;</p>
+<p>45、NSUserDefaults的使用<br>NSUserDefaults *store = [NSUserDefaults standardUserDefaults];<br>NSUInteger selectedIndex = 1;<br>[store setInteger:selectedIndex forKey:@”selectedIndex”];<br>if ([store valueForKey:@”selectedIndex”] != nil) {<br>NSInteger index = [store integerForKey:@”selectedIndex”];<br>NSLog(@”⽤用户已经设置的selectedIndex的值是:%d”, index);<br>}<br>else {<br>NSLog(@”请设置默认的值”);<br>}</p>
+<p>46、更改Xcode的缺省公司名 在终端中执行以下命令:<br>defaults write com.apple.Xcode PBXCustomTemplateMacroDefiniti ons ‘{“ORGANIZATIONNAME” = “COMPANY”;}’</p>
+<p>47、设置uiView,成圆角矩形 画个圆角的矩形没啥难的,有两种方法:<br>1 。直接修改view的样式,系统提供好的了:<br>view.layer.cornerRadius = 6;<br>view.layer.masksToBounds = YES; 用layer做就可以了,十分简单。这个需要倒库 QuartzCore.framework;</p>
+<ol>
+<li>在view 里面画圆角矩形 CGFloat radius = 20.0;<br>CGContextRef context = UIGraphicsGetCurrentContext(); CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1);<br>CGFloat minx = CGRectGetMinX(rect), midx = CGRectGetMidX(rect), maxx =<br>CGRectGetMaxX(rect);<br>CGFloat miny = CGRectGetMinY(rect), midy = CGRectGetMidY(rect), maxy =<br>CGRectGetMaxY(rect);<br>CGContextMoveToPoint(context, minx, midy); CGContextAddArcToPoint(context, minx, miny, midx, miny, radius); CGContextAddArcToPoint(context, maxx, miny, maxx, midy, radius); CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, radius); CGContextAddArcToPoint(context, minx, maxy, minx, midy, radius); CGContextClosePath(context);<br>CGContextDrawPath(context, kCGPathFill);<br>用画笔的方法,在drawRect里面做。</li>
+</ol>
+<p>48、画图时图片倒转解决方法<br>CGContextRef context = UIGraphicsGetCurrentContext(); CGContextSaveGState(context);<br>CGContextTranslateCTM(context, 0, self.bounds.size.height); CGContextScaleCTM(context, 1, -1);<br>drawImage = [UIImage imageNamed:@”12.jpg”];<br>CGImageRef image = CGImageRetain(drawImage.CGImage);<br>CGContextDrawImage(context, CGRectMake(30.0, 200, 450, 695), image); CGContextRestoreGState(context);</p>
+<p>49、Nsstring 自适应文本宽高度<br>CGSize feelSize = [feeling sizeWithFont:[UIFont systemFontOfSize:12]<br>constrainedToSize:CGSizeMake(190, 200)];<br>float feelHeight = feelSize.height;</p>
+<p>50、用HTTP协议,获取www.baidu.com网站的HTML数据:<br>[NSString stringWithContentsOfURL:[NSURL URLWithString:@”<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>“]];</p>
+<p>51、viewDidLoad中设置按钮图案<br>UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];<br>button.frame = CGRectMake(0, 0, 60, 30);<br>[button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];<br>[self.view addSubview:button];</p>
+<p>UIImage <em>buttonImageNormal = [UIImage imageNamed:@”huifu-001.png”];<br>UIImage </em>stretchableButtonImageNormal = [buttonImageNormal<br>stretchableImageWithLeftCapWidth:12 topCapHeight:0];<br> [button setBackgroundImage:stretchableButtonImageNormal forState:UIControlStateNormal]; UIImage <em>buttonImagePressed = [UIImage imageNamed:@”qyanbuhuifu-001.png”];<br>UIImage </em>stretchableButtonImagePressed = [buttonImagePressed stretchableImageWithLeftCapWidth:12 topCapHeight:0];<br>[button setBackgroundImage:stretchableButtonImagePressed forState:UIControlStateHighlighted];<br>52、键盘上的return键改成Done: textField.returnKeyType = UIReturnKeyDone;</p>
+<p>53、textfield设置成为密码框: [textField_pwd setSecureTextEntry:YES];</p>
+<p>54、收回键盘: [textField resignFirstResponder]; 或者 [textfield addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditin gDidEndOnExit];<br>55、振动:</p>
+<p>#import<audiotoolbox audiotoolbox.h=""> //需加头文件<br>方法一: AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);<br>方法二: AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); 当设备不支持方法一函数时,起蜂鸣作用, 而方法二支持所有设备</audiotoolbox></p>
+<p>56、用Cocoa删除文件:<br>NSFileManager *defaultManager = [NSFileManager defaultManager];<br>[defaultManager removeFileAtPath: tildeFilename  handler: nil];</p>
+<p>57、UIView透明渐变与移动效果:<br>//动画配制开始<br>[UIView beginAnimations:@”animation” context:nil]; [UIView setAnimationDuration:2.5];<br>//图片上升动画<br>CGRect rect = imgView.frame ;<br>rect.origin.y = 30;<br>imgView.frame = rect;<br>//半透明度渐变动画<br>imgView.alpha = 0;<br>//提交动画<br>[UIView commitAnimations];</p>
+<p>58、在UIView的drawRect方法内,用Quartz2D API绘制一个像素宽的水平直线:<br>-(void)drawRect:(CGRect)rect{<br>//获取图形上下文<br>CGContextRef context = UIGraphicsGetCurrentContext(); //设置图形上下文的路径绘制颜色 CGContextSetStrokeColorWithColor(context, [UIColor<br>whiteColor].CGColor); //取消防锯齿<br>CGContextSetAllowsAntialiasing(context, NO); //添加线<br>CGContextMoveToPoint(context, 50, 50);<br>CGContextAddLineToPoint(context, 100, 50); //绘制<br>CGContextDrawPath(context, kCGPathStroke); }</p>
+<p>59、用UIWebView加载: www.baidu.com<br>UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];<br>[web loadRequest:[NSURLRequest requestWithURL: [NSURL URLWithString:@”<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>“]]];<br>[self.view addSubview:web];<br>[web release];</p>
+<p>60、利用UIImageView实现动画:</p>
+<ul>
+<li>(void)viewDidLoad {<br>[super viewDidLoad];<br>UIImageView *fishAni=[[UIImageView alloc] initWithFrame: [[UIScreen mainScreen] bounds]];<br>[self.view addSubview:fishAni];<br>[fishAni release];<br>//设置动画帧<br>fishAni.animationImages=[NSArray arrayWithObjects: [UIImage imageNamed:@”1.jpg”],<br>[UIImage imageNamed:@”2.jpg”],<br>[UIImage imageNamed:@”3.jpg”],<br>[UIImage imageNamed:@”4.jpg”],<br>[UIImage imageNamed:@”5.jpg”],nil ];<br>//设置动画总时间 fishAni.animationDuration=1.0;<br>//设置重复次数,0表示不重复 fishAni.animationRepeatCount=0;<br>//开始动画<br>[fishAni startAnimating]; }</li>
+</ul>
+<p>61、用NSTimer做一个定时器,每隔1秒执行一次 pressedDone;<br>-(IBAction)clickBtn:(id)sender{<br>NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(printHello) userInfo:nil repeats:YES];<br>[timer fire];<br> }</p>
+<p>62、利用苹果机里的相机进行录像:<br>-(void) choosePhotoBySourceType: (UIImagePickerControllerCameraCaptureMode) sourceType {<br>m_imagePickerController = [[[UIImagePickerController alloc] init] autorelease];<br>m_imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;<br>m_imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera; m_imagePickerController.cameraDevice =UIImagePickerControllerCameraDeviceFront;<br>//m_imagePickerController.cameraCaptureMode =UIImagePickerControllerCameraCaptureModeVideo;<br>NSArray <em>sourceTypes = [UIImagePickerController availableMediaTypesForSourceType:m_imagePickerController.sourceType];<br>if ([sourceTypes containsObject:(NSString </em>)kUTTypeMovie ]) {<br>m_imagePickerController.mediaTypes= [NSArray arrayWithObjects: (NSString <em>)kUTTypeMovie,(NSString </em>)kUTTypeImage,nil];<br>}<br>// m_imagePickerController.cameraCaptureMode = sourceType; //m_imagePickerController.mediaTypes //imagePickerController.allowsEditing = YES;<br>[self presentModalViewController: m_imagePickerController animated:YES];<br> }</p>
+<p>-(void) takePhoto {<br>if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])<br>{<br>[self choosePhotoBySourceType:nil];<br>} }<br>// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.</p>
+<ul>
+<li>(void)viewDidLoad {<br>[super viewDidLoad];<br>UIButton <em>takePhoto = [UIButton<br>buttonWithType:UIButtonTypeRoundedRect];<br>[takePhoto setTitle:@”录像” forState:UIControlStateNormal];<br>[takePhoto addTarget:self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];<br>takePhoto.frame = CGRectMake(50,100,100,30); [self.view addSubview:takePhoto];<br>}<br>63、App中调用 iPhone的home + 电源键截屏功能<br>// 前置声明是消除警告<br>CGImageRef UIGetScreenImage();<br>CGImageRef img = UIGetScreenImage();<br>UIImage</em> scImage=[UIImage imageWithCGImage:img]; UIImageWriteToSavedPhotosAlbum(scImage, nil, nil, nil);</li>
+</ul>
+<p>64、切割图片的方法<br>//切割图片<br>UIImage <em>image = [UIImage imageNamed:@”7.jpg”];<br>//设置需要截取的⼤大⼩小<br>CGRect rect = CGRectMake(20, 50, 280, 200);<br>//转换<br>CGImageRef imageRef = image.CGImage;<br>//截取函数<br>CGImageRef imageRefs = CGImageCreateWithImageInRect(imageRef, rect);<br>//生成uIImage<br>UIImage </em>newImage = [[UIImage alloc] initWithCGImage:imageRefs];<br>//添加到imageView中<br>imageView = [[UIImageView alloc] initWithImage:newImage];<br>imageView.frame = rect;</p>
+<p>65、如何屏蔽父view的touch事件<br>-(UIView <em>)hitTest:(CGPoint)point withEvent:(UIEvent </em>)event<br>{<br>CGMutablePathRef path = CGPathCreateMutable(); CGPathMoveToPoint(path,NULL,0,0);<br>CGRect rect = CGRectMake(0, 100, 320, 40); CGPathAddRect(path, NULL, rect); if(CGPathContainsPoint(path, NULL, point, NO)) {<br>[self.superview touchesBegan:nil withEvent:nil]; }<br>CGPathRelease(path);<br>return self;<br>}</p>
+<p>66、用户按home键推送通知<br>UIApplication <em>app = [UIApplication sharedApplication];<br>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pressHome:) name:UIApplicationDidEnterBackgroundNotification object:app];<br>-(void)pressHome:(NSNotification </em>)notification {<br>NSLog(@”pressHome…”);<br>}</p>
+<p>67、在UIImageView中旋转图像:<br>float rotateAngle = M_PI; //M_PI为一角度<br>CGAffineTransform transform =CGAffineTransformMakeRotation(rotateA ngle);<br>imageView.transform = transform;</p>
+<p>68、隐藏状态栏:<br>方法一, [UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];<br>方法二, 在应用程序的Info.plist 文件中将 UIStatusBarHidden 设置为YES; </p>
+<p>69、构建多个可拖动视图:<br>@interface DragView: UIImageView{<br>CGPoint startLocation;<br>NSString <em>whichFlower; }<br>@property (nonatomic ,retain)NSString </em>whichFlower; @end<br>@implementation DragView<br>@synthesize whichFlower;</p>
+<ul>
+<li>(void) touchesBegan:(NSSet <em>)touches withEvent: (UIEvent </em>)event{ CGPoint pt = [[touhes anyObject ] locationInView:self]; startLocation = pt;<br>[[self superview] bringSubviewToFront:self];<br>}</li>
+<li>(void) touchesMoved:(NSSet <em>)touches withEvent:( UIEvent </em>)event{<br>CGPoint pt = [[touches anyObject] locatonInView:self]; CGRect frame = [self frame];<br>frame.origin.x += pt.x – startLocation.x;<br>frame.origin.y += pt.y - startLocation.y;<br>[self setFrame:frame]; }<br>@end<br>@interface TestController :UIViewController{<br>UIView *contentView;<br>}<br>@end<br>@implementation TestController<br>#define MAXFLOWERS 16<br>CGPoint randomPoint(){<br>return CGPointMake(random()%6 , random()96);<br>}</li>
+<li>(void)loadView{<br>CGRect apprect = [[UIScreen mainScreen] applicationFrame];<br>contentView = [[UIView alloc] initWithFrame :apprect];<br>contentView.backgroundColor = [UIColor blackColor];<br>self.view = contentView;<br>[contentView release];<br>for(int i=0 ; i&lt;MAXFLOWERS; i++){<br>CGRect dragRect = CGRectMake(0.0f ,0.0f, 64.0f ,64.0f);<br>dragRect.origin = randomPoint();<br>DragView <em>dragger = [[DragView alloc] initWithFrame:dragRect];<br>[dragger setUserInteractionEnabled: YES];<br>NSString </em>whichFlower = [[NSArray arrayWithObjects:@”blueFlower.png”,@”pinkFlower.png”,nil] objectAtIndex: ( random() %2)];<br>[dragger setImage:[UIImage imageNamed:whichFlower]];<br>[contentView addSubview :dragger];<br>[dragger release];<br>} }</li>
+<li>(void)dealloc{<br>[contentView release];<br>[super dealloc];<br>}<br>@end</li>
+</ul>
+<p>70、iPhone中加入dylib库<br>加入dylib库时,必须在info中加入头文件路径。/usr/include/库名(不要后缀)</p>
+<p>71、iPhone iPad 中App名字如何支持多语言和显示自定义名字<br>建立InfoPlist.strings,本地化此文件,然后在文件内添加: CFBundleDisplayName = “xxxxxxxxxxx”; //<br>这样应⽤用程序就能显示成设置的名字“xxxxxxxxxxx”. </p>
+<p>72、在数字键盘上添加button:<br>//定义一个消息中心<br>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];<br>//addObserver:注册一个观察员 name:消息名称</p>
+<ul>
+<li>(void)keyboardWillShow:(NSNotification <em>)note {<br>// create custom button<br>UIButton </em>doneButton = [UIButton buttonWithType:UIButtonTypeCustom];<br>doneButton.frame = CGRectMake(0, 163, 106, 53);<br>[doneButton setImage:[UIImage imageNamed:@”5.png”]<br>forState:UIControlStateNormal];<br>[doneButton addTarget:self action:@selector(addRadixPoint) forControlEvents:UIControlEventTouchUpInside];<br>// locate keyboard view<br>UIWindow<em> tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];<br>//返回应用程序window<br>UIView</em> keyboard;<br>for(int i=0; i&lt;[tempWindow.subviews count]; i++)<br>//遍历window上的所有 subview<br>{<br>keyboard = [tempWindow.subviews objectAtIndex:i];<br>// keyboard view found;<br>add the custom button to it<br>if([[keyboard description] hasPrefix:@”&lt;UIKeyboard”] == YES)<br>[keyboard addSubview:doneButton];<br>}<br>}<br>73、去掉iPhone应用图标上的弧形高光 有时候我们的应用程序不需要在图标上加上默认的高光,可以在你的应用的 Info.plist中加入:<br>Icon already includes gloss effects YES</li>
+</ul>
+<p>74、实现修改navigation的back按钮<br>self.navigationItem.backBarButtonItem =<br>[[[UIBarButtonItem alloc] initWithTitle: NSLocalizedStringFromTable (@”返回”, @”System”, nil) style:UIBarButtonItemStyleBordered target:nil action:nil] autorelease];</p>
+<p>75、给图片加上阴影<br>UIImageView<em>pageContenterImageView = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@”onePageApple.png”]];<br>//添加边框<br>CALayer</em>layer = [pageContenterImageView layer];<br>layer.borderColor= [[UIColor whiteColor]CGColor];<br>layer.borderWidth=0.0f;<br>//添加四个边阴影<br>pageContenterImageView.layer.shadowColor= [UIColor blackColor].CGColor;<br>pageContenterImageView.layer.shadowOffset=CGSizeMake(0,0); pageContenterImageView.layer.shadowOpacity=0.5; pageContenterImageView.layer.shadowRadius=5.0; 阴影渲染会严重消耗内存 ,导致程序咔叽.<br>/<em>阴影效果</em>/<br>//添加边框<br>CALayer<em>layer = [self.pageContenter layer];<br>layer.borderColor= [[UIColorwhiteColor]CGColor];<br>layer.borderWidth=0.0f;<br>//添加四个边阴影<br>self.pageContenter.layer.shadowColor= [UIColorblackColor].CGColor;//阴影颜色<br>self.pageContenter.layer.shadowOffset=CGSizeMake(0,0);//阴影偏移 self.pageContenter.layer.shadowOpacity=0.5;//阴影不透明度 self.pageContenter.layer.shadowRadius=5.0;//阴影半径<br>⼆二、给视图加上阴影<br>UIView </em> content=[[UIView alloc] initWithFrame:CGRectMake(100, 250, 503, 500)];<br>content.backgroundColor=[UIColor orangeColor];<br>//content.layer.shadowOffset=10;<br>content.layer.shadowOffset = CGSizeMake(5, 3); content.layer.shadowOpacity = 0.6; content.layer.shadowColor = [UIColor blackColor].CGColor;<br>[self.window addSubview:content]; </p>
+<p>76、UIView有一个属性,clipsTobounds 默认情况下是NO, 如果,我们想要view2把超出的那部份隐藏起来的话,就得改变它的父视图也 就view1的clipsTobounds属性值。<br>view1.clipsTobounds = YES;<br>使用objective-c 建立UUID UUID是128位的值,它可以保证唯一性。通常,它是由机器本身网卡的MAC地<br>址和当前系统时间来生成的。 UUID是由中划线连接而成的字符串。例如:0A326293-BCDD-4788-8F2D-<br>C4D8E53C108B<br>在声明文件中声明一个方法:</p>
+<p>#import <uikit uikit.h=""><br>@interface UUIDViewController : UIViewController { }</uikit></p>
+<ul>
+<li>(NSString *) createUUID;<br>@end<br>对应的实现文件中实现该方法:</li>
+<li>(NSString <em>) createUUID {<br>CFUUIDRef uuidObject = CFUUIDCreate(kCFAllocatorDefault);<br>NSString </em>uuidStr = (NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuidObject);<br>CFRelease(uuidObject);<br>return uuidStr; }</li>
+</ul>
+<p>77、iPhone iPad中横屏显示代码<br>1、强制横屏<br>[application setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];<br>2、在infolist⾥里⾯面加了Supported interface orientations这⼀一项,增加之后添加四个item就是 ipad的四个⽅方向<br>item0 UIInterfaceOrientationLandscapeLeft<br>item1 UIInterfaceOrientationLandscapeRight 这表明只⽀支持横屏显⽰示 经常让人混淆迷惑的问题 - 数组和其他集合类</p>
+<p>78、当一个对象被添加到一个array, dictionary, 或者 set等这样的集合类型中的时候,集合会retain它。 对应 的,当集合类被release的时候,它会发送对应的release消息给包含在其中的对象。 因此,如果你想建立一 个包含一堆number的数组,你可以像下面示例中的几个方法来做<br>NSMutableArray <em>array; int i;<br>// …<br>for (i = 0; i &lt; 10; i++) {<br>NSNumber </em>n = [NSNumber numberWithInt: i];<br>[array addObject: n]; }<br>在这种情况下, 我们不需要retain这些number,因为array将替我们这么做。 NSMutableArray <em>array;<br>int i;<br>// …<br>for (i = 0; i &lt; 10; i++) {<br>NSNumber </em>n = [[NSNumber alloc] initWithInt: i];<br> [array addObject: n];<br>[n release];<br>}<br>在这个例子中,因为你使用了-alloc去建立了一个number,所以你必须显式的-release它,以保证retain count的平衡。因为将number加入数组的时候,已经retain它了,所以数组中的number变量不会被release</p>
+<p>79、UIView动画停止调用方法遇到的问题<br>在实现UIView的动画的时候,并且使⽤用UIView来重复调⽤用它结束的回调时候要 注意以下⽅方法中的finished参数<br>-(void)animationDidStop:(NSString <em>)animationID finished:(NSNumber </em>)finished context:(void *)context<br>{<br>if([finishied boolValue] == YES)<br>//一定要判断这句话,要不在程序中当多个View刷新的时候,就可能出现动画异常的现象 {<br>//执行想要的动作 }<br>}</p>
+<p>80、判断在UIViewController中,viewWillDisappear的时候是push还是 pop出来</p>
+<ul>
+<li>(void)viewWillDisappear:(BOOL)animated {<br>NSArray *viewControllers = self.navigationController.viewControllers; if (viewControllers.count &gt; 1 &amp;&amp; [viewControllers<br>objectAtIndex:viewControllers.count-2] == self) {<br>// View is disappearing because a new view controller was pushed onto the<br>stack<br>NSLog(@”New view controller was pushed”);<br>} else if ([viewControllers indexOfObject:self] == NSNotFound) { // View is disappearing because it was popped from the stack NSLog(@”View controller was popped”);<br>} }</li>
+</ul>
+<p>81、连接字符串小技巧<br>NSString <em>string1 = @”abc / cde”;<br>NSString </em>string2 = @”abc” @”cde”;<br>NSString *string3 = @”abc” “cde”;<br>NSLog( @”string1 is %@” , string1 );<br>NSLog( @”string2 is %@” , string2 ); NSLog( @”string3 is %@” , string3 );<br>打印结果如下:<br>string1 is abc cde string2 is abccde</p>
+<p>82、随文字大小label自适应<br>label=[[UILabel alloc] initWithFrame:CGRectMake(50, 23, 175, 33)];<br>label.backgroundColor = [UIColor purpleColor];<br>[label setFont:[UIFont fontWithName:@”Helvetica” size:30.0]];<br>[label setNumberOfLines:0];<br>//[myLable setBackgroundColor:[UIColor clearColor]]; [self.window addSubview:label];<br>NSString <em>text = @”this is ok”;<br>UIFont </em>font = [UIFont fontWithName:@”Helvetica” size:30.0];<br>CGSize size = [text sizeWithFont: font constrainedToSize: CGSizeMake(175.0f, 2000.0f) lineBreakMode: UILineBreakModeWordWrap];<br>CGRect rect= label.frame; rect.size = size;<br>[label setFrame: rect]; [label setText: text];</p>
+<p>83、UILabel字体加粗<br>//加粗<br>lb.font = [UIFont fontWithName:@”Helvetica-Bold” size:20]; //加粗并且倾斜<br>lb.font = [UIFont fontWithName:@”Helvetica-BoldOblique” size:20];</p>
+<p>84、为IOS应用组件添加圆角的方法 具体的实现是使用QuartzCore库,下面我具体的描述一下实现过程:<br>• 首先创建一个项目,名字叫:ipad_webwiew<br>• 利⽤用Interface Builder添加⼀一个UIWebView,然后和相应的代码相关联 • 添加QuartzCore.framework<br>代码实现: 头⽂文件:</p>
+<p>#import <uikit uikit.h=""></uikit></p>
+<p>#import <quartzcore quartzcore.h=""><br>@interface ipad_webwiewViewController : UIViewController {<br>IBOutlet UIWebView <em>myWebView; UIView </em>myView;<br>}<br>@property (nonatomic,retain) UIWebView *myWebView; @end<br>代码实现:</quartzcore></p>
+<ul>
+<li>(void)viewDidLoad {<br>[super viewDidLoad]; //给图层添加背景图⽚片: //myView.layer.contents = (id)[UIImage<br>imageNamed:@”view_BG.png”].CGImage; //将图层的边框设置为圆脚<br>myWebView.layer.cornerRadius = 8; myWebView.layer.masksToBounds = YES; //给图层添加⼀一个有⾊色边框<br>myWebView.layer.borderWidth = 5; myWebView.layer.borderColor = [[UIColor colorWithRed:0.52<br>green:0.09 blue:0.07 alpha:1] CGColor]; }</li>
+</ul>
+<p>85、实现UIToolBar的自动消失<br>-(void)showBar<br>{<br>! [UIView beginAnimations:nil context:nil];<br>! [UIView setAnimationDuration:0.40];<br>! (_toolBar.alpha == 0.0) ? (_toolBar.alpha = 1.0) : (_toolBar.alpha = 0.0);<br>! [UIView commitAnimations];<br>}</p>
+<ul>
+<li>(void)viewDidAppear:(BOOL)animated {<br>[NSObject cancelPreviousPerfo rmRequestsWithTarget: self];<br>[self performSelector: @selector(delayHideBars) withObject: nil afterDelay: 3.0];<br>}</li>
+<li>(void)delayHideBars { [self showBar];<br>}</li>
+</ul>
+<p>86、自定义UINavigationItem.rightBarButtonItem<br>UISegmentedControl <em>segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@”remote”,@”mouse”,@”text”,nil]];<br>[segmentedControl insertSegmentWithImage:[UIImage imageNamed:@”home_a.png”] atIndex:0 animated:YES];<br>[segmentedControl insertSegmentWithImage:[UIImage imageNamed:@”myletv_a.png”] atIndex:1 animated:YES];<br>segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar; segmentedControl.frame = CGRectMake(0, 0, 200, 30);<br>[segmentedControl setMomentary:YES];<br>[segmentedControl addTarget:self action:@selector(segmentAction:)<br>forControlEvents:UIControlEventValueChanged];<br>UIBarButtonItem </em>barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];<br>self.navigationItem.rightBarButtonItem = barButtonItem;<br>[segmentedControl release];<br>UINavigationController直接返回到根viewController<br> [self.navigationController popToRootViewControllerAnimated:YES];<br>想要从第五层直接返回到第二层或第三层,用索引的形式<br>[self.navigationController popToViewController: [self.navigationController.viewControllers objectAtIndex: ([self.navigationController.viewControllers count] - 2)] animated:YES];</p>
+<p>87、键盘监听事件</p>
+<p>#ifdef __IPHONE_5_0<br>float version = [[[UIDevice currentDevice] systemVersion] floatValue];<br>if (version &gt;= 5.0)<br>{<br>[[NSNotificationCenter defaultCenter] addObserver:self<br>selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];<br>}</p>
+<p>#endif<br>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];<br>-(void)keyboardWillShow:(NSNotification <em>)notification {<br>NSValue </em>value = [[notification userInfo] objectForKey:@”UIKeyboardFrameEndUserInfoKey”];<br>CGRect keyboardRect = [value CGRectValue]; NSLog(@”value %@ %f”,value,keyboardRect.size.height); [UIView beginAnimations:nil context:nil];<br>[UIView setAnimationDuration:0.25];<br>keyboardHeight = keyboardRect.size.height; self.view.frame = CGRectMake(0, -(251 - (480 - 64 -<br>keyboardHeight)), self.view.frame.size.width, self.view.frame.size.height);<br>[UIView commitAnimations]; }</p>
+<p>88、 ios6.0强制横屏的方法:<br>在appDelegate里调用<br>if (!UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])) {<br>        [[UIApplication sharedApplication]<br>setStatusBarOrientation:<br>UIInterfaceOrientationLandscapeRight animated:NO];<br>    }</p>
+<p>89、  返回按钮去掉文字<br>    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)<br>                                                         forBarMetrics:UIBarMetricsDefault];</p>
+<p>90、 导航栏 navigation 添加按钮 </p>
+<p>UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@”Done”<br>    style:UIBarButtonItemStyleDone target:nil action:nil];<br>self.navigationItem.rightBarButtonItem = rightButton;</p>
+<p>91、 post解析json数据<br>-(void) setUpDate<br>{<br>    AFHTTPRequestOperationManager <em> mar = [AFHTTPRequestOperationManager manager];<br>    NSMutableDictionary </em> parm = [NSMutableDictionary dictionary];<br>    [mar POST:@”<a href="http://192.168.1.47:8080/EasternMedical/dComment/listJson.do" target="_blank" rel="external">http://192.168.1.47:8080/EasternMedical/dComment/listJson.do</a>“ parameters:parm success:^(AFHTTPRequestOperation *operation, id responseObject) {</p>
+<pre><code>    NSDictionary * dict = responseObject;
+    NSMutableArray * Muarray = [[NSMutableArray alloc]init];
+    NSArray * hos = [dict objectForKey:@&quot;rows&quot;];
+    NSLog(@&quot;%@&quot;,hos);
+    NSString *str2 = [NSString stringWithFormat:@&quot;%@&quot;,self.Docterinf.name];
+    for(NSDictionary * dict0 in hos)
+    {
+        SickInf * pital = [[SickInf alloc]init];
+
+        //            NSString * str1 = @&quot;http://192.168.1.47:8080/EasternMedical/&quot;;
+        //            NSString * str2 = [str1 stringByAppendingString:dict0[@&quot;image&quot;]];
+        //            pital.imageView = str2;
+        NSString *str1 = dict0[@&quot;doctorId&quot;];
+
+        if ([str2 isEqualToString: str1] ) {
+
+            pital.name = dict0[@&quot;infor&quot;][@&quot;user_name&quot;];
+            pital.sickComment = dict0[@&quot;comments&quot;];
+            //            pital.sickTime = dict0[@&quot;peoplenum&quot;];
+            pital.sickClass = dict0[@&quot;disease&quot;];
+            pital.attitude = dict0[@&quot;attitude&quot;];
+            pital.effect = dict0[@&quot;effect&quot;];
+            pital.recommend = dict0[@&quot;recommend&quot;];
+            // post 解析 时间
+            float time = [dict0[@&quot;commentstime&quot;][@&quot;time&quot;] floatValue];
+            NSDate * dt = [NSDate dateWithTimeIntervalSince1970:time / 1000];
+            NSDateFormatter * df = [[NSDateFormatter alloc] init];
+            [df setDateFormat:@&quot;yyyy-MM-dd HH:mm&quot;];
+            pital.sickTime = [df stringFromDate:dt];
+
+
+            [Muarray addObject:pital];
+
+        }
+               }
+    self.CommetArray =  Muarray;
+    [self NAVView];
+    [self CreatScrollView];
+
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@&quot;请求失败&quot;);
+}];
+</code></pre><p>}<br>、、==================================================================================================<br>92,根据CLLocation得到coordinate(坐标）而后打开google地图：<br>NSString *mapUrl=[NSString stringWithFormat:@”<a href="http://maps.google.com/maps?q=%f,%f&quot;,loc.latitude,loc.longitude" target="_blank" rel="external">http://maps.google.com/maps?q=%f,%f&quot;,loc.latitude,loc.longitude</a>];</p>
+<p>NSURL *url=[NSURL URLWithString:mapUrl];</p>
+<p>[[UIApplication sharedApplication] openURL:url];</p>
+<p>93.日期格式化：</p>
+<p>NSDataFormat *format=[NSDateFormat alloc]  init];</p>
+<p>[format setDateFormat:@”hh:mm:ss”];</p>
+<p>NSDate *noew=[NSDate date];</p>
+<p>NSString *str=[format stringFromDate:now];</p>
+<p>94。通过通知调用方法：</p>
+<p>UIApplication *app = [UIApplication sharedApplication];</p>
+<p>[[NSNotificationCenter defaultCenter] addObserve:self</p>
+<p>selector:@selector(xxx:)</p>
+<p>name:UIApplicationWillTerminateNofification</p>
+<p>object:app];</p>
+<p>95。遍历所有视图的方法：</p>
+<p>其中cell是UITableViewCell，</p>
+<p>for(UIView *oneView in cell.contentView.subviews)</p>
+<p>{</p>
+<p>if ([oneView isMemberOfClass:[UITextField class]])</p>
+<p>{</p>
+<p>textField = (UITextField *)oneView;</p>
+<p>}</p>
+<p>}</p>
+<p>96.</p>
+<p>1、背景音乐播放    支持mp3格式 循环播放长音乐</p>
+<p>这种播放音乐的方式导入框架#import <avfoundation avfoundation.h="">；</avfoundation></p>
+<p>NSString *musicFilePath = [[NSBundle mainBundle] pathForResource:@”changan” ofType:@”mp3”];      //创建音乐文件路径</p>
+<p>  NSURL *musicURL = [[NSURL alloc] initFileURLWithPath:musicFilePath];  </p>
+<p>   AVAudioPlayer *thePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicURL error:nil];</p>
+<p>//创建播放器</p>
+<p>  self.myBackMusic = thePlayer;    //赋值给自己定义的类变量</p>
+<p>  [musicURL release];</p>
+<p>  [thePlayer release];</p>
+<p>  [myBackMusic prepareToPlay];</p>
+<p>  [myBackMusic setVolume:1];   //设置音量大小</p>
+<p>  myBackMusic.numberOfLoops = -1;//设置音乐播放次数  -1为一直循环</p>
+<p>  if (mainMusicStatus)</p>
+<p>  {</p>
+<p>   [myBackMusic play];   //播放</p>
+<p>  }</p>
+<p>  2、按钮播放声音         播放短声音</p>
+<p>需要导入框架#import <audiotoolbox audiotoolbox.h="">  </audiotoolbox></p>
+<p>NSString *thesoundFilePath = [[NSBundle mainBundle] pathForResource:@”Clapping Crowd Studio 01” ofType:@”caf”];    //创建音乐文件路径</p>
+<p>CFURLRef thesoundURL = (CFURLRef) [NSURL fileURLWithPath:thesoundFilePath];</p>
+<p>AudioServicesCreateSystemSoundID(thesoundURL, &amp;sameViewSoundID);</p>
+<p>//变量SoundID与URL对应</p>
+<p>AudioServicesPlaySystemSound(sameViewSoundID);  //播放SoundID声音</p>
+<p>97.设置UILabel换行</p>
+<p>UILabel<em>label;<br>//设置换行<br>label.lineBreakMode = UILineBreakModeWordWrap;<br>label.numberOfLines = 0;<br>换行符还是n<br>比如NSString </em> xstring=@”lineonenlinetwo”</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/常用语句/">展开全文 >></a>
         </p>
       
 
@@ -366,73 +797,6 @@
 
 
   
-    <article id="post-ios-学习笔记/（YQ）进程和线程不得不说的事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>进程：通常指系统中正在运行的一个应用程序。通俗来讲，进程是线程的容器。比如打开win的任务管理器。正在运行的QQ，360，网易云音乐都是一个进程。
-线程：线程是进程的最小执行单位，一个进程最少有一个线程。比如网易云音乐的下载歌曲，缓存视频都是一个线程。
-
-
- 线程的串行和并行
- 一个线程的执行任务是串行的。 就像每个窗口排队取钱，需要完成，才能下一个人进行取钱（同一时间内，只有一个线程在运行）。
- 线程的并发性，由于一个程序的串行不能很好地利用cpu资源，而采用了多线程的方法。还比如取钱，一个银行会有多个柜台进行存取。这样巧妙的利用资源。
-
-  多线程并发性的原理
-  同一时间，CPU只能处理1条线程，只有1条线程在工作（执行）
-  多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度（切换）
-  如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象
-  思考：如果线程非常非常多，会发生什么情况？
-  CPU会在N多线程之间调度，CPU会累死，消耗大量的CPU资源
-  每条线程被调度执行的频次会降低（线程的执行效率降低）
-
-
- 线程的优缺点
-</code></pre><p>多线程的优点<br>能适当提高程序的执行效率<br>能适当提高资源利用率（CPU、内存利用率）<br>多线程的缺点<br>开启线程需要占用一定的内存空间（默认情况下，主线程占用1M，子线程占用512KB），如果开启大量的线程，会占用大量的内存空间，降低程序的性能<br>线程越多，CPU在调度线程上的开销就越大<br>程序设计更加复杂：比如线程之间的通信、多线程的数据共享<br>4.多线程在iOS开发中的应用<br>主线程:一个iOS程序运行后，默认会开启1条线程，称为“主线程”或“UI线程”<br>主线程的主要作用<br>显示\刷新UI界面<br>处理UI事件（比如点击事件、滚动事件、拖拽事件等）</p>
-<p>主线程的使用注意:别将比较耗时的操作放到主线程中。<br>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/（YQ）进程和线程不得不说的事/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-ios-杂记/APPStore中，APP-未上线怎么知道app的下载链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -454,74 +818,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/ios-杂记/APPStore中，APP-未上线怎么知道app的下载链接/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ios-学习笔记/项目常用第三方库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://github.ibireme.com/github/list/ios/" target="_blank" rel="external">app开发必备第三方库</a></p>
-<p><strong>网易新闻</strong><br><a href="https://developer.apple.com/library/ios/samplecode/reachability/Introduction/Intro.html" target="_blank" rel="external">AppleReachability</a>苹果自家的网络监测库，提供block，notification方式判断网络是否链接和链接状态具体例子见<a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">demo</a>。<br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a>ASIHTTPRequest就是一个对CFNetwork API进行了封装，并且使用起来非常简单的一套API，用Objective-C编写，可以很好的应用在Mac OS X系统和iOS平台的应用程序中。ASIHTTPRequest适用于基本的HTTP请求，和基于<a href="http://www.cnblogs.com/loveis715/p/4669091.html" target="_blank" rel="external">REST</a>的服务之间的交互。<a href="http://www.cnblogs.com/dotey/archive/2011/05/10/2041966.html" target="_blank" rel="external">ASIHTTPRequest类库简介和使用说明</a>.</p>
-<p><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a> 一款下拉刷新的第三方控件，在MJ编写一款<a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">MJrefresh</a>后，EGO在使用上不怎么火了，原理是开启线程，实现异步加载数据。否则刷新时会出现卡顿现象。<br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMNSString+HTML</a>谷歌开源的用于过滤HTML标签，没有用过。具体性能不了解<br><a href="https://github.com/nxtbgthng/MGTemplateEngine" target="_blank" rel="external">MGTemplateEngine</a><br><a href="https://github.com/thekarladam/MPOAuth" target="_blank" rel="external">MPOAuth</a><br><a href="http://regexkit.sourceforge.net/RegexKitLite" target="_blank" rel="external">RegexKitLite</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/soffes/ssziparchive" target="_blank" rel="external">SSZipArchive</a><a href="https://github.com/probablycorey/wax" target="_blank" rel="external">wax</a></p>
-<p><strong>Garageband</strong><br><a href="https://sites.google.com/site/murmurhash/" target="_blank" rel="external">MurmurHash</a><br><a href="http://www.libpng.org/pub/png/libpng.html%E2%80%8E" target="_blank" rel="external">libpng</a><br><a href="http://www.zlib.net/" target="_blank" rel="external">zlib</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a> (json-framework)</p>
-<p><strong>iWork三套件</strong><br><a href="http://mokit.sourceforge.net/" target="_blank" rel="external">MOKit</a><br><a href="http://www.boost.org/%E2%80%8E" target="_blank" rel="external">Boost C++ Library</a><br><a href="http://code.google.com/p/protobuf/%E2%80%8E" target="_blank" rel="external">protobuf</a><br><a href="http://glm.g-truc.net/" target="_blank" rel="external">OpenGL Mathematics</a><br><a href="http://www.sqlite.org/" target="_blank" rel="external">SQLite</a><br><a href="http://www.boutell.com/lsm/lsmbyid.cgi/000626" target="_blank" rel="external">cephes math library</a></p>
-<p><strong>Pinterest</strong><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://github.com/jparise/AFHTTPClientLogger" target="_blank" rel="external">AFHttpClientLogger</a><br><a href="https://github.com/facebook/facebook-ios-sdk" target="_blank" rel="external">Facebook SDK</a><br><a href="https://github.com/nicklockwood/iRate" target="_blank" rel="external">iRate</a><br><a href="https://github.com/mikeash/MAKVONotificationCenter" target="_blank" rel="external">MAKVONotificationCenter</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/ldandersen/scifihifi-iphone" target="_blank" rel="external">SFHFKeychainUtils</a><br><a href="https://github.com/soffes/sspulltorefresh" target="_blank" rel="external">SSPullToRefresh</a><br><a href="https://github.com/samvermette/SVProgressHUD" target="_blank" rel="external">SVProgressHUD</a><br><a href="https://github.com/mattt/TTTAttributedLabel" target="_blank" rel="external">TTTAttributedLabel</a><br><a href="https://github.com/mattt/TTTLocalizedPluralString" target="_blank" rel="external">TTTLocalizedPluralString</a><br><a href="https://github.com/jivadevoe/UIAlertView-Blocks" target="_blank" rel="external">UIAlertView-Blocks</a></p>
-<p><strong>多看阅读</strong><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="http://www.freetype.org/" target="_blank" rel="external">FreeType</a><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/flyingdolphinstudio/Objective-Zip" target="_blank" rel="external">Objective-Zip</a><a href="https://code.google.com/p/skia/" target="_blank" rel="external">Skia</a> (Google)<br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a></p>
-<p><strong>淘宝</strong><br><a href="https://github.com/mikeash/MAZeroingWeakRef" target="_blank" rel="external">MAZeroingWeakRef</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/erica/ABContactHelper" target="_blank" rel="external">ABContactHelper</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="https://github.com/robbiehanson/CocoaLumberjack" target="_blank" rel="external">CocoaLumberjack</a><br><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson </a>(json-framework)<br><a href="https://github.com/honcheng/RTLabel" target="_blank" rel="external">RTLabel</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="external">SVPullToRefresh</a><br><a href="https://github.com/facebook/three20" target="_blank" rel="external">three20</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ziparchive</a></p>
-<p><strong>微信</strong><br><a href="https://github.com/cocos2d/cocos2d-iphone" target="_blank" rel="external">cocos2d</a><br><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a><br><a href="https://github.com/facebook/facebook-ios-sdk" target="_blank" rel="external">Facebook iOS SDK</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ziparchive</a></p>
-<p><strong>QQ</strong><br>ASIHTTPRequest<br>FMDB<br>CocoaAsyncSocket<br>JSONKit<br>MBProgressHUD<br>OpenUDID<br>SBJson<br>SVPullToRefresh</p>
-<p><strong>百度地图</strong><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/rnapier/RNCachingURLProtocol" target="_blank" rel="external">RNCachingURLProtocol</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a></p>
-<p><strong>微博</strong><br><a href="https://github.com/erica/ABContactHelper" target="_blank" rel="external">ABContactHelper</a><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="https://github.com/danielamitay/DACircularProgress" target="_blank" rel="external">DACircularProgressView</a><br><a href="https://github.com/ddeville/DDProgressView" target="_blank" rel="external">DDProgressView</a><br><a href="https://github.com/Cocoanetics/DTFoundation" target="_blank" rel="external">DTFoundation</a><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/myell0w/MTStatusBarOverlay" target="_blank" rel="external">MTStatusBarOverlay</a><br><a href="https://github.com/ylechelle/OpenUDID" target="_blank" rel="external">OpenUDID</a><br><a href="https://github.com/ldandersen/scifihifi-iphone" target="_blank" rel="external">SFHFKeychainUtils</a></p>
-<p><strong>人人</strong><br><a href="https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="external">cocoaasyncsocket</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ZipArchive</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/MugunthKumar/MKNetworkKit" target="_blank" rel="external">MKNetworkKit</a><br><a href="https://github.com/HansPinckaers/GrowingTextView" target="_blank" rel="external">HPGrowingTextView</a><br><a href="https://code.google.com/p/zxing/" target="_blank" rel="external">zxing</a> </p>
-<p>#####比较流行的第三方库：</p>
-<p>#####HTTP<br>相比较之下,AFNetworking是目前最优秀的一个了：轻量、易用、使用者多、开发者有在积极维护。在AFN出现之前，这个角色是由 ASIHTTPRequest扮演的，只是到现在年久失修了。关于AFN和ASI的对比，这里有一篇不错的文章<a href="http://www.infoq.com" target="_blank" rel="external">http://www.infoq.com</a> /cn/articles/afn_vs_asi。除此之外，MKNetworkKit和RestKit也有一定的使用者。</p>
-<p>#####Socket<br>CocoaAsyncSocket无疑是目前封装得最完善的Socket库了：支持异步TCP/UDP，支持GCD，Objective-C接口封装。。目前没有发现可以与之相比的同类产品。。</p>
-<p>#####JSON<br>直接用系统提供的NSJSONSerialization，性能比第三方的好，又是官方API。</p>
-<p>#####XMPP<br>现在做个实时聊天，XMPP协议算是很成熟的方案了。XMPPFramework一个很不错的选择，可以直接和OpenFire服务器打交道。项目不大人手不多的话，可以看看这个。<br>XMPP是PC即时通讯时代通用的协议，而且各家的协议又不相同，移动时代基本不用这个了，现在比较流行融云等等第三方即时通讯服务了。<br>基础工具类<br>SSToolkit算是一个不错的工具包，提供各种比如编码、加密、字符串处理等等东西，还提供了一些不错的自定义控件，并且文档非常齐全。<br>框架<br>过去有很多人再用three20，这个东西太大太重，文档又少，到头来连Facebook都停止维护了。作为替代品nimbus现在流行了开来，关 键在于它文档齐全。。国内有个MVC框架叫BeeFramework，号称是顶级框架并且功能超过nimbus，有兴趣的可以看一下。。 ReactiveCocoa把响应式编程这种上流的东西带了过来，值得试一试。。</p>
-<p>#####数据存储<br>还是挺多人(比如我)喜欢直接跟SQLite打交道的，这方面fmdb封装的很不错。如果用CoreData来做存储的，可以用一下MagicalRecord。</p>
-<p>#####图像处理<br>GPUImage无疑是这方面的集大成者了。。用OpenGL ES2.0来实时处理图片和视频流，性能和功能都是顶尖的。</p>
-<p>#####开发和调试工具<br>PonyDebugger看上去是一个不错的调试工具，可以在电脑浏览器上远程调试iOS程序、查看试图层次、网络等等。CocoaLumberjack是个Log工具，号称是可以提供企业级Log，使用者也挺多</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/项目常用第三方库/">展开全文 >></a>
         </p>
       
 
@@ -599,28 +895,32 @@
 
 
   
-    <article id="post-个人信息/API-记录--php,ios==-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/项目常用第三方库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/个人信息/API-记录--php,ios==-/">常用接口记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/个人信息/API-记录--php,ios==-/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#PHP#<br><a href="https://github.com/Stichoza/google-translate-php" target="_blank" rel="external">https://github.com/Stichoza/google-translate-php</a>   Google 翻译api</p>
-<p><a href="https://github.com/yangxu/google_flight_api" target="_blank" rel="external">https://github.com/yangxu/google_flight_api</a>        Google 航班查询api</p>
+        <p><a href="http://github.ibireme.com/github/list/ios/" target="_blank" rel="external">app开发必备第三方库</a></p>
+<p><strong>网易新闻</strong><br><a href="https://developer.apple.com/library/ios/samplecode/reachability/Introduction/Intro.html" target="_blank" rel="external">AppleReachability</a>苹果自家的网络监测库，提供block，notification方式判断网络是否链接和链接状态具体例子见<a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">demo</a>。<br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a>ASIHTTPRequest就是一个对CFNetwork API进行了封装，并且使用起来非常简单的一套API，用Objective-C编写，可以很好的应用在Mac OS X系统和iOS平台的应用程序中。ASIHTTPRequest适用于基本的HTTP请求，和基于<a href="http://www.cnblogs.com/loveis715/p/4669091.html" target="_blank" rel="external">REST</a>的服务之间的交互。<a href="http://www.cnblogs.com/dotey/archive/2011/05/10/2041966.html" target="_blank" rel="external">ASIHTTPRequest类库简介和使用说明</a>.</p>
+<p><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a> 一款下拉刷新的第三方控件，在MJ编写一款<a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">MJrefresh</a>后，EGO在使用上不怎么火了，原理是开启线程，实现异步加载数据。否则刷新时会出现卡顿现象。<br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMNSString+HTML</a>谷歌开源的用于过滤HTML标签，没有用过。具体性能不了解<br><a href="https://github.com/nxtbgthng/MGTemplateEngine" target="_blank" rel="external">MGTemplateEngine</a><br><a href="https://github.com/thekarladam/MPOAuth" target="_blank" rel="external">MPOAuth</a><br><a href="http://regexkit.sourceforge.net/RegexKitLite" target="_blank" rel="external">RegexKitLite</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/soffes/ssziparchive" target="_blank" rel="external">SSZipArchive</a><a href="https://github.com/probablycorey/wax" target="_blank" rel="external">wax</a></p>
+<p><strong>Garageband</strong><br><a href="https://sites.google.com/site/murmurhash/" target="_blank" rel="external">MurmurHash</a><br><a href="http://www.libpng.org/pub/png/libpng.html%E2%80%8E" target="_blank" rel="external">libpng</a><br><a href="http://www.zlib.net/" target="_blank" rel="external">zlib</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a> (json-framework)</p>
+<p><strong>iWork三套件</strong><br><a href="http://mokit.sourceforge.net/" target="_blank" rel="external">MOKit</a><br><a href="http://www.boost.org/%E2%80%8E" target="_blank" rel="external">Boost C++ Library</a><br><a href="http://code.google.com/p/protobuf/%E2%80%8E" target="_blank" rel="external">protobuf</a><br><a href="http://glm.g-truc.net/" target="_blank" rel="external">OpenGL Mathematics</a><br><a href="http://www.sqlite.org/" target="_blank" rel="external">SQLite</a><br><a href="http://www.boutell.com/lsm/lsmbyid.cgi/000626" target="_blank" rel="external">cephes math library</a></p>
+<p><strong>Pinterest</strong><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://github.com/jparise/AFHTTPClientLogger" target="_blank" rel="external">AFHttpClientLogger</a><br><a href="https://github.com/facebook/facebook-ios-sdk" target="_blank" rel="external">Facebook SDK</a><br><a href="https://github.com/nicklockwood/iRate" target="_blank" rel="external">iRate</a><br><a href="https://github.com/mikeash/MAKVONotificationCenter" target="_blank" rel="external">MAKVONotificationCenter</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/ldandersen/scifihifi-iphone" target="_blank" rel="external">SFHFKeychainUtils</a><br><a href="https://github.com/soffes/sspulltorefresh" target="_blank" rel="external">SSPullToRefresh</a><br><a href="https://github.com/samvermette/SVProgressHUD" target="_blank" rel="external">SVProgressHUD</a><br><a href="https://github.com/mattt/TTTAttributedLabel" target="_blank" rel="external">TTTAttributedLabel</a><br><a href="https://github.com/mattt/TTTLocalizedPluralString" target="_blank" rel="external">TTTLocalizedPluralString</a><br><a href="https://github.com/jivadevoe/UIAlertView-Blocks" target="_blank" rel="external">UIAlertView-Blocks</a></p>
+<p><strong>多看阅读</strong><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="http://www.freetype.org/" target="_blank" rel="external">FreeType</a><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/flyingdolphinstudio/Objective-Zip" target="_blank" rel="external">Objective-Zip</a><a href="https://code.google.com/p/skia/" target="_blank" rel="external">Skia</a> (Google)<br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a></p>
+<p><strong>淘宝</strong><br><a href="https://github.com/mikeash/MAZeroingWeakRef" target="_blank" rel="external">MAZeroingWeakRef</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/erica/ABContactHelper" target="_blank" rel="external">ABContactHelper</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="https://github.com/robbiehanson/CocoaLumberjack" target="_blank" rel="external">CocoaLumberjack</a><br><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson </a>(json-framework)<br><a href="https://github.com/honcheng/RTLabel" target="_blank" rel="external">RTLabel</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="external">SVPullToRefresh</a><br><a href="https://github.com/facebook/three20" target="_blank" rel="external">three20</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ziparchive</a></p>
+<p><strong>微信</strong><br><a href="https://github.com/cocos2d/cocos2d-iphone" target="_blank" rel="external">cocos2d</a><br><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a><br><a href="https://github.com/facebook/facebook-ios-sdk" target="_blank" rel="external">Facebook iOS SDK</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ziparchive</a></p>
+<p><strong>QQ</strong><br>ASIHTTPRequest<br>FMDB<br>CocoaAsyncSocket<br>JSONKit<br>MBProgressHUD<br>OpenUDID<br>SBJson<br>SVPullToRefresh</p>
+<p><strong>百度地图</strong><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/rnapier/RNCachingURLProtocol" target="_blank" rel="external">RNCachingURLProtocol</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a></p>
+<p><strong>微博</strong><br><a href="https://github.com/erica/ABContactHelper" target="_blank" rel="external">ABContactHelper</a><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="https://github.com/danielamitay/DACircularProgress" target="_blank" rel="external">DACircularProgressView</a><br><a href="https://github.com/ddeville/DDProgressView" target="_blank" rel="external">DDProgressView</a><br><a href="https://github.com/Cocoanetics/DTFoundation" target="_blank" rel="external">DTFoundation</a><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/myell0w/MTStatusBarOverlay" target="_blank" rel="external">MTStatusBarOverlay</a><br><a href="https://github.com/ylechelle/OpenUDID" target="_blank" rel="external">OpenUDID</a><br><a href="https://github.com/ldandersen/scifihifi-iphone" target="_blank" rel="external">SFHFKeychainUtils</a></p>
+<p><strong>人人</strong><br><a href="https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="external">cocoaasyncsocket</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ZipArchive</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/MugunthKumar/MKNetworkKit" target="_blank" rel="external">MKNetworkKit</a><br><a href="https://github.com/HansPinckaers/GrowingTextView" target="_blank" rel="external">HPGrowingTextView</a><br><a href="https://code.google.com/p/zxing/" target="_blank" rel="external">zxing</a> </p>
+<p>#####比较流行的第三方库：</p>
+<p>#####HTTP<br>相比较之下,AFNetworking是目前最优秀的一个了：轻量、易用、使用者多、开发者有在积极维护。在AFN出现之前，这个角色是由 ASIHTTPRequest扮演的，只是到现在年久失修了。关于AFN和ASI的对比，这里有一篇不错的文章<a href="http://www.infoq.com" target="_blank" rel="external">http://www.infoq.com</a> /cn/articles/afn_vs_asi。除此之外，MKNetworkKit和RestKit也有一定的使用者。</p>
+<p>#####Socket<br>CocoaAsyncSocket无疑是目前封装得最完善的Socket库了：支持异步TCP/UDP，支持GCD，Objective-C接口封装。。目前没有发现可以与之相比的同类产品。。</p>
+<p>#####JSON<br>直接用系统提供的NSJSONSerialization，性能比第三方的好，又是官方API。</p>
+<p>#####XMPP<br>现在做个实时聊天，XMPP协议算是很成熟的方案了。XMPPFramework一个很不错的选择，可以直接和OpenFire服务器打交道。项目不大人手不多的话，可以看看这个。<br>XMPP是PC即时通讯时代通用的协议，而且各家的协议又不相同，移动时代基本不用这个了，现在比较流行融云等等第三方即时通讯服务了。<br>基础工具类<br>SSToolkit算是一个不错的工具包，提供各种比如编码、加密、字符串处理等等东西，还提供了一些不错的自定义控件，并且文档非常齐全。<br>框架<br>过去有很多人再用three20，这个东西太大太重，文档又少，到头来连Facebook都停止维护了。作为替代品nimbus现在流行了开来，关 键在于它文档齐全。。国内有个MVC框架叫BeeFramework，号称是顶级框架并且功能超过nimbus，有兴趣的可以看一下。。 ReactiveCocoa把响应式编程这种上流的东西带了过来，值得试一试。。</p>
+<p>#####数据存储<br>还是挺多人(比如我)喜欢直接跟SQLite打交道的，这方面fmdb封装的很不错。如果用CoreData来做存储的，可以用一下MagicalRecord。</p>
+<p>#####图像处理<br>GPUImage无疑是这方面的集大成者了。。用OpenGL ES2.0来实时处理图片和视频流，性能和功能都是顶尖的。</p>
+<p>#####开发和调试工具<br>PonyDebugger看上去是一个不错的调试工具，可以在电脑浏览器上远程调试iOS程序、查看试图层次、网络等等。CocoaLumberjack是个Log工具，号称是可以提供企业级Log，使用者也挺多</p>
 
       
 
@@ -629,33 +929,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/个人信息/" class="article-tag-list-link color5">个人信息</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/个人信息/API-记录--php,ios==-/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/项目常用第三方库/">展开全文 >></a>
         </p>
       
 
@@ -1007,7 +1285,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发方式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1024,6 +1302,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">

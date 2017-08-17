@@ -54,7 +54,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+	        
+				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+	        
+				<li><a href="/aboutme/">个人简介</a></li>
 	        
 			</ul>
 		</nav>
@@ -76,13 +80,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
 		</nav>
@@ -112,29 +116,37 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+		        
+					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
 				</ul>
 			</nav>
@@ -150,6 +162,73 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-ionic-使用指南/ionic简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>版本：ionic  1.7.16<br>cordova 6.3.0<br>node 4.2.0</p>
+<p>sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16</p>
+<p><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a></p>
+<p>sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0</p>
+<p>sudo npm install jshint –save-dev<br>sudo npm install async –save-dev</p>
+<p>sudo npm install uglify-js<br>  sudo npm install clean-css<br>  sudo npm install ng-annotate</p>
+<p>sudo npm install mv –save-dev </p>
+<p>sudo npm install cordova-uglify –save-dev </p>
+<p>npm update<br>npm rebuild</p>
+<p>sudo npm update -g cordova@latest<br>npm install grunt-contrib-imagemin –save-dev </p>
+<p>sudo  gulp templatecache<br>sudo gulp ng_annotate<br>sudo gulp useref</p>
+<p> cd myApp$ ionic platform add ios$ ionic build ios$ ionic emulate ios</p>
+<p>最后： ionic serve</p>
+<p>npm install -g cordova@6.1.1npm install -g ionic@1.7.16</p>
+<p>卸载ionic和cordova：<br>npm uninstall -g ionic cordova</p>
+<p>cordova platform add ios@4.0.1  添加4.0.1设备<br>cordova plugin add cordova-plugin-screen-orientation<br> 禁止屏幕旋转<br>adb logcat 查看运行的模拟器日志<br>android adv  android 模拟器<br>android  打开android 管理工具<br>chown 组权限管理<br>ionic emulate android  模拟器运行<br>ionic platform add android  添加设备<br>ionic platform remove ios 删除设备<br>chown -R -v liujian:staff styles.css   修改组权限<br>chown -R -v liujian:staff side-menu-app-google-map/<br>ll  == ls -l 查看文件权限<br> vi ~/.bash_profile 修改环境变量<br>source ~/.bash_profile 生效</p>
+<p>history  查看历史记录</p>
+<p>ionic plugin list 查看安装哪些插件</p>
+<p>git status  清除状态<br>git branch -a   查看分支情况<br>git branch newbranchname  创建新分支<br>git checkout newbranch  切换到新分支<br>git pull origin develop  拉取远程分支到本地分支，并合并分支<br>git push origin develop   推送本次提交的数据到远程分支<br>git merge develop   合并本地develop分支<br>git fetch 更新远程分支变换，但不合并。<br>git add . 提交的文件的信息添加到索引<br>git commit   提交当前工作空间的修改内容<br> touch .gitignore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"># phpstorm project files</div><div class="line">.idea</div><div class="line"></div><div class="line"># netbeans project files</div><div class="line">nbproject</div><div class="line"></div><div class="line"># zend studio for eclipse project files</div><div class="line">.buildpath</div><div class="line">.project</div><div class="line">.settings</div><div class="line"></div><div class="line"># windows thumbnail cache</div><div class="line">Thumbs.db</div><div class="line"></div><div class="line"># composer vendor dir</div><div class="line">/vendor</div><div class="line"></div><div class="line"># composer itself is not needed</div><div class="line">composer.phar</div><div class="line"></div><div class="line"># Mac DS_Store Files</div><div class="line">.DS_Store</div><div class="line"></div><div class="line"># phpunit itself is not needed</div><div class="line">phpunit.phar</div><div class="line"># local phpunit config</div><div class="line">/phpunit.xml</div><div class="line">/runtime</div><div class="line">/config</div><div class="line">/web/assets</div><div class="line">/web/uploads/</div></pre></td></tr></table></figure></p>
+<p> set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=../gradle-2.2.1-all.zip  设置android 下载的问题。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic简单使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-ionic-使用指南/无标题文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -172,162 +251,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/ionic-使用指南/无标题文章/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ionic-使用指南/【-ionic-】code-push-热更新。环境：mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>插件文档的使用<br><a href="http://microsoft.github.io/code-push/docs/getting-started.html" target="_blank" rel="external">http://microsoft.github.io/code-push/docs/getting-started.html</a><br><a href="https://www.npmjs.com/package/cordova-plugin-code-push#installmode" target="_blank" rel="external">https://www.npmjs.com/package/cordova-plugin-code-push#installmode</a><br><a href="https://my.oschina.net/u/783079/blog/674924" target="_blank" rel="external">https://my.oschina.net/u/783079/blog/674924</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">step1: 安装</div><div class="line">终端安装code-push-cli</div><div class="line">sudo npm install -g code-push -d</div><div class="line"></div><div class="line">step2：注册 选择github 获取 key，写入到终端</div><div class="line">![Paste_Image.png](http://upload-images.jianshu.io/upload_images/1764965-f827a9523190bcea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line"></div><div class="line">step3:创建新的code-push 应用</div><div class="line">创建android的应用。code-push app add myapp_android</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ FVqEweF8etZPuHTtUZ6p1xVIKOkHNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ o28jGrUvqf2LT81MvXf2FbC_K7SyNkA7m31RM </div><div class="line"></div><div class="line">创建ios的应用。code-push app add myapp_ios</div><div class="line">Successfully added the &quot;myapp_ios&quot; app, along with the following default deployments:</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ 0pUQJMvToiqK94DymbNqTt3zDqKtNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ jTr9klk_n8oxthmnRPimUCTFx3PyNkA7m31RM │</div><div class="line"></div><div class="line">step4：安装cordova插件</div><div class="line">如果项目不存在，则ionic start newproject ，并安装cordova。</div><div class="line">bower install ngCordova    安装 ngCordova</div><div class="line">index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">cordova plugin add cordova-plugin-code-push</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">step5：配置config.xml 文件</div><div class="line">将获取的staging的key替换。</div><div class="line">&lt;platform name=&quot;android&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-ANDROID-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line">&lt;platform name=&quot;ios&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-IOS-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line"></div><div class="line">&lt;access origin=&quot;*&quot; /&gt; </div><div class="line"></div><div class="line">step6： ionic plugin list  查看插件的安装列表 是否包含（code-push 和Whitelist）</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">step7:app.js 修改代码</div><div class="line"></div><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">//其他代码</div><div class="line">window.codePush.sync(</div><div class="line">  function (syncStatus) &#123;</div><div class="line">    switch (syncStatus) &#123;</div><div class="line">      // Result (final) statuses</div><div class="line">      case SyncStatus.UP_TO_DATE:</div><div class="line">        navigator.notification.alert(&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        (&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        break;</div><div class="line">      case SyncStatus.ERROR:</div><div class="line">        navigator.notification.alert(&quot;软件自动更新失败，退出应用后，重新打开。&quot;, null, &apos;提示&apos;, &apos;我知道了&apos;);</div><div class="line">        break;     </div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    updateDialog: false, installMode: InstallMode.IMMEDIATE  </div><div class="line">  &#125;</div><div class="line">);</div><div class="line">//其他代码</div><div class="line">&#125;)</div><div class="line"></div><div class="line">step8: 代码添加到code-push</div><div class="line">sudo code-push release-cordova myapp_android android</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ionic-使用指南/通知-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/katzer/cordova-plugin-local-notifications" target="_blank" rel="external">ionic 通知</a><br> cordova create myApp org.apache.cordova.myApp myApp<br>    cordova plugin add cordova-plugin-camera –save<br>    cordova platform add android –save<br>    cordova requirements android<br>    cordova build android –verbose<br>    cordova run android<br>    cordova build android –release – –keystore=”..\android.keystore” –storePassword=android –alias=mykey<br>ionic plugin list </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.创建一个新项目作为测试 。ionic start mynotify tabs</div><div class="line">2.  ionic platform add android </div><div class="line">3.安装 sudo  cordova plugin add  https://github.com/katzer/cordova-plugin-local-notifications.git</div><div class="line">4.bower install ngCordova    安装 ngCordova</div><div class="line">5. index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">6.ionic platform add android </div><div class="line">7.ionic build android</div><div class="line">8.ionic emulate android</div></pre></td></tr></table></figure>
-<p>资料详解：<br><a href="http://devdactic.com/local-notifications-ionic/" target="_blank" rel="external">http://devdactic.com/local-notifications-ionic/</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/通知-/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ios-学习笔记/CocoaPods-操作高德地图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一步：</p>
-<p>1.PodFile 文件 添加</p>
-<p>#pod ‘AMap3DMap’ #3D地图SDK<br>pod ‘AMap2DMap’ #2D地图SDK(2D地图和3D地图不能同时使用)<br>pod ‘AMapSearch’ #搜索服务SDK</p>
-<p>第二步：打开终端 到项目所在文件夹 cd 项目文件夹<br>pod install<br>或者</p>
-<p>第三步：在#import “AppDelegate.m”   中添加 </p>
-<p>#import “APIKey.h”</p>
-<p>#import <mamapkit mamapkit.h=""><br>或者只添加<br>[MAMapServices sharedServices].apiKey = (NSString *)APIKey];</mamapkit></p>
-<p>pod install –verbose –no-repo-update</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/">展开全文 >></a>
         </p>
       
 
@@ -429,6 +352,162 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/ios-学习笔记/CocoaPods-的常用技巧/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ionic-使用指南/通知-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/katzer/cordova-plugin-local-notifications" target="_blank" rel="external">ionic 通知</a><br> cordova create myApp org.apache.cordova.myApp myApp<br>    cordova plugin add cordova-plugin-camera –save<br>    cordova platform add android –save<br>    cordova requirements android<br>    cordova build android –verbose<br>    cordova run android<br>    cordova build android –release – –keystore=”..\android.keystore” –storePassword=android –alias=mykey<br>ionic plugin list </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.创建一个新项目作为测试 。ionic start mynotify tabs</div><div class="line">2.  ionic platform add android </div><div class="line">3.安装 sudo  cordova plugin add  https://github.com/katzer/cordova-plugin-local-notifications.git</div><div class="line">4.bower install ngCordova    安装 ngCordova</div><div class="line">5. index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">6.ionic platform add android </div><div class="line">7.ionic build android</div><div class="line">8.ionic emulate android</div></pre></td></tr></table></figure>
+<p>资料详解：<br><a href="http://devdactic.com/local-notifications-ionic/" target="_blank" rel="external">http://devdactic.com/local-notifications-ionic/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/通知-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ionic-使用指南/【-ionic-】code-push-热更新。环境：mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>插件文档的使用<br><a href="http://microsoft.github.io/code-push/docs/getting-started.html" target="_blank" rel="external">http://microsoft.github.io/code-push/docs/getting-started.html</a><br><a href="https://www.npmjs.com/package/cordova-plugin-code-push#installmode" target="_blank" rel="external">https://www.npmjs.com/package/cordova-plugin-code-push#installmode</a><br><a href="https://my.oschina.net/u/783079/blog/674924" target="_blank" rel="external">https://my.oschina.net/u/783079/blog/674924</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">step1: 安装</div><div class="line">终端安装code-push-cli</div><div class="line">sudo npm install -g code-push -d</div><div class="line"></div><div class="line">step2：注册 选择github 获取 key，写入到终端</div><div class="line">![Paste_Image.png](http://upload-images.jianshu.io/upload_images/1764965-f827a9523190bcea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line"></div><div class="line">step3:创建新的code-push 应用</div><div class="line">创建android的应用。code-push app add myapp_android</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ FVqEweF8etZPuHTtUZ6p1xVIKOkHNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ o28jGrUvqf2LT81MvXf2FbC_K7SyNkA7m31RM </div><div class="line"></div><div class="line">创建ios的应用。code-push app add myapp_ios</div><div class="line">Successfully added the &quot;myapp_ios&quot; app, along with the following default deployments:</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ 0pUQJMvToiqK94DymbNqTt3zDqKtNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ jTr9klk_n8oxthmnRPimUCTFx3PyNkA7m31RM │</div><div class="line"></div><div class="line">step4：安装cordova插件</div><div class="line">如果项目不存在，则ionic start newproject ，并安装cordova。</div><div class="line">bower install ngCordova    安装 ngCordova</div><div class="line">index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">cordova plugin add cordova-plugin-code-push</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">step5：配置config.xml 文件</div><div class="line">将获取的staging的key替换。</div><div class="line">&lt;platform name=&quot;android&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-ANDROID-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line">&lt;platform name=&quot;ios&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-IOS-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line"></div><div class="line">&lt;access origin=&quot;*&quot; /&gt; </div><div class="line"></div><div class="line">step6： ionic plugin list  查看插件的安装列表 是否包含（code-push 和Whitelist）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">step7:app.js 修改代码</div><div class="line"></div><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">//其他代码</div><div class="line">window.codePush.sync(</div><div class="line">  function (syncStatus) &#123;</div><div class="line">    switch (syncStatus) &#123;</div><div class="line">      // Result (final) statuses</div><div class="line">      case SyncStatus.UP_TO_DATE:</div><div class="line">        navigator.notification.alert(&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        (&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        break;</div><div class="line">      case SyncStatus.ERROR:</div><div class="line">        navigator.notification.alert(&quot;软件自动更新失败，退出应用后，重新打开。&quot;, null, &apos;提示&apos;, &apos;我知道了&apos;);</div><div class="line">        break;     </div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    updateDialog: false, installMode: InstallMode.IMMEDIATE  </div><div class="line">  &#125;</div><div class="line">);</div><div class="line">//其他代码</div><div class="line">&#125;)</div><div class="line"></div><div class="line">step8: 代码添加到code-push</div><div class="line">sudo code-push release-cordova myapp_android android</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/CocoaPods-操作高德地图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一步：</p>
+<p>1.PodFile 文件 添加</p>
+<p>#pod ‘AMap3DMap’ #3D地图SDK<br>pod ‘AMap2DMap’ #2D地图SDK(2D地图和3D地图不能同时使用)<br>pod ‘AMapSearch’ #搜索服务SDK</p>
+<p>第二步：打开终端 到项目所在文件夹 cd 项目文件夹<br>pod install<br>或者</p>
+<p>第三步：在#import “AppDelegate.m”   中添加 </p>
+<p>#import “APIKey.h”</p>
+<p>#import <mamapkit mamapkit.h=""><br>或者只添加<br>[MAMapServices sharedServices].apiKey = (NSString *)APIKey];</mamapkit></p>
+<p>pod install –verbose –no-repo-update</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/">展开全文 >></a>
         </p>
       
 
@@ -650,79 +729,6 @@ return cell;
 
 
   
-    <article id="post-ios-学习笔记/View-的创建-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当 创建一个字控件View ，并且子空间view显示view 超过自身的view时。可以将子空间的View 添加到父控件<br>1.创建父控件变量 supView </p>
-<ol>
-<li>【supView addSubView View】；</li>
-</ol>
-<p>在自定义View 时，不要把全部东西都写在init内部。。<br>特别是代理和与父控件有关系的数据传递时，要特别注意这一点。。</p>
-<p>比如：    LeftNavView *leftNav = [[LeftNavView alloc]init];</p>
-<pre><code>leftNav.owner = self;
-leftNav.supView = self.navigationController.view;
-[leftNav defauleSetting];
-</code></pre><p>其中 初始化 leftNavView 时，如果将</p>
-<p>#import “LeftNavView.m”<br>-(instancetype)init<br>{<br>    if (self = [super init]) {<br>    _coverView = [[CoverView alloc]initWithViewCellHeight:ScreenHight num:1];<br>    _coverView.hidden = NO;</p>
-<pre><code>[_supView  addSubview:_coverView];
-self.delegate = self;
-self.dataSource = self;
-
-[self CreatSwipe];
-[self CreatHeard]
-}
-return  self;
-</code></pre><p>}</p>
-<p>这样写，在视图初始化的时候，就会将代码全部加载进去。造成    leftNav.supView = self.navigationController.view; 这句代码不会被执行，因此。所有与supview相关的代码也无意义。</p>
-<p>应该这样写：<br>在主控制器 ：    LeftNavView *leftNav = [[LeftNavView alloc]init];</p>
-<pre><code>leftNav.owner = self;
-leftNav.supView = self.navigationController.view;
-[leftNav defauleSetting];
-</code></pre><p>而在次级视图上声明一个方法<br>-(void)defauleSetting;<br>在这个方法，完成view内容的添加。。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/View-的创建-/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
@@ -828,7 +834,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发方式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,6 +851,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">

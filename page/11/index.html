@@ -54,7 +54,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+	        
+				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+	        
+				<li><a href="/aboutme/">个人简介</a></li>
 	        
 			</ul>
 		</nav>
@@ -76,13 +80,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
 		</nav>
@@ -112,29 +116,37 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+		        
+					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
 				</ul>
 			</nav>
@@ -151,22 +163,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-PHP成长之路/（6）PHP之Yii2入口脚本的熟悉" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python的学习路/py抓包并写入csv文件中（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自：<a href="http://www.yiibai.com/yii2/yii_entry_scripts.html" target="_blank" rel="external">http://www.yiibai.com/yii2/yii_entry_scripts.html</a><br>入口脚本是负责启动一个请求处理周期。用户访问只是通过PHP脚本。<br>下图显示了一个应用程序的结构 -<br>Yii入口脚本<br>Entry Scripts Structure</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-dd43b0d8af818193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>Web应用程序(以及控制台应用程序)具有一个<b>单一入口脚本</b>。终端用户从入口脚本发起一个请求。然后，入口脚本实例化应用实例并将请求转发给它们。</p>
-<p><b>控制台应用程序入口脚本通常存储在一个项目基本路径并命名为yii.php。</b><br><b>Web应用程序入口脚本必须存储在Web访问的目录下。它通常是index.php。</b></p>
-<p>###入口脚本执行以下操作<br>定义常量<br>注册 Composer 自动加载<br>包括 Yii 文件<br>加载配置<br>创建和配置一个应用程序实例<br>处理传入的请求<br>以下是基本的应用程序入口脚本的模板-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">   defined(&apos;YII_ENV&apos;) or define(&apos;YII_ENV&apos;, &apos;dev&apos;);</div><div class="line"> </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/../vendor/autoload.php&apos;);</div><div class="line">   //include yii files</div><div class="line">   require(__DIR__ . &apos;/../vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load application config</div><div class="line">   $config = require(__DIR__ . &apos;/../config/web.php&apos;);</div><div class="line">  </div><div class="line">   //create, config, and process reques</div><div class="line">   (new yii\web\Application($config))-&gt;run();</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>以下是控制台应用程序的入口脚本 -<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env php</div><div class="line">&lt;?php</div><div class="line">   /** </div><div class="line">   * Yii console bootstrap file. </div><div class="line">   * @link http://www.yiiframework.com/ </div><div class="line">   * @copyright Copyright (c) 2008 Yii Software LLC </div><div class="line">   * @license http://www.yiiframework.com/license/ </div><div class="line">   */</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">  </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/vendor/autoload.php&apos;);</div><div class="line">   require(__DIR__ . &apos;/vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load config</div><div class="line">   $config = require(__DIR__ . &apos;/config/console.php&apos;);</div><div class="line">  </div><div class="line">   //apply config the application instance </div><div class="line">   $application = new yii\console\Application($config);  </div><div class="line"></div><div class="line">   //process request</div><div class="line">   $exitCode = $application-&gt;run();</div><div class="line">   exit($exitCode);</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>定义全局常量最好的地方是入口脚本。有三个Yii常量被定义-<br>YII_DEBUG − 定义是否在调试模式。如果设置为true，那么将看到更多的日志数据和细节错误的调用堆栈。</p>
-<p>YII_ENV − 定义环境模式。默认值是prod。</p>
-<p>可用值为 prod, dev 和 test. 它们在配置文件中用来定义：例如，一个不同的数据库连接(本地和远程)或其它值。</p>
-<p>YII_ENABLE_ERROR_HANDLER − 指定是否启用默认Yii的错误处理程序。</p>
-<p>定义一个全局常数，常用下面的代码-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//defining global constants </div><div class="line">defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true); </div><div class="line">which is equivalent to: </div><div class="line">if(!defined(&apos;YII_DEBUG&apos;)) &#123; </div><div class="line">   define(&apos;YII_DEBUG&apos;, true); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注 - 全局常量应在入口脚本的开头定义，以便包含其他PHP文件时生效。</p>
+        <p>（例子二）：<br>   思路：查看想要抓取的页面</p>
+<p>##引言 要做什么<br>   比如网站：<a href="https://www.mara.gov.au/search-the-register-of-migration-agents/" target="_blank" rel="external">https://www.mara.gov.au/search-the-register-of-migration-agents/</a><br>   目的：抓取悉尼的信息</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-c028ca4f97aeb198.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="scrapy.png"></p>
+<p>获取html请求：（使用charles或者firefox的自带firebug工具）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-178323fea02c64ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="firebug.png"><br><a href="https://www.mara.gov.au/api/agentsearch?DelimitedStartWithLetterFilter%5BFieldName%5D=DisplayBusiness.Name&amp;DelimitedStartWithLetterFilter%5BLetterString%5D=&amp;DelimitedStartWithLetterFilter%5BLabel%5D=Show+All&amp;DelimitedStartWithLetterFilter%5BIsSelected%5D=false&amp;DelimitedStartWithLetterFilter%5BContainsData%5D=true&amp;Keyword=&amp;Location=Sydney&amp;BusinessName=&amp;IsNoFee=&amp;IsPractitioner=&amp;AgentFamilyName=&amp;AgentGivenName=&amp;AgentName=&amp;AgentMARN=&amp;SortInfo%5BSortField%5D=&amp;SortInfo%5BIsAscending%5D=false&amp;PagingInfo%5BPageIndex%5D=0&amp;PagingInfo%5BPageSize%5D=20" target="_blank" rel="external">获取json链接地址</a></p>
+<p>经了解是json数据。那么python的设计思路就有了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">获取json结果</div><div class="line">   &quot;Result&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;PrimaryBusiness&quot;: &#123;</div><div class="line">                &quot;Relationship&quot;: &quot;Director&quot;,</div><div class="line">                &quot;IsPrimary&quot;: true,</div><div class="line">                &quot;IsExisting&quot;: false,</div><div class="line">                &quot;CID&quot;: &quot;6663007560790&quot;,</div><div class="line">                &quot;CRN&quot;: &quot;66630075607906&quot;,</div><div class="line">                &quot;IsProfileLockedOut&quot;: null,</div><div class="line">                &quot;BusinessId&quot;: &quot;4494fe17-9852-e311-9402-005056ab0eca&quot;,</div><div class="line">                &quot;BusinessClassificationCode&quot;: &quot;RMA&quot;,</div><div class="line">                &quot;BusinessClassification&quot;: &quot;Registered Migration Agent&quot;,</div><div class="line">                &quot;BusinessType&quot;: &quot;Company&quot;,</div><div class="line">                &quot;EntityName&quot;: &quot;457 Pty Ltd&quot;,</div><div class="line">                &quot;Name&quot;: &quot;457 Pty Ltd&quot;,</div><div class="line">                &quot;ABN&quot;: &quot;50128106776&quot;,</div><div class="line">                &quot;Address&quot;: &#123;</div><div class="line">                    &quot;Country&quot;: &quot;Australia&quot;,</div><div class="line">                    &quot;AddressLine1&quot;: &quot;Level 9&quot;,</div><div class="line">                    &quot;AddressLine2&quot;: &quot;84 Pitt Street&quot;,</div><div class="line">                    &quot;AddressLine3&quot;: null,</div><div class="line">                    &quot;State&quot;: &quot;NSW&quot;,</div><div class="line">                    &quot;OtherState&quot;: null,</div><div class="line">                    &quot;Suburb&quot;: &quot;SYDNEY&quot;,</div><div class="line">                    &quot;OtherSuburb&quot;: null,</div><div class="line">                    &quot;PostCode&quot;: &quot;2000&quot;,</div><div class="line">                    &quot;OtherPostCode&quot;: null,</div><div class="line">                    &quot;Latitude&quot;: -33.86676,</div><div class="line">                    &quot;Longitude&quot;: 151.20891,</div><div class="line">                    &quot;FullAddress&quot;: &quot;Level 9\r\n84 Pitt Street\r\nSYDNEY NSW 2000\r\nAustralia&quot;</div><div class="line">                &#125;,</div></pre></td></tr></table></figure></p>
+<p>##怎么去做（设计思路）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#####伪伪代码</div><div class="line">python 伪代码</div><div class="line">（1）</div><div class="line">for（一直循环到最后一页）：</div><div class="line">        获取每个页面的json请求数据</div><div class="line">        抓取每个数组的BusinessId，并保存到文件或数组中。</div><div class="line">        拼接字符串：（eg：https://www.mara.gov.au/search-the-register-of-migration-agents/registered-migration-agent-details/?id=0af2ce75-c0a7-e511-9403-005056ab0eca）</div><div class="line">（2）</div><div class="line">遍历文件</div><div class="line">for   单个id    in （文件/数组）：</div><div class="line">     </div><div class="line">        读取每个字符串页面的源代码</div><div class="line">        Dom解析想要的数据，并写入到csv文件中</div></pre></td></tr></table></figure></p>
+<p>源码解释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#coding=utf-8</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">from selenium import webdriver</div><div class="line"># get encode uncode by base64</div><div class="line">import base64</div><div class="line"></div><div class="line"># get xpath by BeautifulSoup  == make base sdk</div><div class="line">from bs4 import BeautifulSoup</div><div class="line"></div><div class="line">import time</div><div class="line"># get get time by sleep  eg:time.sleep(0.1)</div><div class="line">from time import sleep</div><div class="line"></div><div class="line">import random</div><div class="line"># get re way   eg:match = re.search(r&apos;[\w.-]+@[\w.-]+&apos;, Fi_Email)</div><div class="line">import re</div><div class="line">import csv</div><div class="line">import unicodecsv</div><div class="line">#import unicodecsv               ========make</div><div class="line">from cStringIO import StringIO</div><div class="line">from selenium.webdriver.common.desired_capabilities import DesiredCapabilities</div><div class="line"></div><div class="line">import json</div><div class="line"></div><div class="line">import urllib2</div><div class="line"></div><div class="line">from lxml import etree</div><div class="line"></div><div class="line">#step:(1) ----</div><div class="line">pageIndex = 58</div><div class="line">arrayHref = []</div><div class="line">dcap = dict(DesiredCapabilities.PHANTOMJS)</div><div class="line">dcap[&quot;phantomjs.page.settings.userAgent&quot;] = (</div><div class="line">    &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/53 &quot;</div><div class="line">    &quot;(KHTML, like Gecko) Chrome/15.0.87&quot;</div><div class="line">)</div><div class="line">driver = webdriver.PhantomJS(desired_capabilities=dcap)</div><div class="line"></div><div class="line">driver.set_window_size(1120, 550)</div><div class="line">while (pageIndex &lt; 65):</div><div class="line">   pageIndex = pageIndex + 1</div><div class="line">   strPageIndex = str(pageIndex)</div><div class="line">   link = &apos;https://www.mara.gov.au/api/agentsearch?DelimitedStartWithLetterFilter%5BFieldName%5D=DisplayBusiness.Name&amp;DelimitedStartWithLetterFilter%5BLetterString%5D=&amp;DelimitedStartWithLetterFilter%5BLabel%5D=Show+All&amp;DelimitedStartWithLetterFilter%5BIsSelected%5D=false&amp;DelimitedStartWithLetterFilter%5BContainsData%5D=true&amp;Keyword=&amp;Location=Sydney&amp;BusinessName=&amp;IsNoFee=&amp;IsPractitioner=&amp;AgentFamilyName=&amp;AgentGivenName=&amp;AgentName=&amp;AgentMARN=&amp;SortInfo%5BSortField%5D=&amp;SortInfo%5BIsAscending%5D=false&amp;PagingInfo%5BPageIndex%5D=&apos; + strPageIndex + &apos;&amp;PagingInfo%5BPageSize%5D=20&apos;</div><div class="line">   print pageIndex</div><div class="line">   # input csv file</div><div class="line">   csvPageindexfile = file(&apos;hrefFile.csv&apos;, &apos;a+&apos;)</div><div class="line">   writer = unicodecsv.writer(csvPageindexfile,encoding=&apos;utf-8&apos;)</div><div class="line">    #writer.writerow([&apos;name&apos;, &apos;class&apos;, &apos;type&apos;,&apos;Address&apos;,&apos;Po_Address&apos;,&apos;Phone&apos;,&apos;Fax&apos;,&apos;Ma_Office&apos;,&apos;email&apos;])</div><div class="line">   hrefdb = (pageIndex,link)</div><div class="line">   hrefdata = [</div><div class="line">      hrefdb</div><div class="line">        ]</div><div class="line">   writer.writerows(hrefdata)</div><div class="line">   csvPageindexfile.close()</div><div class="line"></div><div class="line">   #read anyever href，get json</div><div class="line">   response = urllib2.urlopen(link)</div><div class="line">   html = response.read()</div><div class="line">   #print html</div><div class="line">   #break</div><div class="line">   data = json.loads(html)</div><div class="line">   busness = data[&quot;Result&quot;]</div><div class="line"></div><div class="line">   for bus in busness :</div><div class="line">       dataID = bus[&apos;ContactId&apos;]</div><div class="line">       #print data</div><div class="line">       dataID = &apos;https://www.mara.gov.au/search-the-register-of-migration-agents/registered-migration-agent-details/?id=&apos;+ dataID</div><div class="line">       #arrayHref.append(dataID)</div><div class="line">       print dataID</div><div class="line">       #取出一条数据</div><div class="line">    #   break</div><div class="line">   #break</div><div class="line">#print arrayHref</div><div class="line"></div><div class="line">#step:(2) ----</div><div class="line"></div><div class="line"></div><div class="line">       driver.get(dataID)</div><div class="line">       sub_html = BeautifulSoup(driver.page_source, &quot;lxml&quot;)</div><div class="line"></div><div class="line">    #print sub_html</div><div class="line">    #===============AnyDom bus Details</div><div class="line">       d_d = sub_html.find(&quot;div&quot;,&#123;&quot;id&quot;:&quot;agentDetail&quot;&#125;)</div><div class="line">    #=============== Bus Name</div><div class="line">       d_d_contai = d_d.find(&quot;div&quot;,&#123;&quot;class&quot;:&quot;agentHeadingContainer&quot;&#125;)</div><div class="line">    #====get People name</div><div class="line">       name = d_d_contai.h3.span.get_text().strip().encode(&apos;utf-8&apos;)</div><div class="line">       d_d_name = d_d_contai.findAll(&quot;span&quot;)</div><div class="line">       name = d_d_name[0].text +  d_d_name[1].text +  d_d_name[2].text</div><div class="line">       #print d_d_name</div><div class="line">    #for spran in d_d_name :</div><div class="line">       print name</div><div class="line"></div><div class="line"></div><div class="line">    #get Email address,</div><div class="line">    #Postal address</div><div class="line">       d_d_bigSe = d_d.find(&quot;div&quot;,&#123;&quot;class&quot;:&quot;bigSection&quot;&#125;)</div><div class="line">       d_d_Data = d_d_bigSe.findAll(&quot;span&quot;)</div><div class="line">    #====get People email</div><div class="line">       if len(d_d_Data) &gt;= 2:</div><div class="line">           email_add_data =  d_d_Data[1].text.strip().encode(&apos;utf-8&apos;)</div><div class="line">           email_add_data = email_add_data.replace(&apos;:&apos;,&apos;&apos;)</div><div class="line"></div><div class="line">    #====get People Postal</div><div class="line">       if len(d_d_Data) &gt;= 4:</div><div class="line">           postal_add_Data = d_d_Data[3].text.strip().encode(&apos;utf-8&apos;)</div><div class="line">           print email_add_data</div><div class="line">           print postal_add_Data</div><div class="line">    #break;</div><div class="line"></div><div class="line">	#get Business name, Phone,Fax,Business Address,Relation to business</div><div class="line">       d_d = sub_html.find(&quot;div&quot;,&#123;&quot;id&quot;:&quot;agentDetail&quot;&#125;)</div><div class="line">    #=============== Bus get Email</div><div class="line">       d_d_busSetion = d_d.find(&quot;div&quot;,&#123;&quot;class&quot;:&quot;smallSection businessSection&quot;&#125;)</div><div class="line">       d_d_BusDate = d_d_busSetion.findAll(&quot;span&quot;)</div><div class="line">    #print d_d_BusDate</div><div class="line"></div><div class="line">    #====get business Name</div><div class="line">       if len(d_d_BusDate) &gt;= 2:</div><div class="line">          bus_Name_data =  d_d_BusDate[1].text.strip().encode(&apos;utf-8&apos;)</div><div class="line">          if len(d_d_BusDate) &gt;= 4:</div><div class="line">    #====get business Phone</div><div class="line">             bus_Phone_data = d_d_BusDate[3].text.strip().encode(&apos;utf-8&apos;)</div><div class="line">    #====get business Fax</div><div class="line">             if len(d_d_BusDate) &gt;= 6:</div><div class="line">                bus_Fax_data = d_d_BusDate[5].text.strip().encode(&apos;utf-8&apos;)</div><div class="line">    #====get business Add</div><div class="line">                if len(d_d_BusDate) &gt;= 8:</div><div class="line">                   bus_Add_data = d_d_BusDate[7].text.strip().encode(&apos;utf-8&apos;)</div><div class="line">       print bus_Name_data</div><div class="line">       print bus_Phone_data</div><div class="line">       print bus_Fax_data</div><div class="line">       print bus_Add_data</div><div class="line"></div><div class="line"></div><div class="line">    #break;</div><div class="line"># input csv file</div><div class="line">       csvfile = file(&apos;csvtest.csv&apos;, &apos;a+&apos;)</div><div class="line">       writer = unicodecsv.writer(csvfile,encoding=&apos;utf-8&apos;)</div><div class="line">    #writer.writerow([&apos;name&apos;, &apos;class&apos;, &apos;type&apos;,&apos;Address&apos;,&apos;Po_Address&apos;,&apos;Phone&apos;,&apos;Fax&apos;,&apos;Ma_Office&apos;,&apos;email&apos;])</div><div class="line">       db = (name,email_add_data, postal_add_Data, bus_Name_data, bus_Phone_data, bus_Fax_data, bus_Add_data,dataID)</div><div class="line">       data = [</div><div class="line">        db</div><div class="line">        ]</div><div class="line">       writer.writerows(data)</div><div class="line">       csvfile.close()</div><div class="line"></div><div class="line">       time.sleep(3)</div></pre></td></tr></table></figure></p>
 
       
 
@@ -179,61 +188,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（6）PHP之Yii2入口脚本的熟悉/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PHP成长之路/（7）Yii控制器的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。<br>理解动作</p>
-<p>控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。<br>让我们看一下基本的应用程序 SiteController 的模板 -<br>&lt;?php namespace app\controllers; use Yii; use yii\filters\AccessControl; use yii\web\Controller; use yii\filters\VerbFilter; use app\models\LoginForm; use app\models\ContactForm; class SiteController extends Controller { public function behaviors() { return [ ‘access’ =&gt; [ ‘class’ =&gt; AccessControl::className(), ‘only’ =&gt; [‘logout’], ‘rules’ =&gt; [ [ ‘actions’ =&gt; [‘logout’], ‘allow’ =&gt; true, ‘roles’ =&gt; [‘@’], ], ], ], ‘verbs’ =&gt; [ ‘class’ =&gt; VerbFilter::className(), ‘actions’ =&gt; [ ‘logout’ =&gt; [‘post’], ], ], ]; } public function actions() { return [ ‘error’ =&gt; [ ‘class’ =&gt; ‘yii\web\ErrorAction’, ], ‘captcha’ =&gt; [ ‘class’ =&gt; ‘yii\captcha\CaptchaAction’, ‘fixedVerifyCode’ =&gt; YII_ENV_TEST ? ‘testme’ : null, ], ]; } public function actionIndex() { return $this-&gt;render(‘index’); } public function actionLogin() { if (!\Yii::$app-&gt;user-&gt;isGuest) { return $this-&gt;goHome(); } $model = new LoginForm(); if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;login()) { return $this-&gt;goBack(); } return $this-&gt;render(‘login’, [ ‘model’ =&gt; $model, ]); } public function actionLogout() { Yii::$app-&gt;user-&gt;logout(); return $this-&gt;goHome(); } public function actionContact() { //load ContactForm model $model = new ContactForm(); //if there was a POST request, then try to load POST data into a model if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model&gt;contact(Yii::$app-&gt;params [‘adminEmail’])) { Yii::$app-&gt;session-&gt;setFlash(‘contactFormSubmitted’); return $this-&gt;refresh(); } return $this-&gt;render(‘contact’, [ ‘model’ =&gt; $model, ]); } public function actionAbout() { return $this-&gt;render(‘about’); } public function actionSpeak($message = “default message”) { return $this-&gt;render(“speak”,[‘message’ =&gt; $message]); } } ?&gt;<br>使用PHP内置服务器运行基本的应用程序模板，并在Web浏览器打开地址：<em><a href="http://localhost:8080/index.php?r=site/contact" target="_blank" rel="external">http://localhost:8080/index.php?r=site/contact</a></em>. 您将看到以下页面输出 -<img src="http://upload-images.jianshu.io/upload_images/1764965-659ca400c4c75953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Yii控制器"><br>当您打开这个页面，执行 SiteController 控制器的 contact 动作。代码首先加载 ContactForm 模型。然后，它会传递模型进去并渲染 contact 视图。<br><img src="http://upload-images.jianshu.io/upload_images/1764965-24266585a7a43532.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">如果您填写表格，然后点击提交按钮，将看到如下 -<img src="http://upload-images.jianshu.io/upload_images/1764965-1dd247aacaf75efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>注意，提交后这一次是执行以下代码 -<br>if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;contact(Yii::$app&gt;params [‘adminEmail’])) { Yii::$app-&gt;session-&gt;setFlash(‘contactFormSubmitted’); return $this-&gt;refresh(); }<br>如果有一个POST请求，我们分配POST数据到模型，并尝试发送电子邮件。如果成功的话，我们设置了快闪的消息并使用文本“Thank you for contacting us. We will respond to you as soon as possible.“并刷新页面。<br>理解路由</p>
-<p>在上面的例子中，在URL =&gt; <a href="http://localhost:8080/index.php?r=site/contact" target="_blank" rel="external">http://localhost:8080/index.php?r=site/contact</a>, 路由是 site/contact. 在SiteController 中的 contact 动作(actionContact)将被执行。<br>根由以下部分组成─<br>moduleID − 如果控制器属于一个模块，则路由的模板ID这一部分会存在。</p>
-<p>controllerID (在上面的例子的 site) − 唯一字符串标识，在同一个模块或应用程序的所有控制器中的这个名称是唯一的。</p>
-<p>actionID (在上面的例子中的 contact) − 唯一字符串标识，在同一个控制器中的所有动作名称唯一(即类中的方法名称)。</p>
-<p>路由的格式是=&gt;controllerID/actionID. 如果控制器属于一个模块，那么它具有以下格式：moduleID/controllerID/actionID.</p>
-<p>Yii框架是纯OOP面向对象的框架===<br>这个框架在运行的时候，也就是一个应用被访问的时候，需要创建许多对象，这些对象<br>再调用许多相关方法，从而完成一次web请求</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（7）Yii控制器的作用/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/Python的学习路/py抓包并写入csv文件中（2）/">展开全文 >></a>
         </p>
       
 
@@ -333,6 +288,53 @@
 
 
   
+    <article id="post-Python的学习路/无标题文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/Python的学习路/无标题文章/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-android/-Mac下Android-Studio中获取SHA1和MD5-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -358,6 +360,172 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/android/-Mac下Android-Studio中获取SHA1和MD5-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP成长之路/（6）PHP之Yii2入口脚本的熟悉" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转自：<a href="http://www.yiibai.com/yii2/yii_entry_scripts.html" target="_blank" rel="external">http://www.yiibai.com/yii2/yii_entry_scripts.html</a><br>入口脚本是负责启动一个请求处理周期。用户访问只是通过PHP脚本。<br>下图显示了一个应用程序的结构 -<br>Yii入口脚本<br>Entry Scripts Structure</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-dd43b0d8af818193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>Web应用程序(以及控制台应用程序)具有一个<b>单一入口脚本</b>。终端用户从入口脚本发起一个请求。然后，入口脚本实例化应用实例并将请求转发给它们。</p>
+<p><b>控制台应用程序入口脚本通常存储在一个项目基本路径并命名为yii.php。</b><br><b>Web应用程序入口脚本必须存储在Web访问的目录下。它通常是index.php。</b></p>
+<p>###入口脚本执行以下操作<br>定义常量<br>注册 Composer 自动加载<br>包括 Yii 文件<br>加载配置<br>创建和配置一个应用程序实例<br>处理传入的请求<br>以下是基本的应用程序入口脚本的模板-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">   defined(&apos;YII_ENV&apos;) or define(&apos;YII_ENV&apos;, &apos;dev&apos;);</div><div class="line"> </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/../vendor/autoload.php&apos;);</div><div class="line">   //include yii files</div><div class="line">   require(__DIR__ . &apos;/../vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load application config</div><div class="line">   $config = require(__DIR__ . &apos;/../config/web.php&apos;);</div><div class="line">  </div><div class="line">   //create, config, and process reques</div><div class="line">   (new yii\web\Application($config))-&gt;run();</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>以下是控制台应用程序的入口脚本 -<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env php</div><div class="line">&lt;?php</div><div class="line">   /** </div><div class="line">   * Yii console bootstrap file. </div><div class="line">   * @link http://www.yiiframework.com/ </div><div class="line">   * @copyright Copyright (c) 2008 Yii Software LLC </div><div class="line">   * @license http://www.yiiframework.com/license/ </div><div class="line">   */</div><div class="line">   //defining global constants</div><div class="line">   defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true);</div><div class="line">  </div><div class="line">   //register composer autoloader</div><div class="line">   require(__DIR__ . &apos;/vendor/autoload.php&apos;);</div><div class="line">   require(__DIR__ . &apos;/vendor/yiisoft/yii2/Yii.php&apos;);</div><div class="line">  </div><div class="line">   //load config</div><div class="line">   $config = require(__DIR__ . &apos;/config/console.php&apos;);</div><div class="line">  </div><div class="line">   //apply config the application instance </div><div class="line">   $application = new yii\console\Application($config);  </div><div class="line"></div><div class="line">   //process request</div><div class="line">   $exitCode = $application-&gt;run();</div><div class="line">   exit($exitCode);</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>定义全局常量最好的地方是入口脚本。有三个Yii常量被定义-<br>YII_DEBUG − 定义是否在调试模式。如果设置为true，那么将看到更多的日志数据和细节错误的调用堆栈。</p>
+<p>YII_ENV − 定义环境模式。默认值是prod。</p>
+<p>可用值为 prod, dev 和 test. 它们在配置文件中用来定义：例如，一个不同的数据库连接(本地和远程)或其它值。</p>
+<p>YII_ENABLE_ERROR_HANDLER − 指定是否启用默认Yii的错误处理程序。</p>
+<p>定义一个全局常数，常用下面的代码-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//defining global constants </div><div class="line">defined(&apos;YII_DEBUG&apos;) or define(&apos;YII_DEBUG&apos;, true); </div><div class="line">which is equivalent to: </div><div class="line">if(!defined(&apos;YII_DEBUG&apos;)) &#123; </div><div class="line">   define(&apos;YII_DEBUG&apos;, true); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注 - 全局常量应在入口脚本的开头定义，以便包含其他PHP文件时生效。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/PHP成长之路/（6）PHP之Yii2入口脚本的熟悉/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ionic-使用指南/ionic-通过url下载文件到本地" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>方法多种多样。</p>
+<ol>
+<li>[使用 文件管理插件] (<a href="http://www.ionic.wang/ng_cordova-file.html" target="_blank" rel="external">http://www.ionic.wang/ng_cordova-file.html</a>)<br>cordova plugin add cordova-plugin-file<br>2.controller.js  添加方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//2 new 接单后，点击某订单，显示订单的情况</div><div class="line">.controller(&apos;DownCtrl&apos;,  function($scope,$timeout,$cordovaFileTransfer)&#123;</div><div class="line">      $scope.downloadFile = function(pathurl) &#123;</div><div class="line">              var url = pathurl;</div><div class="line">              var filename = url.split(&quot;/&quot;).pop();</div><div class="line">              alert(filename);</div><div class="line">              var targetPath = cordova.file.externalRootDirectory + filename;</div><div class="line">              var trustHosts = true</div><div class="line">              var options = &#123;&#125;;</div><div class="line">              // alert(cordova.file.externalRootDirectory);</div><div class="line">              $cordovaFileTransfer.download(url, targetPath, options, trustHosts)</div><div class="line">                  .then(function(result) &#123;</div><div class="line">                      // Success!</div><div class="line">                      alert(JSON.stringify(result));</div><div class="line">                  &#125;, function(error) &#123;</div><div class="line">                      // Error</div><div class="line">                      alert(JSON.stringify(error));</div><div class="line">                  &#125;, function (progress) &#123;</div><div class="line">                      $timeout(function () &#123;</div><div class="line">                          $scope.downloadProgress = (progress.loaded / progress.total) * 100;</div><div class="line">                      &#125;)</div><div class="line">                  &#125;);</div><div class="line">          &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.view.js 执行方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ion-item&gt;</div><div class="line"> &lt;button class=&quot;button button-block button-calm&quot; ng-click=&quot;downloadFile()&quot;&gt; 下载图片 &lt;/button&gt;</div><div class="line">&lt;/ion-item&gt;</div></pre></td></tr></table></figure></p>
+<p>注意事项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">目录对应的android 真实目录。</div><div class="line">console.log(cordova.file.externalApplicationStorageDirectory); //file:///storage/emulated/0/Android/data/com.bntake.driver.in/</div><div class="line">console.log(cordova.file.dataDirectory); //file:///data/user/0/com.bntake.driver.in/files/</div><div class="line">console.log(cordova.file.externalDataDirectory); //file:///storage/emulated/0/Android/data/com.bntake.driver.in/files/</div><div class="line">console.log(cordova.file.externalRootDirectory);//file:///storage/emulated/0/</div><div class="line">console.log(cordova.file.externalCacheDirectory); //file:///storage/emulated/0/Android/data/com.bntake.driver.in/cache/</div><div class="line">console.log(cordova.file.applicationStorageDirectory); //file:///data/user/0/com.bntake.driver.in/</div><div class="line">console.log(cordova.file.cacheDirectory); //file:///data/user/0/com.bntake.driver.in/cache/</div><div class="line">console.log(cordova.file);  //object</div></pre></td></tr></table></figure>
+<p>cordova.file.externalRootDirectory   EACCES (Permission denied)”无法打开文件夹的权限问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">修改  应用的文件夹读取权限。  在设置 -&gt;应用-&gt;</div><div class="line">某应用-&gt;权限-&gt;存储空间。（安卓系统的类似的功能，因为手机系统都做了适配）</div></pre></td></tr></table></figure></p>
+<p>请求超时的处理，和文件管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$timeout,$cordovaFileTransfer</div></pre></td></tr></table></figure></p>
+<p>js 在index.html 的引入。与该项目无关。只有引入js文件，才可以在controller中引入model方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/services.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;js/service_image.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>第一次创建项目，index.html插件的引入： 需要安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-通过url下载文件到本地/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ionic-使用指南/ionic-2-使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文章推荐：<a href="https://www.xiaomiwujiecao.com/page/730.html" target="_blank" rel="external">https://www.xiaomiwujiecao.com/page/730.html</a></p>
+<p>1.安装<br>2.创建新应用<br>3.创建新页面<br>4.小技巧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ionic g page contactPage 快速创建一个新的页面。</div><div class="line"></div><div class="line">contact-page/contact-page.html</div><div class="line">contact-page/contact-page.ts</div><div class="line">contact-page/contact-page.scss</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-2-使用指南/">展开全文 >></a>
         </p>
       
 
@@ -469,181 +637,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/ionic-使用指南/bntake--driver-App的热更新留念/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ionic-使用指南/ionic简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>版本：ionic  1.7.16<br>cordova 6.3.0<br>node 4.2.0</p>
-<p>sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16</p>
-<p><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a></p>
-<p>sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0</p>
-<p>sudo npm install jshint –save-dev<br>sudo npm install async –save-dev</p>
-<p>sudo npm install uglify-js<br>  sudo npm install clean-css<br>  sudo npm install ng-annotate</p>
-<p>sudo npm install mv –save-dev </p>
-<p>sudo npm install cordova-uglify –save-dev </p>
-<p>npm update<br>npm rebuild</p>
-<p>sudo npm update -g cordova@latest<br>npm install grunt-contrib-imagemin –save-dev </p>
-<p>sudo  gulp templatecache<br>sudo gulp ng_annotate<br>sudo gulp useref</p>
-<p> cd myApp$ ionic platform add ios$ ionic build ios$ ionic emulate ios</p>
-<p>最后： ionic serve</p>
-<p>npm install -g cordova@6.1.1npm install -g ionic@1.7.16</p>
-<p>卸载ionic和cordova：<br>npm uninstall -g ionic cordova</p>
-<p>cordova platform add ios@4.0.1  添加4.0.1设备<br>cordova plugin add cordova-plugin-screen-orientation<br> 禁止屏幕旋转<br>adb logcat 查看运行的模拟器日志<br>android adv  android 模拟器<br>android  打开android 管理工具<br>chown 组权限管理<br>ionic emulate android  模拟器运行<br>ionic platform add android  添加设备<br>ionic platform remove ios 删除设备<br>chown -R -v liujian:staff styles.css   修改组权限<br>chown -R -v liujian:staff side-menu-app-google-map/<br>ll  == ls -l 查看文件权限<br> vi ~/.bash_profile 修改环境变量<br>source ~/.bash_profile 生效</p>
-<p>history  查看历史记录</p>
-<p>ionic plugin list 查看安装哪些插件</p>
-<p>git status  清除状态<br>git branch -a   查看分支情况<br>git branch newbranchname  创建新分支<br>git checkout newbranch  切换到新分支<br>git pull origin develop  拉取远程分支到本地分支，并合并分支<br>git push origin develop   推送本次提交的数据到远程分支<br>git merge develop   合并本地develop分支<br>git fetch 更新远程分支变换，但不合并。<br>git add . 提交的文件的信息添加到索引<br>git commit   提交当前工作空间的修改内容<br> touch .gitignore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"># phpstorm project files</div><div class="line">.idea</div><div class="line"></div><div class="line"># netbeans project files</div><div class="line">nbproject</div><div class="line"></div><div class="line"># zend studio for eclipse project files</div><div class="line">.buildpath</div><div class="line">.project</div><div class="line">.settings</div><div class="line"></div><div class="line"># windows thumbnail cache</div><div class="line">Thumbs.db</div><div class="line"></div><div class="line"># composer vendor dir</div><div class="line">/vendor</div><div class="line"></div><div class="line"># composer itself is not needed</div><div class="line">composer.phar</div><div class="line"></div><div class="line"># Mac DS_Store Files</div><div class="line">.DS_Store</div><div class="line"></div><div class="line"># phpunit itself is not needed</div><div class="line">phpunit.phar</div><div class="line"># local phpunit config</div><div class="line">/phpunit.xml</div><div class="line">/runtime</div><div class="line">/config</div><div class="line">/web/assets</div><div class="line">/web/uploads/</div></pre></td></tr></table></figure></p>
-<p> set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=../gradle-2.2.1-all.zip  设置android 下载的问题。。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic简单使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ionic-使用指南/ionic-通过url下载文件到本地" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>方法多种多样。</p>
-<ol>
-<li>[使用 文件管理插件] (<a href="http://www.ionic.wang/ng_cordova-file.html" target="_blank" rel="external">http://www.ionic.wang/ng_cordova-file.html</a>)<br>cordova plugin add cordova-plugin-file<br>2.controller.js  添加方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//2 new 接单后，点击某订单，显示订单的情况</div><div class="line">.controller(&apos;DownCtrl&apos;,  function($scope,$timeout,$cordovaFileTransfer)&#123;</div><div class="line">      $scope.downloadFile = function(pathurl) &#123;</div><div class="line">              var url = pathurl;</div><div class="line">              var filename = url.split(&quot;/&quot;).pop();</div><div class="line">              alert(filename);</div><div class="line">              var targetPath = cordova.file.externalRootDirectory + filename;</div><div class="line">              var trustHosts = true</div><div class="line">              var options = &#123;&#125;;</div><div class="line">              // alert(cordova.file.externalRootDirectory);</div><div class="line">              $cordovaFileTransfer.download(url, targetPath, options, trustHosts)</div><div class="line">                  .then(function(result) &#123;</div><div class="line">                      // Success!</div><div class="line">                      alert(JSON.stringify(result));</div><div class="line">                  &#125;, function(error) &#123;</div><div class="line">                      // Error</div><div class="line">                      alert(JSON.stringify(error));</div><div class="line">                  &#125;, function (progress) &#123;</div><div class="line">                      $timeout(function () &#123;</div><div class="line">                          $scope.downloadProgress = (progress.loaded / progress.total) * 100;</div><div class="line">                      &#125;)</div><div class="line">                  &#125;);</div><div class="line">          &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>3.view.js 执行方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ion-item&gt;</div><div class="line"> &lt;button class=&quot;button button-block button-calm&quot; ng-click=&quot;downloadFile()&quot;&gt; 下载图片 &lt;/button&gt;</div><div class="line">&lt;/ion-item&gt;</div></pre></td></tr></table></figure></p>
-<p>注意事项：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">目录对应的android 真实目录。</div><div class="line">console.log(cordova.file.externalApplicationStorageDirectory); //file:///storage/emulated/0/Android/data/com.bntake.driver.in/</div><div class="line">console.log(cordova.file.dataDirectory); //file:///data/user/0/com.bntake.driver.in/files/</div><div class="line">console.log(cordova.file.externalDataDirectory); //file:///storage/emulated/0/Android/data/com.bntake.driver.in/files/</div><div class="line">console.log(cordova.file.externalRootDirectory);//file:///storage/emulated/0/</div><div class="line">console.log(cordova.file.externalCacheDirectory); //file:///storage/emulated/0/Android/data/com.bntake.driver.in/cache/</div><div class="line">console.log(cordova.file.applicationStorageDirectory); //file:///data/user/0/com.bntake.driver.in/</div><div class="line">console.log(cordova.file.cacheDirectory); //file:///data/user/0/com.bntake.driver.in/cache/</div><div class="line">console.log(cordova.file);  //object</div></pre></td></tr></table></figure>
-<p>cordova.file.externalRootDirectory   EACCES (Permission denied)”无法打开文件夹的权限问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">修改  应用的文件夹读取权限。  在设置 -&gt;应用-&gt;</div><div class="line">某应用-&gt;权限-&gt;存储空间。（安卓系统的类似的功能，因为手机系统都做了适配）</div></pre></td></tr></table></figure></p>
-<p>请求超时的处理，和文件管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$timeout,$cordovaFileTransfer</div></pre></td></tr></table></figure></p>
-<p>js 在index.html 的引入。与该项目无关。只有引入js文件，才可以在controller中引入model方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/services.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;js/service_image.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>第一次创建项目，index.html插件的引入： 需要安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-通过url下载文件到本地/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ionic-使用指南/ionic-2-使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>文章推荐：<a href="https://www.xiaomiwujiecao.com/page/730.html" target="_blank" rel="external">https://www.xiaomiwujiecao.com/page/730.html</a></p>
-<p>1.安装<br>2.创建新应用<br>3.创建新页面<br>4.小技巧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ionic g page contactPage 快速创建一个新的页面。</div><div class="line"></div><div class="line">contact-page/contact-page.html</div><div class="line">contact-page/contact-page.ts</div><div class="line">contact-page/contact-page.scss</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/ionic-2-使用指南/">展开全文 >></a>
         </p>
       
 
@@ -827,7 +820,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发方式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -844,6 +837,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">

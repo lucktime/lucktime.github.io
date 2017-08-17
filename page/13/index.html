@@ -54,7 +54,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+	        
+				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+	        
+				<li><a href="/aboutme/">个人简介</a></li>
 	        
 			</ul>
 		</nav>
@@ -76,13 +80,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
 		</nav>
@@ -112,29 +116,37 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a8aaa74bb621" title="jianshu"><i class="icon-jianshu"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/luqiaolou" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="github" target="_blank" href="https://github.com/lucktime" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+		        
+					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
 				</ul>
 			</nav>
@@ -150,89 +162,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-ios-学习笔记/alloc-init-and-new-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.在实际开发中很少会用到new，一般创建对象咱们看到的全是[[className alloc] init]</p>
-<p>但是并不意味着你不会接触到new，在一些代码中还是会看到[className new]，</p>
-<p>还有去面试的时候，也很可能被问到这个问题。</p>
-<p>2.那么，他们两者之间到底有什么区别呢</p>
-<p>我们看源码：</p>
-<ul>
-<li>new<br>{<br>id newObject = (*_alloc)((Class)self, 0);<br>Class metaClass = self-&gt;isa;<br>if (class_getVersion(metaClass) &gt; 1)<br>return [newObject init];<br>else<br>return newObject;<br>} </li>
-</ul>
-<p>//而 alloc/init 像这样： </p>
-<ul>
-<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>} </li>
-</ul>
-<ul>
-<li>init<br>{<br>return self;<br>}<br>通过源码中我们发现，[className new]基本等同于[[className alloc] init]；</li>
-</ul>
-<p>区别只在于alloc分配内存的时候使用了zone.</p>
-<p>这个zone是个什么东东呢？</p>
-<p>它是给对象分配内存的时候，把关联的对象分配到一个相邻的内存区域内，以便于调用时消耗很少的代价，提升了程序处理速度；</p>
-<p>3.而为什么不推荐使用new？</p>
-<p>不知大家发现了没有：如果使用new的话，初始化方法被固定死只能调用init.</p>
-<p>而你想调用initXXX怎么办？没门儿！据说最初的设计是完全借鉴Smalltalk语法来的。</p>
-<p>传说那个时候已经有allocFromZone:这个方法，</p>
-<p>但是这个方法需要传个参数id myCompanion = [[TheClass allocFromZone:[self zone]] init];</p>
-<p>这个方法像下面这样：</p>
-<ul>
-<li>allocFromZone:(void <em>) z<br>{<br>return (</em>_zoneAlloc)((Class)self, 0, z);<br>} </li>
-</ul>
-<p>//后来简化为下面这个： </p>
-<ul>
-<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>}<br>但是，出现个问题：这个方法只是给对象分配了内存，并没有初始化实例变量。</li>
-</ul>
-<p>是不是又回到new那样的处理方式：在方法内部隐式调用init方法呢？</p>
-<p>后来发现“显示调用总比隐式调用要好”，所以后来就把两个方法分开了。</p>
-<p>概括来说，new和alloc/init在功能上几乎是一致的，分配内存并完成初始化。</p>
-<p>差别在于，采用new的方式只能采用默认的init方法完成初始化，</p>
-<p>采用alloc的方式可以用其他定制的初始化方法。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
     <article id="post-ios-学习笔记/iOS多线程-之NSThread的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -454,6 +383,247 @@ if(tickets &gt;= 0){
 
 
   
+    <article id="post-ios-学习笔记/View-的创建-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当 创建一个字控件View ，并且子空间view显示view 超过自身的view时。可以将子空间的View 添加到父控件<br>1.创建父控件变量 supView </p>
+<ol>
+<li>【supView addSubView View】；</li>
+</ol>
+<p>在自定义View 时，不要把全部东西都写在init内部。。<br>特别是代理和与父控件有关系的数据传递时，要特别注意这一点。。</p>
+<p>比如：    LeftNavView *leftNav = [[LeftNavView alloc]init];</p>
+<pre><code>leftNav.owner = self;
+leftNav.supView = self.navigationController.view;
+[leftNav defauleSetting];
+</code></pre><p>其中 初始化 leftNavView 时，如果将</p>
+<p>#import “LeftNavView.m”<br>-(instancetype)init<br>{<br>    if (self = [super init]) {<br>    _coverView = [[CoverView alloc]initWithViewCellHeight:ScreenHight num:1];<br>    _coverView.hidden = NO;</p>
+<pre><code>[_supView  addSubview:_coverView];
+self.delegate = self;
+self.dataSource = self;
+
+[self CreatSwipe];
+[self CreatHeard]
+}
+return  self;
+</code></pre><p>}</p>
+<p>这样写，在视图初始化的时候，就会将代码全部加载进去。造成    leftNav.supView = self.navigationController.view; 这句代码不会被执行，因此。所有与supview相关的代码也无意义。</p>
+<p>应该这样写：<br>在主控制器 ：    LeftNavView *leftNav = [[LeftNavView alloc]init];</p>
+<pre><code>leftNav.owner = self;
+leftNav.supView = self.navigationController.view;
+[leftNav defauleSetting];
+</code></pre><p>而在次级视图上声明一个方法<br>-(void)defauleSetting;<br>在这个方法，完成view内容的添加。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/View-的创建-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/alloc-init-and-new-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.在实际开发中很少会用到new，一般创建对象咱们看到的全是[[className alloc] init]</p>
+<p>但是并不意味着你不会接触到new，在一些代码中还是会看到[className new]，</p>
+<p>还有去面试的时候，也很可能被问到这个问题。</p>
+<p>2.那么，他们两者之间到底有什么区别呢</p>
+<p>我们看源码：</p>
+<ul>
+<li>new<br>{<br>id newObject = (*_alloc)((Class)self, 0);<br>Class metaClass = self-&gt;isa;<br>if (class_getVersion(metaClass) &gt; 1)<br>return [newObject init];<br>else<br>return newObject;<br>} </li>
+</ul>
+<p>//而 alloc/init 像这样： </p>
+<ul>
+<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>} </li>
+</ul>
+<ul>
+<li>init<br>{<br>return self;<br>}<br>通过源码中我们发现，[className new]基本等同于[[className alloc] init]；</li>
+</ul>
+<p>区别只在于alloc分配内存的时候使用了zone.</p>
+<p>这个zone是个什么东东呢？</p>
+<p>它是给对象分配内存的时候，把关联的对象分配到一个相邻的内存区域内，以便于调用时消耗很少的代价，提升了程序处理速度；</p>
+<p>3.而为什么不推荐使用new？</p>
+<p>不知大家发现了没有：如果使用new的话，初始化方法被固定死只能调用init.</p>
+<p>而你想调用initXXX怎么办？没门儿！据说最初的设计是完全借鉴Smalltalk语法来的。</p>
+<p>传说那个时候已经有allocFromZone:这个方法，</p>
+<p>但是这个方法需要传个参数id myCompanion = [[TheClass allocFromZone:[self zone]] init];</p>
+<p>这个方法像下面这样：</p>
+<ul>
+<li>allocFromZone:(void <em>) z<br>{<br>return (</em>_zoneAlloc)((Class)self, 0, z);<br>} </li>
+</ul>
+<p>//后来简化为下面这个： </p>
+<ul>
+<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>}<br>但是，出现个问题：这个方法只是给对象分配了内存，并没有初始化实例变量。</li>
+</ul>
+<p>是不是又回到new那样的处理方式：在方法内部隐式调用init方法呢？</p>
+<p>后来发现“显示调用总比隐式调用要好”，所以后来就把两个方法分开了。</p>
+<p>概括来说，new和alloc/init在功能上几乎是一致的，分配内存并完成初始化。</p>
+<p>差别在于，采用new的方式只能采用默认的init方法完成初始化，</p>
+<p>采用alloc的方式可以用其他定制的初始化方法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/ios程序第一次启动的新手指南方法实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、在appdelegate.m中找到 “application:didFinishLaunchingWithOptions:”</p>
+<p>通过NSUserDefaults 来进行判断</p>
+<p>if (![[NSUserDefaultsstandardUserDefaults] boolForKey:@”everLaunched”]) {</p>
+<pre><code>    [[NSUserDefaultsstandardUserDefaults] setBool:YESforKey:@&quot;everLaunched&quot;];
+
+    [[NSUserDefaultsstandardUserDefaults] setBool:YESforKey:@&quot;firstLaunch&quot;];
+
+    NSLog(@&quot;first launch&quot;);
+
+}else {
+
+    [[NSUserDefaultsstandardUserDefaults] setBool:NOforKey:@&quot;firstLaunch&quot;];
+
+    NSLog(@&quot;second launch&quot;);
+
+}
+</code></pre><p>2、在RootViewController的  viewWillAppear:的方法里面进行添加</p>
+<p>if ([[NSUserDefaultsstandardUserDefaults] boolForKey:@”firstLaunch”]) {</p>
+<pre><code>    [[NSUserDefaultsstandardUserDefaults] setBool:NOforKey:@&quot;firstLaunch&quot;];
+
+    UserGuideController *userGuide = [[[UserGuideControlleralloc] init] autorelease];
+
+    [selfpresentModalViewController:userGuide animated:YES];
+
+}
+</code></pre><p>3、在设置页面里面也可以添加同样的视图，让用户可以查看。</p>
+<p>4，在沙盒地下设置一个文件，第一次运行的时候就创建这个文件，即运行这个新手指南类似的文件，以后判断是否存在这个文件，如果存在则不再创建（即不执行新手指南的展示方法）。或者在数据库里做一个标记，标记此文件是否被创建过。</p>
+<p>自己实践：</p>
+<pre><code>if(![[NSUserDefaults standardUserDefaults] boolForKey:@&quot;firstStart&quot;]){
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@&quot;firstStart&quot;];
+    NSLog(@&quot;第一次启动&quot;);
+    self.window.rootViewController = [[WuNewFeature alloc]init];
+}else{
+    NSLog(@&quot;不是第一次启动&quot;);
+    self.window.rootViewController = [[WuNewFeature alloc]init];
+    MainVC *mainVC = [[MainVC alloc]init];
+    self.window.rootViewController = [[BaseNavigationController alloc]initWithRootViewController:mainVC];
+}
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/ios程序第一次启动的新手指南方法实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ios-学习笔记/ios-数组的基本用法-和排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -611,91 +781,6 @@ NSLog(@&quot;array2:%@&quot;, array2);
 
 
   
-    <article id="post-ios-学习笔记/ios程序第一次启动的新手指南方法实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、在appdelegate.m中找到 “application:didFinishLaunchingWithOptions:”</p>
-<p>通过NSUserDefaults 来进行判断</p>
-<p>if (![[NSUserDefaultsstandardUserDefaults] boolForKey:@”everLaunched”]) {</p>
-<pre><code>    [[NSUserDefaultsstandardUserDefaults] setBool:YESforKey:@&quot;everLaunched&quot;];
-
-    [[NSUserDefaultsstandardUserDefaults] setBool:YESforKey:@&quot;firstLaunch&quot;];
-
-    NSLog(@&quot;first launch&quot;);
-
-}else {
-
-    [[NSUserDefaultsstandardUserDefaults] setBool:NOforKey:@&quot;firstLaunch&quot;];
-
-    NSLog(@&quot;second launch&quot;);
-
-}
-</code></pre><p>2、在RootViewController的  viewWillAppear:的方法里面进行添加</p>
-<p>if ([[NSUserDefaultsstandardUserDefaults] boolForKey:@”firstLaunch”]) {</p>
-<pre><code>    [[NSUserDefaultsstandardUserDefaults] setBool:NOforKey:@&quot;firstLaunch&quot;];
-
-    UserGuideController *userGuide = [[[UserGuideControlleralloc] init] autorelease];
-
-    [selfpresentModalViewController:userGuide animated:YES];
-
-}
-</code></pre><p>3、在设置页面里面也可以添加同样的视图，让用户可以查看。</p>
-<p>4，在沙盒地下设置一个文件，第一次运行的时候就创建这个文件，即运行这个新手指南类似的文件，以后判断是否存在这个文件，如果存在则不再创建（即不执行新手指南的展示方法）。或者在数据库里做一个标记，标记此文件是否被创建过。</p>
-<p>自己实践：</p>
-<pre><code>if(![[NSUserDefaults standardUserDefaults] boolForKey:@&quot;firstStart&quot;]){
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@&quot;firstStart&quot;];
-    NSLog(@&quot;第一次启动&quot;);
-    self.window.rootViewController = [[WuNewFeature alloc]init];
-}else{
-    NSLog(@&quot;不是第一次启动&quot;);
-    self.window.rootViewController = [[WuNewFeature alloc]init];
-    MainVC *mainVC = [[MainVC alloc]init];
-    self.window.rootViewController = [[BaseNavigationController alloc]initWithRootViewController:mainVC];
-}
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/ios程序第一次启动的新手指南方法实现/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -777,6 +862,85 @@ if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/16/ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/mainbundle的作用和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原]NSBundle–获取文件路径</p>
+<p>2012-6-29阅读16207 评论0</p>
+<pre><code>之前在初始化一个类的时候：TestViewController *viewcontroller=[[TestViewController alloc]initWithNibName:@&quot;TestViewController&quot; bundle:[NSBundle mainBundle]];不是很明白:[NSBundle mainBundle]的意思。后来查阅资料后知道了它的作用，如下：
+
+bundle是一个目录,其中包含了程序会使用到的资源. 这些资源包含了如图像,声音,编译好的代码,nib文件(用户也会把bundle称为plug-in). 对应bundle,cocoa提供了类NSBundle.我们的程序是一个bundle. 在Finder中,一个应用程序看上去和其他文件没有什么区别. 但是实际上它是一个包含了nib文件,编译代码,以及其他资源的目录. 我们把这个目录叫做程序的main bundle。
+</code></pre><p>通过使用下面的方法得到程序的main bundle</p>
+<p>NSBundle *myBundle = [NSBundle mainBundle];</p>
+<p>一般我们通过这种方法来得到bundle.如果你需要其他目录的资源,可以指定路径来取得bundle</p>
+<p>NSBundle *goodBundle;</p>
+<p>goodBundle = [NSBundle bundleWithPath:@”~/.myApp/Good.bundle”];</p>
+<p>一旦我们有了NSBundle 对象,那么就可以访问其中的资源了</p>
+<p>NSBundle束，是一种特定的文件类型，其中的内容遵循特定的结构。</p>
+<p>NSBundle的一个主要作用是 获取Resources文件夹中的资源。</p>
+<pre><code>在编程中使用[NSData dataWithContentOfFile:@&quot;foo&quot;]的时候，总是无法读取正确的文件内容。而使用[NSData dataWithContentOfFile:[[NSBundle mainBundle] pathForResource:@”foo” ofType:@”&quot;]的时候就可以。
+</code></pre><p>因为当使用相对路径的时候，其实他相对的当前目录并不是程序运行的目录，而是“/”。只有使用[NSBundle mainBundle]来生成的路径才是文件真正的路径。</p>
+<p>在此记录一下：在以后的开发中不直接使用任何相对路径，而是使用经过计算以后的绝对路径。</p>
+<p>一.获取图片</p>
+<ol>
+<li><p>NSString *path = [[NSBuddle mainBuddle] pathForResource:@”resourceName” oftype@”resourceType”];</p>
+<p>UIImage *image = [[UIImage imageWithContentsOfFile:path];</p>
+</li>
+<li><p>UIImage *image = [UIImage imageNamed:@”imageName”];</p>
+</li>
+</ol>
+<p>二.获取plist文件</p>
+<p>  NSArray *array =[[NSArrayalloc]initWithContentsOfFile:[[NSBundlemainBundle]pathForResource:@”name”ofType:@”plist”]];</p>
+<p>  NSDictionary *dict=[arrayobjectAtIndex:index];//将plist文件中的内容转换成字典</p>
+<p>(๑•ั็ω•็ั๑)<br>NSBundle介绍<br>阅读：232302011-09-22 17:51<br>标签：杂谈<br>bundle是一个目录,其中包含了程序会使用到的资源. 这些资源包含了如图像,声音,编译好的代码,nib文件(用户也会把bundle称为plug-in). 对应bundle,cocoa提供了类NSBundle.<br>我们的程序是一个bundle. 在Finder中,一个应用程序看上去和其他文件没有什么区别. 但是实际上它是一个包含了nib文件,编译代码,以及其他资源的目录. 我们把这个目录叫做程序的main bundle<br>bundle中的有些资源可以本地化.例如,对于foo.nib,我们可以有两个版本: 一个针对英语用户,一个针对法语用户. 在bundle中就会有两个子目录:English.lproj和French.lproj,我们把各自版本的foo.nib文件放到其中. 当程序需要加载foo.nib文件时,bundle会自动根据所设置的语言来加载. 我们会在16章再详细讨论本地化<br>通过使用下面的方法得到程序的main bundle<br>NSBundle <em>myBundle = [NSBundle mainBundle];<br>一般我们通过这种方法来得到bundle.如果你需要其他目录的资源,可以指定路径来取得bundle<br>NSBundle </em>goodBundle;<br>goodBundle = [NSBundle bundleWithPath:@’~/.myApp/Good.bundle’];<br>一旦我们有了NSBundle 对象,那么就可以访问其中的资源了<br>// Extension is optional<br>NSString <em>path = [goodBundle pathForImageResource:@’Mom’];<br>NSImage </em>momPhoto = [[NSImage alloc] initWithContentsOfFile:path];<br>bundle中可以包含一个库. 如果我们从库得到一个class, bundle会连接库,并查找该类:<br>Class newClass = [goodBundle classNamed:@’Rover’];<br>id newInstance = [[newClass alloc] init];<br>如果不知到class名,也可以通过查找主要类来取得<br>Class aClass = [goodBundle principalClass];<br>id anInstance = [[aClass alloc] init];<br>可以看到, NSBundle有很多的用途.在这当中, NSBundle负责(在后台)加载nib文件. 我们也可以不通过NSWindowController来加载nib文件, 直接使用NSBundle:<br>BOOL successful = [NSBundle loadNibNamed:@’About’ owner:someObject];<br>注意噢, 我们指定了一个对象someObject作为nib的File’s Owner<br>使用initWithContentsOfFile时，文件路径的写法 使用initWithContentsOfFile方法可以通过读取一个文件的内容来初始化对象。 但文件的路径应该怎么确定呢？ 可以使用NSBundle的对象来获取。 例如当前程序所在目录下有个文件re.xml，我们要将该文件的内容做为NSData的数据源来初始化一个NSData对象，可以用下面的方法来实现：<br>NSString <em>filePath = [[NSBundle mainBundle] pathForResouse:@’re’ ofType:@’xml’]; NSData </em>data = [[NSData alloc] initWithContentsOfFile:filePath];<br>读取plist中的内容：<br>NSString <em>dataPath = [[NSBundle mainBundle] pathForResource:@’Data’ ofType:@’plist’]; self.data = [NSArray arrayWithContentsOfFile:dataPath];<br>删除本地文件<br>NSString </em> thePath=[self getUserDocumentDirectoryPath];<br>NSMutableString <em> fullPath=[[[NSMutableString alloc]init]autorelease];<br>[fullPath appendString:thePath];<br>NSString </em> idString=[idArray objectAtIndex:indexPath.row];<br>NSString <em> coverName=[NSString stringWithFormat:@’/%@.jpg’,idString];<br>[fullPath appendString:coverName];<br>NSFileManager </em>defaultManager;<br>defaultManager = [NSFileManager defaultManager];</p>
+<ul>
+<li>(BOOL)removeItemAtPath:(NSString <em>)path error:(NSError *</em>)error BOOL boolValue=[defaultManager removeItemAtPath: fullPath error: nil];<br>if (boolValue) {<br>NSLog(@’remove cover image ok’);<br>}</li>
+<li>(NSString<em>)getUserDocumentDirectoryPath {<br>NSArray</em> array = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);<br>if([array count])<br>return [array objectAtIndex: 0];<br>else return @’’;<br>}</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/mainbundle的作用和使用/">展开全文 >></a>
         </p>
       
 
@@ -955,285 +1119,6 @@ if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {
 
 
   
-    <article id="post-ios-学习笔记/mainbundle的作用和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原]NSBundle–获取文件路径</p>
-<p>2012-6-29阅读16207 评论0</p>
-<pre><code>之前在初始化一个类的时候：TestViewController *viewcontroller=[[TestViewController alloc]initWithNibName:@&quot;TestViewController&quot; bundle:[NSBundle mainBundle]];不是很明白:[NSBundle mainBundle]的意思。后来查阅资料后知道了它的作用，如下：
-
-bundle是一个目录,其中包含了程序会使用到的资源. 这些资源包含了如图像,声音,编译好的代码,nib文件(用户也会把bundle称为plug-in). 对应bundle,cocoa提供了类NSBundle.我们的程序是一个bundle. 在Finder中,一个应用程序看上去和其他文件没有什么区别. 但是实际上它是一个包含了nib文件,编译代码,以及其他资源的目录. 我们把这个目录叫做程序的main bundle。
-</code></pre><p>通过使用下面的方法得到程序的main bundle</p>
-<p>NSBundle *myBundle = [NSBundle mainBundle];</p>
-<p>一般我们通过这种方法来得到bundle.如果你需要其他目录的资源,可以指定路径来取得bundle</p>
-<p>NSBundle *goodBundle;</p>
-<p>goodBundle = [NSBundle bundleWithPath:@”~/.myApp/Good.bundle”];</p>
-<p>一旦我们有了NSBundle 对象,那么就可以访问其中的资源了</p>
-<p>NSBundle束，是一种特定的文件类型，其中的内容遵循特定的结构。</p>
-<p>NSBundle的一个主要作用是 获取Resources文件夹中的资源。</p>
-<pre><code>在编程中使用[NSData dataWithContentOfFile:@&quot;foo&quot;]的时候，总是无法读取正确的文件内容。而使用[NSData dataWithContentOfFile:[[NSBundle mainBundle] pathForResource:@”foo” ofType:@”&quot;]的时候就可以。
-</code></pre><p>因为当使用相对路径的时候，其实他相对的当前目录并不是程序运行的目录，而是“/”。只有使用[NSBundle mainBundle]来生成的路径才是文件真正的路径。</p>
-<p>在此记录一下：在以后的开发中不直接使用任何相对路径，而是使用经过计算以后的绝对路径。</p>
-<p>一.获取图片</p>
-<ol>
-<li><p>NSString *path = [[NSBuddle mainBuddle] pathForResource:@”resourceName” oftype@”resourceType”];</p>
-<p>UIImage *image = [[UIImage imageWithContentsOfFile:path];</p>
-</li>
-<li><p>UIImage *image = [UIImage imageNamed:@”imageName”];</p>
-</li>
-</ol>
-<p>二.获取plist文件</p>
-<p>  NSArray *array =[[NSArrayalloc]initWithContentsOfFile:[[NSBundlemainBundle]pathForResource:@”name”ofType:@”plist”]];</p>
-<p>  NSDictionary *dict=[arrayobjectAtIndex:index];//将plist文件中的内容转换成字典</p>
-<p>(๑•ั็ω•็ั๑)<br>NSBundle介绍<br>阅读：232302011-09-22 17:51<br>标签：杂谈<br>bundle是一个目录,其中包含了程序会使用到的资源. 这些资源包含了如图像,声音,编译好的代码,nib文件(用户也会把bundle称为plug-in). 对应bundle,cocoa提供了类NSBundle.<br>我们的程序是一个bundle. 在Finder中,一个应用程序看上去和其他文件没有什么区别. 但是实际上它是一个包含了nib文件,编译代码,以及其他资源的目录. 我们把这个目录叫做程序的main bundle<br>bundle中的有些资源可以本地化.例如,对于foo.nib,我们可以有两个版本: 一个针对英语用户,一个针对法语用户. 在bundle中就会有两个子目录:English.lproj和French.lproj,我们把各自版本的foo.nib文件放到其中. 当程序需要加载foo.nib文件时,bundle会自动根据所设置的语言来加载. 我们会在16章再详细讨论本地化<br>通过使用下面的方法得到程序的main bundle<br>NSBundle <em>myBundle = [NSBundle mainBundle];<br>一般我们通过这种方法来得到bundle.如果你需要其他目录的资源,可以指定路径来取得bundle<br>NSBundle </em>goodBundle;<br>goodBundle = [NSBundle bundleWithPath:@’~/.myApp/Good.bundle’];<br>一旦我们有了NSBundle 对象,那么就可以访问其中的资源了<br>// Extension is optional<br>NSString <em>path = [goodBundle pathForImageResource:@’Mom’];<br>NSImage </em>momPhoto = [[NSImage alloc] initWithContentsOfFile:path];<br>bundle中可以包含一个库. 如果我们从库得到一个class, bundle会连接库,并查找该类:<br>Class newClass = [goodBundle classNamed:@’Rover’];<br>id newInstance = [[newClass alloc] init];<br>如果不知到class名,也可以通过查找主要类来取得<br>Class aClass = [goodBundle principalClass];<br>id anInstance = [[aClass alloc] init];<br>可以看到, NSBundle有很多的用途.在这当中, NSBundle负责(在后台)加载nib文件. 我们也可以不通过NSWindowController来加载nib文件, 直接使用NSBundle:<br>BOOL successful = [NSBundle loadNibNamed:@’About’ owner:someObject];<br>注意噢, 我们指定了一个对象someObject作为nib的File’s Owner<br>使用initWithContentsOfFile时，文件路径的写法 使用initWithContentsOfFile方法可以通过读取一个文件的内容来初始化对象。 但文件的路径应该怎么确定呢？ 可以使用NSBundle的对象来获取。 例如当前程序所在目录下有个文件re.xml，我们要将该文件的内容做为NSData的数据源来初始化一个NSData对象，可以用下面的方法来实现：<br>NSString <em>filePath = [[NSBundle mainBundle] pathForResouse:@’re’ ofType:@’xml’]; NSData </em>data = [[NSData alloc] initWithContentsOfFile:filePath];<br>读取plist中的内容：<br>NSString <em>dataPath = [[NSBundle mainBundle] pathForResource:@’Data’ ofType:@’plist’]; self.data = [NSArray arrayWithContentsOfFile:dataPath];<br>删除本地文件<br>NSString </em> thePath=[self getUserDocumentDirectoryPath];<br>NSMutableString <em> fullPath=[[[NSMutableString alloc]init]autorelease];<br>[fullPath appendString:thePath];<br>NSString </em> idString=[idArray objectAtIndex:indexPath.row];<br>NSString <em> coverName=[NSString stringWithFormat:@’/%@.jpg’,idString];<br>[fullPath appendString:coverName];<br>NSFileManager </em>defaultManager;<br>defaultManager = [NSFileManager defaultManager];</p>
-<ul>
-<li>(BOOL)removeItemAtPath:(NSString <em>)path error:(NSError *</em>)error BOOL boolValue=[defaultManager removeItemAtPath: fullPath error: nil];<br>if (boolValue) {<br>NSLog(@’remove cover image ok’);<br>}</li>
-<li>(NSString<em>)getUserDocumentDirectoryPath {<br>NSArray</em> array = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);<br>if([array count])<br>return [array objectAtIndex: 0];<br>else return @’’;<br>}</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/mainbundle的作用和使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ios-学习笔记/tableview-常用函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/**</p>
-<ul>
-<li>返回组数<br><em>/<br>-(NSInteger)numberOfSectionsInTableView:(UITableView </em>)tableView<br>{<br>return 3;<br>}</li>
-</ul>
-<p>/**</p>
-<ul>
-<li><p>每个section 加载多少个单元。<br><em>/<br>-(NSInteger)tableView:(UITableView </em>)tableView numberOfRowsInSection:(NSInteger)section<br>{</p>
-<p>return 3;</p>
-</li>
-</ul>
-<p>}</p>
-<p>/**</p>
-<ul>
-<li><p>每个cell显示的内容<br><em>/<br>-(UITableViewCell </em>)tableView:(UITableView <em>)tableView cellForRowAtIndexPath:(NSIndexPath </em>)indexPath<br>{<br>if(indexPath.section == 0)<br>{</p>
-<pre><code>UITableViewCell * cell1 = [[UITableViewCell alloc]init];
-tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
-cell1.textLabel.font = [UIFont systemFontOfSize:12];
-cell1.backgroundColor = [UIColor whiteColor];
-if(indexPath.row == 0)
-{
-
-cell1.textLabel.text = @&quot;玩耍记录&quot;;
-return cell1;
-
-}
-</code></pre><p>//        if(indexPath.row == 1)</p>
-<pre><code>else
-{
-
-    cell1.textLabel.text = @&quot;主要内容：两个人之间玩耍的记录，比如什么游戏，谁赢了，有什么惩罚&quot;;
-    return cell1;
-
-}
-</code></pre><p>}<br>else if(indexPath.section == 1) {</p>
-<pre><code>UITableViewCell * cell1 = [[UITableViewCell alloc]init];
-tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
-
-cell1.textLabel.font = [UIFont systemFontOfSize:12];
-cell1.backgroundColor = [UIColor whiteColor];
-if(indexPath.row == 0)
-{
-
-    cell1.textLabel.text = @&quot;日志报&quot;;
-    return cell1;
-
-}
-</code></pre><p>//        if(indexPath.row == 1)</p>
-<pre><code>else
-{
-
-    cell1.textLabel.text = @&quot;主要内容：主要包括纪念日，约定，承诺&quot;;
-    return cell1;
-
-}
-</code></pre><p>}</p>
-<p>else if(indexPath.section == 2) {</p>
-<pre><code>UITableViewCell * cell1 = [[UITableViewCell alloc]init];
-tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
-
-cell1.textLabel.font = [UIFont systemFontOfSize:12];
-cell1.backgroundColor = [UIColor whiteColor];
-if(indexPath.row == 0)
-{
-
-    cell1.textLabel.text = @&quot;反悔墙&quot;;
-    return cell1;
-
-}
-else
-</code></pre><p>//        if(indexPath.row == 1)</p>
-<pre><code>{
-
-    cell1.textLabel.text = @&quot;主要内容：主要用于承认错误&quot;;
-    return cell1;
-
-}
-</code></pre><p>}</p>
-<pre><code>return nil;
-</code></pre></li>
-</ul>
-<p>}</p>
-<p>/**</p>
-<ul>
-<li><p>监听cell<br><em>/<br>-(void)tableView:(UITableView </em>)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath<br>{<br>if (indexPath.section == 0) {</p>
-<pre><code>if (indexPath.row == 1) {
-    MyLog(@&quot;主要内容：两个人之间玩耍的记录，比如什么游戏，谁赢了，有什么惩罚&quot;);
-}
-</code></pre><p>}</p>
-<p>else if (indexPath.section == 1) {</p>
-<pre><code>if (indexPath.row == 1) {
-    MyLog(@&quot;主要内容：主要包括纪念日，约定，承诺&quot;);
-
-}
-</code></pre><p>}</p>
-<p>else if (indexPath.section == 2) {</p>
-<pre><code>if (indexPath.row == 1) {
-    MyLog(@&quot;主要内容：主要用于承认错误&quot;);
-}
-</code></pre><p>}</p>
-</li>
-</ul>
-<p>}</p>
-<p>/**</p>
-<ul>
-<li><p>设置每个Cell的高度<br><em>/<br>-(CGFloat)tableView:(UITableView </em>)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath<br>{<br>if (indexPath.section == 0) {</p>
-<pre><code>if (indexPath.row == 0) {
-    return 10;
-}
-else
-{
-    return 100;
-
-}
-</code></pre><p>}</p>
-<p>else if (indexPath.section == 1) {</p>
-<pre><code>if (indexPath.row == 0) {
-    return 10;
-}
-else
-{
-    return 100;
-
-}
-</code></pre><p>}</p>
-<p>else if (indexPath.section == 2) {</p>
-<pre><code>if (indexPath.row == 0) {
-    return 10;
-}
-else
-{
-    return 100;
-
-}
-</code></pre><p>}</p>
-<pre><code>else
-{
- return 0;
-}
-</code></pre></li>
-</ul>
-<p>}</p>
-<h1 id=""><a href="#" class="headerlink" title="//=========================================="></a>//==========================================</h1><p>===========================================</p>
-<ul>
-<li><p>(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section<br>{<br>  return 5;<br>}</p>
-</li>
-<li><p>(UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath <em>)indexPath<br>{<br>  static NSString </em>ID = @”test”;<br>  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];<br>  if (!cell) {</p>
-<pre><code>cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-</code></pre><p>  }<br>  cell.textLabel.text = [NSString stringWithFormat:@”Demo – %ld”, indexPath.row];<br>  return cell;<br>}</p>
-</li>
-<li><p>(void)tableView:(UITableView <em>)tableView didSelectRowAtIndexPath:(NSIndexPath </em>)indexPath<br>{<br>  NSString *demoClassString = [NSString stringWithFormat:@”DemoVC%ld”, indexPath.row];</p>
-<p>  [self.navigationController pushViewController:[NSClassFromString(demoClassString) new] animated:YES];<br>}</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/tableview-常用函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
@@ -1339,7 +1224,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发方式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1356,6 +1241,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">
