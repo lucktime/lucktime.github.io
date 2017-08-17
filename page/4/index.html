@@ -56,7 +56,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -144,7 +144,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -163,26 +163,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-C语言/swap--指针两数交换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/">【-ionic-】-极光推送-ionic-和php服务器的搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>/*#include <iostream></iostream></p>
-<p>using namespace std;</p>
-<p>main()<br>{<br>———————(一)———————————-<br> int i = 90 ;<br> int* p = NULL;<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;            //00000000</p>
-<p>//cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;<br> p = &i;<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;             //0012ff44</p>
-<p>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;       //90<br> i = 80;        //i改变值，但地址不变。。因此p指向地址不变，但<em>p（</em>&amp;p）改变了。<br>cout &lt;&lt; “P =  “ &lt;&lt; p &lt;&lt; endl;             //0012ff44</p>
-<p>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;         //80<br> *p = 150;        //将指向地址的值改变，也改变i的值。</p>
-<p>cout &lt;&lt; “ P =  “ &lt;&lt;  p &lt;&lt; endl;          //0012ff44<br>cout &lt;&lt; “<em>P =  “ &lt;&lt; </em>p &lt;&lt; endl;       //150<br>cout &lt;&lt; “ i =  “ &lt;&lt;  i &lt;&lt; endl;      //150<br><em>/<br>/</em>int a = 100;<br>int b = 300;<br>swap(&amp;a, &amp;b);<br>//swap(a ,b);<br>int<em> p = &a;<br>int</em> q = &b;<br>cout &lt;&lt; “<em>p = “ &lt;&lt; </em>p &lt;&lt;endl;   //100<br>cout &lt;&lt; “<em>q = “ &lt;&lt; </em>q &lt;&lt;endl;   //300<br>swap(p, q);<br>cout &lt;&lt; “<em>p = “ &lt;&lt; </em>p &lt;&lt;endl;    //300<br>cout &lt;&lt; “<em>q = “ &lt;&lt; </em>q &lt;&lt;endl;     //100<br>cout &lt;&lt; “a = “ &lt;&lt; a &lt;&lt;endl;      //100<br>cout &lt;&lt; “b = “ &lt;&lt; b &lt;&lt;endl;    //300          //只改变地址指向，不改变函数地址<br>return 0;<br>}</p>
-<p>void swap(int a,int b)<br>{<br> int t = a ;<br> a = b;<br> b = t;</p>
-<p>}</p>
-<p>void swap(int<em> a,int</em> b)<br>{<br> int* t = a ;<br> a = b;<br> b = t;</p>
-<p>}*/</p>
-<p>#include <iostream></iostream></p>
-<p>using namespace std;<br> void swap(int &amp;a, int &amp;b)<br>{<br>    //方法一：<br>    //int tmp = 0;<br>   // tmp = b;<br>   // b = a;<br>   // a = tmp;<br>    //方法二：<br>    //a = a+b;<br>    //b = a-b;<br>    //a = a -b;<br>    //同理<br> //    a = a - b; //-1 = 3-4<br> //    b = a + b; // 3 = -1 + 4<br> //    a = b - a; // 4 = 3 - -1;<br>  //方法三：<br>    //a ^= b ^= a ^= b;  //a=a^b; b=b^a; a=a^b; 恩，理解了。异或运算得出的(a^b)。与a异或得出b，与b异或得出a<br>    //方法四：<br>    a = a+b-(b=a);  //  b= 3; a = 3+3-3;<br>}  </p>
-<p>int main(void)<br>{<br>    int a = 3;<br>    int b = 4;<br> int t =a^b;<br> cout &lt;&lt; t &lt;&lt;endl;<br> b=b^t;<br> cout &lt;&lt; b &lt;&lt;endl;<br> a=t^b;<br> cout &lt;&lt; a &lt;&lt;endl;</p>
-<p> cout &lt;&lt; “a = “ &lt;&lt; a &lt;</p>
+        <p>【官方文档】<a href="https://docs.jiguang.cn/jpush/server/3rd/php_sdk/" target="_blank" rel="external">https://docs.jiguang.cn/jpush/server/3rd/php_sdk/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ionic 客户端</div><div class="line">step1:注册账号，并创建应用</div><div class="line">https://www.jiguang.cn/</div><div class="line"></div><div class="line">step2:应用添加插件</div><div class="line">cordova plugin add jpush-phonegap-plugin --variable APP_KEY=******</div><div class="line"></div><div class="line">step3：app.js 添加代码</div><div class="line">  //启动极光推送服务</div><div class="line">  window.plugins.jPushPlugin.init();</div><div class="line"></div><div class="line">step4：设置别名，标签。</div><div class="line">  window.plugins.jPushPlugin.setAlias(&quot;12345678&quot;); 任意地方均可。</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">php 后台服务器端</div><div class="line">step1：安装插件</div><div class="line">composer require jpush/jpush</div><div class="line"></div><div class="line">vendor/jpush 有相关demo</div><div class="line"></div><div class="line">step2:</div><div class="line">功能实现：</div><div class="line"></div><div class="line">创建控制器：</div><div class="line">    public function actionPushonedriver()&#123;</div><div class="line">      // 简单推送示例</div><div class="line">      // 这只是使用样例,不应该直接用于实际生产环境中 !!</div><div class="line">      $rel = JpushFunction::sendJpushOneDriver();</div><div class="line">      return $rel;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">创建model：</div><div class="line">  public function sendJpushOneDriver()&#123;</div><div class="line">      $app_key = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;appKey&apos;];</div><div class="line">      $master_secret = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;masterSecret&apos;];</div><div class="line">      $client = new JPush($app_key, $master_secret);</div><div class="line">      $push_payload = $client-&gt;push()</div><div class="line">          -&gt;setPlatform(array(&apos;ios&apos;, &apos;android&apos;));</div><div class="line">          // -&gt;addAllAudience();</div><div class="line">          // -&gt;setAudience(&apos;all&apos;)</div><div class="line">          // -&gt;addAlias(&apos;alias&apos;)</div><div class="line">      try &#123;</div><div class="line">        $push_payload-&gt;addAlias(&apos;12345678&apos;)</div><div class="line">        -&gt;androidNotification(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ))</div><div class="line">        -&gt;message(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ));</div><div class="line">          $response = $push_payload-&gt;send();</div><div class="line">          print_r($response);</div><div class="line">      &#125; catch (\JPush\Exceptions\APIConnectionException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125; catch (\JPush\Exceptions\APIRequestException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">方法实现</div></pre></td></tr></table></figure>
+
       
 
       
@@ -190,11 +193,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ionic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ionic/" class="article-tag-list-link color1">ionic</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/swap--指针两数交换/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/">展开全文 >></a>
         </p>
       
 
@@ -224,18 +249,1050 @@
 
 
   
-    <article id="post-C语言/乘法口诀" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/CocoaPods-操作高德地图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/">cocoaPods 高德地图</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.。。。。。。。。。。。。。。。。。。。。二维数组的方法</p>
-<p>#include <iostream><br>//#include <algorithm></algorithm></iostream></p>
-<p>using namespace std;</p>
-<p>main()<br>{<br>     /<em> int i;<br>      int </em>a;<br>   cin &gt;&gt; i;  //输入数组个数<br>      a = new int[i];<br>      for( int j =0; j &lt; i;j++ )<br>      cin &gt;&gt; a[j];<br>      for( j =0; j &lt; i;j++ )<br>      cout &lt;&lt; a[j] &lt;&lt;endl;<br>      */<br> int i,j;<br> int a[9][9];<br> for( i=0; i&lt;9;i++)<br>  for( j=0; j&lt;9; j++)<br>   a[i][j] = j+1;</p>
-<p> for( i=0; i&lt;9;i++)<br> {<br>  for( j=0; j&lt;9; j++)<br>  {<br>   if(i&lt;j)<br>   continue;  //输出二维数组的下半部分<br>   cout &lt;&lt; a[i][j] &lt;&lt; “<em>“&lt;&lt; a[i][i] &lt;&lt; “=” &lt;&lt; a[i][j] </em>  a[i][i]&lt;&lt;” “;<br>  }<br>  cout&lt;&lt;”\n”&lt;&lt;endl;<br> }</p>
-<pre><code>return 0;      
+        <p>第一步：</p>
+<p>1.PodFile 文件 添加</p>
+<p>#pod ‘AMap3DMap’ #3D地图SDK<br>pod ‘AMap2DMap’ #2D地图SDK(2D地图和3D地图不能同时使用)<br>pod ‘AMapSearch’ #搜索服务SDK</p>
+<p>第二步：打开终端 到项目所在文件夹 cd 项目文件夹<br>pod install<br>或者</p>
+<p>第三步：在#import “AppDelegate.m”   中添加 </p>
+<p>#import “APIKey.h”</p>
+<p>#import <mamapkit mamapkit.h=""><br>或者只添加<br>[MAMapServices sharedServices].apiKey = (NSString *)APIKey];</mamapkit></p>
+<p>pod install –verbose –no-repo-update</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/">NSMutableDictionary---initWithCapacity-的作用和区别</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//用init初始化<br>NSMutableDictionary <em>adict_distance = [[NSMutableDictionary alloc] init];<br>//用initWithCapacity初始化<br>NSMutableDictionary </em>adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10];</p>
+<p>这两者之间有什么区别吗？</p>
+<p>有这么几点，知道就好了，这个不必深究的：<br>1，initWithCapacity:10 并不代表里面的object数量不能大于10.也可以大于10.<br>2，init是在告诉程序，“我不知道要放多少object,暂且帮我初始化”。<br>3，如果你知道大概要放多少东西，那么最好用initWithCapacity,这个会提高程序内存运用效率。<br>4，如果你初始化了NSMutableDictionary，并且很长时间不会用到，建议用initWithCapacity:0。<br>其它的如NSMutableArray,也是这个道理。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如/">NSString实例化时，initWithFormat方法，stringWithFormat应该如</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>NSString实例化时，initWithFormat方法，stringWithFormat应该如</p>
+<p>1、 initWithFormat是实例方法<br>只能通过 NSString<em> str = [[NSString alloc] initWithFormat:@”%@”,@”Hello World”] 调用，但是必须手动release来释放内存资源<br>2、 stringWithFormat是类方法<br>可以直接用 NSString</em> str = [NSString stringWithFormat:@”%@”,@”Hello World”] 调用，内存管理上是autorelease的，不用手动显式release<br>而且提出了一个常见错误:<br>label.text = [[NSString alloc] initWithFormat:@”%@”,@”abc”];<br>最后在dealloc中将label给release掉<br>但是仍然会发生内存泄漏！<br>原因在于：用label.text = …时，实际是隐式调用的label的setText方法，这会retain label内部的字符串变量text（哪怕这个字符串的内容 跟传进来的字符串内容相同 ，但系统仍然当成二个不同 的字符串对象），所以最后release label时，实际上只释放了label内部的text字符串，但是最初用initWithFormat生成的字符串并未释放，最终造成了泄漏。<br>解决办法有二个:<br>1、<br>NSString * str = [[NSString alloc] initWithFormat:@”%@”,@”abc”];<br>label.text = str;<br>[str release]<br>最后在dealloc中再[label release]<br>2、<br>label.text = [NSString stringWithFormat:@”%@”,@”abc”];<br>然后剩下的事情交给NSAutoreleasePool<br>最后，如果你不确定你的代码是否有内存泄漏问题，可以用Xcode中的Build–&gt;Build And Analyze 做初步的检查.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/CocoaPods-的常用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/CocoaPods-的常用技巧/">配置 CocoaPods 环境</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/CocoaPods-的常用技巧/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1 配置 CocoaPods 环境<br>1）、Ruby环境搭建<br>2）、更新ruby<br>2、下载安装CocoaPods<br>终端输入：sudo gem install cocoapods </p>
+<p> platform :ios<br>pod ‘JSONKit’,       ‘~&gt; 1.4’<br>pod ‘AFNetworking’,  ‘~&gt; 2.0’</p>
+<p>2、CocoaPods可以查找你想要的第三方库<br>终端输入命令：pod search UI<br>疯了了，我怎么查找这么大众的关键字，好多库～～</p>
+<p>不要随便删除ruby的lib，随便删一个都会导致gem不能使用。。不太懂的时候，都是泪啊。。删了改。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/CocoaPods-的常用技巧/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/alloc-init-and-new-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/">alloc init 和 new 的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.在实际开发中很少会用到new，一般创建对象咱们看到的全是[[className alloc] init]</p>
+<p>但是并不意味着你不会接触到new，在一些代码中还是会看到[className new]，</p>
+<p>还有去面试的时候，也很可能被问到这个问题。</p>
+<p>2.那么，他们两者之间到底有什么区别呢</p>
+<p>我们看源码：</p>
+<ul>
+<li>new<br>{<br>id newObject = (*_alloc)((Class)self, 0);<br>Class metaClass = self-&gt;isa;<br>if (class_getVersion(metaClass) &gt; 1)<br>return [newObject init];<br>else<br>return newObject;<br>} </li>
+</ul>
+<p>//而 alloc/init 像这样： </p>
+<ul>
+<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>} </li>
+</ul>
+<ul>
+<li>init<br>{<br>return self;<br>}<br>通过源码中我们发现，[className new]基本等同于[[className alloc] init]；</li>
+</ul>
+<p>区别只在于alloc分配内存的时候使用了zone.</p>
+<p>这个zone是个什么东东呢？</p>
+<p>它是给对象分配内存的时候，把关联的对象分配到一个相邻的内存区域内，以便于调用时消耗很少的代价，提升了程序处理速度；</p>
+<p>3.而为什么不推荐使用new？</p>
+<p>不知大家发现了没有：如果使用new的话，初始化方法被固定死只能调用init.</p>
+<p>而你想调用initXXX怎么办？没门儿！据说最初的设计是完全借鉴Smalltalk语法来的。</p>
+<p>传说那个时候已经有allocFromZone:这个方法，</p>
+<p>但是这个方法需要传个参数id myCompanion = [[TheClass allocFromZone:[self zone]] init];</p>
+<p>这个方法像下面这样：</p>
+<ul>
+<li>allocFromZone:(void <em>) z<br>{<br>return (</em>_zoneAlloc)((Class)self, 0, z);<br>} </li>
+</ul>
+<p>//后来简化为下面这个： </p>
+<ul>
+<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>}<br>但是，出现个问题：这个方法只是给对象分配了内存，并没有初始化实例变量。</li>
+</ul>
+<p>是不是又回到new那样的处理方式：在方法内部隐式调用init方法呢？</p>
+<p>后来发现“显示调用总比隐式调用要好”，所以后来就把两个方法分开了。</p>
+<p>概括来说，new和alloc/init在功能上几乎是一致的，分配内存并完成初始化。</p>
+<p>差别在于，采用new的方式只能采用默认的init方法完成初始化，</p>
+<p>采用alloc的方式可以用其他定制的初始化方法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/ios-类方法-和实例方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/ios-类方法-和实例方法/">类方法和实例方法详解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/ios-类方法-和实例方法/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>类方法： 也被称为静态方法，指 static关键字修饰的方法。此类方法属于类本身的方法，不属于类的某一个实例（对象）。在类方法中不可以直接使用实例变量。其调用方式有三种，可直接调用、类名、方法名、对象名。</p>
+<p>实例方法：指的是不用static关键字修饰的方法，每个实例对象都有自身的实例方法，互相独立，不共享。其调用方式只能是对象名，方法名。</p>
+<p>何时用静态方法，何时用类方法？<br>实例方法： 当你给一个类写一个方法，如果该方法需要访问某个实例的成员变量时，那么方法该被定义为实例方法。 一个类的实例通常有一些成员变量，其中含有该实例的状态信息。而该方法需要改变这些状态，那么该方法需要声明成实例方法。</p>
+<p>类方法（静态方法）：它不需要访问某个实例的成员变量，不需要改变某个实例的状态，我们把该方法定义为静态方法。</p>
+<p>类方法和实例方法的误区:<br>静态方法常驻内存，实例方法不是。所以静态方法效率更高，但占内存。。（错误的）<br>事实上，方法都是一样，在加载时机和占用内存上，静态方法和实例方法是一样的。在类型第一次被使用时加载，调用的速度基本没有差别</p>
+<p>静态方法在堆上分配内存，实例方法在栈上（错误）<br>事实上，所有的方法都不可能在堆上或者栈上分配内存，方法作为代码是被分配到特使的代码内存区域，这个代码内存区域是不可写的。</p>
+<p>实例方法需要先创建实例才可以调用，比较麻烦，静态方法不用，比较简单。（错误）<br>事实上，如果一个方法不访问某实例成员变量或者不改变实例状态，那么就应该写成静态方法。</p>
+<p>常用实例和类<br>第一种方式：声明实，调用实例方法<br>当一个类有多个实例，例如学生这个类，实例可以有学生甲乙丙丁。etc 我们就用第一种方式，在多线程的情况下，只要每个线程创建自己的实例，那么第一种方法通常是线程安全的</p>
+<p>第二种：通过静态的实例去调用实例方法</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/ios-类方法-和实例方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/ios-数组的基本用法-和排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/ios-数组的基本用法-和排序/">数组的基本用法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/ios-数组的基本用法-和排序/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.创建数组</p>
+<p>[objc] view plaincopy在CODE上查看代码片派生到我的代码片<br>// 创建一个空的数组<br>NSArray <em>array = [NSArray array];<br>// 创建有1个元素的数组<br>array = [NSArray arrayWithObject:@”123”];<br>// 创建有多个元素的数组<br>array = [NSArray arrayWithObjects:@”a”, @”b”, @”c”, nil nil];<br>NSArray </em>array3 = [array arrayByAddingObjectsFromArray:[NSArray arrayWithObjects:@”4”, @”5”, nil nil]];  </p>
+<p>NSArray <em>array4 = [NSArray arrayWithObjects:@”1”, @”2”, @”3”, @”4”, nil nil];<br>NSRange range = NSMakeRange(1, 2);<br>NSArray </em>array5 = [array4 subarrayWithRange:range];  </p>
+<p>2.数组的一些基本方法</p>
+<p>[objc] view plaincopy在CODE上查看代码片派生到我的代码片<br>int count = [array count];//个数<br>// 判断是否包含了某个元素<br>if ([array containsObject:@”a”]) {<br>    NSLog(@”包含了字符串a”);<br>}<br>NSString <em>last = [array lastObject];最后一个元素<br>NSString </em>str = [array objectAtIndex:1];根据索引获取数组中的元素<br>int index = [array indexOfObject:@”c”];获取指定元素的索引<br>// 让数组里面的所有对象都调用test方法，123为参数<br>NSArray <em>array = [NSArray arrayWithObjects:stu1, stu2, stu3, nil nil];<br>[array makeObjectsPerformSelector:@selector(test2:) withObject:@”123”];<br>NSArray </em>array = [NSArray arrayWithObjects:@”1”, @”2”, @”3”, @”4”, nil nil];<br>// 1-2-3-4<br>// 利用分隔符-拼接所有的数组元素<br>NSString <em>str = [array componentsJoinedByString:@”-“];<br>// 将一个数组写入文件（生成的是一个xml文件）<br>NSString </em>path = @”/Users/apple/Desktop/array.xml”;<br>[array writeToFile:path atomically:YES];<br>path = @”/Users/apple/Desktop/array.txt”;<br>// 从文件中读取数组内容（文件有严格的格式要求）<br>NSArray *array2 = [NSArray arrayWithContentsOfFile:path];<br>3.遍历数组</p>
+<p>[objc] view plaincopy在CODE上查看代码片派生到我的代码片</p>
+<p>#pragma mark 遍历数组1<br>void arrayFor1() {<br>    NSArray *array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    int count = array.count;<br>    for (int i = 0; i&lt;count; i++) {<br>        id obj = [array objectAtIndex:i];<br>    }<br>}  </p>
+<p>#pragma mark 遍历数组2 快速遍历<br>void arrayFor2() {<br>    Student <em>stu1 = [Student student];<br>    NSArray </em>array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    int i =0;<br>    for (id obj in array) {<br>        NSLog(@”%i-%@”, i, obj);<br>        i++;<br>    }<br>}  </p>
+<p>#pragma mark 遍历数组3<br>void arrayFor3() {<br>    Student <em>stu1 = [Student student];<br>    NSArray </em>array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    [array enumerateObjectsUsingBlock:<br>     ^(id obj, NSUInteger idx, BOOLBOOL <em>stop) {<br>        NSLog(@”%i-%@”, idx, obj);<br>         // 如果索引为1，就停止遍历<br>         if (idx == 1) {<br>             // 利用指针修改外面BOOL变量的值  
+             </em>stop = YES;<br>         }<br>    }];<br>}  </p>
+<p>#pragma mark 遍历数组4<br>void arrayFor4() {<br>    Student <em>stu1 = [Student student];<br>    NSArray </em>array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    // 获取数组的迭代器<br>    // NSEnumerator <em>enumerator = [array objectEnumerator];<br>    // 反序迭代器（从尾部开始遍历元素）<br>    NSEnumerator </em>enumerator = [array reverseObjectEnumerator];<br>    // allObjects是取出没有被遍历过的对象<br>    NSArray *array2 = [enumerator allObjects];<br>    NSLog(@”array2:%@”, array2);<br>    // 获取下一个需要遍历的元素<br>    id obj = nil;<br>    while (obj = [enumerator nextObject]) {<br>        NSLog(@”obj=%@”, obj);<br>    }<br>}  </p>
+<p>4.数组排序<br>[objc] view plaincopy在CODE上查看代码片派生到我的代码片</p>
+<p>#pragma mark 数组排序1<br>void arraySort1() {<br>    NSArray *array = [NSArray arrayWithObjects:@”2”, @”3”, @”1”, @”4”, nil nil];  </p>
+<pre><code>// 返回一个排好序的数组，原来数组的元素顺序不会改变  
+// 指定元素的比较方法：compare:  
+NSArray *array2 = [array sortedArrayUsingSelector:@selector(compare:)];  
+NSLog(@&quot;array2:%@&quot;, array2);  
+</code></pre><p>}  </p>
+<p>#pragma mark 数组排序2<br>void arraySort2() {<br>    Student <em>stu1 = [Student studentWithFirstname:@”MingJie” lastname:@”Li”];<br>    Student </em>stu2 = [Student studentWithFirstname:@”LongHu” lastname:@”Huang”];<br>    Student <em>stu3 = [Student studentWithFirstname:@”LianJie” lastname:@”Li”];<br>    Student </em>stu4 = [Student studentWithFirstname:@”Jian” lastname:@”Xiao”];<br>    NSArray <em>array = [NSArray arrayWithObjects:stu1,stu2,stu3, stu4, nil nil];<br>    // 指定排序的比较方法<br>    NSArray </em>array2 = [array sortedArrayUsingSelector:@selector(compareStudent:)];<br>    NSLog(@”array2:%@”, array2);<br>}  </p>
+<ul>
+<li>(NSComparisonResult)compareStudent:(Student *)stu {<br>  // 先按照姓排序<br>  NSComparisonResult result = [self.lastname compare:stu.lastname];<br>  // 如果有相同的姓，就比较名字<br>  if (result == NSOrderedSame) {  <pre><code>result = [self.firstname compare:stu.firstname];  
+</code></pre>  }<br>  return result;<br>}  </li>
+</ul>
+<p>#pragma mark 数组排序3<br>void arraySort3() {<br>    Student <em>stu1 = [Student studentWithFirstname:@”MingJie” lastname:@”Li”];<br>    Student </em>stu2 = [Student studentWithFirstname:@”LongHu” lastname:@”Huang”];<br>    Student <em>stu3 = [Student studentWithFirstname:@”LianJie” lastname:@”Li”];<br>    Student </em>stu4 = [Student studentWithFirstname:@”Jian” lastname:@”Xiao”];<br>    NSArray *array = [NSArray arrayWithObjects:stu1,stu2,stu3, stu4, nil nil];  </p>
+<pre><code>// 利用block进行排序  
+NSArray *array2 = [array sortedArrayUsingComparator:  
+ ^NSComparisonResult(Student *obj1, Student *obj2) {  
+     // 先按照姓排序  
+     NSComparisonResult result = [obj1.lastname compare:obj2.lastname];  
+     // 如果有相同的姓，就比较名字  
+     if (result == NSOrderedSame) {  
+         result = [obj1.firstname compare:obj2.firstname];  
+     }  
+
+     return result;  
+}];  
+
+NSLog(@&quot;array2:%@&quot;, array2);  
+</code></pre><p>}  </p>
+<p>#pragma mark 数组排序4-高级排序<br>void arraySort4() {<br>    Student <em>stu1 = [Student studentWithFirstname:@”MingJie” lastname:@”Li” bookName:@”book1”];<br>    Student </em>stu2 = [Student studentWithFirstname:@”LongHu” lastname:@”Huang” bookName:@”book2”];<br>    Student <em>stu3 = [Student studentWithFirstname:@”LianJie” lastname:@”Li” bookName:@”book2”];<br>    Student </em>stu4 = [Student studentWithFirstname:@”Jian” lastname:@”Xiao” bookName:@”book1”];<br>    NSArray *array = [NSArray arrayWithObjects:stu1,stu2,stu3, stu4, nil nil];  </p>
+<pre><code>// 1.先按照书名进行排序  
+// 这里的key写的是@property的名称  
+NSSortDescriptor *bookNameDesc = [NSSortDescriptor sortDescriptorWithKey:@&quot;book.name&quot; ascending:YES];  
+// 2.再按照姓进行排序  
+NSSortDescriptor *lastnameDesc = [NSSortDescriptor sortDescriptorWithKey:@&quot;lastname&quot; ascending:YES];  
+// 3.再按照名进行排序  
+NSSortDescriptor *firstnameDesc = [NSSortDescriptor sortDescriptorWithKey:@&quot;firstname&quot; ascending:YES];  
+// 按顺序添加排序描述器  
+NSArray *descs = [NSArray arrayWithObjects:bookNameDesc, lastnameDesc, firstnameDesc, nil nil];  
+
+NSArray *array2 = [array sortedArrayUsingDescriptors:descs];  
+
+NSLog(@&quot;array2:%@&quot;, array2);  
+</code></pre><p>}  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/ios-数组的基本用法-和排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/iOS多线程-之NSThread的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/iOS多线程-之NSThread的使用/">iOS多线程-之NSThread的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/iOS多线程-之NSThread的使用/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、简介：<br>1.1 iOS有三种多线程编程的技术，分别是：<br>1.、NSThread<br>2、Cocoa NSOperation （iOS多线程编程之NSOperation和NSOperationQueue的使用）<br>3、GCD  全称：Grand Central Dispatch（ iOS多线程编程之Grand Central Dispatch(GCD)介绍和使用）<br>这三种编程方式从上到下，抽象度层次是从低到高的，抽象度越高的使用越简单，也是Apple最推荐使用的。<br>这篇我们主要介绍和使用NSThread，后面会继续2、3 的讲解和使用。<br>1.2 三种方式的有缺点介绍：<br>NSThread:<br>优点：NSThread 比其他两个轻量级<br>缺点：需要自己管理线程的生命周期，线程同步。线程同步对数据的加锁会有一定的系统开销<br>NSThread实现的技术有下面三种：</p>
+<p>Technology<br>Description<br>Cocoa threads<br>Cocoa implements threads using the NSThread class. Cocoa also provides methods on NSObject for spawning new threads and executing code on already-running threads. For more information, see “Using NSThread” and “Using NSObject to Spawn a Thread.”<br>POSIX threads<br>POSIX threads provide a C-based interface for creating threads. If you are not writing a Cocoa application, this is the best choice for creating threads. The POSIX interface is relatively simple to use and offers ample flexibility for configuring your threads. For more information, see “Using POSIX Threads”<br>Multiprocessing Services<br>Multiprocessing Services is a legacy C-based interface used by applications transitioning from older versions of Mac OS. This technology is available in OS X only and should be avoided for any new development. Instead, you should use the NSThread class or POSIX threads. If you need more information on this technology, see Multiprocessing Services Programming Guide.<br>一般使用cocoa thread 技术。</p>
+<p>Cocoa operation<br>优点：不需要关心线程管理，数据同步的事情，可以把精力放在自己需要执行的操作上。<br>Cocoa operation 相关的类是 NSOperation ，NSOperationQueue。NSOperation是个抽象类，使用它必须用它的子类，可以实现它或者使用它定义好的两个子类：NSInvocationOperation 和 NSBlockOperation。创建NSOperation子类的对象，把对象添加到NSOperationQueue队列里执行。<br>GCD<br>Grand Central Dispatch (GCD)是Apple开发的一个多核编程的解决方法。在iOS4.0开始之后才能使用。GCD是一个替代诸如NSThread, NSOperationQueue, NSInvocationOperation等技术的很高效和强大的技术。现在的iOS系统都升级到6了，所以不用担心该技术不能使用。</p>
+<p>介绍完这三种多线程编程方式，我们这篇先介绍NSThread的使用。<br>2、NSThread的使用<br>2.1 NSThread 有两种直接创建方式：</p>
+<ul>
+<li>(id)initWithTarget:(id)target selector:(SEL)selector object:(id)argument</li>
+</ul>
+<ul>
+<li>(void)detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument<br>第一个是实例方法，第二个是类方法</li>
+</ul>
+<p>[cpp]  view plaincopy<br>1、[NSThread detachNewThreadSelector:@selector(doSomething:) toTarget:self withObject:nil];<br>2、NSThread* myThread = [[NSThread alloc] initWithTarget:self<br>                                        selector:@selector(doSomething:)<br>                                        object:nil];<br>[myThread start];<br>2.2参数的意义：</p>
+<p>selector ：线程执行的方法，这个selector只能有一个参数，而且不能有返回值。<br>target  ：selector消息发送的对象<br>argument:传输给target的唯一参数，也可以是nil<br>第一种方式会直接创建线程并且开始运行线程，第二种方式是先创建线程对象，然后再运行线程操作，在运行线程操作前可以设置线程的优先级等线程信息<br>2.3 PS:不显式创建线程的方法：<br>用NSObject的类方法  performSelectorInBackground:withObject: 创建一个线程：<br>[Obj performSelectorInBackground:@selector(doSomething) withObject:nil];<br>2.4 下载图片的例子：<br>2.4.1  新建singeView app<br>新建项目，并在xib文件上放置一个imageView控件。按住control键拖到viewControll<br>er.h文件中创建imageView IBOutlet<br>ViewController.m中实现：<br>[cpp]  view plaincopy<br>//<br>//  ViewController.m<br>//  NSThreadDemo<br>//<br>//  Created by rongfzh on 12-9-23.<br>//  Copyright (c) 2012年 rongfzh. All rights reserved.<br>//  </p>
+<p>#import “ViewController.h”  </p>
+<p>#define kURL @”<a href="http://avatar.csdn.net/2/C/D/1_totogo2010.jpg" target="_blank" rel="external">http://avatar.csdn.net/2/C/D/1_totogo2010.jpg</a>“<br>@interface ViewController ()  </p>
+<p>@end  </p>
+<p>@implementation ViewController  </p>
+<p>-(void)downloadImage:(NSString <em>) url{<br>    NSData </em>data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];<br>    UIImage *image = [[UIImage alloc]initWithData:data];<br>    if(image == nil){  </p>
+<pre><code>}else{  
+    [self performSelectorOnMainThread:@selector(updateUI:) withObject:image waitUntilDone:YES];  
+}  
+</code></pre><p>}  </p>
+<p>-(void)updateUI:(UIImage*) image{<br>    self.imageView.image = image;<br>}  </p>
+<ul>
+<li>(void)viewDidLoad<br>{<br>  [super viewDidLoad];  </li>
+</ul>
+<p>//    [NSThread detachNewThreadSelector:@selector(downloadImage:) toTarget:self withObject:kURL];<br>    NSThread *thread = [[NSThread alloc]initWithTarget:self selector:@selector(downloadImage:) object:kURL];<br>    [thread start];<br>}  </p>
+<ul>
+<li>(void)didReceiveMemoryWarning<br>{<br>  [super didReceiveMemoryWarning];<br>  // Dispose of any resources that can be recreated.<br>}  </li>
+</ul>
+<p>@end<br>2.4.2线程间通讯<br>线程下载完图片后怎么通知主线程更新界面呢？</p>
+<p>[self performSelectorOnMainThread:@selector(updateUI:) withObject:image waitUntilDone:YES];<br>performSelectorOnMainThread是NSObject的方法，除了可以更新主线程的数据外，还可以更新其他线程的比如：<br>用：performSelector:onThread:withObject:waitUntilDone:<br>运行下载图片：</p>
+<p>图片下载下来了。<br>2.3 线程同步<br>我们演示一个经典的卖票的例子来讲NSThread的线程同步：<br>.h</p>
+<p>[cpp]  view plaincopy</p>
+<p>#import <uikit uikit.h="">  </uikit></p>
+<p>@class ViewController;  </p>
+<p>@interface AppDelegate : UIResponder <uiapplicationdelegate><br>{<br>    int tickets;<br>    int count;<br>    NSThread<em> ticketsThreadone;<br>    NSThread</em> ticketsThreadtwo;<br>    NSCondition<em> ticketsCondition;<br>    NSLock </em>theLock;<br>}<br>@property (strong, nonatomic) UIWindow *window;  </uiapplicationdelegate></p>
+<p>@property (strong, nonatomic) ViewController *viewController;  </p>
+<p>@end  </p>
+<p>[cpp]  view plaincopy</p>
+<ul>
+<li><p>(BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions<br>{  </p>
+<p>  tickets = 100;<br>  count = 0;<br>  theLock = [[NSLock alloc] init];<br>  // 锁对象<br>  ticketsCondition = [[NSCondition alloc] init];<br>  ticketsThreadone = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];<br>  [ticketsThreadone setName:@”Thread-1”];<br>  [ticketsThreadone start];  </p>
+</li>
+</ul>
+<pre><code>ticketsThreadtwo = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];  
+[ticketsThreadtwo setName:@&quot;Thread-2&quot;];  
+[ticketsThreadtwo start];  
+
+self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];  
+// Override point for customization after application launch.  
+self.viewController = [[ViewController alloc] initWithNibName:@&quot;ViewController&quot; bundle:nil];  
+self.window.rootViewController = self.viewController;  
+[self.window makeKeyAndVisible];  
+return YES;  
+</code></pre><p>}  </p>
+<ul>
+<li>(void)run{<br>  while (TRUE) {  <pre><code>// 上锁  
+</code></pre>//        [ticketsCondition lock];  <pre><code>[theLock lock];  
+if(tickets &gt;= 0){  
+    [NSThread sleepForTimeInterval:0.09];  
+    count = 100 - tickets;  
+    NSLog(@&quot;当前票数是:%d,售出:%d,线程名:%@&quot;,tickets,count,[[NSThread currentThread] name]);  
+    tickets--;  
+}else{  
+    break;  
+}  
+[theLock unlock];  
+</code></pre>//        [ticketsCondition unlock];<br>  }<br>}<br>如果没有线程同步的lock，卖票数可能是-1.加上lock之后线程同步保证了数据的正确性。</li>
+</ul>
+<p>上面例子我使用了两种锁，一种NSCondition ，一种是：NSLock。 NSCondition我已经注释了。</p>
+<p>线程的顺序执行<br>他们都可以通过<br>        [ticketsCondition signal]; 发送信号的方式，在一个线程唤醒另外一个线程的等待。<br>比如：<br>[cpp]  view plaincopy</p>
+<p>#import “AppDelegate.h”  </p>
+<p>#import “ViewController.h”  </p>
+<p>@implementation AppDelegate  </p>
+<ul>
+<li><p>(BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions<br>{  </p>
+<p>  tickets = 100;<br>  count = 0;<br>  theLock = [[NSLock alloc] init];<br>  // 锁对象<br>  ticketsCondition = [[NSCondition alloc] init];<br>  ticketsThreadone = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];<br>  [ticketsThreadone setName:@”Thread-1”];<br>  [ticketsThreadone start];  </p>
+<p>  ticketsThreadtwo = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];<br>  [ticketsThreadtwo setName:@”Thread-2”];<br>  [ticketsThreadtwo start];  </p>
+<p>  NSThread *ticketsThreadthree = [[NSThread alloc] initWithTarget:self selector:@selector(run3) object:nil];<br>  [ticketsThreadthree setName:@”Thread-3”];<br>  [ticketsThreadthree start];<br>  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];<br>  // Override point for customization after application launch.<br>  self.viewController = [[ViewController alloc] initWithNibName:@”ViewController” bundle:nil];<br>  self.window.rootViewController = self.viewController;<br>  [self.window makeKeyAndVisible];<br>  return YES;<br>}  </p>
+</li>
+</ul>
+<p>-(void)run3{<br>    while (YES) {<br>        [ticketsCondition lock];<br>        [NSThread sleepForTimeInterval:3];<br>        [ticketsCondition signal];<br>        [ticketsCondition unlock];<br>    }<br>}  </p>
+<ul>
+<li>(void)run{<br>  while (TRUE) {  <pre><code>// 上锁  
+[ticketsCondition lock];  
+[ticketsCondition wait];  
+[theLock lock];  
+if(tickets &gt;= 0){  
+    [NSThread sleepForTimeInterval:0.09];  
+    count = 100 - tickets;  
+    NSLog(@&quot;当前票数是:%d,售出:%d,线程名:%@&quot;,tickets,count,[[NSThread currentThread] name]);  
+    tickets--;  
+}else{  
+    break;  
+}  
+[theLock unlock];  
+[ticketsCondition unlock];  
+</code></pre>  }<br>}<br>wait是等待，我加了一个 线程3 去唤醒其他两个线程锁中的wait</li>
+</ul>
+<p>其他同步<br>我们可以使用指令 @synchronized 来简化 NSLock的使用，这样我们就不必显示编写创建NSLock,加锁并解锁相关代码。</p>
+<ul>
+<li>(void)doSomeThing:(id)anObj<br>{<br>  @synchronized(anObj)<br>  {<pre><code>// Everything between the braces is protected by the @synchronized directive.
+</code></pre>  }<br>}<br>还有其他的一些锁对象，比如：循环锁NSRecursiveLock，条件锁NSConditionLock，分布式锁NSDistributedLock等等,可以自己看官方文档学习<br>NSThread下载图片的例子代码：<a href="http://download.csdn.net/detail/totogo2010/4591149" target="_blank" rel="external">http://download.csdn.net/detail/totogo2010/4591149</a><br>著作权声明：本文由<a href="http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!" target="_blank" rel="external">http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!</a></li>
+</ul>
+<p>《iOS多线程编程之NSThread的使用》</p>
+<p>介绍三种多线程编程和NSThread的使用，这篇介绍NSOperation的使用。<br>使用 NSOperation的方式有两种，</p>
+<p>一种是用定义好的两个子类：</p>
+<p>NSInvocationOperation 和 NSBlockOperation。</p>
+<p>另一种是继承NSOperation</p>
+<p>如果你也熟悉Java，NSOperation就和java.lang.Runnable接口很相似。和Java的Runnable一样，NSOperation也是设计用来扩展的，只需继承重写NSOperation的一个方法main。相当与java 中Runnalbe的Run方法。然后把NSOperation子类的对象放入NSOperationQueue队列中，该队列就会启动并开始处理它。</p>
+<p>NSInvocationOperation例子：</p>
+<p>和前面一篇博文一样，我们实现一个下载图片的例子。新建一个Single View app，拖放一个ImageView控件到xib界面。</p>
+<p>实现代码如下：</p>
+<p>[cpp] view plaincopy</p>
+<p>#import “ViewController.h”  </p>
+<p>#define kURL @”<a href="http://avatar.csdn.net/2/C/D/1_totogo2010.jpg" target="_blank" rel="external">http://avatar.csdn.net/2/C/D/1_totogo2010.jpg</a>“  </p>
+<p>@interface ViewController ()  </p>
+<p>@end  </p>
+<p>@implementation ViewController  </p>
+<ul>
+<li><p>(void)viewDidLoad<br>{<br>  [super viewDidLoad];<br>  NSInvocationOperation *operation = [[NSInvocationOperation alloc]initWithTarget:self  </p>
+<pre><code>selector:@selector(downloadImage:)  
+  object:kURL];  
+</code></pre><p>  NSOperationQueue *queue = [[NSOperationQueue alloc]init];<br>  [queue addOperation:operation];<br>  // Do any additional setup after loading the view, typically from a nib.<br>}  </p>
+</li>
+</ul>
+<p>-(void)downloadImage:(NSString <em>)url{<br>    NSLog(@”url:%@”, url);<br>    NSURL </em>nsUrl = [NSURL URLWithString:url];<br>    NSData <em>data = [[NSData alloc]initWithContentsOfURL:nsUrl];<br>    UIImage </em> image = [[UIImage alloc]initWithData:data];<br>    [self performSelectorOnMainThread:@selector(updateUI:) withObject:image waitUntilDone:YES];<br>}<br>-(void)updateUI:(UIImage*) image{<br>    self.imageView.image = image;<br>}<br>viewDidLoad方法里可以看到我们用NSInvocationOperation建了一个后台线程，并且放到NSOperationQueue中。后台线程执行downloadImage方法。<br>downloadImage 方法处理下载图片的逻辑。下载完成后用performSelectorOnMainThread执行主线程updateUI方法。<br>updateUI 并把下载的图片显示到图片控件中。<br>运行可以看到下载图片显示在界面上。</p>
+<p>第二种方式继承NSOperation </p>
+<p>在.m文件中实现main方法，main方法编写要执行的代码即可。</p>
+<p>如何控制线程池中的线程数？</p>
+<p>队列里可以加入很多个NSOperation, 可以把NSOperationQueue看作一个线程池，可往线程池中添加操作（NSOperation）到队列中。线程池中的线程可看作消费者，从队列中取走操作，并执行它。</p>
+<p>通过下面的代码设置：<br>[queue setMaxConcurrentOperationCount:5];<br>线程池中的线程数，也就是并发操作数。默认情况下是-1，-1表示没有限制，这样会同时运行队列中的全部的操作。</p>
+<p>介绍：</p>
+<p>Grand Central Dispatch 简称（GCD）是苹果公司开发的技术，以优化的应用程序支持多核心处理器和其他的对称多处理系统的系统。这建立在任务并行执行的线程池模式的基础上的。它首次发布在Mac OS X 10.6 ，iOS 4及以上也可用。</p>
+<p>设计：</p>
+<p>GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。</p>
+<p>一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。</p>
+<p>GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行<br>dispatch queue分为下面三种：</p>
+<p>Serial         </p>
+<p>又称为private dispatch queues，同时只执行一个任务。Serial queue通常用于同步访问特定的资源或数据。当你创建多个Serial queue时，虽然它们各自是同步执行的，但Serial queue与Serial queue之间是并发执行的。</p>
+<p>Concurrent</p>
+<p>又称为global dispatch queue，可以并发地执行多个任务，但是执行完成的顺序是随机的。</p>
+<p>Main dispatch queue</p>
+<p>它是全局可用的serial queue，它是在应用程序主线程上执行任务的。</p>
+<p>我们看看dispatch queue如何使用</p>
+<p>1、常用的方法dispatch_async</p>
+<p>为了避免界面在处理耗时的操作时卡死，比如读取网络数据，IO,数据库读写等，我们会在另外一个线程中处理这些操作，然后通知主线程更新界面。</p>
+<p>用GCD实现这个流程的操作比前面介绍的NSThread  NSOperation的方法都要简单。代码框架结构如下：</p>
+<p>[cpp] view plaincopy<br>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{<br>    // 耗时的操作<br>    dispatch_async(dispatch_get_main_queue(), ^{<br>        // 更新界面<br>    });<br>});<br>如果这样还不清晰的话，那我们还是用上两篇博客中的下载图片为例子，代码如下：<br>[cpp] view plaincopy<br>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{<br>    NSURL <em> url = [NSURL URLWithString:@”<a href="http://avatar.csdn.net/2/C/D/1_totogo2010.jpg" target="_blank" rel="external">http://avatar.csdn.net/2/C/D/1_totogo2010.jpg</a>“];<br>    NSData </em> data = [[NSData alloc]initWithContentsOfURL:url];<br>    UIImage *image = [[UIImage alloc]initWithData:data];<br>    if (data != nil) {<br>        dispatch_async(dispatch_get_main_queue(), ^{<br>            self.imageView.image = image;<br>         });<br>    }<br>});<br>运行显示：</p>
+<p>是不是代码比NSThread  NSOperation简洁很多，而且GCD会自动根据任务在多核处理器上分配资源，优化程序。<br>系统给每一个应用程序提供了三个concurrent dispatch queues。这三个并发调度队列是全局的，它们只有优先级的不同。因为是全局的，我们不需要去创建。我们只需要通过使用函数dispath_get_global_queue去得到队列，如下：</p>
+<p>[cpp] view plaincopy<br>dispatch_queue_t globalQ = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>这里也用到了系统默认就有一个串行队列main_queue</p>
+<p>[cpp] view plaincopy<br>dispatch_queue_t mainQ = dispatch_get_main_queue();<br>虽然dispatch queue是引用计数的对象，但是以上两个都是全局的队列，不用retain或release。</p>
+<p>2、dispatch_group_async的使用</p>
+<p>dispatch_group_async可以实现监听一组任务是否完成，完成后得到通知执行其他的操作。这个方法很有用，比如你执行三个下载任务，当三个任务都下载完成后你才通知界面说完成的了。下面是一段例子代码：</p>
+<p>[cpp] view plaincopy<br>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>dispatch_group_t group = dispatch_group_create();<br>dispatch_group_async(group, queue, ^{<br>    [NSThread sleepForTimeInterval:1];<br>    NSLog(@”group1”);<br>});<br>dispatch_group_async(group, queue, ^{<br>    [NSThread sleepForTimeInterval:2];<br>    NSLog(@”group2”);<br>});<br>dispatch_group_async(group, queue, ^{<br>    [NSThread sleepForTimeInterval:3];<br>    NSLog(@”group3”);<br>});<br>dispatch_group_notify(group, dispatch_get_main_queue(), ^{<br>    NSLog(@”updateUi”);<br>});<br>dispatch_release(group);<br>dispatch_group_async是异步的方法，运行后可以看到打印结果：<br>2012-09-25 16:04:16.737 gcdTest[43328:11303] group1<br>2012-09-25 16:04:17.738 gcdTest[43328:12a1b] group2<br>2012-09-25 16:04:18.738 gcdTest[43328:13003] group3<br>2012-09-25 16:04:18.739 gcdTest[43328:f803] updateUi</p>
+<p>每个一秒打印一个，当第三个任务执行后，upadteUi被打印。</p>
+<p>3、dispatch_barrier_async的使用</p>
+<p>dispatch_barrier_async是在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行</p>
+<p>例子代码如下：</p>
+<p>[cpp] view plaincopy<br>dispatch_queue_t queue = dispatch_queue_create(“gcdtest.rongfzh.yc”, DISPATCH_QUEUE_CONCURRENT);<br>dispatch_async(queue, ^{<br>    [NSThread sleepForTimeInterval:2];<br>    NSLog(@”dispatch_async1”);<br>});<br>dispatch_async(queue, ^{<br>    [NSThread sleepForTimeInterval:4];<br>    NSLog(@”dispatch_async2”);<br>});<br>dispatch_barrier_async(queue, ^{<br>    NSLog(@”dispatch_barrier_async”);<br>    [NSThread sleepForTimeInterval:4];  </p>
+<p>});<br>dispatch_async(queue, ^{<br>    [NSThread sleepForTimeInterval:1];<br>    NSLog(@”dispatch_async3”);<br>});  </p>
+<p>打印结果：<br>2012-09-25 16:20:33.967 gcdTest[45547:11203] dispatch_async1</p>
+<p>2012-09-25 16:20:35.967 gcdTest[45547:11303] dispatch_async2</p>
+<p>2012-09-25 16:20:35.967 gcdTest[45547:11303] dispatch_barrier_async</p>
+<p>2012-09-25 16:20:40.970 gcdTest[45547:11303] dispatch_async3</p>
+<p>请注意执行的时间，可以看到执行的顺序如上所述。<br>4、dispatch_apply </p>
+<p>执行某个代码片段N次。<br>dispatch_apply(5, globalQ, ^(size_t index) {<br>    // 执行5次<br>});</p>
+<p>本篇使用的到的例子代码：<a href="http://download.csdn.net/detail/totogo2010/4596471" target="_blank" rel="external">http://download.csdn.net/detail/totogo2010/4596471</a></p>
+<p>GCD还有很多其他用法，可以参考官方文档</p>
+<p>参考的文档还有：<a href="http://en.wikipedia.org/wiki/Grand_Central_Dispatch" target="_blank" rel="external">http://en.wikipedia.org/wiki/Grand_Central_Dispatch</a></p>
+<p>前两篇多线程博文：iOS多线程编程之NSThread的使用</p>
+<pre><code>iOS多线程编程之NSOperation和NSOperationQueue的使用
+</code></pre><p>著作权声明：本文由<a href="http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!" target="_blank" rel="external">http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/iOS多线程-之NSThread的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo/">iskindofclass,isnumbersofclass,respondsToSelector,instancesRespondTo 比较</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Objective-C语法之动态类型(isKindOfClass, isMemberOfClass,id)等</p>
+<p>对象在运行时获取其类型的能力称为内省。内省可以有多种方法实现。</p>
+<p>判断对象类型</p>
+<p>-(BOOL) isKindOfClass: classObj判断是否是这个类或者这个类的子类的实例</p>
+<p>-(BOOL) isMemberOfClass: classObj 判断是否是这个类的实例</p>
+<p>ps：本篇新建的类主要用于熟悉本篇内容设计，未考虑内存管理因素。</p>
+<p>我们试试这两个方法的使用。</p>
+<p>1、新建Person类继承NSObject,新建Teacher类继承Person</p>
+<p>1.1、新建Person类</p>
+<p>[cpp] view plaincopy</p>
+<p>#import <foundation foundation.h="">  </foundation></p>
+<p>@interface Person : NSObject<br>{<br>    NSString <em>name;<br>}<br>-(void)setName:(NSString</em>)n;  </p>
+<p>@end  </p>
+<p>[cpp] view plaincopy</p>
+<p>#import “Person.h”  </p>
+<p>@implementation Person<br>-(void)setName:(NSString *)n<br>{<br>    name = n;<br>}  </p>
+<p>@end<br>1.2新建Teacher类</p>
+<p>[cpp] view plaincopy</p>
+<p>#import “Person.h”  </p>
+<p>@interface Teacher : Person  </p>
+<p>-(void)teach;  </p>
+<p>@end<br>[cpp] view plaincopy</p>
+<p>#import “Teacher.h”  </p>
+<p>@implementation Teacher<br>-(void)teach<br>{<br>    NSLog(@”我教数学”);<br>}<br>@end<br>1.3 我们先实验下isMemberOfClass方法。</p>
+<p>[cpp] view plaincopy<br>NSAutoreleasePool <em>pool = [[NSAutoreleasePool alloc] init];<br>   Person </em>person = [[Person alloc] init];<br>   Teacher *teacher = [[Teacher alloc] init];  </p>
+<p>   //YES<br>   if ([teacher isMemberOfClass:[Teacher class]]) {<br>        NSLog(@”teacher Teacher类的成员”);<br>   }<br>   //NO<br>   if ([teacher isMemberOfClass:[Person class]]) {<br>       NSLog(@”teacher Person类的成员”);<br>   }<br>   //NO<br>   if ([teacher isMemberOfClass:[NSObject class]]) {<br>       NSLog(@”teacher NSObject类的成员”);<br>   }<br>   [person release];<br>   [teacher release];<br>   [pool release];<br>打印结果：</p>
+<p>2012-07-04 14:23:07.965 ObjectiveCTest[2460:f803] teacher Teacher类的成员</p>
+<p>只有第一个判断打印出来，isMemberOfClass判断是否是属于这类的实例，是否跟父类有关系他不管。</p>
+<p>1.4 isKindOfClass方法</p>
+<p>[cpp] view plaincopy<br>NSAutoreleasePool <em>pool = [[NSAutoreleasePool alloc] init];<br>Person </em>person = [[Person alloc] init];<br>Teacher *teacher = [[Teacher alloc] init];  </p>
+<p>//YES<br>if ([teacher isKindOfClass:[Teacher class]]) {<br>    NSLog(@”teacher 是 Teacher类或Teacher的子类”);<br>}<br>//YES<br>if ([teacher isKindOfClass:[Person class]]) {<br>    NSLog(@”teacher 是 Person类或Person的子类”);<br>}<br>//YES<br>if ([teacher isKindOfClass:[NSObject class]]) {<br>    NSLog(@”teacher 是 NSObject类或NSObject的子类”);<br>}<br>[person release];<br>[teacher release];<br>[pool release];<br>2012-07-04 14:34:17.315 ObjectiveCTest[2595:f803] teacher 是 Teacher类或Teacher的子类</p>
+<p>2012-07-04 14:34:17.316 ObjectiveCTest[2595:f803] teacher 是 Person类或Person的子类</p>
+<p>2012-07-04 14:34:17.316 ObjectiveCTest[2595:f803] teacher 是 NSObject类或NSObject的子类</p>
+<p>三个结果都打印出来了。<br>2、</p>
+<p>-(BOOL) respondsToSelector: selector 判读实例是否有这样方法<br>+(BOOL) instancesRespondToSelector:  判断类是否有这个方法。此方法是类方法，不能用在类的对象</p>
+<p>2.1 respondsToSelector的使用</p>
+<p>这里不写对象的创建和释放了，参考上面的代码</p>
+<p>[cpp] view plaincopy<br>// YES<br>if ( [teacher respondsToSelector: @selector( setName: )] == YES ) {<br>    NSLog(@”teacher responds to setSize: method” );<br>}  </p>
+<p>// NO<br>if ( [teacher respondsToSelector: @selector( abcde )] == YES ) {<br>    NSLog(@”teacher responds to nonExistant method” );<br>}  </p>
+<p>// YES<br>if ( [teacher respondsToSelector: @selector( alloc )] == YES ) {<br>    NSLog(@”teacher class responds to alloc method\n” );<br>}<br>打印结果：<br>2012-07-04 14:39:49.853 ObjectiveCTest[2723:f803] teacher responds to setSize: method</p>
+<p>2012-07-04 14:39:49.854 ObjectiveCTest[2723:f803] teacher class responds to alloc method</p>
+<p>中间的那个判断我随便写了个selector,当然没有了。respondsToSelector 检查类方法 alloc返回YES</p>
+<p>2.2 instancesRespondToSelector</p>
+<p>[cpp] view plaincopy<br>// NO<br>    if ( [Person instancesRespondToSelector: @selector(teach)] == YES ) {<br>        NSLog(@”Person instance responds to teach method” );<br>    }  </p>
+<pre><code>// YES  
+if ( [Teacher instancesRespondToSelector: @selector(teach)] == YES ) {  
+    NSLog(@&quot;Teacher instance responds to teach method&quot;);  
+}  
+// YES  
+if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {  
+    NSLog(@&quot;Teacher instance responds to setName: method&quot; );  
+}  
+</code></pre><p>打印结果：<br>[cpp] view plaincopy<br>2012-07-04 14:52:29.378 ObjectiveCTest[2961:f803] Teacher instance responds to teach method<br>2012-07-04 14:52:29.379 ObjectiveCTest[2961:f803] Teacher instance responds to setName: method  </p>
+<p>3、Objective-C的id类型</p>
+<p>C++ 使用的是强类型：对象必须符合其类型，否则不能通过编译。在 Objective-C 中，id类型类似于(void*) ,可以指向任何类的实例。而不需要强制转换。<br>下面看看使用，</p>
+<p>先把Teacher类中的 teach方法修改一下，改成</p>
+<p>-(void)teach</p>
+<p>{</p>
+<pre><code>NSLog(@&quot;%@ 教数学&quot; ,name);
 </code></pre><p>}</p>
+<p>然后实现并调用<br>[cpp] view plaincopy<br>NSAutoreleasePool <em>pool = [[NSAutoreleasePool alloc] init];<br>Person </em>person = [[Person alloc] init];<br>Teacher *teacher = [[Teacher alloc] init];  </p>
+<p>id p = person;<br>id t = teacher;<br>[t setName:@”张三老师”];<br>[t teach];  </p>
+<p>[person release];<br>[teacher release];<br>[pool release];<br>打印结果：<br>[cpp] view plaincopy<br>2012-07-04 14:57:55.905 ObjectiveCTest[3085:f803] 张三老师 教数学  </p>
 
       
 
@@ -244,496 +1301,33 @@
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/乘法口诀/">展开全文 >></a>
-        </p>
-      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/getch（）-getche（）getchar()区别解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>getch()、getche()和getchar()函数<br>(1) getch()和getche()函数<br>这两个函数都是从键盘上读入一个字符。其调用格式为:<br>getch();<br>getche();<br>两者的区别是: getch()函数不将读入的字符回显在显示屏幕上, 而getche()<br>函数却将读入的字符回显到显示屏幕上。<br>例1:  </p>
-<p>#include<br>main()<br>{<br>char c, ch;<br>c=getch(); /<em>从键盘上读入一个字符不回显送给字符变量c</em>/<br>putchar©; /<em>输出该字符</em>/<br>ch=getche(); /<em>从键盘上带回显的读入一个字符送给字符变量ch</em>/<br>putchar(ch);<br>}<br>利用回显和不回显的特点, 这两个函数经常用于交互输入的过程中完成暂停<br>等功能。<br>例2:  </p>
-<p>#include<br>main()<br>{<br>char c, s[20];<br>printf(“Name:”);<br>gets(s);<br>printf(“Press any key to continue…”);<br>getch(); /<em>等待输入任一键</em>/<br>}  </p>
-<p>(2) getchar()函数<br>getchar()函数也是从键盘上读入一个字符, 并带回显。它与前面两个函数<br>的区别在于: getchar()函数等待输入直到按回车才结束, 回车前的所有输入字<br>符都会逐个显示在屏幕上。但只有第一个字符作为函数的返回值。<br>getchar()函数的调用格式为:<br>getchar();<br>例3:  </p>
-<p>#include<br>main()<br>{<br>char c;<br>c=getchar(); /<em>从键盘读入字符直到回车结束</em>/<br>putchar©; /<em>显示输入的第一个字符</em>/<br>getch(); /<em>等待按任一健</em>/<br>}<br>例4 </p>
-<p>#include<br>main()<br>{<br>char c;<br>while ((c=getchar())!=’\n’) /<em>每个getchar()依次读入一个字符</em>/<br>printf(“%c”,c); /<em>按照原样输出</em>/<br>getch(); /<em>等待按任一健</em>/<br>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/getch（）-getche（）getchar()区别解析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/time（NULL）和clock（）区别与分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>①本质区别<br> time（NULL）是指返回从1970年1.1日（元旦）午夜0点到现在的秒数     实际时间<br> clock             clock是进程使用的cpu时间，作用不大。  处理器时间或频率，</p>
-<p>②返回值区别<br>time()得到的是秒做单位的<br>clock()得到的是毫秒做单位的， 因此通常  （double）clock()/CLOCKS_PER_SEC </p>
-<p>time （null） 计算计算机的时间<br>clock 常粗略的计算任务的执行速度</p>
-<p>③宏解释</p>
-<p>#define CLK_TCK CLOCKS_PER_SEC<br>CLOCKS_PER_SEC，它用来表示一秒钟会有多少个时钟计时单元，其定义如下：</p>
-<p>#define CLOCKS_PER_SEC ((clock_t)1000)<br>可以看到每过千分之一秒（1毫秒），调用clock()函数返回的值就加1。<br>可以使用公式clock()/CLOCKS_PER_SEC来计算一个进程自身的运行时间。例如：<br>void elapsed_time()<br>{<br>printf(“Elapsed time:%u secs.\n”,clock()/CLOCKS_PER_SEC);<br>}</p>
-<p>time（）<br>主要用来获取当前的系统时间，返回的结果是一个time_t类型，其值表示从UTC（Coordinated Universal Time）时间1970年1月1日00:00:00（称为UNIX系统的Epoch时间）到当前时刻的秒数。然后调用localtime函数将 time_t所表示的UTC时间转换为本地时间（我们是+8区，比UTC多8个小时）并转成struct tm类型，该类型的各数据成员分别表示年月日时分秒。</p>
-<p>④ 实用<br>clock()实用<br>测量程序的运行时间</p>
-<p>#include “stdio.h”</p>
-<p>#include “stdlib.h”</p>
-<p>#include “time.h”<br>int main(void)<br>{<br>long i = 10000000L;<br>clock_t start, finish;<br>double duration;<br>/<em> 测量一个事件持续的时间</em>/<br>printf( “Time to do %ld empty loops is “, i );<br>start = clock();<br>while( i– ) ;/<em>注意这行后面有个分号</em>/<br>finish = clock();<br>duration = (double)(finish - start) / CLOCKS_PER_SEC;<br>printf( “%f seconds\n”, duration );<br>system(“pause”);<br>return 0;<br>}<br>这是一个求时间差的程序，那么为什么要除以CLOCKS_PER_SEC呢？ 　这是因为clock()是以毫秒为单位，要正确输出时间差需要把它换成秒，因此需要除以CLOCKS_PER_SEC。 　clock()函数计算出来的是硬件滴答的数目，不是毫秒。在TC2.0中硬件每18.2个滴答是一秒，在VC++6.0中硬件每1000个滴答是一 秒。<br>上面我们看到时钟计时单元的长度为1毫秒，那么计时的精度也为1毫秒，那么我们可不可以通过改变CLOCKS_PER_SEC的定义，通过把它定义的大一些，从而使计时精度更高呢？通过尝试，你会发现这样是不行的。在标准C/C++中，最小的计时单位是一毫秒。<br>下面是一个更为简单的例子：</p>
-<p>#include <stdio.h></stdio.h></p>
-<p>#include <time.h><br>int main()<br>{<br>int n = 10000000;<br>while(n–);<br>printf(“%f\n”,clock()/(double)CLOCKS_PER_SEC);<br>return 0;<br>}<br>在VC++6.0中可以用CLK_TCK替换CLOCKS_PER_SEC。</time.h></p>
-<p>time 实用<br>while(n&gt;0)<br>{<br>long  t = time(NULL)<br>t += 1;<br>while(t&lt;time(NULL))；<br>cout&lt;&lt;t/CLOCKS_PER_SEC&lt;&lt;endl;<br>n–；<br>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/time（NULL）和clock（）区别与分析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/day-04-（a）哈诺塔函数-hanoi---形参-实参分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>//<a href="http://www.tudou.com/programs/view/e0YyEezlkSk" target="_blank" rel="external">http://www.tudou.com/programs/view/e0YyEezlkSk</a> 视频链接<br>2^(n-1)<br>思路：<br>if（n==1）<br>  cout&lt;&lt;A&lt;&lt;”–&gt;”&lt;&lt;C&lt;&lt;endl;<br>else<br>{<br>  hanoi(n-1,A,C,B);          //首先，将A柱子上的n-1个盘子，通过C柱子移到B柱子。<br>  cout&lt;&lt;A&lt;&lt;”–&gt;”&lt;&lt;C&lt;&lt;endl;    //然后，将A柱子上第N个盘子，移到C柱子上。<br>  hanoi(n-1,B,A,C);    //最后，将B柱子上的N-1个盘子，通过A柱子移到C柱子。<br>}</p>
-<p>void Move(char chSour,char chDest)<br>{<br>    /<em>打印移动步骤</em>/<br>    printf(“\nMove the top plate of %c to %c”,chSour,chDest);<br>}<br>Hanoi(int n,char chA,char chB,char chC)<br>{<br>    /<em>检查当前的盘子数量是否为1</em>/<br>    /<em>盘子数量为1，打印结果后，不再继续进行递归</em>/<br>    if(n==1)Move(chA,chC);<br>    /<em>盘子数量大于1，继续进行递归过程</em>/<br>    else<br>    {<br>        Hanoi(n-1,chA,chC,chB);       //将A柱子上的N-1个盘子，通过C移到B<br>        Move(chA,chC);    //再将A柱子上的第N个盘子，通过A移到C<br>        Hanoi(n-1,chB,chA,chC);    //最后，将B柱子上的N-1个盘子，通过A移到C<br>    }<br>}<br>main()<br>{<br>    int n ;<br>    /<em>输入盘子的数量</em>/<br>    printf(“\nPlease input number of the plates: “);<br>    scanf(“%d”,&amp;n);<br>    printf(“\nMoving %d plates from A to C:”,n);</p>
-<pre><code>/*调用函数计算，并打印输出结果*/
-Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);           //有n个牌子，将A柱子的盘子通过B移到C 
-</code></pre><p>}</p>
-<p>#include<iostream></iostream></p>
-<p>#include<stdio.h></stdio.h></p>
-<p>using namespace std;</p>
-<p>enum Sort{ A,B,C,D,E } ; //注意放的位置</p>
-<p>/*<br>void show(int x)     //某一个语句块的变量称为局部变量   仅在此范围语句块内有效。 eg：x为形式参数<br>{<br> cout&lt;&lt;x&lt;&lt;endl；<br>首先定义上面<br>形式参数：定义函数时函数名后括号中的变量名！<br>实际参数：调用函数时函数名后括号中的表达式！</p>
-<p>1.形参未被调用时，不占存储单元。形参只在调用过程中占用存储单元。形参定义时必须指定类型！<br>2.实参是常量。变量或者表达式！要与形参类型一致！而且实参要有确定的值，占用储存单元，在调用过程中实参将值赋给形参！<br>3.C中实参对形参数据传递时时单向传递。在存储单元中是不同的单元！<em>/<br>/</em><br>void order(char name[40],int num=1,char thank[]=”谢谢！”) //int  有默认值，当并不输入时，自动默认为1.  并且存在默认值的参数应靠右摆放。<br>{<br> cout&lt;&lt; name&lt;&lt; “:” &lt;&lt; num &lt;&lt; “份\t” &lt;<thank<<endl; }="" *="" void="" order(char="" name[],bool="" sex)="" {="" cout<<="" name[20]="" <<"，是个"<<(sex?"帅哥":"美女")="" <<endl;="" 三目运算符的巧妙用法="" main()="" char="" name[40];="" int="" num;="" cin="">&gt;name&gt;&gt;num;<br> Sort a = A;        //enum<br> cout &lt;&lt; a &lt;<endl; order(name,num);="" 形式参数="" 和默认参数的理解="" 传参过程="" 1.保存现场="" 2.传参数="" 3.执行形式参数语句="" 4.带回结果="" cout<<="" "hello="" world"="" <<endl;="" 输出语句="" *="" char="" name[20];="" bool="" sex;="" cout<<"please="" enter="" name="" and="" true="" false"<<endl;="" cin="">&gt;name;<br>  cout&lt;<name<<endl; cin="">&gt;sex;<br>  order(name,sex); //———————疑问？为何传入name 在形参中无法读取？可以用指针解决吗？，<br>  //order(“xiao”,true);<br>*/<br>}</name<<endl;></endl;></thank<<endl;></p>
-<p>c++   哈诺塔 </p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;</p>
-<p>void hanoi(int n,char A,char B,char C);<br>main()<br>{</p>
-<p>  char ch1=’A’;<br>  char ch2=’B’;<br>  char ch3=’C’;</p>
-<p>  int n;<br>  cout&lt;&lt;”please enter the number for  post.”&lt;<endl; 输入柱子的数量="" cin="">&gt;n;<br>  hanoi(n,’A’,’B’,’C’);//将Pa柱子上的n个盘子，通过Pb移到Pc；</endl;></p>
-<p>}</p>
-<p>void hanoi(int n,char A,char B,char C)<br>{<br> if(n==1)<br> cout&lt;&lt;A&lt;&lt;”–&gt;”&lt;&lt;C&lt;&lt;endl; //如果仅一个盘子，将A–C<br> else<br> {<br>  hanoi(n-1,A,C,B);          //首先，将A柱子上的n-1个盘子，通过C柱子移到B柱子。<br>  cout&lt;&lt;A&lt;&lt;”–&gt;”&lt;&lt;C&lt;&lt;endl;    //然后，将A柱子上第N个盘子，移到C柱子上。<br>  hanoi(n-1,B,A,C);    //最后，将B柱子上的N-1个盘子，通过A柱子移到C柱子。<br> }<br>}</p>
-<p>//常见递归函数</p>
-<p>/*   9 6 3 0</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;<br>int recursion (int n);<br>main()<br>{<br>int n;<br>cin&gt;&gt;n;<br>recursion(n);<br>}</p>
-<p>int recursion(int n)<br>{<br> if(n==1||n==2||n==0)<br> cout&lt;&lt;n&lt;&lt;endl;<br> else<br> {<br> recursion(n-3);<br>    cout&lt;&lt;n&lt;&lt;endl;<br> }</p>
-<p>}<br>*/</p>
-<p>/*</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;<br>int factorial(int n);</p>
-<p>main()<br>{<br> int n;<br> cout&lt;&lt;”please input number factorial”&lt;<endl; 输入数的阶乘="" cin="">&gt;n;<br> cout&lt;&lt;factorial(n)&lt;&lt;endl;<br>}</endl;></p>
-<p>int factorial(int n)<br>{<br> if(n==1||n==0)<br>  return 1;        //注意点<br>  else<br>  {<br>   //return<br>   return n*factorial(n-1); //注意点 此为两个 return</p>
-<pre><code>//cout&lt;&lt;n&lt;&lt;endl;
-</code></pre><p>  }<br>}<br>*/</p>
-<p>/*   简单递归的理解分析</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;<br>int show(int n);<br>main()<br>{<br> int n;<br> cin&gt;&gt;n;<br> show(n);<br>}</p>
-<p>int show(int n)<br>{<br> if(n&gt;9)<br> {<br> show(n/10);            //如果数大于10 ，就除以10.<br> cout&lt;&lt;”  “;<br> }<br> cout &lt;&lt; n%10;      //if n小于10，就求与<br>}</p>
-<p>//432   32 //先除以100<br>//32    2 //再除以 10<br>//2   &lt;=9      2%10  ==2<br>斐波那契数列 </p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;</p>
-<p>int fib(int n);//斐波那契数列    1 1 2 3 5 8      f(n)=f(n-1)+ f(n-2)</p>
-<p>main(){<br> int n;<br> cin&gt;&gt; n;<br> cout&lt;&lt;fib(n)&lt;&lt;endl;; //输出斐波那契函数</p>
-<p>}</p>
-<p>int  fib(int n)<br>{<br>   if(n == 1 || n == 2)<br>   {<br>   return 1;               //思路解析：1. 将数看成两部分，即三个数。{F(n-2)、F(n-1)F(n)} 已知 Fn=F(n-1)+F(n-2)  并当f(n=1||n==2)=1时，依次递归求解<br>  }<br>  return fib(n - 2) + fib(n - 1);    //两个return 语句记住即可   //fib(3) =f(1)+f(2)  fib(4) =f(2)+f(3)<br>}<br>标示盘子的编号：</p>
-<p>  #include <iostream></iostream></p>
-<p>  using namespace std;</p>
-<p>void hanoi(int top,int n,char A,char B,char C);</p>
-<p>main()<br>{<br>  hanoi(1,4,’A’,’B’,’C’);//将Pa柱子上的n个盘子，通过Pb移到Pc<br>}<br>void hanoi(int top, int n,char A,char B,char C)          //几号盘子 剩几个盘子  从哪 到哪 临时位置<br>{<br> if(n==1)<br> cout&lt;&lt; top &lt;&lt;” ：”&lt;&lt; A &lt;&lt;”–&gt;”&lt;&lt; C &lt;&lt;endl; //如果仅一个盘子，将A–C<br> else<br> {<br>  hanoi(top , n-1 , A,C,B);     //将A柱子上的n-1个盘子通过C移到B<br>  cout&lt;&lt; top +n-1  &lt;&lt;” ：”&lt;&lt; A &lt;&lt;”–&gt;”&lt;&lt; C &lt;&lt;endl; //将A柱子上的最后一个盘子，通过A移到C<br>  //hanoi(top+n-1 , 1 ,A,B,C) ; //然后，将A柱子上第N个盘子，移到C柱子上。<br>  hanoi(top, n-1 , B,A,C);    //最后，将B柱子上的N-1个盘子，通过A柱子移到C柱子。<br> }<br>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/day-04-（a）哈诺塔函数-hanoi---形参-实参分析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/各职业通用面试问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、请你自我介绍一下你自己，回答提示：一般人回答这个问题过于平常，只说姓名、年龄、爱好、工作经验，这些在简历上都有，其实，企业最希望知道的是求职者能否胜任工作，包括：最强的技能、最深入研究的知识领域、个性中最积极的部分、做过的最成功的事，主要的成就等，这些都可以和学习无关，也可以和学习有关，但要突出积极的个性和做事的能力，说得合情合理企业才会相信。企业很重视一个人的礼貌，求职者要尊重考官，在回答每个问题之后都说一句“谢谢”。企业喜欢有礼貌的求职者。(可以说，自己年轻，有活力。并且，虽然年轻，但是学习能力很强。)<br>2、你觉得你个性上最大的优点是什么？回答提示：沉着冷静、条理清楚、立场坚定、顽强向上。<br>乐于助人和关心他人、适应能力和幽默感、乐观和友爱。我在北大青鸟经过一到两年的培训及项目实战，加上实习工作，使我适合这份工作。我相信我能成功。<br>3、说说你最大的缺点？回答提示：这个问题企业问的概率很大，通常不希望听到直接回答的缺点是什么等，如果求职者说自己小心眼、爱忌妒人、非常懒、脾气大、工作效率低，企业肯定不会录用你。绝对不要自作聪明地回答“我最大的缺点是过于追求完美”，有的人以为这样回答会显得自己比较出色，但事实上，他已经岌芨可危了。企业喜欢求职者从自 己的优点说起，中间加一些小缺点，最后再把问题转回到优点上，突出优点的部分。企业喜欢聪明的求职者。(正如你所言，每个人都会有缺点，我也有自己的缺点。应该说自己的心痛之处，我字写的很烂，写的多了，就会看起来小学生的涂鸦。)<br>4、你对加班的看法？回答提示：实际上好多公司问这个问题，并不证明一定要加班。 只是想测试你是否愿意为公司奉献。<br>回答样本：如果是工作需要我会义不容辞加班。我现在单身，没有任何家庭负担，可以全身心的投入工作。但同时，我也会提高工作效率，减少不必要的加班<br>7、你朋友对你的评价？回答提示： 想从侧面了解一下你的性格及与人相处的问题。<br>回答样本：“我的朋友都说我是一个可以信赖的人。因为，我一旦答应别人的事情，就一定会做到。如果我做不到，我就不会轻易许诺。<br>回答样本：”我觉的我是一个比较随和的人，与不同的人都可以友好相处。在我与人相处时，我总是能站在别人的角度考虑问题“<br>8、你还有什么问题要问吗？回答提示：企业的这个问题看上去可有可无，其实很关键，企业不喜欢说“没有问题”的人，因为其很注重员工的个性和创新能力。企业不喜欢求职者问个人福利之类的问题，如果有人这样问：贵公司对新入公司的员工有没有什么培训项目，我可以参加吗？或者说贵公司的晋升机制是什么样的？企业将很欢迎，因为体现出你对学习的热情和对公司的忠诚度以及你的上进心。<br>9、如果通过这次面试我们单位录用了你，但工作一段时间却发现你根本不适合这个职位，你怎么办？回答提示：一段时间发现工作不适合我，有两种情况： 1、如果你确实热爱这个职业，那你就要不断学习，虚心向领导和同事学习业务知识和处事经验，了解这个职业的精神内涵和职业要求，力争减少差距； 2、你觉得这个职业可有可无，那还是趁早换个职业，去发现适合你的，你热爱的职业，那样你的发展前途也会大点，对单位和个人都有好处。<br>10、在完成某项工作时，你认为领导要求的方式不是最好的，自己还有更好的方法，你应该怎么做？回答提示：①.原则上我会尊重和服从领导的工作安排；同时私底下找机会以请教的口吻，婉转地表达自己的想法，看看领导是否能改变想法；<br>②如果领导没有采纳我的建议，我也同样会按领导的要求认真地去完成这项工作；<br>③.还有一种情况，假如领导要求的方式违背原则，我会坚决提出反对意见；如领导仍固执己见，我会毫不犹豫地再向上级领导反映。<br>11、如果你的工作出现失误，给本公司造成经济损失，你认为该怎么办？回答提示：<br>①我本意是为公司努力工作，如果造成经济损失，我认为首要的问题是想方设法去弥补或挽回经济损失。如果我无能力负责，希望单位帮助解决；<br>②是责任问题。分清责任，各负其责，如果是我的责任，我甘愿受罚；如果是一个我负责的团队中别人的失误，也不能幸灾乐祸，作为一个团队，需要互相提携共同完成工作，安慰同事并且帮助同事查找原因总结经验。<br>③总结经验教训，一个人的一生不可能不犯错误，重要的是能从自己的或者是别人的错误中吸取经验教训，并在今后的工作中避免发生同类的错误。检讨自己的工作方法、分析问题的深度和力度是否不够，以致出现了本可以避免的错误。<br>12、如果你在这次考试中没有被录用，你怎么打算？回答提示：现在的社会是一个竞争的社会,从这次面试中也可看出这一点,有竞争就必然有优劣,有成功必定就会有失败.往往成功的背后有许多的困难和挫折,如果这次失败了也仅仅是一次而已,只有经过经验经历的积累才能塑造出一个完全的成功者。我会从以下几个方面来正确看待这次失败.<br>第一、要敢于面对,面对这次失败不气馁,接受已经失去了这次机会就不会回头这个现实,从心理意志和精神上体现出对这次失败的抵抗力。要有自信,相信自己经历了这次之后经过努力一定能行.能够超越自我.<br>第二、善于反思,对于这次面试经验要认真总结,思考剖析,能够从自身的角度找差距。正确对待自己,实事求是地评价自己,辩证的看待自己的长短得失,做一个明白人.<br>第三、走出阴影,要克服这一次失败带给自己的心理压力,时刻牢记自己弱点,防患于未然,加强学习,提高自身素质.<br>第四、认真工作,回到原单位岗位上后,要实实在在、踏踏实实地工作,三十六行,行行出状元,争取在本岗位上做出一定的成绩. &lt;收起<br>热心网友 | 2013-07-24</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/各职业通用面试问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/堆栈区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>五大内存分区<br>在C++中，内存分成5个区，他们分别是堆、栈、自由存储区、全局/静态存储区和常量存储区。<br>栈，就是那些由编译器在需要的时候分配，在不需要的时候自动清楚的变量的存储区。里面的变量通常是局部变量、函数参数等。<br>堆，就是那些由new分配的内存块，他们的释放编译器不去管，由我们的应用程序去控制，一般一个new就要对应一个delete。如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。<br>自由存储区，就是那些由malloc等分配的内存块，他和堆是十分相似的，不过它是用free来结束自己的生命的。<br>全局/静态存储区，全局变量和静态变量被分配到同一块内存中，在以前的C语言中，全局变量又分为初始化的和未初始化的，在C++里面没有这个区分了，他们共同占用同一块内存区。<br>常量存储区，这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改（当然，你要通过非正当手段也可以修改，而且方法很多，在《const的思考》一文中，我给出了6种方法） </p>
-<p>明确区分堆与栈<br>在bbs上，堆与栈的区分问题，似乎是一个永恒的话题，由此可见，初学者对此往往是混淆不清的，所以我决定拿他第一个开刀。<br>首先，我们举一个例子：<br>void f() { int* p=new int[5]; }<br>这条短短的一句话就包含了堆与栈，看到new，我们首先就应该想到，我们分配了一块堆内存，那么指针p呢？他分配的是一块栈内存，所以这句话的意思就是：在栈内存中存放了一个指向一块堆内存的指针p。在程序会先确定在堆中分配内存的大小，然后调用operatornew分配内存，然后返回这块内存的首地址，放入栈中，他在VC6下的汇编代码如下：<br>00401028 push 14h<br>0040102A call operator new (00401060)<br>0040102F add esp,4<br>00401032 mov dword ptr [ebp-8],eax<br>00401035 mov eax,dword ptr [ebp-8]<br>00401038 mov dword ptr [ebp-4],eax<br>这里，我们为了简单并没有释放内存，那么该怎么去释放呢？是delete p么？澳，错了，应该是delete []p，这是为了告诉编译器：我删除的是一个数组，VC6就会根据相应的Cookie信息去进行释放内存的工作。<br>好了，我们回到我们的主题：堆和栈究竟有什么区别？<br>主要的区别由以下几点：<br>1、管理方式不同；<br>2、空间大小不同；<br>3、能否产生碎片不同；<br>4、生长方向不同；<br>5、分配方式不同；<br>6、分配效率不同；<br>管理方式：对于栈来讲，是由编译器自动管理，无需我们手工控制；对于堆来说，释放工作由程序员控制，容易产生memory leak。<br>空间大小：一般来讲在32位系统下，堆内存可以达到4G的空间，从这个角度来看堆内存几乎是没有什么限制的。但是对于栈来讲，一般都是有一定的空间大小的，例如，在VC6下面，默认的栈空间大小是1M（好像是，记不清楚了）。当然，我们可以修改：<br>打开工程，依次操作菜单如下：Project-&gt;Setting-&gt;Link，在Category 中选中Output，然后在Reserve中设定堆栈的最大值和commit。<br>注意：reserve最小值为4Byte；commit是保留在虚拟内存的页文件里面，它设置的较大会使栈开辟较大的值，可能增加内存的开销和启动时间。<br>碎片问题：对于堆来讲，频繁的new/dele…..te势必会造成内存空间的不连续，从而造成大量的碎片，使程序效率降低。对于栈来讲，则不会存在这个问题，因为栈是先进后出的队列，他们是如此的一一对应，以至于永远都不可能有一个内存块从栈中间弹出，在他弹出之前，在他上面的后进的栈内容已经被弹出，详细的可以参考数据结构，这里我们就不再一一讨论了。<br>生长方向：对于堆来讲，生长方向是向上的，也就是向着内存地址增加的方向；对于栈来讲，它的生长方向是向下的，是向着内存地址减小的方向增长。<br>分配方式：堆都是动态分配的，没有静态分配的堆。栈有2种分配方式：静态分配和动态分配。静态分配是编译器完成的，比如局部变量的分配。动态分配由alloca函数进行分配，但是栈的动态分配和堆是不同的，他的动态分配是由编译器进行释放，无需我们手工实现。<br>分配效率：栈是机器系统提供的数据结构，计算机会在底层对栈提供支持：分配专门的寄存器存放栈的地址，压栈出栈都有专门的指令执行，这就决定了栈的效率比较高。堆则是C/C++函数库提供的，它的机制是很复杂的，例如为了分配一块内存，库函数会按照一定的算法（具体的算法可以参考数据结构/操作系统）在堆内存中搜索可用的足够大小的空间，如果没有足够大小的空间（可能是由于内存碎片太多），就有可能调用系统功能去增加程序数据段的内存空间，这样就有机会分到足够大小的内存，然后进行返回。显然，堆的效率比栈要低得多。<br>从这里我们可以看到，堆和栈相比，由于大量new/delete的使用，容易造成大量的内存碎片；由于没有专门的系统支持，效率很低；由于可能引发用户态和核心态的切换，内存的申请，代价变得更加昂贵。所以栈在程序中是应用最广泛的，就算是函数的调用也利用栈去完成，函数调用过程中的参数，返回地址，EBP和局部变量都采用栈的方式存放。所以，我们推荐大家尽量用栈，而不是用堆。<br>虽然栈有如此众多的好处，但是由于和堆相比不是那么灵活，有时候分配大量的内存空间，还是用堆好一些。<br>无论是堆还是栈，都要防止越界现象的发生（除非你是故意使其越界），因为越界的结果要么是程序崩溃，要么是摧毁程序的堆、栈结构，产生以想不到的结果,就算是在你的程序运行过程中，没有发生上面的问题，你还是要小心，说不定什么时候就崩掉，那时候debug可是相当困难的：）<br>对了，还有一件事，如果有人把堆栈合起来说，那它的意思是栈，可不是堆，呵呵，清楚了？.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/堆栈区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/孟德尔-分配-规律-递归思想输出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以下程序 不对，仅供思路思考。。用二叉树比较好<br>/*</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;</p>
-<p>int twin(int n);</p>
-<p>int main()<br>{<br> int b[20];<br> int n;<br> int i;//起始值<br> cin&gt;&gt;n;<br> cout&lt;&lt;twin(n)&lt;&lt;endl;</p>
-<p> }<br>   int twin( int n )  //双重递归<br>  {<br>   int a[1];<br>   a[1] = 3;<br>   if(n &gt; 0 &amp;&amp; n == 1)<br>   return a[1];<br>   else<br>   {<br>    return a[1]*twin(n-1);</p>
-<p>   }</p>
-<p>*/</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;</p>
-<p>int twin02a(int n);<br>int twin02b(int n);<br>int twin03(int n);<br>int mendel(int n,int i);</p>
-<p>int main()<br>{<br> int n ,i=0 ;<br> int j;<br> int c;<br> cin &gt;&gt; n;<br> c = twin03(n);       //形状比个数<br> cout&lt;&lt;c&lt;&lt;endl;<br> for(j = 0;j &lt; c ;j++)<br> {<br> cout&lt;&lt;mendel( n, i )&lt;&lt;endl;;<br> –n;<br> }//cout &lt;&lt; twin02a(n) &lt;&lt; endl;<br>  //cout&lt;&lt; twin02b &lt;&lt;endl;<br> }<br> int twin02a( int n )  //第二层递归<br>  {<br>   //int b[n*n];<br>   //int i=0;</p>
-<pre><code>/*if(n &gt;= 0 &amp;&amp; n == 2)
-return 3;
-  */
-</code></pre><p>   if(n==1)<br>      return 1;<br>    else<br>    {<br>    //    for(int i=0; n-i&gt;0 ; i++)<br>        return 3 <em> twin02a(n - 1) ;//</em> twin(i);<br>    //cout&lt;&lt;”1”&lt;&lt;endl;<br>    }<br>  }</p>
-<p> int  twin02b( int i )<br>  {</p>
-<p>   //int b[n*n];<br>   //int i=0;</p>
-<pre><code>/*if(i &gt;= 0 &amp;&amp; i == 1)
-return 1;
-*/
-  if(i==0)
-  return 1;
-else
-{
-//    for(int i=0; n-i&gt;0 ; i++)
-    return 1 * twin02b(i - 1) ;//* twin(i);
-//cout&lt;&lt;&quot;1&quot;&lt;&lt;endl;
-}
-</code></pre><p>  }</p>
-<p> int mendel(int n,int i)<br> {<br>  //if(n==1)<br>  //cout&lt;&lt; twin02b(1) &lt;&lt; “:” &lt;&lt; twin02a(1) &lt;&lt;endl;<br>  //else<br>  {<br>   return twin02a(n - i) * twin02b(i);<br>   i++;<br>  }<br> }</p>
-<p> //        个数为2^n</p>
-<p> int twin03(int n)<br> {<br>  if(n==1)<br>  return 2;<br>  else<br>  {<br>   return 2 *twin03(n-1);<br>  }</p>
-<p> } </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/孟德尔-分配-规律-递归思想输出/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言/字符串的参数传递" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>void order(char name[],bool sex)<br> {<br>改前：  cout&lt;&lt; name[20] &lt;&lt;”，是个”&lt;&lt;(sex?”帅哥”:”美女”) &lt;&lt;endl;<br>改后：  cout&lt;&lt; name &lt;&lt;”，是个”&lt;&lt;(sex?”帅哥”:”美女”) &lt;&lt;endl; 就可以输出完整字符串了</p>
-<p> }<br>main()<br>{<br>  char name[20];<br>  bool sex;<br>  cout&lt;&lt;”please enter name and true /false”&lt;<endl; cin="">&gt;name;<br>  cout&lt;<name<<endl; cin="">&gt;sex;<br>  order(name,sex); //———————疑问？为何传入name 在形参中无法读取？可以用指针解决吗？，<br>  //order(“xiao”,true);<br>}</name<<endl;></endl;></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/字符串的参数传递/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql/数据库主键设置为int(11)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。</p>
-<p>也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。</p>
-<p>int和bigint的区别 ：int 符号性 -2^32+1 ~ 2^32  -1 符号性 0 - 2^32 大约四十亿条数据，足够一遍公司使用。（4 294 967 296）<br>相比来说，bigint占用的磁盘内存空间较大，会导致过多的无效数据交换，增加额外的io压力，对性能不利</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/Mysql/数据库主键设置为int(11)/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo/">展开全文 >></a>
         </p>
       
 
@@ -765,7 +1359,7 @@ else
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -860,11 +1454,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,7 +1478,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -884,19 +1514,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,6 +1535,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

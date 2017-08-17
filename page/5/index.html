@@ -56,7 +56,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -144,7 +144,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -163,17 +163,65 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-C语言/实参和形参区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/ios程序第一次启动的新手指南方法实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/ios程序第一次启动的新手指南方法实现/">ios程序第一次启动的新手指南方法实现</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/ios程序第一次启动的新手指南方法实现/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> /*<br>首先定义上面<br>形式参数：定义函数时函数名后括号中的变量名！<br>实际参数：调用函数时函数名后括号中的表达式！</p>
-<p>1.形参未被调用时，不占存储单元。形参只在调用过程中占用存储单元。形参定义时必须指定类型！<br>2.实参是常量。变量或者表达式！要与形参类型一致！而且实参要有确定的值，占用储存单元，在调用过程中实参将值赋给形参！<br>3.C中实参对形参数据传递时时单向传递。在存储单元中是不同的单元！*/ </p>
-<p>别人解答：</p>
-<p>#include<br>void swap(int <em>a,int </em>b)<br>{<br>int <em>t;<br>t=a;a=b;b=t;<br>}<br>main()<br>{<br>int i=3,j=5,</em>p=&amp;i,<em>q=&j;<br>swap(p,q);printf(“%d %d\n”,</em>p,*q);<br>}<br>里面,哪些是形参,哪些是实参呢?</p>
-<p>void swap(int <em>a,int </em>b) 中的a、b是形参,swap(p,q)中的p、q是实参.<br>至于为什么“参数可以由实参传向形参,而不能逆反传递”,你可以这样理<br>我们不妨把函数比作戏剧的剧本,把形参比做剧本中的人物；当我们要表演此戏剧的时候,我们肯定会让真实的演员（实参）去扮演（替换）剧本里的角色（形参）,而绝不可能用剧中人去替代现实的演员!理解了上面的道理,你还会有问题吗?</p>
+        <p>1、在appdelegate.m中找到 “application:didFinishLaunchingWithOptions:”</p>
+<p>通过NSUserDefaults 来进行判断</p>
+<p>if (![[NSUserDefaultsstandardUserDefaults] boolForKey:@”everLaunched”]) {</p>
+<pre><code>    [[NSUserDefaultsstandardUserDefaults] setBool:YESforKey:@&quot;everLaunched&quot;];
 
+    [[NSUserDefaultsstandardUserDefaults] setBool:YESforKey:@&quot;firstLaunch&quot;];
+
+    NSLog(@&quot;first launch&quot;);
+
+}else {
+
+    [[NSUserDefaultsstandardUserDefaults] setBool:NOforKey:@&quot;firstLaunch&quot;];
+
+    NSLog(@&quot;second launch&quot;);
+
+}
+</code></pre><p>2、在RootViewController的  viewWillAppear:的方法里面进行添加</p>
+<p>if ([[NSUserDefaultsstandardUserDefaults] boolForKey:@”firstLaunch”]) {</p>
+<pre><code>    [[NSUserDefaultsstandardUserDefaults] setBool:NOforKey:@&quot;firstLaunch&quot;];
+
+    UserGuideController *userGuide = [[[UserGuideControlleralloc] init] autorelease];
+
+    [selfpresentModalViewController:userGuide animated:YES];
+
+}
+</code></pre><p>3、在设置页面里面也可以添加同样的视图，让用户可以查看。</p>
+<p>4，在沙盒地下设置一个文件，第一次运行的时候就创建这个文件，即运行这个新手指南类似的文件，以后判断是否存在这个文件，如果存在则不再创建（即不执行新手指南的展示方法）。或者在数据库里做一个标记，标记此文件是否被创建过。</p>
+<p>自己实践：</p>
+<pre><code>if(![[NSUserDefaults standardUserDefaults] boolForKey:@&quot;firstStart&quot;]){
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@&quot;firstStart&quot;];
+    NSLog(@&quot;第一次启动&quot;);
+    self.window.rootViewController = [[WuNewFeature alloc]init];
+}else{
+    NSLog(@&quot;不是第一次启动&quot;);
+    self.window.rootViewController = [[WuNewFeature alloc]init];
+    MainVC *mainVC = [[MainVC alloc]init];
+    self.window.rootViewController = [[BaseNavigationController alloc]initWithRootViewController:mainVC];
+}
+</code></pre>
       
 
       
@@ -181,11 +229,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/实参和形参区别/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/ios程序第一次启动的新手指南方法实现/">展开全文 >></a>
         </p>
       
 
@@ -215,124 +285,58 @@
 
 
   
-    <article id="post-C语言/拷贝构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/mainbundle的作用和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>拷贝构造函数</p>
-<p>who  where when what how<br>构造函数是什么：在类中和类使用相同的函数名的函数被称为构造函数</p>
-<p>构造函数在哪里用：通常通过函数赋值参数给私有变量</p>
-<p>构造函数什么时候用：1.使用类2.需要传递参数</p>
-<p>构造函数怎么用？用来对创建的对象进行初始化。<br>特点：①：函数体本身不会返回东西，但还是会返回数值（可以理解为返回数值赋值参数，但函数体不返回什么），甚至连void都没有<br>②：与函数体同名。<br>③：不能直接调用，需要通过new运算符调用。或程序执行到它时调用<br>④：一个类只定义私有构造函数时，new不能调用。当一个类没定义构造函数时，c#自动调用构造函数、<br>引申：全局，静态构造函数，在main（）函数之前就被调用了，局部构造函数在程序运行到那时，才被调用。。<br>关键点加黑（构造函数，主函数调用）<br>//==========================<br>//==========================<br>//==========================</p>
-<p>#include <iostream></iostream></p>
-<p>#include <string><br>using namespace std;</string></p>
-<p>class Student{<br>private:<br>int age;<br>string name;<br>string room;<br>public :<br> Student(int age,string name,string ro) :age(age),name(name),room(ro){} //传递参数的构造函数<br> Student() {} //无参数构造函数<br> ~Student(){} //调用析构函数</p>
-<p> void show(){<br> cout &lt;&lt; “My age is “ &lt;<age; cout="" <<="" "="" ,and="" i="" is="" name;="" <<".="" an="" on="" the="" "<<="" room="" study!"<<endl;="" }="" };="" int="" main(int="" argc,="" char*="" argv[])="" {="" student="" s(18,"snow","1103");="" 在主函数中的调用方法="" s.show();="" student*="" s="NULL;" 采用指针方法指向s，调用函数="" s-="">show();<br>Student &amp; SS =S;     //引用需要初始化<br>SS.show();</age;></p>
-<p>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/拷贝构造函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+      <header class="article-header">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-C语言/类的对象用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/<em><br>class name<br>{<br> int a;<br> int b;<br> int c;<br>};
-</em>//*<br>int main()         //还不会用的一些技巧<br>{<br>string name;   //string 是类<br>name =”hello”;<br>cout &lt;&lt; name.size()&lt;&lt; endl;  //strlen<br>string cin;<br>cin.getline(name,5);<br>cout &lt;&lt; name.c_str() &lt;&lt;endl;<br>cout &lt;&lt; name.end() &lt;&lt;endl;</p>
-<p>}<br>//————————-</p>
-<p>strcpy(地址，串)<br>strcat（旧串，附加穿）<br>strcmp（串1，串2）<br>getline  。。。。。。。。。。。会生成一个包含一串从输入流读入的字符的字符串,直到以下情况发生会导致生成的此字符串结束<br>*/</p>
-<p>//无名对象 类 （数）；<br>//继承：class Child ：public person{}；<br>//覆盖，子类中含有和父类同名函数时，覆盖父类的函数。<br>//多重继承：子类继承所有父类函数。 class child ：public person，public men{}<br>//虚继承 class child :virtual person{}<br>//写一个无法继承的类、（需要用到友元函数）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/类的对象用法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/mainbundle的作用和使用/">iOS多线程-之NSThread的使用</a>
+    </h1>
   
-    <article id="post-C语言/认识c+结构，和输入输出语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+        
+        <a href="/2017/08/16/ios-学习笔记/mainbundle的作用和使用/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 1.c++包含两种 core c++（主要是指不依赖平台系统的标准c++）和uc++（unix下的c++）<br> 2.在linux的vi编辑器用常用set nonu来设置行号。三种退出vi编辑器方法（1.:wq2.:q!3.ZZ）</p>
+        <p>原]NSBundle–获取文件路径</p>
+<p>2012-6-29阅读16207 评论0</p>
+<pre><code>之前在初始化一个类的时候：TestViewController *viewcontroller=[[TestViewController alloc]initWithNibName:@&quot;TestViewController&quot; bundle:[NSBundle mainBundle]];不是很明白:[NSBundle mainBundle]的意思。后来查阅资料后知道了它的作用，如下：
+
+bundle是一个目录,其中包含了程序会使用到的资源. 这些资源包含了如图像,声音,编译好的代码,nib文件(用户也会把bundle称为plug-in). 对应bundle,cocoa提供了类NSBundle.我们的程序是一个bundle. 在Finder中,一个应用程序看上去和其他文件没有什么区别. 但是实际上它是一个包含了nib文件,编译代码,以及其他资源的目录. 我们把这个目录叫做程序的main bundle。
+</code></pre><p>通过使用下面的方法得到程序的main bundle</p>
+<p>NSBundle *myBundle = [NSBundle mainBundle];</p>
+<p>一般我们通过这种方法来得到bundle.如果你需要其他目录的资源,可以指定路径来取得bundle</p>
+<p>NSBundle *goodBundle;</p>
+<p>goodBundle = [NSBundle bundleWithPath:@”~/.myApp/Good.bundle”];</p>
+<p>一旦我们有了NSBundle 对象,那么就可以访问其中的资源了</p>
+<p>NSBundle束，是一种特定的文件类型，其中的内容遵循特定的结构。</p>
+<p>NSBundle的一个主要作用是 获取Resources文件夹中的资源。</p>
+<pre><code>在编程中使用[NSData dataWithContentOfFile:@&quot;foo&quot;]的时候，总是无法读取正确的文件内容。而使用[NSData dataWithContentOfFile:[[NSBundle mainBundle] pathForResource:@”foo” ofType:@”&quot;]的时候就可以。
+</code></pre><p>因为当使用相对路径的时候，其实他相对的当前目录并不是程序运行的目录，而是“/”。只有使用[NSBundle mainBundle]来生成的路径才是文件真正的路径。</p>
+<p>在此记录一下：在以后的开发中不直接使用任何相对路径，而是使用经过计算以后的绝对路径。</p>
+<p>一.获取图片</p>
 <ol>
-<li>chomd x+a + 文件名  修改文件权限<br>4.系统开发流程    开发~测试~维护~更新<br>5.内核core  外核shell<br>6.栈：取一部分，用一部分。比如生活中的商品  堆：可以随意的使用。比如生活中的空气<br>7.数制2进制（binart     0-1）8进制（0-7）10进制（decimal    0-9）16进制（hexadcimal0-f）数制的转换8（十进制） 1000（二进制）10（八进制）8（十六进制）<br>8.#include是引导文件    &lt;…&gt;是系统自带的头文件。”…”是程序员自己写的头文件<br>9.cout  -  console  （控制台）output（输出）<br>10.cout&lt;&lt;”23+6=”&lt;&lt;23+6&lt;&lt;endl;<br>11.-l  连接库文件  -L  连接库路径  同理-i连接头文件-I连接头文件路径</li>
+<li><p>NSString *path = [[NSBuddle mainBuddle] pathForResource:@”resourceName” oftype@”resourceType”];</p>
+<p>UIImage *image = [[UIImage imageWithContentsOfFile:path];</p>
+</li>
+<li><p>UIImage *image = [UIImage imageNamed:@”imageName”];</p>
+</li>
 </ol>
+<p>二.获取plist文件</p>
+<p>  NSArray *array =[[NSArrayalloc]initWithContentsOfFile:[[NSBundlemainBundle]pathForResource:@”name”ofType:@”plist”]];</p>
+<p>  NSDictionary *dict=[arrayobjectAtIndex:index];//将plist文件中的内容转换成字典</p>
+<p>(๑•ั็ω•็ั๑)<br>NSBundle介绍<br>阅读：232302011-09-22 17:51<br>标签：杂谈<br>bundle是一个目录,其中包含了程序会使用到的资源. 这些资源包含了如图像,声音,编译好的代码,nib文件(用户也会把bundle称为plug-in). 对应bundle,cocoa提供了类NSBundle.<br>我们的程序是一个bundle. 在Finder中,一个应用程序看上去和其他文件没有什么区别. 但是实际上它是一个包含了nib文件,编译代码,以及其他资源的目录. 我们把这个目录叫做程序的main bundle<br>bundle中的有些资源可以本地化.例如,对于foo.nib,我们可以有两个版本: 一个针对英语用户,一个针对法语用户. 在bundle中就会有两个子目录:English.lproj和French.lproj,我们把各自版本的foo.nib文件放到其中. 当程序需要加载foo.nib文件时,bundle会自动根据所设置的语言来加载. 我们会在16章再详细讨论本地化<br>通过使用下面的方法得到程序的main bundle<br>NSBundle <em>myBundle = [NSBundle mainBundle];<br>一般我们通过这种方法来得到bundle.如果你需要其他目录的资源,可以指定路径来取得bundle<br>NSBundle </em>goodBundle;<br>goodBundle = [NSBundle bundleWithPath:@’~/.myApp/Good.bundle’];<br>一旦我们有了NSBundle 对象,那么就可以访问其中的资源了<br>// Extension is optional<br>NSString <em>path = [goodBundle pathForImageResource:@’Mom’];<br>NSImage </em>momPhoto = [[NSImage alloc] initWithContentsOfFile:path];<br>bundle中可以包含一个库. 如果我们从库得到一个class, bundle会连接库,并查找该类:<br>Class newClass = [goodBundle classNamed:@’Rover’];<br>id newInstance = [[newClass alloc] init];<br>如果不知到class名,也可以通过查找主要类来取得<br>Class aClass = [goodBundle principalClass];<br>id anInstance = [[aClass alloc] init];<br>可以看到, NSBundle有很多的用途.在这当中, NSBundle负责(在后台)加载nib文件. 我们也可以不通过NSWindowController来加载nib文件, 直接使用NSBundle:<br>BOOL successful = [NSBundle loadNibNamed:@’About’ owner:someObject];<br>注意噢, 我们指定了一个对象someObject作为nib的File’s Owner<br>使用initWithContentsOfFile时，文件路径的写法 使用initWithContentsOfFile方法可以通过读取一个文件的内容来初始化对象。 但文件的路径应该怎么确定呢？ 可以使用NSBundle的对象来获取。 例如当前程序所在目录下有个文件re.xml，我们要将该文件的内容做为NSData的数据源来初始化一个NSData对象，可以用下面的方法来实现：<br>NSString <em>filePath = [[NSBundle mainBundle] pathForResouse:@’re’ ofType:@’xml’]; NSData </em>data = [[NSData alloc] initWithContentsOfFile:filePath];<br>读取plist中的内容：<br>NSString <em>dataPath = [[NSBundle mainBundle] pathForResource:@’Data’ ofType:@’plist’]; self.data = [NSArray arrayWithContentsOfFile:dataPath];<br>删除本地文件<br>NSString </em> thePath=[self getUserDocumentDirectoryPath];<br>NSMutableString <em> fullPath=[[[NSMutableString alloc]init]autorelease];<br>[fullPath appendString:thePath];<br>NSString </em> idString=[idArray objectAtIndex:indexPath.row];<br>NSString <em> coverName=[NSString stringWithFormat:@’/%@.jpg’,idString];<br>[fullPath appendString:coverName];<br>NSFileManager </em>defaultManager;<br>defaultManager = [NSFileManager defaultManager];</p>
+<ul>
+<li>(BOOL)removeItemAtPath:(NSString <em>)path error:(NSError *</em>)error BOOL boolValue=[defaultManager removeItemAtPath: fullPath error: nil];<br>if (boolValue) {<br>NSLog(@’remove cover image ok’);<br>}</li>
+<li>(NSString<em>)getUserDocumentDirectoryPath {<br>NSArray</em> array = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);<br>if([array count])<br>return [array objectAtIndex: 0];<br>else return @’’;<br>}</li>
+</ul>
 
       
 
@@ -341,11 +345,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/认识c+结构，和输入输出语句/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/mainbundle的作用和使用/">展开全文 >></a>
         </p>
       
 
@@ -375,68 +401,61 @@
 
 
   
-    <article id="post-C语言/菜单循环-金字塔-函数重载-递归-闰年判断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Html/【命名规范--学习和优化】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/Html/【命名规范--学习和优化】/">html命名规范--学习和优化</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/Html/【命名规范--学习和优化】/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#include <iostream></iostream></p>
-<p>#include <ctime></ctime></p>
-<p>using namespace std;<br>//①    菜单 的技巧<br>/*void meun_information( )<br>{<br>    int n;<br>    cout&lt;&lt;”1–存款”&lt;&lt;endl;</p>
-<p> cout&lt;&lt;”2–取款”&lt;&lt;endl;</p>
-<p> cout&lt;&lt;”3–转账”&lt;&lt;endl;         //语句块的分割</p>
-<p> cout&lt;&lt;”4–查询”&lt;&lt;endl;</p>
-<p>  cout&lt;&lt;”5–退出”&lt;&lt;endl;</p>
-<p>  cout&lt;&lt;”please enter a number you want to enter !”&lt;<endl; cin="">&gt;n;<br> switch(n)<br> {<br> case 1: cout&lt;&lt;”1 –存款”&lt;&lt;endl; break;</endl;></p>
-<p> case 2: cout&lt;&lt;”2 –取款”&lt;&lt;endl; break;</p>
-<p> case 3: cout&lt;&lt;”3 –转账”&lt;&lt;endl; break;</p>
-<p> case 4: cout&lt;&lt;”4 –查询”&lt;&lt;endl; break;</p>
-<p> case 5: cout&lt;&lt;”5 –退出”&lt;&lt;endl; break;</p>
-<p> default: cout&lt;&lt;”输入错误，重新输入”&lt;&lt;endl; meun_information( );break;  //输入错误时，返回菜单。。<br> }<br>}</p>
-<p><em>/<br>//②简单for 循环<br>/</em><br>void  for_loop()<br>{<br> int i,j;<br> cout&lt;&lt;”please input you want to input the number of times!”&lt;<endl; cin="">&gt;j;<br> for(i=1;i&lt;=j;i++)<br> cout&lt;<i<<"次"<<endl; }="" *="" ③="" 机器睡眠设置="" *int="" time_sleep(int="" n)="" {="" while(n="">0)<br> {<br> long t = time(NULL);<br> t += 1;<br> while(t&gt;time(NULL));<br> cout&lt;&lt;t/CLOCKS_PER_SEC&lt;&lt;endl;<br> n–;<br> }<br>}<em>/<br>/</em>运算符的概念<br>①改变变量的值  ++后  –后  =<br>②结果和变量一致    前++ 前–</i<<"次"<<endl;></endl;></p>
-<p> 控制语句<br> ①条件if —else<br> ②分支 switch（int、字符、bool、enum）<br> ③循环  for    while<br> ④跳转 break、goto loop   　continue语句和break语句的区别是：<br>continue语句只结束本次循环，而不终止整个循环的执行。而break语句则是结束整个循环过程，不再判断执行循环的条件是否成立。</p>
-<p><em>/<br>//四：金字塔    设计<br>/</em>int pyramid(int n)<br>{<br> int i;<br> int j;<br> int row=n;<br> int space;<br> for(i=1; i&lt;=row; i++)<br> {<br>   space = row - i;<br>     for(;space&gt;=0;space–)<br>     {                                 //空格语句块  </p>
-<pre><code>  cout&lt;&lt;&apos; &apos;;
- }
-
-  for(j=1;j&lt;=i;j++)
-     {
-      cout&lt;&lt;j;      //打印前半部分
-      }
-      for(j=i-1;j&gt;0;j--)
-         {
-      cout&lt;&lt;j;     //打印 后半部分    唉，这部分想了好久。居然没想到。。
-      }
-cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
-</code></pre><p>}<br>}<br><em>/<br>//五：逻辑短路的理解  判断闰年<br>/</em><br>int judge_leep_year(int n)<br>{<br> int i;<br> int j=1;<br> for(i=0;i&lt;=n;i++)<br> {<br>//    if(i%400==0||(i%4==0&amp;&amp;i%100!=0))         //逻辑短路问题 ||前面为1  &amp;&amp;前面为0  发生逻辑短路<br> if((i%4==0&amp;&amp;i%100!=0)||i%400==0)            //如果一年能被4整除并且不能被100整除，或者能被400整除，那么这一年就是闰年。<br> {<br> cout&lt;&lt;i&lt;&lt;endl;j++;}<br> }<br> cout&lt;&lt;j&lt;&lt;endl;<br>}<br>*/</p>
-<p>//六：函数重载</p>
-<p>/*</p>
-<p>//函数重载 ：相同的函数名，不同的参数表 eg int f_add(a)；和  int f_add(int a,int b)       个数 类型 （double 和int、float）<br>int f_add(int x)<br>{</p>
-<p> return x;<br>}</p>
-<p>int f_add(double x)</p>
-<p>{<br>  return x;<br>}</p>
-<p>int f_add(int x,int y)<br>{<br> return x+y;<br>}</p>
-<p>double f_add(int x, double y)<br>{</p>
-<p> return (double)x+y;<br>}<br>*/</p>
-<p> // 阶乘<br> /<em><br>double factorial(int x){<br> if(x&lt;0)<br> cout&lt;&lt;”不存在负数的阶乘”&lt;&lt;endl;<br> else if(x==1||x==0)<br> return 1;<br> else<br> return x</em>factorial(x-1);//一定要分清是x<em>factorial（x-1），而不是factorial（x）</em>factorial（x-1）<br> }</p>
-<p>*/</p>
-<p>main()<br>{<br>  //  int n;<br>//    meun_information();  //菜单语句块<br>//    for_loop();          //循环语句块<br>//    cout&lt;&lt;”please input you want to sleep time (s)”&lt;<endl; cout<<"please="" input="" how="" many="" years="" leep="" year="" "<<endl;="" cin="">&gt;n;<br>//    time_sleep(n);<br>//    pyramid(n);        //金字塔函数</endl;></p>
-<p>//    judge_leep_year(n);  //判断闰年</p>
-<p>/<em><br>int x,y;<br>double z;<br>cout&lt;&lt;f_add(3)&lt;&lt;endl;<br>cout&lt;&lt;f_add(3.00999)&lt;&lt;endl;<br>cout&lt;&lt;f_add(2,3.000099)&lt;&lt;endl;<br>cout&lt;&lt;f_add(3,5)&lt;&lt;endl;
-</em>/</p>
-<p>/<em><br>          int n;<br>          cin&gt;&gt;n;<br>          cout&lt;&lt;n&lt;&lt;”! = “&lt;&lt;factorial(n)&lt;&lt;endl;
-</em>/<br> return 0 ;<br>}</p>
-<p>#include<iostream></iostream></p>
-<p>using namespace std;</p>
-<p>/<em>int  return_number()     //int 类型能返回值到调用函数的位置，void不能返回参数<br>{<br> int n;<br> cin&gt;&gt;n;<br> return n;<br>}
-</em>/</p>
-<p>/*<br>简单的四则运算<br>int f_add(int x,int y)<br>{<br> int c;<br> c = x+y;<br> return c;            //只要是int 定义的函数最后一致以return 结尾。。<br>}</p>
-<p>int f_reduce(int x,int y)<br>{<br> int c;<br> c = x - y;<br> return c;<br>}</p>
-<p>int f_mul(int x,int y)<br>{<br> int c ;<br> c = x*y;<br> return c;<br>}</p>
-<p>int f_division(int x,int y)<br>{<br> int c;<br> c = x%y;<br> return c;<br>}<br>//   简单的四则运算    利用语句块。<br>int main()<br>{<br>//    cout&lt;&lt;return_number()&lt;&lt;endl;<br>int a,b,c;<br>do{</p>
-<p> cout&lt;&lt;”please enter number cloose you want to function! “&lt;<endl; cout<<"1--add_function"<<endl;="" cout<<"2--reduce_function"<<endl;="" cout<<"3--mul_function"<<endl;="" cout<<"4--diviction"<<endl;="" cin="">&gt;c;<br>}while(c&gt;4&amp;&amp;c&lt;1);</endl;></p>
-<p>cout&lt;&lt;”please input two number! “&lt;<endl; cin="">&gt;a&gt;&gt;b;<br>    switch(c){<br>    case 1:cout&lt;&lt;a&lt;&lt;”+”&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_add(a,b)&lt;&lt;endl;;break;<br>    case 2:cout&lt;&lt;a&lt;&lt;”-“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_reduce(a,b)&lt;&lt;endl;;break;<br>    case 3:cout&lt;&lt;a&lt;&lt;”<em>“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_mul(a,b)&lt;&lt;endl;;break;<br>    case 4:cout&lt;&lt;a&lt;&lt;”/“&lt;&lt;b&lt;&lt;”=”&lt;&lt;f_division(a,b)&lt;&lt;endl;;break;<br>    default:cout&lt;&lt;”等待更新其他功能！”&lt;&lt;endl;break;<br>}<br>} </em>/</endl;></p>
-<p>//函数重载 ：相同的函数名，不同的参数表 eg int f_add(a)；和  int f_add(int a,int b)       个数 类型 （double 和int、float） </p>
+        <p>原文链接：<a href="http://www.86y.org/art_detail.aspx?id=740" target="_blank" rel="external">http://www.86y.org/art_detail.aspx?id=740</a></p>
+<p>一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：</p>
+<p>基本样式库 /css/core<br>通用UI元素样式库 /css/lib<br>JS组件相关样式库 /css/ui</p>
+<p>业务类的CSS是指和具体产品相关的文件，放在如下目录中：<br>读书 /css/book/<br>电影 /css/movie/<br>音乐 /css/music/<br>社区 /css/sns/<br>小站 /css/site/<br>同城 /css/location/<br>电台 /css/radio/</p>
+<p>外联CSS文件适用于全站级和产品级通用的大文件。内联CSS文件适用于在一个或几个页面共用的CSS。另外一对具体的CSS进行文档化的整理。如：<br>util-01 reset /css/core/reset.css<br>util-02 通用模块容器 /css/core/mod.css<br>ui-01. 喜欢按钮 /css/core/fav_btn.css<br>ui-02. 视频/相册列表项 /css/core/media_item.css<br>ui-03. 评星 /css/core/rating.css<br>ui-04. 通用按钮 /css/core/common_button.css<br>ui-05. 分页 /css/core/pagination.css<br>ui-06. 推荐按钮 /css/core/rec_btn.css<br>ui-07. 老版对话框 /css/core/old_dialog.css<br>ui-08. 老版Tab /css/core/old_tab.css<br>ui-09. 老版成员列表 /css/core/old_userlist.css<br>ui-10. 老版信息区 /css/core/notify.css<br>ui-11. 社区用户导航 /css/core/profile_nav.css<br>ui-12. 当前大社区导航 /css/core/site_nav.css<br>ui-13. 加载中 /css/lib/loading.css</p>
+<p>2、文件引入可通过外联或内联方式引入。<br>外联方式：（类型声明type=”text/css”可以省略）<br>内联方式： （类型声明type=”text/css”可以省略）</p>
+<p>link和style标签都应该放入head中，原则上，不允许在html上直接写样式。避免在CSS中使用@import，嵌套不要超过一层。<br>3、文件名、文件编码及文件大小<br>文件名必须由小写字母、数字、中划线组成<br>文件必须用UTF-8编码，使用UTF-8（非BOM），在HTML中指定UTF-8编码，在CSS中则不需要特别指定因为默认就是UTF-8。<br>单个CSS文件避免过大（建议少于300行）</p>
+<p>二、注释规范<br>1、文件顶部注释（推荐使用）<br>/*</p>
+<ul>
+<li>@description: 中文说明</li>
+<li>@author: name</li>
+<li>@update: name (2013-04-13 18:32)<br>*/</li>
+</ul>
+<p>复制代码2、模块注释<br>/<em> module: module1 by 张三 </em>/<br>…<br>/<em> module: module2 by 张三 </em>/</p>
+<p>复制代码模块注释必须单独写在一行<br>3、 单行注释与多行注释<br>/<em> this is a short comment </em>/单行注释可以写在单独一行，也可以写在行尾，注释中的每一行长度不超过40个汉字，或者80个英文字符。/<em>* this is comment line 1.</em> this is comment line 2.<em>/多行注释必须写在单独行内<br>4、特殊注释<br>/</em> TODO: xxxx by name 2013-04-13 18:32 <em>//</em> BUGFIX: xxxx by name 2012-04-13 18:32 <em>/用于标注修改、待办等信息<br>5、区块注释<br>/</em> Header <em>/<br>/</em> Footer <em>/<br>/</em> Gallery */</p>
+<p>复制代码对一个代码区块注释（可选），将样式语句分区块并在新行中对其注释。<br>三、命名规范<br>使 用有意义的或通用的ID和class命名：ID和class的命名应反映该元素的功能或使用通用名称，而不要用抽象的晦涩的命名。反映元素的使用目的是首 选；使用通用名称代表该元素不表特定意义，与其同级元素无异，通常是用于辅助命名；使用功能性或通用的名称可以更适用于文档或模版变化的情况。<br>/<em> 不推荐: 无意义 </em>/ #yee-1901 {}<br>/<em> 不推荐: 与样式相关 </em>/ .button-green {}.clear {}<br>/<em> 推荐: 特殊性 </em>/ #gallery {}#login {}.video {}<br>/<em> 推荐: 通用性 </em>/ .aux {}.alt {}</p>
+<p>常 用命名（多记多查英文单词）：page、wrap、layout、header(head)、footer(foot、ft)、 content(cont)、menu、nav、main、submain、sidebar(side)、logo、banner、 title(tit)、popo(pop)、icon、note、btn、txt、iblock、window(win)、tips等<br>ID和class命名越简短越好，只要足够表达涵义。这样既有助于理解，也能提高代码效率。<br>/<em> 不推荐 </em>/ #navigation {}.atr {}<br>/<em> 推荐 </em>/ #nav {}.author {}</p>
+<p>类型选择器避免同时使用标签、ID和class作为定位一个元素选择器；从性能上考虑也应尽量减少选择器的层级。<br>/<em> 不推荐 </em>/ul#example {}div.error {}<br>/<em> 推荐 </em>/#example {}.error {}</p>
+<p>命名时需要注意的点：<br>规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或 _<br>命名避免使用中文拼音，应该采用更简明有语义的英文单词进行组合<br>命名注意缩写，但是不能盲目缩写，具体请参见常用的CSS命名规则<br>不允许通过1、2、3等序号进行命名<br>避免class与id重名<br>id用于标识模块或页面的某一个父容器区域，名称必须唯一，不要随意新建id<br>class用于标识某一个类型的对象，命名必须言简意赅。<br>尽可能提高代码模块的复用，样式尽量用组合的方式<br>规则名称中不应该包含颜色（red/blue）、定位（left/right）等与具体显示效果相关的信息。应该用意义命名，而不是样式显示结果命名。</p>
+<p>1、常用id的命名：<br>(1)页面结构<br>容器: container<br>页头：header<br>内容：content/container<br>页面主体：main<br>页尾：footer<br>导航：nav<br>侧栏：sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中：left right center</p>
+<p>(2)导航<br>导航：nav<br>主导航：mainbav<br>子导航：subnav<br>顶导航：topnav<br>边导航：sidebar<br>左导航：leftsidebar<br>右导航：rightsidebar<br>菜单：menu<br>子菜单：submenu<br>标题: title<br>摘要: summary</p>
+<p>(3)功能<br>标志：logo<br>广告：banner<br>登陆：login<br>登录条：loginbar<br>注册：regsiter<br>搜索：search<br>功能区：shop<br>标题：title<br>加入：joinus<br>状态：status<br>按钮：btn<br>滚动：scroll<br>标签页：tab<br>文章列表：list<br>提示信息：msg<br>当前的: current<br>小技巧：tips<br>图标: icon<br>注释：note<br>指南：guild<br>服务：service<br>热点：hot<br>新闻：news<br>下载：download<br>投票：vote<br>合作伙伴：partner<br>友情链接：link<br>版权：copyright</p>
+<p>2、常用class的命名：<br>(1)颜色:使用颜色的名称或者16进制代码,如<br>.red { color: red; }<br>.f60 { color: #f60; }<br>.ff8600 { color: #ff8600; }</p>
+<p>(2)字体大小,直接使用”font+字体大小”作为名称,如<br>.font12px { font-size: 12px; }<br>.font9pt {font-size: 9pt; }</p>
+<p>(3)对齐样式,使用对齐目标的英文名称,如<br>.left { float:left; }<br>.bottom { float:bottom; }</p>
+<p>(4)标题栏样式,使用”类别+功能”的方式命名,如<br>.barnews { }<br>.barproduct { }</p>
+<p>四、书写规范<br>1、排版规范(1)使用4个空格，而不使用tab或者混用空格+tab作为缩进；(2)规则可以写成单行，或者多行，但是整个文件内的规则排版必须统一；单行形式书写风格的排版约束<br>如果是在html中写内联的css，则必须写成单行；<br>每一条规则的大括号 { 前后加空格 ；<br>每一条规则结束的大括号 } 前加空格；<br>属性名冒号之前不加空格，冒号之后加空格；<br>每一个属性值后必须添加分号; 并且分号后空格；<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ；</p>
+<p>多行形式书写风格的排版约束<br>每一条规则的大括号 { 前添加空格;<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ;<br>每一条规则结束的大括号 } 必须与规则选择器的第一个字符对齐 ;<br>属性名冒号之前不加空格，冒号之后加空格;<br>属性值之后添加分号;</p>
+<p>2、属性编写顺序<br>显示属性：display/list-style/position/float/clear …<br>自身属性（盒模型）：width/height/margin/padding/border<br>背景：background<br>行高：line-height<br>文本属性：color/font/text-decoration/text-align/text-indent/vertical-align/white-space/content…<br>其他：cursor/z-index/zoom/overflow<br>CSS3属性：transform/transition/animation/box-shadow/border-radius<br>如果使用CSS3的属性，如果有必要加入浏览器前缀，则按照 -webkit- / -moz- / -ms- / -o- / std的顺序进行添加，标准属性写在最后。<br>链接的样式请严格按照如下顺序添加： a:link -&gt; a:visited -&gt; a:hover -&gt; a:active</p>
+<p>3、规则书写规范<br>使用单引号，不允许使用双引号;<br>每个声明结束都应该带一个分号，不管是不是最后一个声明;<br>除16进制颜色和字体设置外，CSS文件中的所有的代码都应该小写;<br>除了重置浏览器默认样式外，禁止直接为html tag添加css样式设置;<br>每一条规则应该确保选择器唯一，禁止直接为全局.nav/.header/.body等类设置属性;</p>
+<p>4、代码性能优化<br>合并margin、padding、border的-left/-top/-right/-bottom的设置，尽量使用短名称。<br>选择器应该在满足功能的基础上尽量简短，减少选择器嵌套，查询消耗。但是一定要避免覆盖全局样式设置。<br>注意选择器的性能，不要使用低性能的选择器。<br>禁止在css中使用*选择符。<br>除非必须，否则，一般有class或id的，不需要再写上元素对应的tag。<br>0后面不需要单位，比如0px可以省略成0，0.8px可以省略成.8px。<br>如果是16进制表示颜色，则颜色取值应该大写。<br>如果可以，颜色尽量用三位字符表示，例如#AABBCC写成#ABC 。<br>如果没有边框时，不要写成border:0，应该写成border:none 。<br>尽量避免使用AlphaImageLoader 。<br>在保持代码解耦的前提下，尽量合并重复的样式。<br>background、font等可以缩写的属性，尽量使用缩写形式 。</p>
+<p>5、CSS Hack的使用<br>请不用动不动就使用浏览器检测和CSS Hacks，先试试别的解决方法吧！考虑到代码高效率和易管理，虽然这两种方法能快速解决浏览器解析差异，但应被视为最后的手段。在长期的项目中，允许使用hack只会带来更多的hack，你越是使用它，你越是会依赖它！<br>推荐使用下面的：<br>[图片上传中。。。（1）]6、字体规则<br>为了防止文件合并及编码转换时造成问题，建议将样式中文字体名字改成对应的英文名字，如：黑体(SimHei) 宋体(SimSun) 微软雅黑 (Microsoft Yahei，几个单词中间有空格组成的必须加引号)<br>字体粗细采用具体数值，粗体bold写为700，正常normal写为400<br>font-size必须以px或pt为单位，推荐用px（注：pt为打印版字体大小设置），不允许使用xx-small/x-small/small/medium/large/x-large/xx-large等值<br>为了对font-family取值进行统一，更好的支持各个操作系统上各个浏览器的兼容性，font-family不允许在业务代码中随意设置</p>
+<p>五、其他规范<br>不要轻易改动全站级CSS和通用CSS库。改动后，要经过全面测试。<br>避免使用filter<br>避免在CSS中使用expression<br>避免过小的背景图片平铺。<br>尽量不要在CSS中使用!important<br>绝对不要在CSS中使用”*”选择符<br>层级(z-index)必须清晰明确，页面弹窗、气泡为最高级（最高级为999），不同弹窗气泡之间可在三位数之间调整；普通区块为10-90内10的倍数；区块展开、弹出为当前父层级上个位增加，禁止层级间盲目攀比。<br>背景图片请尽可能使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按照模块、业务、页面来划分均可。</p>
+<p>六、测试规范<br>1、了解浏览器特效支持为了页面性能考虑，如果浏览器不支持CSS3相关属性的，则该浏览器的某些特效将不再支持，属性的支持情况如下表所示（Y为支持，N为不支持）<br>[图片上传中。。。（2）]2、 设定浏览器支持标准[图片上传中。。。（3）]<br>A级－交互和视觉完全符全设计的要求<br>B级－视觉上允许有所差异，但不破坏页面的整体效果<br>C级－可忽略设计上的细节，但不防碍使用</p>
+<p>3、常用样式测试工具W3C CSS validator：<a href="http://jigsaw.w3.org/css-validator/" target="_blank" rel="external">http://jigsaw.w3.org/css-validator/</a><br>CSS Lint：<a href="http://csslint.net/CSS" target="_blank" rel="external">http://csslint.net/CSS</a> Usage：<a href="https://addons.mozilla.org/en-us/firefox/addon/css-usage/" target="_blank" rel="external">https://addons.mozilla.org/en-us/firefox/addon/css-usage/</a></p>
 
       
 
@@ -445,11 +464,33 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html/" class="article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/菜单循环-金字塔-函数重载-递归-闰年判断/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/Html/【命名规范--学习和优化】/">展开全文 >></a>
         </p>
       
 
@@ -479,76 +520,435 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
 
   
-    <article id="post-C语言/枚举-时间-判断-选择-菜单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/navigation和NavigationControllerDelegate的文档说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/navigation和NavigationControllerDelegate的文档说明/">navigation和NavigationControllerDelegate的文档说明</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/navigation和NavigationControllerDelegate的文档说明/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#include<iostream></iostream></p>
-<p>#include<time.h></time.h></p>
-<p>#include<ctime>    //调用clock_t函数</ctime></p>
-<p>#include<cstdlib>  //调用rund（）函数</cstdlib></p>
-<p>using namespace std;</p>
-<p>enum Color{BLACK,WHITE,BLUE=100,RED};    //枚举：定义新变量</p>
-<p>main()</p>
-<p>{</p>
-<p>clock_t start,finish;</p>
-<p>   double totaltime;</p>
-<p>   start=clock();<br>//时间函数</p>
-<p>/*int j;</p>
-<p>int i;</p>
-<p>char ch;</p>
-<p>cout&lt;&lt;”请输入学生成绩判断成绩等级。”&lt;&lt;endl;</p>
-<p>loop:cin&gt;&gt;i;</p>
-<p>for(j=1;j&lt;1000;j++)</p>
-<p>{</p>
-<p>if(i&gt;100 || i&lt;0)</p>
-<p>{</p>
-<p>cout&lt;&lt;”成绩输入错误，请重新输入！”&lt;&lt;endl;</p>
-<p>goto loop;         // goto loop : 分号 指到达loop处</p>
+        <p>iOS开发UINavigation系列四——导航控制器UINavigationController<br>一、引言<br>二、导航控制器的创建和controller的管理<br>三、导航控制器中的常用方法和属性<br>四、iOS8后导航的新特性<br>五、UINavigationDelegate<br>六、与UIViewController相关<br>iOS开发UINavigation系列四——导航控制器UINavigationController</p>
+<p>一、引言</p>
+<pre><code>在前面的博客中，我么你介绍了UINavigationBar，UINavigationItem和UIToolBar，UINavigationController是将这些控件和UIViewController紧密的结合了起来，使用导航，我们的应用程序层次会更加分明，对controller的管理也更加方便。前几篇博客地址如下：
+</code></pre><p>UINavigationBar：<a href="http://my.oschina.net/u/2340880/blog/527706" target="_blank" rel="external">http://my.oschina.net/u/2340880/blog/527706</a></p>
+<p>UINavigationItem：<a href="http://my.oschina.net/u/2340880/blog/527781" target="_blank" rel="external">http://my.oschina.net/u/2340880/blog/527781</a></p>
+<p>UIToolBar：<a href="http://my.oschina.net/u/2340880/blog/528168" target="_blank" rel="external">http://my.oschina.net/u/2340880/blog/528168</a></p>
+<p>二、导航控制器的创建和controller的管理</p>
+<pre><code>导航控制器是一个堆栈结构，只是其中管理的对象是controller，通过push与pop进行controller的切换，我们有两种方式可以创建导航控制器：
+</code></pre><p>?<br>1<br>2<br>3<br>4<br>//通过一个自定义的导航栏和工具栏创建导航控制器</p>
+<ul>
+<li>(instancetype)initWithNavigationBarClass:(nullable Class)navigationBarClass toolbarClass:(nullable Class)toolbarClass;<br>//使用系统默认的导航栏和工具栏，通过一个根视图创建导航控制器</li>
+<li>(instancetype)initWithRootViewController:(UIViewController *)rootViewController;<br>通过以下方法对视图控制器进行管理操作：</li>
+</ul>
+<p>?<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>//设置管理的视图控制器</p>
+<ul>
+<li>(void)setViewControllers:(NSArray<uiviewcontroller *=""> *)viewControllers animated:(BOOL)animated;<br>//压入新的视图控制器</uiviewcontroller></li>
+<li>(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated;<br>//弹出一个视图控制器 返回的是pop的controller</li>
+<li>(nullable UIViewController *)popViewControllerAnimated:(BOOL)animated;<br>//弹出到某个视图控制器 返回所有pop的controller</li>
+<li>(nullable NSArray<__kindof uiviewcontroller="" *=""> <em>)popToViewController:(UIViewController </em>)viewController animated:(BOOL)animated;<br>//直接pop到根视图控制器，返回所有被pop的controller</__kindof></li>
+<li>(nullable NSArray<__kindof uiviewcontroller="" *=""> *)popToRootViewControllerAnimated:(BOOL)animated;<br>三、导航控制器中的常用方法和属性</__kindof></li>
+</ul>
+<p>?<br>1<br>2<br>3<br>4<br>//返回栈顶的controller<br>@property(nullable, nonatomic,readonly,strong) UIViewController <em>topViewController;<br>//返回显示的controller<br>@property(nullable, nonatomic,readonly,strong) UIViewController </em>visibleViewController;<br>上面两个方法的区别在于，topViewController是返回被push出的最后一个controller，但是如果之后又有present进行莫泰跳转，visibleViewController会返回当前显示的controller。例如A-push-B-present-C，则topViewController会返回B，visibleViewController会返回C。</p>
+<p>?<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>//返回堆栈中所有的controller<br>@property(nonatomic,copy) NSArray<__kindof uiviewcontroller="" *=""> *viewControllers;<br>//设置隐藏导航栏<br>@property(nonatomic,getter=isNavigationBarHidden) BOOL navigationBarHidden;</__kindof></p>
+<ul>
+<li>(void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;<br>//导航栏对象，只读属性<br>@property(nonatomic,readonly) UINavigationBar *navigationBar;<br>//隐藏状态栏<br>@property(nonatomic,getter=isToolbarHidden) BOOL toolbarHidden NS_AVAILABLE_IOS(3_0);</li>
+<li>(void)setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;<br>//状态栏对象<br>@property(null_resettable,nonatomic,readonly) UIToolbar <em>toolbar;<br>//导航中的返回手势对象<br>//iOS7之后，在导航中右划会进行pop操作，设置这个的enable可以控制设置手势是否失效<br>@property(nullable, nonatomic, readonly) UIGestureRecognizer </em>interactivePopGestureRecognizer;<br>四、iOS8后导航的新特性</li>
+</ul>
+<p>?<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>//这个方法是为了iOS方法的命名统一，在导航中，其作用和push一样</p>
+<ul>
+<li>(void)showViewController:(UIViewController <em>)vc sender:(nullable id)sender;<br>//弹出键盘的时候隐藏导航栏<br>@property (nonatomic, readwrite, assign) BOOL hidesBarsWhenKeyboardAppears;<br>//屏幕滑动的时候隐藏导航栏，常用于tableView,上滑隐藏导航栏，下滑显示，带动画效果<br>@property (nonatomic, readwrite, assign) BOOL hidesBarsOnSwipe;<br>//滑动隐藏导航栏的手势<br>@property (nonatomic, readonly, strong) UIPanGestureRecognizer </em>barHideOnSwipeGestureRecognizer;<br>//横屏的时候隐藏导航栏<br>@property (nonatomic, readwrite, assign) BOOL hidesBarsWhenVerticallyCompact;<br>//敲击屏幕可以隐藏与显示导航栏<br>@property (nonatomic, readwrite, assign) BOOL hidesBarsOnTap;<br>//敲击屏幕的手势<br>@property (nonatomic, readonly, assign) UITapGestureRecognizer *barHideOnTapGestureRecognizer;<br>iOS8中增加的这些方法，不得不说着实在用户体验生进了一大步，从中也可以看出apple对于用户体验度的用心。</li>
+</ul>
+<p>五、UINavigationDelegate</p>
+<pre><code>导航控制器还提供了一些代理回调方法，如下：
+</code></pre><p>?<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>//视图将要展示时调用的方法</p>
+<ul>
+<li>(void)navigationController:(UINavigationController <em>)navigationController willShowViewController:(UIViewController </em>)viewController animated:(BOOL)animated;<br>//视图已经展示时调用的方法</li>
+<li>(void)navigationController:(UINavigationController <em>)navigationController didShowViewController:(UIViewController </em>)viewController animated:(BOOL)animated;<br>//设置方法设置导航控制器支持的设备方向</li>
+<li>(UIInterfaceOrientationMask)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController NS_AVAILABLE_IOS(7_0);<br>//这个方法设置导航控制器的首选设备方向</li>
+<li>(UIInterfaceOrientation)navigationControllerPreferredInterfaceOrientationForPresentation:(UINavigationController *)navigationController NS_AVAILABLE_IOS(7_0);<br>//下面两个方法可以对导航的转场动画进行设置</li>
+<li>(nullable id <uiviewcontrollerinteractivetransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id <uiviewcontrolleranimatedtransitioning>) animationController;</uiviewcontrolleranimatedtransitioning></uiviewcontrollerinteractivetransitioning></li>
+<li><p>(nullable id <uiviewcontrolleranimatedtransitioning>)navigationController:(UINavigationController <em>)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController </em>)fromVC toViewController:(UIViewController *)toVC ;<br>六、与UIViewController相关</uiviewcontrolleranimatedtransitioning></p>
+<pre><code>当一个controller被添加到导航中后，系统会为它分配一些属性，如下：
+</code></pre></li>
+</ul>
+<p>?<br>1<br>2<br>3<br>4<br>5<br>6<br>//当前controller对应的导航项<br>@property(nonatomic,readonly,strong) UINavigationItem <em>navigationItem;<br>//push的时候隐藏底部栏，如push后隐藏tabbar<br>@property(nonatomic) BOOL hidesBottomBarWhenPushed;<br>//管理它的导航控制器<br>@property(nullable, nonatomic,readonly,strong) UINavigationController </em>navigationControll</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/navigation和NavigationControllerDelegate的文档说明/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/【ios】常用的数据存储方式和第一次App启动判断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/【ios】常用的数据存储方式和第一次App启动判断/">判断是否是第一次启动，是否加载启动页</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/【ios】常用的数据存储方式和第一次App启动判断/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#判断是否是第一次启动，是否加载启动页<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">在appdelegate.m中找到 “application:didFinishLaunchingWithOptions:”  </div><div class="line">通过NSUserDefaults 来进行判断 </div><div class="line"> if (![[NSUserDefaultsstandardUserDefaults] boolForKey:@&quot;everLaunched&quot;])</div><div class="line"> &#123;         </div><div class="line">     [[NSUserDefaultsstandardUserDefaults]setBool:YESforKey:@&quot;everLaunched&quot;];       </div><div class="line">     [[NSUserDefaultsstandardUserDefaults]setBool:YESforKey:@&quot;firstLaunch&quot;];      </div><div class="line">      NSLog(@&quot;first launch&quot;);  </div><div class="line">    &#125;else &#123;</div><div class="line">          [[NSUserDefaultsstandardUserDefaults]setBool:NOforKey:@&quot;firstLaunch&quot;];          </div><div class="line">       NSLog(@&quot;second launch&quot;);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">  2、在RootViewController的  viewWillAppear:的方法里面进行添加 </div><div class="line"> if ([[NSUserDefaultsstandardUserDefaults] boolForKey:@&quot;firstLaunch&quot;]) &#123; </div><div class="line">         [[NSUserDefaultsstandardUserDefaults]setBool:NOforKey:@&quot;firstLaunch&quot;];  </div><div class="line">         UserGuideController *userGuide = [[[UserGuideControlleralloc] init] autorelease];   </div><div class="line">        [self present ModalViewController:userGuide animated:YES];   </div><div class="line">   &#125;</div><div class="line">  3、在设置页面里面也可以添加同样的视图，让用户可以查看。  </div><div class="line">  4，在沙盒地下设置一个文件，第一次运行的时候就创建这个文件，即运行这个新手指南类似的文件，以后判断是否</div><div class="line">存在这个文件，如果存在则不再创建（即不执行新手指南的展示方法）。</div><div class="line">或者在数据库里做一个标记，标记此文件是否被创建过。          </div><div class="line">自己实践：  </div><div class="line">    if(![[NSUserDefaults standardUserDefaults] boolForKey:@&quot;firstStart&quot;])&#123; </div><div class="line">        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@&quot;firstStart&quot;];  </div><div class="line">       NSLog(@&quot;第一次启动&quot;);  </div><div class="line">       self.window.rootViewController = [[WuNewFeature alloc]init]; </div><div class="line">    &#125;else&#123;</div><div class="line">         NSLog(@&quot;不是第一次启动&quot;); </div><div class="line">        self.window.rootViewController = [[WuNewFeature alloc]init]; </div><div class="line">        MainVC *mainVC = [[MainVC alloc]init];   </div><div class="line">        self.window.rootViewController = [[BaseNavigationController alloc]initWithRootViewController:mainVC];  </div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>ios 常见的四种存储方式</p>
+<p>1.CoreData对象存储<br>2.NSUserDefaults存储配置信息<br>3.文件沙盒存储<br>4.数据库存储 </p>
+<p>1、归档和解档</p>
+<p>常用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">-(void)NSKeyedArchiver</div><div class="line">&#123;</div><div class="line">    NSString *str = @&quot;abc&quot;;</div><div class="line">    NSString *str1 = @&quot;efg&quot;;</div><div class="line">   </div><div class="line">    NSArray *Array = [NSArray arrayWithObjects:str,str1, nil];</div><div class="line">   </div><div class="line">    //保存数据</div><div class="line">    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];</div><div class="line">    NSString *fileName = [path stringByAppendingPathComponent:@&quot;text&quot;];</div><div class="line">    [NSKeyedArchiver archiveRootObject:Array toFile:fileName];</div><div class="line">    NSLog(@&quot;%@=======&quot;,path);</div><div class="line">    NSLog(@&quot;%@&quot;,fileName);</div><div class="line">    //再次赋值，观察数据变化</div><div class="line">    str = @&quot;a&quot;;</div><div class="line">    str1 = @&quot;&quot;;</div><div class="line">   </div><div class="line">    //加载数据</div><div class="line">    NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithFile:fileName];</div><div class="line">    str = [arr objectAtIndex:0];</div><div class="line">    str1 = [arr objectAtIndex:1];</div><div class="line">   </div><div class="line">    NSLog(@&quot;%@&quot;,str);</div><div class="line">    NSLog(@&quot;%@&quot;,str1);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>打印出来的数据应该是第一次输入的内容。因为在解档后，字符串是从文件中读出的</p>
+<p>属性解析：<br>[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];<br>NSDocumentDirectory 打开的目录是文档目录<br>NSDocumentationDirectory: 打开的是/Library/Documentation/的目录。<br>NSDownloadsDirectory 打开的下载目录。<br>因为应用是在沙箱（sandbox）中的，在文件读写权限上受到限制，只能在几个目录下读写文件：<br>Documents：应用中用户数据可以放在这里，iTunes备份和恢复的时候会包括此目录<br>tmp：存放临时文件，iTunes不会备份和恢复此目录，此目录下文件可能会在应用退出后删除<br>Library/Caches：存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出删除<br>详细内容：<br><a href="http://blog.csdn.net/luohai859/article/details/42458307" target="_blank" rel="external">http://blog.csdn.net/luohai859/article/details/42458307</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/【ios】常用的数据存储方式和第一次App启动判断/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/单例模式的初步学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/单例模式的初步学习/">单例模式的初步学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/单例模式的初步学习/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="做这么久的项目，却没有总结的习惯。再这样下去，注定成不了好的程序员"><a href="#做这么久的项目，却没有总结的习惯。再这样下去，注定成不了好的程序员" class="headerlink" title="做这么久的项目，却没有总结的习惯。再这样下去，注定成不了好的程序员"></a>做这么久的项目，却没有总结的习惯。再这样下去，注定成不了好的程序员</h2><p>##什么是单例  ：</p>
+<blockquote>
+<p>Ensure a class only has one instance，and provide a global point of access to。它的主要特点不是根据客户程序调用生成一个新的实例，而是控制某个类型的实例数量-唯一一个。（《设计模式-基于C#的工程化实现及扩展》，王翔）。也就是说，单例模式就是保证在整个应用程序的生命周期中，在任何时刻，被指定的类只有一个实例，并为客户程序提供一个获取该实例的全局访问点。<br>特点：<br>1，一个类只能有一个实例；<br>2，自己创建这个实例；<br>3，整个系统都要使用这个实例。</p>
+</blockquote>
+<p><a href="https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaObjects/CocoaObjects.html#//apple_ref/doc/uid/TP40002974-CH4-SW32" target="_blank" rel="external">苹果官方单例代码：</a>具体点击链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">#import</div><div class="line">&apos;&apos;&apos;</div><div class="line">/* Singleton.h */</div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interfaceSingleton:NSObject</div><div class="line">+(Singleton*)instance;</div><div class="line">@end</div><div class="line">/* Singleton.m */</div><div class="line">#import &quot;Singleton.h&quot;</div><div class="line">staticSingleton*instance=nil;</div><div class="line">@implementationSingleton</div><div class="line">+(Singleton*)instance</div><div class="line">&#123;</div><div class="line">    if(!instance)</div><div class="line">&#123;</div><div class="line">instance=[[superallocWithZone:NULL]init];</div><div class="line">&#125;</div><div class="line">  returnin stance;</div><div class="line">&#125;</div><div class="line">+(id)allocWithZone:(NSZone*)zone</div><div class="line">&#123;</div><div class="line">  return [self instance];</div><div class="line">&#125;</div><div class="line">-(id)copyWithZone:(NSZone*)zone</div><div class="line">&#123;</div><div class="line">return self;</div><div class="line">&#125;</div><div class="line">-(id)init&#123;</div><div class="line">if(instance)</div><div class="line">&#123;</div><div class="line">return instance;</div><div class="line">&#125;</div><div class="line">  self=[super init];</div><div class="line">  return self;</div><div class="line">&#125;</div><div class="line">-(id)retain&#123;</div><div class="line">  return self;</div><div class="line">&#125;</div><div class="line">-(oneway void)release</div><div class="line">&#123;</div><div class="line">  // Do nothing</div><div class="line">&#125;</div><div class="line">-(id)autorelease&#123;</div><div class="line">return self;</div><div class="line">&#125;</div><div class="line">-(NSUInteger)retainCount</div><div class="line">&#123;</div><div class="line">return  NSUIntegerMax;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p><a href="http://blog.csdn.net/liulushi_1988/article/details/8447619" target="_blank" rel="external">参考来源</a></p>
+<p>##为什么用单例：<br>单例的意图是为了保证一个类只有一个实例，并提供访问它的唯一全局访问点。之前一直在想，如果要完成这样的功能，其实全局变量也可以做到，不是吗？只要一个全局变量，然后在各个需要的地方调用这个全局变量即可，必要的时候可以extern，一样也可以完成这样的功能。那么，为什么不直接使用全局变量，而要搞一个单例出来？单例到底比全局变量好在哪儿？首先，全局变量不能保证全局只有一个类的实例，你完全可以声明同一个类的多个实例。当然，如果你注意一点，那么用全局方法保证全局只有一个该类的实例还是可以做到的，但你得很注意，让自己不要在其他地方声明多一个实例。而单例却可以轻松的做到这一点，并能保证全局只有一个该类的实例可被访问。其次，相对来说，使用单例时，代码会显得优雅一些。<br><a href="http://blog.csdn.net/ozdazm/article/details/8538014" target="_blank" rel="external">单例模式与全局变量的详细比较 </a><br><a href="http://wenku.baidu.com/view/5bfb115b87c24028915fc3e5.html?re=view" target="_blank" rel="external">单例模式的其他应用场景</a></p>
+<p>##什么时候用单例<br>单例的使用主要是在需要保证全局只有一个实例可以被访问的情况，比如[系统]日志的输出、[操作系统]的任务管理器等。<br>一些细节<br>通常，我们看到的单例类没有析构函数，那么new出来的[空间]是怎么释放的呢？一般有2种做法，一种是不做任何操作，等最后程序结束时操作系统回收[资源]；另外一种是另外搞一个函数或者类，来处理delete操作。对于像我这样的初级使用学者，还是选择第一种更方便，第二种相对来说需要考虑更多一些。</p>
+</blockquote>
+<p>##两种经典的多线程单例写法</p>
+<pre><code>　一、经典模式：
+publicclass Singleton
+{
+privatestatic Singleton instance;
+private Singleton()
+{}
+publicstatic Singleton GetInstance()
+{
+  if(instance==null)
+{
+  instance=new Singleton();
+}
+  return instance;
+}
+
+
+　　解析如下：
+　　1）首先，该Singleton的构造函数必须是私有的，以保证客户程序不会通过new（）操作产生一个实例，达到实现单例的目的；
+　　2）因为静态变量的生命周期跟整个应用程序的生命周期是一样的，所以可以定义一个私有的静态全局变量instance来保存该类的唯一实例；
+　　3）必须提供一个全局函数访问获得该实例，并且在该函数提供控制实例数量的功能，即通过if语句判断instance是否已被实例化，如果没有则可以同new（）创建一个实例；否则，直接向客户返回一个实例。
+　　在这种经典模式下，没有考虑线程并发获取实例问题，即可能出现两个线程同时获取instance实例，且此时其为null时，就会出现两个线程分别创建了instance，违反了单例规则。因此，需对上面代码修改。
+　　二、多线程下的单例模式
+　　1、Lazy模式
+
+publicclass Singleton
+{
+privatestatic Singleton instance;
+
+private Singleton()
+{
+
+}
+
+publicstatic Singleton GetInstance()
+{
+if(instance==null)
+{
+instance=new Singleton();
+}
+return instance;
+}
+}
+　　上述代码使用了双重锁方式较好地解决了多线程下的单例模式实现。先看内层的if语句块，使用这个语句块时，先进行加锁操作，保证只有一个线程可以访问该语句块，进而保证只创建了一个实例。再看外层的if语句块，这使得每个线程欲获取实例时不必每次都得加锁，因为只有实例为空时（即需要创建一个实例），才需加锁创建，若果已存在一个实例，就直接返回该实例，节省了性能开销。
+　　2、饿汉模式
+　　这种模式的特点是自己主动实例。
+publicclass Singleton
+{
+privatestatic Singleton instance;
+privatestaticobject _lock=newobject();
+
+private Singleton()
+{
+
+}
+
+publicstatic Singleton GetInstance()
+{
+if(instance==null)
+{
+lock(_lock)
+{
+if(instance==null)
+{
+instance=new Singleton();
+}
+}
+}
+return instance;
+}
+}
+
+　　上面使用的readonly关键可以跟static一起使用，用于指定该常量是类别级的，它的初始化交由静态构造函数实现，并可以在运行时编译。在这种模式下，无需自己解决线程安全性问题，CLR会给我们解决。由此可以看到这个类被加载时，会自动实例化这个类，而不用在第一次调用GetInstance()后才实例化出唯一的单例对象。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单例</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/单例模式的初步学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ios-学习笔记/根据经纬度-求距离" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/根据经纬度-求距离/">根据经纬度求距离</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/根据经纬度-求距离/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Info.plist中加入两个缺省没有的字段<br>NSLocationAlwaysUsageDescription<br>NSLocationWhenInUseUsageDescription</p>
+<p>-(void)GetLonAndLat<br>{<br>    //    2. 调用请求：<br>    if ([[[UIDevice currentDevice] systemVersion] doubleValue] &gt; 8.0)<br>    {<br>        //设置定位权限 仅ios8有意义<br>        [self.locationManager requestWhenInUseAuthorization];// 前台定位</p>
+<pre><code>    //  [locationManager requestAlwaysAuthorization];// 前后台同时定位
+}
+
+
+locationManager = [[CLLocationManager alloc] init];    //设置代理
+</code></pre><p>   locationManager.delegate = self;<br>    [CLLocationManager locationServicesEnabled];<br>    locationManager.desiredAccuracy=kCLLocationAccuracyThreeKilometers;<br>    [locationManager startUpdatingLocation];</p>
 <p>}</p>
-<p>else if(i&lt;=100 &amp;&amp; i&gt;90)</p>
-<p>cout&lt;&lt;”此子为甲等！”&lt;&lt;endl;</p>
-<p>else if(i&lt;=90  &amp;&amp; i&gt;80)</p>
-<p>cout&lt;&lt;”此子为乙等！”&lt;&lt;endl;</p>
-<p>else if(i&lt;=80 &amp;&amp; i&gt;70)                           //把你的程序代码插入到这里面</p>
-<p>cout&lt;&lt;”此子为丙等！”&lt;&lt;endl;</p>
-<p>else if(i&lt;=80 &amp;&amp; i&gt;60)</p>
-<p>cout&lt;&lt;”此子为丁等！”&lt;&lt;endl;</p>
-<p>else</p>
-<p>cout&lt;&lt;”此子不及格，请复读！”&lt;&lt;endl;</p>
-<p>}</p>
-<p>cout&lt;&lt;”程序运行1000次的时间！”&lt;&lt;endl;</p>
-<p>  finish=clock();</p>
-<p>  totaltime=(double)(finish-start)/CLOCKS_PER_SEC;</p>
-<p>   cout&lt;&lt;”\n此程序的运行时间为”&lt;&lt;totaltime&lt;&lt;”秒！”&lt;&lt;endl;</p>
-<p>cout&lt;&lt;”输入Y继续判断，输入N退出”&lt;&lt;endl;</p>
-<p>cin &gt;&gt;ch;</p>
-<p>if(ch == ‘y’|| ch == ‘Y’)</p>
-<p>goto loop;</p>
-<p>if(ch  == ‘n’||  ch== ‘N’)</p>
-<p><em>/<br>/</em><br>//叁 枚举   枚举类型为整形</p>
-<p>Color cloth = WHITE;</p>
-<p>Color hat= RED;</p>
-<p>cout &lt;&lt;”Color cloth = “&lt;&lt; cloth &lt;&lt; endl; //输出： color hat = 1        从零开始，依次递增</p>
-<p>cout &lt;&lt;”Color hat = “&lt;&lt; hat &lt;&lt; endl;            //输出： color hat = 101  前一位数+1<br>*/</p>
-<p>//肆 表达式</p>
-<p>//int a,b,c,d;<br>//a=10,b=5;    //逗号表达式<br>//b = (a=5)+(++a);  //求值顺序 ？会由于计算机或编程软件的不同，产生 不同编译结果<br>//c = (a&gt;b)? a:b ;    //三元操作符<br>//cout&lt;&lt;”c = “&lt;&lt;c&lt;&lt;endl;<br>//cout &lt;&lt;”b = “&lt;&lt;b&lt;&lt; endl;<br>//d = (a =0,b=1,c=2,c=3); //× 最好不要这样用，复杂且不易于理解，易犯错。。<br>//cout &lt;&lt;”d = “&lt;&lt;d&lt;&lt;endl;</p>
-<p>/<em>   伍  运算<br>int c,d,e,f;<br>c = 1|2-3;<br>d = 1&amp;2|3;       //先加减后三目运算   &amp; ,|, ^ 优先级依次降低<br>e = 1^2&amp;-3;<br>f = 1|2&3;<br>cout&lt;&lt;”c = “&lt;&lt;c&lt;&lt;endl;<br>cout&lt;&lt;”d = “&lt;&lt;d&lt;&lt;endl;<br>cout&lt;&lt;”e = “&lt;&lt;e&lt;&lt;endl;<br>cout&lt;&lt;”f = “&lt;&lt;f&lt;&lt;endl;
-</em>/<br>//陆 程序语句   ①控制语句 ②表达式语句  ③空语句  ④语句块<br>   //①控制语句 又叫流程控制语句    判断 循环  多路选择语句     if switch case： while  goto loop<br>   //② 表达式语句   进行表达式计算的语句    –i；也算语句  有运算符和结束符<br>   //③空语句  只有分号，没有其他语句<br>   //④语句块 多个语句构成语句块</p>
-<p>/<em>   switch 选择语句<br>int s;<br>cout&lt;&lt;”1–good moring”&lt;<endl; cout<<"2--good="" afternoon"<<endl;="" cout<<"3--good="" evering"<<endl;="" cout<<"choose="" 1--3"<<endl;="" cin="">&gt;s;<br>switch( s)<br>{<br> case 1:<br> {<br>     int s = 100;<br>   cout&lt;&lt;s&lt;&lt;endl;        //没有break的话进入下一个case：<br> }<br> cout&lt;&lt;”1–good moring”&lt;&lt;endl;<br> case 2:cout&lt;&lt;”2–good afternoon”&lt;&lt;endl;break;<br> case 3:cout&lt;&lt;”3–good evering”&lt;&lt;endl;break;<br> default:cout&lt;&lt;”choose   1–3”&lt;&lt;endl;break;       //缺省态<br>}
- </endl;></em>/<br>/*循环语句</p>
-<p> int total=0;<br> int money;<br>  while(total<500) {="" cout<<"钱还不够500，再给点钱吧！"<<endl;="" cin="">&gt;money;<br> total+=money;<br> if((500-total)&gt;0)<br> cout&lt;&lt;”还差”&lt;&lt;500-total&lt;&lt;”钱”&lt;&lt;endl;<br>  }<br>cout&lt;&lt;”现在有”&lt;&lt;total&lt;&lt;”钱，O(∩_∩)O哈哈~”&lt;&lt;endl;</500)></p>
-<p><em>/<br>/</em> 柒<br>int c = 0;<br>long t = time(NULL);<br>t +=5;<br>while(time(NULL)<t) 在5秒钟数多少数="" {="" cout<<++c<<endl;="" 定时器="" sleep="" }="" *="" int="" n="5" ,i="1;" while(n=""> 0)<br>{<br>long t = time(NULL);<br>t +=1;<br> while(time(NULL)<t) ;="" 每秒输入一个数字，输入5秒="" 定时器="" sleep="" }="" cout<<i++<<endl;="" n--;="" *="" 捌="" int="" i;="" do{="" cout<<"显示菜单"<<endl;="" cout<<"1.上衣"<<endl;="" cout<<"2.裤子"<<endl;="" cout<<"3.袜子"<<endl;="" cout<<"4.鞋子"<<endl;="" cout<<"输入选择"<<endl;="" cin="">&gt;i;<br>}while(i&gt;4|| i&lt;1);           //do while 循环 与菜单的结合，可以先读出菜单，再进行选择<br>switch(i)<br>{</t)></t)></p>
-<p> case 1: cout&lt;&lt;”上衣颜色.”&lt;&lt;endl;break;<br> case 2: cout&lt;&lt;”裤子颜色”&lt;&lt;endl;break;<br> case 3: cout&lt;&lt;”袜子颜色”&lt;&lt;endl;break;<br> case 4: cout&lt;&lt;”鞋子颜色”&lt;&lt;endl;break;<br> default: break;<br>}<br>  */</p>
-<p>  /<em>玖<br>  int sq,total;<br>  for(;;)       //   break 仅在循环和switch 中有用。反复循环，直到输入0，退出<br>  {<br>   cin&gt;&gt;sq;<br>   total = sq</em>sq;<br>   if(total==0)<br>   break;<br>   cout&lt;<sq<<"的平方为"<<total<<endl; }="" *="" *int="" i="1,n;" cout<<"班级有几名同学"<<endl;="" cin="">&gt;n;<br>  int math[n],total=0;<br>  for(i;i<n+1;i++) 循环n+1="" -i="" 次="" {="" cout<<"输入数学成绩"<<endl;="" cin="">&gt;math[i];<br>  total= math[i]+total;<br>  cout&lt;&lt;”第”&lt;&lt;i&lt;&lt;”同学的成绩为：”&lt;&lt;math[i]&lt;&lt;endl;<br>  }</n+1;i++)></sq<<"的平方为"<<total<<endl;></p>
-<p>  cout&lt;&lt;n&lt;&lt;”名同学的总成绩为:”&lt;&lt;total&lt;&lt;endl;<br>  cout&lt;&lt;n&lt;&lt;”名同学的平均成绩是：”&lt;&lt;total/n&lt;&lt;endl;<br>   */</p>
-<p>  /<em> 、拾<br>   int a,b,table;<br>   for(a=1;a&lt;10;a++)<br>   {<br>    for(b=1;b&lt;=a;b++)<br>    cout&lt;&lt;b&lt;&lt;”</em>“&lt;<a<<"="<<a*b<<" ";="" 九九乘法表="" 第二个for循环="" b<="a" cout<<"\n"<<endl;="" }="" *="" int="" j="1;" for="" (int="" i="1;" <="9;" )="" {="" cout<<j<<"*"<<i<<"="<<i * j<<" if="" (j="">= i)<br>   {<br>     cout&lt;&lt;”\n”&lt;&lt;endl;<br>                j = 1;<br>                i++;                    //仅使用一个for循环。<br>            }else{<br>                j++;<br>            }</a<<"="<<a*b<<"></p>
-<p>  }<br>*/</p>
-<pre><code>/*for(int i=0;i&lt;10;i++)
- cout&lt;&lt;rand()%100&lt;&lt;endl;            //需要头文件#include&lt;cstdlib&gt;
-    */
-</code></pre><p>   finish=clock();<br>   totaltime=(double)(finish-start)/CLOCKS_PER_SEC;<br>   cout&lt;&lt;”\n此程序的运行时间为”&lt;&lt;totaltime&lt;&lt;”秒！”&lt;&lt;endl;<br>return 0;</p>
+<p>-(void)locationManager:(CLLocationManager <em>)manager didUpdateLocations:(NSArray&lt;CLLocation </em>&gt; <em>)locations<br>{<br>        CLLocation </em>cl = [locations objectAtIndex:0];<br>       self.loX  = [[NSString stringWithFormat:@”%f”,cl.coordinate.longitude] doubleValue];<br>       self.LoY  = [[NSString stringWithFormat:@”%f”,cl.coordinate.latitude] doubleValue];</p>
+<p>}<br>//-(void)locationManager:(CLLocationManager <em>)manager didUpdateToLocation:(CLLocation </em>)newLocation fromLocation:(CLLocation <em>)oldLocation{<br>//    NSLog(@”%f,%f”,newLocation.coordinate.latitude,newLocation.coordinate.longitude);<br>//}<br>-(void)locationManager:(CLLocationManager </em>)manager didFailWithError:(NSError *)error{<br>    NSLog(@”%@”,error);<br>}</p>
+<p>/**</p>
+<ul>
+<li>计算距离<br>*</li>
+<li>@param lat1 本地距离  纬度</li>
+<li>@param lat2 本地距离  纬度</li>
+<li>@param lng1 其他距离  经度</li>
+<li>@param lng2 其他距离  经度<br>*</li>
+<li>@return<br>*/</li>
+</ul>
+<p>+(double)distanceBetweenOrderBy:(double)lat1 :(double)lat2 :(double)lng1 :(double)lng2{<br>    double dd = M_PI/180;<br>    double x1=lat1<em>dd,x2=lat2</em>dd;<br>    double y1=lng1<em>dd,y2=lng2</em>dd;<br>    double R = 6371004;<br>    double distance = (2<em>R</em>asin(sqrt(2-2<em>cos(x1)</em>cos(x2)<em>cos(y1-y2) - 2</em>sin(x1)<em>sin(x2))/2)) / 1000;<br>    //km  返回<br>    //     return  distance</em>1000;<br>      NSLog(@”distance距离%f; lat1= %f; lat2 =%f; lng1 = %f; lng2 = %f “,distance,lat1,lat2,lng1,lng2);//一个纬度间距离是111km<br>    //返回 m<br>    return   distance;</p>
 <p>}</p>
 
       
@@ -558,11 +958,33 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/枚举-时间-判断-选择-菜单/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/根据经纬度-求距离/">展开全文 >></a>
         </p>
       
 
@@ -592,66 +1014,130 @@ cout&lt;&lt;&quot;&quot;&lt;&lt;endl;             //打印换行部分
 
 
   
-    <article id="post-C语言/百科图片IN词微百科科普汇名人百科有奖任务百科商城" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/堆和栈的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/堆和栈的区别/">堆栈的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/堆和栈的区别/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>递归算法</p>
-<p>开放分类：数学术语术语科学自然科学计算机术语</p>
-<p>递归算法是把问题转化为规模缩小了的同类问题的子问题。然后递归调用函数（或过程）来表示问题的解。</p>
-<p>编辑摘要</p>
-<p>目录</p>
-<p>1概述<br>2汉诺塔C语言递归算法<br>递归算法 - 概述</p>
-<p>程序调用自身的编程技巧称为递归（ recursion）。<br>一个过程或函数在其定义或说明中又直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。用递归思想写出的程序往往十分简洁易懂。<br>一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。<br>注意：<br>(1) 递归就是在过程或函数里调用自身;<br>(2) 在使用递增归策略时，必须有一个明确的递归结束条件，称为递归出口，否则将无限进行下去（死锁）。</p>
-<p>递归算法一般用于解决三类问题：<br>(1)数据的定义是按递归定义的。(Fibonacci函数)<br>(2)问题解法按递归算法实现。(回溯)<br>(3)数据的结构形式是按递归定义的。(树的遍历，图的搜索)</p>
-<p>递归的缺点：<br>递归算法解题的运行效率较低。在递归调用的过程当中系统为每一层的返回点、局部量等开辟了栈来存储。递归次数过多容易造成栈溢出等。</p>
-<p>递归算法 - 汉诺塔C语言递归算法</p>
-<p>递归算法 递归算法图册<br>汉 诺（Hanoi）塔问题：古代有一个梵塔，塔内有三个座A、B、C，A座上有64个盘子，盘子大小不等，大的在下，小的在上(如图)。有一个和尚想把这 64个盘子从A座移到C座，但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。在移动过程中可以利用B座，要求 打印移动的步骤。<br>这个问题在盘子比较多的情况下，很难直接写出移动步骤。我们可以先分析盘子比较少的情况。假定盘子从大向小依次为：盘子1，盘子2，…，盘子64。<br>如果只有一个盘子，则不需要利用B座，直接将盘子从A移动到C。<br>如果有2个盘子，可以先将盘子1上的盘子2移动到B；将盘子1移动到c；将盘子2移动到c。这说明了：可以借助B将2个盘子从A移动到C，当然，也可以借助C将2个盘子从A移动到B。<br>如果有3个盘子，那么根据2个盘子的结论，可以借助c将盘子1上的两个盘子从A移动到B；将盘子1从A移动到C，A变成空座；借助A座，将B上的两个盘子移动到C。这说明：可以借助一个空座，将3个盘子从一个座移动到另一个。<br>如果有4个盘子，那么首先借助空座C，将盘子1上的三个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的三个盘子移动到C。<br>上述的思路可以一直扩展到64个盘子的情况：可以借助空座C将盘子1上的63个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的63个盘子移动到C。<br>根据以上的分析，不难写出程序：<br>void Move(char chSour,char chDest)<br>{<br>    /<em>打印移动步骤</em>/<br>    printf(“\nMove the top plate of %c to %c”,chSour,chDest);<br>}<br>Hanoi(int n,char chA,char chB,char chC)<br>{<br>    /<em>检查当前的盘子数量是否为1</em>/<br>    /<em>盘子数量为1，打印结果后，不再继续进行递归</em>/<br>    if(n==1)Move(chA,chC);<br>    /<em>盘子数量大于1，继续进行递归过程</em>/<br>    else<br>    {<br>        Hanoi(n-1,chA,chC,chB);<br>        Move(chA,chC);<br>        Hanoi(n-1,chB,chA,chC);<br>    }<br>}<br>main()<br>{<br>    int n ;<br>    /<em>输入盘子的数量</em>/<br>    printf(“\nPlease input number of the plates: “);<br>    scanf(“%d”,&amp;n);<br>    printf(“\nMoving %d plates from A to C:”,n);</p>
-<pre><code>/*调用函数计算，并打印输出结果*/
-Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
-</code></pre><p>}</p>
-<p>如果n为4，程序输出结果为：<br>Moving 4 plates from A to C:<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of C to A<br>Move the top plate of C to B<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of B to A<br>Move the top plate of C to A<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C</p>
-<p>相关文献</p>
-<p>万方数据期刊论文一类多折叠环面混沌吸引子 - 物理学报 - 200453 ( 7 )<br>万方数据期刊论文基于二叉树思想的任意多边形三角剖分递归算法 - 武汉大学学报(信息科学版) - 200227 ( 5 )<br>万方数据期刊论文基于受控递归算法的时频分析 - 电子科技大学学报 - 201140 ( 5 )<br>经典计算机算法介绍</p>
-<p>算法是计算机科学中一门古老而常新的学科，就像一个人的思维能力一样，其重要性对于计算机性能的分析、应用与改进有着至不言而喻的地位。而随着计 算机科学技术的发展，新的算法也随着新的应用渐渐出现，但总有一些算法由于其本身具有的特点以及对计算机科学发展做出的卓越贡献而成为经典，本任务就是要 介绍这些经典算法。<br>Dijkstra算法<br>哈希表算法<br>贪婪算法<br>随机化算法<br>排序算法    分治算法<br>最优二叉树算法<br>回溯算法<br>舍伍德算法<br>拉斯维加斯算法    分支界限算法<br>递归算法<br>统计算法<br>动态规划算法<br>流水线算法    最大流<br>最小费用流<br>蒙特卡洛算法<br>搜索算法<br>单纯行算法<br>附图</p>
-<p> 递归算<br>递归算法</p>
-<p>点击认领<br>开放分类：数学术语术语科学自然科学计算机术语</p>
-<p>递归算法是把问题转化为规模缩小了的同类问题的子问题。然后递归调用函数（或过程）来表示问题的解。</p>
-<p>编辑摘要</p>
-<p>目录</p>
-<p>1概述<br>2汉诺塔C语言递归算法<br>递归算法 - 概述</p>
-<p>程序调用自身的编程技巧称为递归（ recursion）。<br>一个过程或函数在其定义或说明中又直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。用递归思想写出的程序往往十分简洁易懂。<br>一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。<br>注意：<br>(1) 递归就是在过程或函数里调用自身;<br>(2) 在使用递增归策略时，必须有一个明确的递归结束条件，称为递归出口，否则将无限进行下去（死锁）。</p>
-<p>递归算法一般用于解决三类问题：<br>(1)数据的定义是按递归定义的。(Fibonacci函数)<br>(2)问题解法按递归算法实现。(回溯)<br>(3)数据的结构形式是按递归定义的。(树的遍历，图的搜索)</p>
-<p>递归的缺点：<br>递归算法解题的运行效率较低。在递归调用的过程当中系统为每一层的返回点、局部量等开辟了栈来存储。递归次数过多容易造成栈溢出等。</p>
-<p>递归算法 - 汉诺塔C语言递归算法</p>
-<p>递归算法 递归算法图册<br>汉 诺（Hanoi）塔问题：古代有一个梵塔，塔内有三个座A、B、C，A座上有64个盘子，盘子大小不等，大的在下，小的在上(如图)。有一个和尚想把这 64个盘子从A座移到C座，但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。在移动过程中可以利用B座，要求 打印移动的步骤。<br>这个问题在盘子比较多的情况下，很难直接写出移动步骤。我们可以先分析盘子比较少的情况。假定盘子从大向小依次为：盘子1，盘子2，…，盘子64。<br>如果只有一个盘子，则不需要利用B座，直接将盘子从A移动到C。<br>如果有2个盘子，可以先将盘子1上的盘子2移动到B；将盘子1移动到c；将盘子2移动到c。这说明了：可以借助B将2个盘子从A移动到C，当然，也可以借助C将2个盘子从A移动到B。<br>如果有3个盘子，那么根据2个盘子的结论，可以借助c将盘子1上的两个盘子从A移动到B；将盘子1从A移动到C，A变成空座；借助A座，将B上的两个盘子移动到C。这说明：可以借助一个空座，将3个盘子从一个座移动到另一个。<br>如果有4个盘子，那么首先借助空座C，将盘子1上的三个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的三个盘子移动到C。<br>上述的思路可以一直扩展到64个盘子的情况：可以借助空座C将盘子1上的63个盘子从A移动到B；将盘子1移动到C，A变成空座；借助空座A，将B座上的63个盘子移动到C。<br>根据以上的分析，不难写出程序：<br>void Move(char chSour,char chDest)<br>{<br>    /<em>打印移动步骤</em>/<br>    printf(“\nMove the top plate of %c to %c”,chSour,chDest);<br>}<br>Hanoi(int n,char chA,char chB,char chC)<br>{<br>    /<em>检查当前的盘子数量是否为1</em>/<br>    /<em>盘子数量为1，打印结果后，不再继续进行递归</em>/<br>    if(n==1)Move(chA,chC);<br>    /<em>盘子数量大于1，继续进行递归过程</em>/<br>    else<br>    {<br>        Hanoi(n-1,chA,chC,chB);<br>        Move(chA,chC);<br>        Hanoi(n-1,chB,chA,chC);<br>    }<br>}<br>main()<br>{<br>    int n ;<br>    /<em>输入盘子的数量</em>/<br>    printf(“\nPlease input number of the plates: “);<br>    scanf(“%d”,&amp;n);<br>    printf(“\nMoving %d plates from A to C:”,n);</p>
-<pre><code>/*调用函数计算，并打印输出结果*/
-Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
-</code></pre><p>}</p>
-<p>如果n为4，程序输出结果为：<br>Moving 4 plates from A to C:<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of C to A<br>Move the top plate of C to B<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C<br>Move the top plate of B to A<br>Move the top plate of C to A<br>Move the top plate of B to C<br>Move the top plate of A to B<br>Move the top plate of A to C<br>Move the top plate of B to C</p>
-<p>相关文献</p>
-<p>万方数据期刊论文一类多折叠环面混沌吸引子 - 物理学报 - 200453 ( 7 )<br>万方数据期刊论文基于二叉树思想的任意多边形三角剖分递归算法 - 武汉大学学报(信息科学版) - 200227 ( 5 )<br>万方数据期刊论文基于受控递归算法的时频分析 - 电子科技大学学报 - 201140 ( 5 )<br>经典计算机算法介绍</p>
-<p>算法是计算机科学中一门古老而常新的学科，就像一个人的思维能力一样，其重要性对于计算机性能的分析、应用与改进有着至不言而喻的地位。而随着计 算机科学技术的发展，新的算法也随着新的应用渐渐出现，但总有一些算法由于其本身具有的特点以及对计算机科学发展做出的卓越贡献而成为经典，本任务就是要 介绍这些经典算法。<br>Dijkstra算法<br>哈希表算法<br>贪婪算法<br>随机化算法<br>排序算法    分治算法<br>最优二叉树算法<br>回溯算法<br>舍伍德算法<br>拉斯维加斯算法    分支界限算法<br>递归算法<br>统计算法<br>动态规划算法<br>流水线算法    最大流<br>最小费用流<br>蒙特卡洛算法<br>搜索算法<br>单纯行算法<br>附图</p>
-<p>为本词条添加视频和组图相关影像</p>
-<p>开放分类：我来补充<br>数学术语 术语 科学 自然科学 计算机术语 计算机科学技术名词 计算机算法 计算机编程<br>互动百科的词条（含所附图片）系由网友上传，如果涉嫌侵权，请与客服联系，我们将按照法律之相关规定及时进行处理。未经许可，禁止商业网站等复制、抓取本站内容；合理使用者，请注明来源于www.baike.com。</p>
-<p>欢迎加入互动百科大家庭，和互动百科超过770万专业认证智愿者一起，分享你的真知灼见。</p>
-<p>如果你对大家的讨论有兴趣，可以点击“赞”和“鄙视”的大拇指，来表达你的看法。</p>
-<p>讨论区的精彩内容，会被用户顶到最上面，让更多人感受到大家的推荐，你注意到了吗？</p>
-<p>登录后使用互动百科的服务，将会得到个性化的提示和帮助，还有机会和770多万专业认证智愿者沟通。</p>
-<p>互动百科用户登录<br>您也可以使用以下网站账号登录：<br>人人网账号登录<br>QQ账号登录<br>新浪微博账户登录<br>此词条还可添加  信息模块<br> 递归算法图册<br>WIKI热度</p>
-<p>该词条未被认领，赶快点击认领吧！<br>编辑次数：13次 历史版本<br>参与编辑人数：11位<br>最近更新时间：2013-11-13 10:48:11<br>贡献光荣榜</p>
-<p>更多<br>创建者：不*死鸟<br>我爱你的眼睛</p>
-<p>中国语言文学副教授<br>無國界</p>
-<p>大学生<br>hzwjh</p>
-<p>大学生<br>绿领巾</p>
-<p>中国语言文学讲师<br>宫华</p>
-<p>大学生<br>相关词条</p>
-<p>编辑<br>JDBC<br>java数据库连接<br>plascal教程<br>递归可枚举集<br>EOS<br>PHP<br>可计算性理论<br>nesC<br>anaconda<br>pascal语言教…<br>分类热词</p>
-<p>函数<br>中央处理器<br>五角星<br>物理学<br>运算放大器<br>质量<br>圆周率<br>三角函数<br>压力<br>相对论<br>请提意见<br>帮助中心<br>服务热线：86-10-62303127（9:00-21:00）<br>关于我们<br>新闻中心<br>服务协议<br>互动合作<br>友情链接<br>招聘信息<br>联系我们<br>站点地图<br>知识官网<br>百科营销<br>互动在线 版权所有 Powered by HDwiki © 2015</p>
-<p>编辑<br>分享<br>赞</p>
-<p>扫描二维码用手机浏览词条<br>保存二维码可印刷到宣传品<br>你感兴趣</p>
-<p>JDBC JDBC<br>递归可枚举集 递归可枚举集<br>EOS EOS<br>PHP PHP<br>关闭</p>
+        <p> 一、预备知识—程序的内存分配 </p>
+<p>  一个由C/C++编译的程序占用的内存分为以下几个部分 </p>
+<p>  1、栈区（stack）—   由编译器自动分配释放   ，存放函数的参数值，局部变量的值等。其 </p>
+<p>  操作方式类似于数据结构中的栈。 </p>
+<p>  2、堆区（heap）   —   一般由程序员分配释放，   若程序员不释放，程序结束时可能由OS回 </p>
+<p>  收   。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表，呵呵。 </p>
+<p>  3、全局区（静态区）（static）—，全局变量和静态变量的存储是放在一块的，初始化的 </p>
+<p>  全局变量和静态变量在一块区域，   未初始化的全局变量和未初始化的静态变量在相邻的另 </p>
+<p>  一块区域。   -   程序结束后由系统释放。 </p>
+<p>  4、文字常量区   —常量字符串就是放在这里的。   程序结束后由系统释放 </p>
+<p>  5、程序代码区—存放函数体的二进制代码。 </p>
+<p>  二、例子程序   </p>
+<p>  这是一个前辈写的，非常详细   </p>
+<p>  //main.cpp   </p>
+<p>  int   a   =   0;   全局初始化区   </p>
+<p>  char   *p1;   全局未初始化区   </p>
+<p>  main()   </p>
+<p>  {   </p>
+<p>  int   b;   栈   </p>
+<p>  char   s[]   =   “abc”;   栈   </p>
+<p>  char   *p2;   栈   </p>
+<p>  char   *p3   =   “123456”;   123456/0在常量区，p3在栈上。   </p>
+<p>  static   int   c   =0；   全局（静态）初始化区   </p>
+<p>  p1   =   (char   *)malloc(10);   </p>
+<p>  p2   =   (char   *)malloc(20);   </p>
+<p>  分配得来得10和20字节的区域就在堆区。   </p>
+<p>  strcpy(p1,   “123456”);   123456/0放在常量区，编译器可能会将它与p3所指向的”123456” </p>
+<p>  优化成一个地方。   </p>
+<p>  }   </p>
+<p>  二、堆和栈的理论知识   </p>
+<p>  2.1申请方式   </p>
+<p>  stack:   </p>
+<p>  由系统自动分配。   例如，声明在函数中一个局部变量   int   b;   系统自动在栈中为b开辟空 </p>
+<p>  间   </p>
+<p>  heap:   </p>
+<p>  需要程序员自己申请，并指明大小，在c中malloc函数   </p>
+<p>  如p1   =   (char   *)malloc(10);   </p>
+<p>  在C++中用new运算符   </p>
+<p>  如p2   =   new   char[10];   </p>
+<p>  但是注意p1、p2本身是在栈中的。   </p>
+<p>  2.2   </p>
+<p>  申请后系统的响应   </p>
+<p>  栈：只要栈的剩余空间大于所申请空间，系统将为程序提供内存，否则将报异常提示栈溢 </p>
+<p>  出。   </p>
+<p>  堆：首先应该知道操作系统有一个记录空闲内存地址的链表，当系统收到程序的申请时， </p>
+<p>  会遍历该链表，寻找第一个空间大于所申请空间的堆结点，然后将该结点从空闲结点链表 </p>
+<p>  中删除，并将该结点的空间分配给程序，另外，对于大多数系统，会在这块内存空间中的 </p>
+<p>  首地址处记录本次分配的大小，这样，代码中的delete语句才能正确的释放本内存空间。 </p>
+<p>  另外，由于找到的堆结点的大小不一定正好等于申请的大小，系统会自动的将多余的那部 </p>
+<p>  分重新放入空闲链表中。   </p>
+<p>  2.3申请大小的限制   </p>
+<p>  栈：在Windows下,栈是向低地址扩展的数据结构，是一块连续的内存的区域。这句话的意 </p>
+<p>  思是栈顶的地址和栈的最大容量是系统预先规定好的，在WINDOWS下，栈的大小是2M（也有 </p>
+<p>  的说是1M，总之是一个编译时就确定的常数），如果申请的空间超过栈的剩余空间时，将 </p>
+<p>  提示overflow。因此，能从栈获得的空间较小。   </p>
+<p>  堆：堆是向高地址扩展的数据结构，是不连续的内存区域。这是由于系统是用链表来存储 </p>
+<p>  的空闲内存地址的，自然是不连续的，而链表的遍历方向是由低地址向高地址。堆的大小 </p>
+<p>  受限于计算机系统中有效的虚拟内存。由此可见，堆获得的空间比较灵活，也比较大。   </p>
+<p>  2.4申请效率的比较：   </p>
+<p>  栈由系统自动分配，速度较快。但程序员是无法控制的。   </p>
+<p>  堆是由new分配的内存，一般速度比较慢，而且容易产生内存碎片,不过用起来最方便.   </p>
+<p>  另外，在WINDOWS下，最好的方式是用VirtualAlloc分配内存，他不是在堆，也不是在栈是 </p>
+<p>  直接在进程的地址空间中保留一块内存，虽然用起来最不方便。但是速度快，也最灵活。 </p>
+<p>  2.5堆和栈中的存储内容   </p>
+<p>  栈：   在函数调用时，第一个进栈的是主函数中后的下一条指令（函数调用语句的下一条可 </p>
+<p>  执行语句）的地址，然后是函数的各个参数，在大多数的C编译器中，参数是由右往左入栈 </p>
+<p>  的，然后是函数中的局部变量。注意静态变量是不入栈的。   </p>
+<p>  当本次函数调用结束后，局部变量先出栈，然后是参数，最后栈顶指针指向最开始存的地 </p>
+<p>  址，也就是主函数中的下一条指令，程序由该点继续运行。   </p>
+<p>  堆：一般是在堆的头部用一个字节存放堆的大小。堆中的具体内容由程序员安排。   </p>
+<p>  2.6存取效率的比较   </p>
+<p>  char   s1[]   =   “aaaaaaaaaaaaaaa”;   </p>
+<p>  char   *s2   =   “bbbbbbbbbbbbbbbbb”;   </p>
+<p>  aaaaaaaaaaa是在运行时刻赋值的；   </p>
+<p>  而bbbbbbbbbbb是在编译时就确定的；   </p>
+<p>  但是，在以后的存取中，在栈上的数组比指针所指向的字符串(例如堆)快。    </p>
+<p>  比如：   </p>
+<p>  #include   </p>
+<p>  void   main()   </p>
+<p>  {   </p>
+<p>  char   a   =   1;   </p>
+<p>  char   c[]   =   “1234567890”;   </p>
+<p>  char   *p   =”1234567890”;   </p>
+<p>  a   =   c[1];   </p>
+<p>  a   =   p[1];   </p>
+<p>  return;   </p>
+<p>  }   </p>
+<p>  对应的汇编代码   </p>
+<p>  10:   a   =   c[1];   </p>
+<p>  00401067   8A   4D   F1   mov   cl,byte   ptr   [ebp-0Fh]   </p>
+<p>  0040106A   88   4D   FC   mov   byte   ptr   [ebp-4],cl   </p>
+<p>  11:   a   =   p[1];   </p>
+<p>  0040106D   8B   55   EC   mov   edx,dword   ptr   [ebp-14h]   </p>
+<p>  00401070   8A   42   01   mov   al,byte   ptr   [edx+1]   </p>
+<p>  00401073   88   45   FC   mov   byte   ptr   [ebp-4],al   </p>
+<p>  第一种在读取时直接就把字符串中的元素读到寄存器cl中，而第二种则要先把指针值读到 </p>
+<p>  edx中，再根据edx读取字符，显然慢了。   </p>
+<p>  2.7小结：   </p>
+<p>  堆和栈的区别可以用如下的比喻来看出：   </p>
+<p>  使用栈就象我们去饭馆里吃饭，只管点菜（发出申请）、付钱、和吃（使用），吃饱了就 </p>
+<p>  走，不必理会切菜、洗菜等准备工作和洗碗、刷锅等扫尾工作，他的好处是快捷，但是自 </p>
+<p>  由度小。   </p>
+<p>  使用堆就象是自己动手做喜欢吃的菜肴，比较麻烦，但是比较符合自己的口味，而且自由 </p>
+<p>  度大。   (经典！)  </p>
 
       
 
@@ -661,10 +1147,21 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/百科图片IN词微百科科普汇名人百科有奖任务百科商城/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/堆和栈的区别/">展开全文 >></a>
         </p>
       
 
@@ -694,12 +1191,48 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
 
 
   
-    <article id="post-C语言/八大排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/项目常用第三方库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/项目常用第三方库/">项目常用第三方库</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/项目常用第三方库/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><a href="http://github.ibireme.com/github/list/ios/" target="_blank" rel="external">app开发必备第三方库</a></p>
+<p><strong>网易新闻</strong><br><a href="https://developer.apple.com/library/ios/samplecode/reachability/Introduction/Intro.html" target="_blank" rel="external">AppleReachability</a>苹果自家的网络监测库，提供block，notification方式判断网络是否链接和链接状态具体例子见<a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">demo</a>。<br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a>ASIHTTPRequest就是一个对CFNetwork API进行了封装，并且使用起来非常简单的一套API，用Objective-C编写，可以很好的应用在Mac OS X系统和iOS平台的应用程序中。ASIHTTPRequest适用于基本的HTTP请求，和基于<a href="http://www.cnblogs.com/loveis715/p/4669091.html" target="_blank" rel="external">REST</a>的服务之间的交互。<a href="http://www.cnblogs.com/dotey/archive/2011/05/10/2041966.html" target="_blank" rel="external">ASIHTTPRequest类库简介和使用说明</a>.</p>
+<p><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a> 一款下拉刷新的第三方控件，在MJ编写一款<a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">MJrefresh</a>后，EGO在使用上不怎么火了，原理是开启线程，实现异步加载数据。否则刷新时会出现卡顿现象。<br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMNSString+HTML</a>谷歌开源的用于过滤HTML标签，没有用过。具体性能不了解<br><a href="https://github.com/nxtbgthng/MGTemplateEngine" target="_blank" rel="external">MGTemplateEngine</a><br><a href="https://github.com/thekarladam/MPOAuth" target="_blank" rel="external">MPOAuth</a><br><a href="http://regexkit.sourceforge.net/RegexKitLite" target="_blank" rel="external">RegexKitLite</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/soffes/ssziparchive" target="_blank" rel="external">SSZipArchive</a><a href="https://github.com/probablycorey/wax" target="_blank" rel="external">wax</a></p>
+<p><strong>Garageband</strong><br><a href="https://sites.google.com/site/murmurhash/" target="_blank" rel="external">MurmurHash</a><br><a href="http://www.libpng.org/pub/png/libpng.html%E2%80%8E" target="_blank" rel="external">libpng</a><br><a href="http://www.zlib.net/" target="_blank" rel="external">zlib</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a> (json-framework)</p>
+<p><strong>iWork三套件</strong><br><a href="http://mokit.sourceforge.net/" target="_blank" rel="external">MOKit</a><br><a href="http://www.boost.org/%E2%80%8E" target="_blank" rel="external">Boost C++ Library</a><br><a href="http://code.google.com/p/protobuf/%E2%80%8E" target="_blank" rel="external">protobuf</a><br><a href="http://glm.g-truc.net/" target="_blank" rel="external">OpenGL Mathematics</a><br><a href="http://www.sqlite.org/" target="_blank" rel="external">SQLite</a><br><a href="http://www.boutell.com/lsm/lsmbyid.cgi/000626" target="_blank" rel="external">cephes math library</a></p>
+<p><strong>Pinterest</strong><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://github.com/jparise/AFHTTPClientLogger" target="_blank" rel="external">AFHttpClientLogger</a><br><a href="https://github.com/facebook/facebook-ios-sdk" target="_blank" rel="external">Facebook SDK</a><br><a href="https://github.com/nicklockwood/iRate" target="_blank" rel="external">iRate</a><br><a href="https://github.com/mikeash/MAKVONotificationCenter" target="_blank" rel="external">MAKVONotificationCenter</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/ldandersen/scifihifi-iphone" target="_blank" rel="external">SFHFKeychainUtils</a><br><a href="https://github.com/soffes/sspulltorefresh" target="_blank" rel="external">SSPullToRefresh</a><br><a href="https://github.com/samvermette/SVProgressHUD" target="_blank" rel="external">SVProgressHUD</a><br><a href="https://github.com/mattt/TTTAttributedLabel" target="_blank" rel="external">TTTAttributedLabel</a><br><a href="https://github.com/mattt/TTTLocalizedPluralString" target="_blank" rel="external">TTTLocalizedPluralString</a><br><a href="https://github.com/jivadevoe/UIAlertView-Blocks" target="_blank" rel="external">UIAlertView-Blocks</a></p>
+<p><strong>多看阅读</strong><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="http://www.freetype.org/" target="_blank" rel="external">FreeType</a><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/flyingdolphinstudio/Objective-Zip" target="_blank" rel="external">Objective-Zip</a><a href="https://code.google.com/p/skia/" target="_blank" rel="external">Skia</a> (Google)<br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a></p>
+<p><strong>淘宝</strong><br><a href="https://github.com/mikeash/MAZeroingWeakRef" target="_blank" rel="external">MAZeroingWeakRef</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/erica/ABContactHelper" target="_blank" rel="external">ABContactHelper</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="https://github.com/robbiehanson/CocoaLumberjack" target="_blank" rel="external">CocoaLumberjack</a><br><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson </a>(json-framework)<br><a href="https://github.com/honcheng/RTLabel" target="_blank" rel="external">RTLabel</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a><br><a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="external">SVPullToRefresh</a><br><a href="https://github.com/facebook/three20" target="_blank" rel="external">three20</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ziparchive</a></p>
+<p><strong>微信</strong><br><a href="https://github.com/cocos2d/cocos2d-iphone" target="_blank" rel="external">cocos2d</a><br><a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="external">EGOTableViewPullRefresh</a><br><a href="https://github.com/facebook/facebook-ios-sdk" target="_blank" rel="external">Facebook iOS SDK</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ziparchive</a></p>
+<p><strong>QQ</strong><br>ASIHTTPRequest<br>FMDB<br>CocoaAsyncSocket<br>JSONKit<br>MBProgressHUD<br>OpenUDID<br>SBJson<br>SVPullToRefresh</p>
+<p><strong>百度地图</strong><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/rnapier/RNCachingURLProtocol" target="_blank" rel="external">RNCachingURLProtocol</a><br><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a></p>
+<p><strong>微博</strong><br><a href="https://github.com/erica/ABContactHelper" target="_blank" rel="external">ABContactHelper</a><br><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a><br><a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="external">ASIHTTPRequest</a><br><a href="https://github.com/danielamitay/DACircularProgress" target="_blank" rel="external">DACircularProgressView</a><br><a href="https://github.com/ddeville/DDProgressView" target="_blank" rel="external">DDProgressView</a><br><a href="https://github.com/Cocoanetics/DTFoundation" target="_blank" rel="external">DTFoundation</a><br><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">fmdb</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://github.com/stig/json-framework" target="_blank" rel="external">SBJson</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/myell0w/MTStatusBarOverlay" target="_blank" rel="external">MTStatusBarOverlay</a><br><a href="https://github.com/ylechelle/OpenUDID" target="_blank" rel="external">OpenUDID</a><br><a href="https://github.com/ldandersen/scifihifi-iphone" target="_blank" rel="external">SFHFKeychainUtils</a></p>
+<p><strong>人人</strong><br><a href="https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="external">cocoaasyncsocket</a><br><a href="http://code.google.com/p/ziparchive/%E2%80%8E" target="_blank" rel="external">ZipArchive</a><br><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">MBProgressHUD</a><br><a href="https://github.com/johnezang/JSONKit" target="_blank" rel="external">JSONKit</a><br><a href="https://code.google.com/p/google-toolbox-for-mac/" target="_blank" rel="external">GTMBase64</a><br><a href="https://github.com/MugunthKumar/MKNetworkKit" target="_blank" rel="external">MKNetworkKit</a><br><a href="https://github.com/HansPinckaers/GrowingTextView" target="_blank" rel="external">HPGrowingTextView</a><br><a href="https://code.google.com/p/zxing/" target="_blank" rel="external">zxing</a> </p>
+<p>#####比较流行的第三方库：</p>
+<p>#####HTTP<br>相比较之下,AFNetworking是目前最优秀的一个了：轻量、易用、使用者多、开发者有在积极维护。在AFN出现之前，这个角色是由 ASIHTTPRequest扮演的，只是到现在年久失修了。关于AFN和ASI的对比，这里有一篇不错的文章<a href="http://www.infoq.com" target="_blank" rel="external">http://www.infoq.com</a> /cn/articles/afn_vs_asi。除此之外，MKNetworkKit和RestKit也有一定的使用者。</p>
+<p>#####Socket<br>CocoaAsyncSocket无疑是目前封装得最完善的Socket库了：支持异步TCP/UDP，支持GCD，Objective-C接口封装。。目前没有发现可以与之相比的同类产品。。</p>
+<p>#####JSON<br>直接用系统提供的NSJSONSerialization，性能比第三方的好，又是官方API。</p>
+<p>#####XMPP<br>现在做个实时聊天，XMPP协议算是很成熟的方案了。XMPPFramework一个很不错的选择，可以直接和OpenFire服务器打交道。项目不大人手不多的话，可以看看这个。<br>XMPP是PC即时通讯时代通用的协议，而且各家的协议又不相同，移动时代基本不用这个了，现在比较流行融云等等第三方即时通讯服务了。<br>基础工具类<br>SSToolkit算是一个不错的工具包，提供各种比如编码、加密、字符串处理等等东西，还提供了一些不错的自定义控件，并且文档非常齐全。<br>框架<br>过去有很多人再用three20，这个东西太大太重，文档又少，到头来连Facebook都停止维护了。作为替代品nimbus现在流行了开来，关 键在于它文档齐全。。国内有个MVC框架叫BeeFramework，号称是顶级框架并且功能超过nimbus，有兴趣的可以看一下。。 ReactiveCocoa把响应式编程这种上流的东西带了过来，值得试一试。。</p>
+<p>#####数据存储<br>还是挺多人(比如我)喜欢直接跟SQLite打交道的，这方面fmdb封装的很不错。如果用CoreData来做存储的，可以用一下MagicalRecord。</p>
+<p>#####图像处理<br>GPUImage无疑是这方面的集大成者了。。用OpenGL ES2.0来实时处理图片和视频流，性能和功能都是顶尖的。</p>
+<p>#####开发和调试工具<br>PonyDebugger看上去是一个不错的调试工具，可以在电脑浏览器上远程调试iOS程序、查看试图层次、网络等等。CocoaLumberjack是个Log工具，号称是可以提供企业级Log，使用者也挺多</p>
+
       
 
       
@@ -707,11 +1240,33 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/八大排序/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/项目常用第三方库/">展开全文 >></a>
         </p>
       
 
@@ -741,75 +1296,46 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
 
 
   
-    <article id="post-C语言/八皇后问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ios-学习笔记/（YQ）进程和线程不得不说的事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#include<cstdio></cstdio></p>
-<p>#include<stdio.h><br>int queenPlaces[92][8];<br>int count = 0;<br>int board[8][8];<br>int putQueen(int ithQueen);</stdio.h></p>
-<p>int ab(int n)<br>{<br> return n &gt; 0 ? n : -n;<br>}</p>
-<p>int main(){<br> int n, i, j;<br> for(i = 0; i &lt; 8; i++)<br> {<br>    for(j = 0; j &lt; 8; j++)<br>      board[i][j] = -1;<br>    for(j = 0; j &lt; 92; ++j)  //一共九十二种算法<br>    queenPlaces[j][i] = 0;      //棋盘的初始化<br> }<br> putQueen(0);<br> scanf(“%d”,&amp;n);<br> for(i = 0; i &lt; n; ++i)<br> {<br>  int ith;<br>  scanf(“%d”,&amp;ith);<br>  for(j = 0;j &lt; 8; ++j)<br>     printf(“%d”,queenPlaces[ith-1][j]);<br>    printf(“\n”);<br> }</p>
-<p> return 0;<br>}</p>
-<p>int putQueen(int ithQueen)     //找到一组解，退出函数<br>{<br> int i, k, r;<br> if(ithQueen == 8)<br> {<br> count++;<br> return 0;<br> }<br> for( i =0;i &lt; 8; i++){</p>
-<p> if(board[i][ithQueen] == -1){<br>  board[i][ithQueen] = ithQueen;    //找到-1    可以摆皇后<br>  for(k = count; k &lt; 92; k++)<br>     {<br>      queenPlaces[k][ithQueen] = i + 1;<br>     }<br>        for( k = 0; k &lt; 8; ++k)<br>          for( r = 0; r &lt; 8; r++)   //当board[k][r] == -1 行列斜的时候      ，<br>             if(board[k][r] == -1 &amp;&amp;(k ==i||r==ithQueen||ab(k-i)==ab(r-ithQueen)))<br>           board[k][r] = ithQueen;</p>
-<p>  putQueen(ithQueen + 1);    //递归</p>
-<p>  //back trace<br>    for(k = 0; k &lt; 8; ++k)      //回溯算法体现<br>       for(r = 0; r &lt; 8; r++)<br>         if(board[k][r] == ithQueen)<br>               board[k][r] = -1;<br>           }<br> }</p>
-<p>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/C语言/八皇后问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+      <header class="article-header">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-PHP成长之路/Apache" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/16/ios-学习笔记/（YQ）进程和线程不得不说的事/">（YQ）进程和线程不得不说的事</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/（YQ）进程和线程不得不说的事/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>vhost 配置</p>
-<virtualhost *:80=""><br>ServerAdmin eric.liu@bntake.com<br>DocumentRoot /Users/liujian/Documents/bnadmin/backend/web<br>CustomLog /Applications/XAMPP/xamppfiles/logs/bnadmin.com-access.log combined<br>  ErrorLog /Applications/XAMPP/xamppfiles/logs/bnadmin.com-error.log<br><directory "="" users="" liujian="" documents="" bnadmin="" backend="" web"=""><br>            AllowOverride All<br>            Order allow,deny<br>            Allow from all<br>        </directory><br>ServerName test.admin.com<br></virtualhost>
+        <pre><code>进程：通常指系统中正在运行的一个应用程序。通俗来讲，进程是线程的容器。比如打开win的任务管理器。正在运行的QQ，360，网易云音乐都是一个进程。
+线程：线程是进程的最小执行单位，一个进程最少有一个线程。比如网易云音乐的下载歌曲，缓存视频都是一个线程。
 
 
-<virtualhost *:80=""><br>ServerAdmin eric.liu@bntake.com<br>DocumentRoot /var/www/html/bntake/sender/bnadmin/backend/web<br>CustomLog /var/log/httpd/bnadmim.bntake.com-access.log combined<br>  ErrorLog /var/log/httpd/bnadmin.bntake.com-error.log<br><directory "="" var="" www="" html="" bntake="" sender="" bnadmin="" backend="" web"=""><br>            Options FollowSymLinks<br>            AllowOverride All<br>            Order allow,deny<br>            Allow from all<br>        </directory><br>ServerName bnadmin.bntake.com<br></virtualhost>
+ 线程的串行和并行
+ 一个线程的执行任务是串行的。 就像每个窗口排队取钱，需要完成，才能下一个人进行取钱（同一时间内，只有一个线程在运行）。
+ 线程的并发性，由于一个程序的串行不能很好地利用cpu资源，而采用了多线程的方法。还比如取钱，一个银行会有多个柜台进行存取。这样巧妙的利用资源。
 
-<virtualhost *:443=""><br>ServerAdmin eric.liu@bntake.com<br>DocumentRoot /var/www/html/bntake/sender/bntake-website-api/bntake2/web<br><directory "="" var="" www="" html="" bntake="" sender="" bntake-website-api="" bntake2="" web"=""><br>#Options Indexes FollowSymLinks +SymLinksIfOwnerMatch<br>AllowOverride All<br>Order allow,deny<br>Allow from all<br></directory><br>#ServerAlias 120.132.13.116<br>CustomLog /var/log/httpd/ssl.www.bntake.com-access.log combined<br>ErrorLog /var/log/httpd/ssl.www.bntake.com-error.log<br>SSLEngine on<br>SSLCertificateKeyFile /etc/ssl/certs/bntake-ssl.pem<br>SSLCertificateFile /etc/ssl/certs/bntake_com.crt<br>SSLCertificateChainFile /etc/ssl/certs/bntake_com.ca-bundle<br>SSLProtocol all -SSLv2 -SSLv3<br></virtualhost>
+  多线程并发性的原理
+  同一时间，CPU只能处理1条线程，只有1条线程在工作（执行）
+  多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度（切换）
+  如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象
+  思考：如果线程非常非常多，会发生什么情况？
+  CPU会在N多线程之间调度，CPU会累死，消耗大量的CPU资源
+  每条线程被调度执行的频次会降低（线程的执行效率降低）
+
+
+ 线程的优缺点
+</code></pre><p>多线程的优点<br>能适当提高程序的执行效率<br>能适当提高资源利用率（CPU、内存利用率）<br>多线程的缺点<br>开启线程需要占用一定的内存空间（默认情况下，主线程占用1M，子线程占用512KB），如果开启大量的线程，会占用大量的内存空间，降低程序的性能<br>线程越多，CPU在调度线程上的开销就越大<br>程序设计更加复杂：比如线程之间的通信、多线程的数据共享<br>4.多线程在iOS开发中的应用<br>主线程:一个iOS程序运行后，默认会开启1条线程，称为“主线程”或“UI线程”<br>主线程的主要作用<br>显示\刷新UI界面<br>处理UI事件（比如点击事件、滚动事件、拖拽事件等）</p>
+<p>主线程的使用注意:别将比较耗时的操作放到主线程中。<br>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</p>
 
       
 
@@ -818,11 +1344,33 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/PHP成长之路/Apache/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/（YQ）进程和线程不得不说的事/">展开全文 >></a>
         </p>
       
 
@@ -854,7 +1402,7 @@ Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -949,11 +1497,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -961,7 +1521,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,19 +1557,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -994,6 +1578,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

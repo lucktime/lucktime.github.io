@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Luck、Time</title>
+  <title>loadView和viewDidLoad | Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="每个ios开发者对loadView和viewDidLoad肯定都很熟悉,虽然这两个函数使用上真的是非常简单,但是和类似的initWithNibName/awakeFromNib/initWithCoder放在一起还是非常容易让人混淆的. 一、loadView 永 远不要主动调用这个函数。view controller会在view的property被请求并且当前view值为nil时调用这个函数。如果">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luck、Time">
+<meta property="og:title" content="loadView和viewDidLoad">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/ios-学习笔记/loadView和viewDidLoad/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="每个ios开发者对loadView和viewDidLoad肯定都很熟悉,虽然这两个函数使用上真的是非常简单,但是和类似的initWithNibName/awakeFromNib/initWithCoder放在一起还是非常容易让人混淆的. 一、loadView 永 远不要主动调用这个函数。view controller会在view的property被请求并且当前view值为nil时调用这个函数。如果">
-<meta property="og:updated_time" content="2017-08-16T13:37:57.000Z">
+<meta property="og:updated_time" content="2017-08-17T12:54:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luck、Time">
+<meta name="twitter:title" content="loadView和viewDidLoad">
 <meta name="twitter:description" content="每个ios开发者对loadView和viewDidLoad肯定都很熟悉,虽然这两个函数使用上真的是非常简单,但是和类似的initWithNibName/awakeFromNib/initWithCoder放在一起还是非常容易让人混淆的. 一、loadView 永 远不要主动调用这个函数。view controller会在view的property被请求并且当前view值为nil时调用这个函数。如果">
   
     <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
@@ -60,7 +61,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -148,7 +149,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -168,11 +169,26 @@
             <article id="post-ios-学习笔记/loadView和viewDidLoad" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      loadView和viewDidLoad
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/loadView和viewDidLoad/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>每个ios开发者对loadView和viewDidLoad肯定都很熟悉,虽然这两个函数使用上真的是非常简单,但是和类似的initWithNibName/awakeFromNib/initWithCoder放在一起还是非常容易让人混淆的.</p>
 <p>一、loadView</p>
-<p>永 远不要主动调用这个函数。view controller会在view的property被请求并且当前view值为nil时调用这个函数。如果你手动创建view，你应该重载这个函数。如 果你用IB创建view并初始化view controller，那就意味着你使用initWithNibName:bundle:方法，这时，你不应该重载loadView函数。<br>这个方法的默认实现是这样：先寻找有关可用的nib文件的信息，根据这个信息来加载nib文件，如果没有有关nib文件的信息，默认实现会创建一个空白的UIView对象，然后让这个对象成为controller的主view。<br>所以，重载这个函数时，你也应该这么做。并把子类的view赋给view属性(property)（你create的view必须是唯一的实例，并且不被其他任何controller共享），而且你重载的这个函数不应该调用super。<br>如果你要进行进一步初始化你的views，你应该在viewDidLoad函数中去做。在iOS 3.0以及更高版本中，你应该重载viewDidUnload函数来释放任何对view的引用或者它里面的内容（子view等等）。<br>这个网上的资料都说的很不全面，尤其是蓝色字部分。<br>二、viewDidLoad<br>这个函数在controller加载了相关的views后被调用，而不论这些views存储在nib文件里还是在loadView函数中生成。而多数情况下是做nib文件的后续工作。<br>网上资料对这个函数的描述则完全不对。<br>三、viewDidUnload<br>这 个函数是viewDidLoad的对立函数。在程序内存欠缺时，这个函数被controller调用，来释放它的view以及view相关的对象。由于 controller通常保存这view以及相关object的引用，所以你必须使用这个函数来放弃这些对象的所有权以便内存回收。但不要释放那些难以重 建的数据。<br>通常controller会保存nib文件建立的views的引用，但是也可能会保存着loadView函数创建的对象的引用。最完美的方法是使用合成器方法：<br>1<br>self.myCertainView = nil;<br>这样合成器会release这个view，如果你没有使用property，那么你得自己显示释放这个view。<br>网上对这个函数的描述含含糊糊，看了等于没看。<br>四、结论<br>所以流程应该是这样：<br>(loadView/nib文件)来加载view到内存 ——&gt;viewDidLoad函数进一步初始化这些view ——&gt;内存不足时，调用viewDidUnload函数释放views<br>—-&gt;当需要使用view时有回到第一步<br>如此循环<br>    需要厘清两个概念,创建一个类和实例化一个类.在XCode中创建一个类和实例化一个类很容易区分,但是在IB(Interface Builder)中有时候就会迷糊.其实也很好区分,孤零零地创建了一个nib文件,没有和其他可被实例化的类有直接或间接关系的时候,这个类或这些类 (一个nib文件俺也可能包含多个类)是没有机会被实例化的,所以这种情况只是通过ib创建了一个类,而没有实例化.真正的实例化还需要通过在Xcode 用代码来读取这个nib文件.知道这两这的区别后这些方法也就容易辨认多了</p>
+<p>永 远不要主动调用这个函数。view controller会在view的property被请求并且当前view值为nil时调用这个函数。如果你手动创建view，你应该重载这个函数。如 果你用IB创建view并初始化view controller，那就意味着你使用initWithNibName:bundle:方法，这时，你不应该重载loadView函数。<br>这个方法的默认实现是这样：先寻找有关可用的nib文件的信息，根据这个信息来加载nib文件，如果没有有关nib文件的信息，默认实现会创建一个空白的UIView对象，然后让这个对象成为controller的主view。<br>所以，重载这个函数时，你也应该这么做。并把子类的view赋给view属性(property)（你create的view必须是唯一的实例，并且不被其他任何controller共享），而且你重载的这个函数不应该调用super。<br>如果你要进行进一步初始化你的views，你应该在viewDidLoad函数中去做。在iOS 3.0以及更高版本中，你应该重载viewDidUnload函数来释放任何对view的引用或者它里面的内容（子view等等）。<br>二、viewDidLoad<br>这个函数在controller加载了相关的views后被调用，而不论这些views存储在nib文件里还是在loadView函数中生成。而多数情况下是做nib文件的后续工作。<br>网上资料对这个函数的描述则完全不对。<br>三、viewDidUnload<br>这 个函数是viewDidLoad的对立函数。在程序内存欠缺时，这个函数被controller调用，来释放它的view以及view相关的对象。由于 controller通常保存这view以及相关object的引用，所以你必须使用这个函数来放弃这些对象的所有权以便内存回收。但不要释放那些难以重 建的数据。<br>通常controller会保存nib文件建立的views的引用，但是也可能会保存着loadView函数创建的对象的引用。最完美的方法是使用合成器方法：<br>1<br>self.myCertainView = nil;<br>这样合成器会release这个view，如果你没有使用property，那么你得自己显示释放这个view。<br>网上对这个函数的描述含含糊糊，看了等于没看。<br>四、结论<br>所以流程应该是这样：<br>(loadView/nib文件)来加载view到内存 ——&gt;viewDidLoad函数进一步初始化这些view ——&gt;内存不足时，调用viewDidUnload函数释放views<br>—-&gt;当需要使用view时有回到第一步<br>如此循环<br>    需要厘清两个概念,创建一个类和实例化一个类.在XCode中创建一个类和实例化一个类很容易区分,但是在IB(Interface Builder)中有时候就会迷糊.其实也很好区分,孤零零地创建了一个nib文件,没有和其他可被实例化的类有直接或间接关系的时候,这个类或这些类 (一个nib文件俺也可能包含多个类)是没有机会被实例化的,所以这种情况只是通过ib创建了一个类,而没有实例化.真正的实例化还需要通过在Xcode 用代码来读取这个nib文件.知道这两这的区别后这些方法也就容易辨认多了</p>
 <p>viewDidLoad其实没什么可混淆的,无论通过什么途径加载(Xcode或者IB,这里的加载属于实例化)完view后肯定会执行这个方法.</p>
 <p>loadView需要分两种情况.当你通过Xcode实例化一个类的时候就需要自己在controller中实现这个方法.而在IB中实例化就不需要实现它.</p>
 <p>initWithNibName这个方法是在controller的类在IB中创建,但是通过Xcode实例化controller的时候用的.</p>
@@ -209,7 +225,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -273,20 +311,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/16/ios-学习笔记/mainbundle的作用和使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/16/PHP成长之路/【Yii-多数据库连接】配置/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          在yii项目中，连接多数据库进行操作
         
       </div>
     </a>
   
-  
-    <a href="/2017/08/16/ios-学习笔记/navigation和NavigationControllerDelegate的文档说明/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -408,11 +441,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -420,7 +465,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -432,19 +501,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,6 +522,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Luck、Time</title>
+  <title>NSMutableDictionary---initWithCapacity-的作用和区别 | Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1234//用init初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] init];//用initWithCapacity初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10]; 这两者之">
+  <meta name="description" content="//用init初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] init];//用initWithCapacity初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10]; 这两者之间有什么">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luck、Time">
+<meta property="og:title" content="NSMutableDictionary---initWithCapacity-的作用和区别">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/index.html">
 <meta property="og:site_name" content="Luck、Time">
-<meta property="og:description" content="1234//用init初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] init];//用initWithCapacity初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10]; 这两者之">
-<meta property="og:updated_time" content="2017-08-16T13:37:57.000Z">
+<meta property="og:description" content="//用init初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] init];//用initWithCapacity初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10]; 这两者之间有什么">
+<meta property="og:updated_time" content="2017-08-17T12:55:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luck、Time">
-<meta name="twitter:description" content="1234//用init初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] init];//用initWithCapacity初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10]; 这两者之">
+<meta name="twitter:title" content="NSMutableDictionary---initWithCapacity-的作用和区别">
+<meta name="twitter:description" content="//用init初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] init];//用initWithCapacity初始化NSMutableDictionary adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10]; 这两者之间有什么">
   
     <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
@@ -60,7 +61,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -148,7 +149,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -168,9 +169,24 @@
             <article id="post-ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      NSMutableDictionary---initWithCapacity-的作用和区别
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1<br>2<br>3<br>4<br>//用init初始化<br>NSMutableDictionary <em>adict_distance = [[NSMutableDictionary alloc] init];<br>//用initWithCapacity初始化<br>NSMutableDictionary </em>adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10];</p>
+        <p>//用init初始化<br>NSMutableDictionary <em>adict_distance = [[NSMutableDictionary alloc] init];<br>//用initWithCapacity初始化<br>NSMutableDictionary </em>adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10];</p>
 <p>这两者之间有什么区别吗？</p>
 <p>有这么几点，知道就好了，这个不必深究的：<br>1，initWithCapacity:10 并不代表里面的object数量不能大于10.也可以大于10.<br>2，init是在告诉程序，“我不知道要放多少object,暂且帮我初始化”。<br>3，如果你知道大概要放多少东西，那么最好用initWithCapacity,这个会提高程序内存运用效率。<br>4，如果你初始化了NSMutableDictionary，并且很长时间不会用到，建议用initWithCapacity:0。<br>其它的如NSMutableArray,也是这个道理。</p>
 
@@ -202,7 +218,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -270,14 +308,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          cocoaPods 高德地图
         
       </div>
     </a>
   
   
     <a href="/2017/08/16/ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">NSString实例化时，initWithFormat方法，stringWithFormat应该如</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -401,11 +439,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -413,7 +463,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -425,19 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -446,6 +520,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

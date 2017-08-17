@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Luck、Time</title>
+  <title>composer-安装 | Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="composer global require “fxp/composer-asset-plugin:~1.0.2” 中国镜像配合 composer的config设置。123456789step1.通过 composer config -l -g 命令可以列出 composer 的全局配置信息，在这些信息中查找 [home] 配置项就是 composer 的主目录。然后vim config.jso">
+  <meta name="description" content="composer global require “fxp/composer-asset-plugin:~1.0.2” composer install –ignore-platform-reqs出现问题：        “yii2mod/yii2-braintree”: “^1.0”,        “yii2mod/yii2-enum”: “~1.4”,12345678```强制合并git fe">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luck、Time">
+<meta property="og:title" content="composer-安装">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/PHP成长之路/composer-安装-失败/index.html">
 <meta property="og:site_name" content="Luck、Time">
-<meta property="og:description" content="composer global require “fxp/composer-asset-plugin:~1.0.2” 中国镜像配合 composer的config设置。123456789step1.通过 composer config -l -g 命令可以列出 composer 的全局配置信息，在这些信息中查找 [home] 配置项就是 composer 的主目录。然后vim config.jso">
-<meta property="og:updated_time" content="2017-08-16T13:37:57.000Z">
+<meta property="og:description" content="composer global require “fxp/composer-asset-plugin:~1.0.2” composer install –ignore-platform-reqs出现问题：        “yii2mod/yii2-braintree”: “^1.0”,        “yii2mod/yii2-enum”: “~1.4”,12345678```强制合并git fe">
+<meta property="og:updated_time" content="2017-08-17T14:29:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luck、Time">
-<meta name="twitter:description" content="composer global require “fxp/composer-asset-plugin:~1.0.2” 中国镜像配合 composer的config设置。123456789step1.通过 composer config -l -g 命令可以列出 composer 的全局配置信息，在这些信息中查找 [home] 配置项就是 composer 的主目录。然后vim config.jso">
+<meta name="twitter:title" content="composer-安装">
+<meta name="twitter:description" content="composer global require “fxp/composer-asset-plugin:~1.0.2” composer install –ignore-platform-reqs出现问题：        “yii2mod/yii2-braintree”: “^1.0”,        “yii2mod/yii2-enum”: “~1.4”,12345678```强制合并git fe">
   
     <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
@@ -60,7 +61,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -148,7 +149,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -168,13 +169,28 @@
             <article id="post-PHP成长之路/composer-安装-失败" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      composer-安装
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/PHP成长之路/composer-安装-失败/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>composer global require “fxp/composer-asset-plugin:~1.0.2”</p>
-<p><a href="https://pkg.phpcomposer.com/" target="_blank" rel="external">中国镜像</a><br>配合 composer的config设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">step1.通过 composer config -l -g 命令可以列出 composer 的全局配置信息，在这些信息中查找 [home] 配置项就是 composer 的主目录。然后vim config.json  修改配置。</div><div class="line">&#123;</div><div class="line">    &quot;config&quot;: &#123;</div><div class="line">    &#125;,</div><div class="line">    &quot;repositories&quot;: [</div><div class="line">        &#123;&quot;type&quot;: &quot;composer&quot;, &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;&#125;,</div><div class="line">        &#123;&quot;packagist&quot;: false&#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>step2.修改yii项目或者 laravel 项目的composer.json 文件 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">（老式写法）</div><div class="line">   &quot;repositories&quot;: [</div><div class="line">         &#123;&quot;type&quot;: &quot;composer&quot;, </div><div class="line">           &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;&#125;,</div><div class="line">         &#123;&quot;packagist&quot;: false&#125;</div><div class="line">     ],</div><div class="line">或者这样</div><div class="line">&quot;repositories&quot;: &#123;</div><div class="line">    &quot;packagist&quot;: &#123;</div><div class="line">        &quot;type&quot;: &quot;composer&quot;,</div><div class="line">        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>{<br>    “config”: {},<br>    “repositories”: {<br>        “packagist”: {<br>            “type”: “composer”,<br>            “url”: “<a href="https://packagist.phpcomposer.com" target="_blank" rel="external">https://packagist.phpcomposer.com</a>“<br>        }<br>    }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">file_put_contents(/Users/liujian/.composer/cache/repo/https---packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied</div><div class="line">https://packagist.phpcomposer.com could not be fully loaded, package information was loaded from the local cache and may be out of date</div><div class="line">file_put_contents(/Users/liujian/.composer/cache/repo/https---packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied</div><div class="line">https://packagist.phpcomposer.com could not be fully loaded, package information was loaded from the local cache and may be out of date</div></pre></td></tr></table></figure>
+<p>composer install –ignore-platform-reqs<br>出现问题：<br>        “yii2mod/yii2-braintree”: “^1.0”,<br>        “yii2mod/yii2-enum”: “~1.4”,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">强制合并</div><div class="line">git fetch --all</div><div class="line">git reset --hard origin/master</div><div class="line"></div><div class="line"></div><div class="line">[中国镜像](https://pkg.phpcomposer.com/)</div><div class="line">配合 composer的config设置。</div></pre></td></tr></table></figure></p>
+<p>step1.通过 composer config -l -g 命令可以列出 composer 的全局配置信息，在这些信息中查找 [home] 配置项就是 composer 的主目录。然后vim config.json  修改配置。<br>{<br>    “config”: {<br>    },<br>    “repositories”: [<br>        {“type”: “composer”, “url”: “<a href="https://packagist.phpcomposer.com&quot;}" target="_blank" rel="external">https://packagist.phpcomposer.com&quot;}</a>,<br>        {“packagist”: false}<br>    ]<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">step2.修改yii项目或者 laravel 项目的composer.json 文件 。</div></pre></td></tr></table></figure></p>
+<p>（老式写法）<br>   “repositories”: [<br>         {“type”: “composer”,<br>           “url”: “<a href="https://packagist.phpcomposer.com&quot;}" target="_blank" rel="external">https://packagist.phpcomposer.com&quot;}</a>,<br>         {“packagist”: false}<br>     ],<br>或者这样<br>“repositories”: {<br>    “packagist”: {<br>        “type”: “composer”,<br>        “url”: “<a href="https://packagist.phpcomposer.com" target="_blank" rel="external">https://packagist.phpcomposer.com</a>“<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;config&quot;: &#123;&#125;,</div><div class="line">    &quot;repositories&quot;: &#123;</div><div class="line">        &quot;packagist&quot;: &#123;</div><div class="line">            &quot;type&quot;: &quot;composer&quot;,</div><div class="line">            &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>file_put_contents(/Users/liujian/.composer/cache/repo/https—packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied<br><a href="https://packagist.phpcomposer.com" target="_blank" rel="external">https://packagist.phpcomposer.com</a> could not be fully loaded, package information was loaded from the local cache and may be out of date<br>file_put_contents(/Users/liujian/.composer/cache/repo/https—packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied<br><a href="https://packagist.phpcomposer.com" target="_blank" rel="external">https://packagist.phpcomposer.com</a> could not be fully loaded, package information was loaded from the local cache and may be out of date<br>```</p>
 
       
 
@@ -204,7 +220,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -268,18 +306,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/16/PHP成长之路/Yii的RestApi的使用方法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/16/融资学习/一个好的项目参考条件和注意事项/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          祭祀优势分析
         
       </div>
     </a>
   
   
-    <a href="/2017/08/16/PHP成长之路/composer-忽略版本过高/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2017/08/16/PHP成长之路/Yii的RestApi的使用方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Yii的RestApi的使用方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -403,11 +441,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -415,7 +465,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,19 +501,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -448,6 +522,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

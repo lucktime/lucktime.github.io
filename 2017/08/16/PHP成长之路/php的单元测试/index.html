@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Luck、Time</title>
+  <title>php 单元测试 | Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="codeception 和 phpunit codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行  第1步 - 安装 Codeception 框架。运行下面的代码。使用 composer 命令composer global require “codeception/codeception”composer global require">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luck、Time">
+<meta property="og:title" content="php 单元测试">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/PHP成长之路/php的单元测试/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="codeception 和 phpunit codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行  第1步 - 安装 Codeception 框架。运行下面的代码。使用 composer 命令composer global require “codeception/codeception”composer global require">
-<meta property="og:updated_time" content="2017-08-16T13:37:57.000Z">
+<meta property="og:updated_time" content="2017-08-17T14:38:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luck、Time">
+<meta name="twitter:title" content="php 单元测试">
 <meta name="twitter:description" content="codeception 和 phpunit codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行  第1步 - 安装 Codeception 框架。运行下面的代码。使用 composer 命令composer global require “codeception/codeception”composer global require">
   
     <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
@@ -60,7 +61,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -148,7 +149,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -168,6 +169,21 @@
             <article id="post-PHP成长之路/php的单元测试" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      php 单元测试
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/PHP成长之路/php的单元测试/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>codeception 和 phpunit</p>
@@ -177,6 +193,9 @@
 <p>linux下codecept安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">**codecept: command not found</div><div class="line">on Ubuntu then you should follow these steps:**</div><div class="line">sudo composer global require &quot;codeception/codeception=2.1.*&quot; &quot;codeception/specify=*&quot; &quot;codeception/verify=*&quot;</div><div class="line"></div><div class="line">and then run this command:</div><div class="line">sudo ln -s ~/.composer/vendor/bin/codecept /usr/local/bin/codecept</div><div class="line"></div><div class="line">其他~</div><div class="line">Socodecept build</div><div class="line">andcodecept run</div><div class="line">will work.</div><div class="line">**If you are using Windows then run this command:** </div><div class="line">composer global require &quot;codeception/codeception=2.1.*&quot; &quot;codeception/specify=*&quot; &quot;codeception/verify=*&quot;</div><div class="line"></div><div class="line">Add this line into your path:</div><div class="line">~\AppData\Roaming\Composer\vendor\bin</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">问题：如何将远程服务器的数据库导入到本地</div><div class="line">步骤一：从远程服务器下载数据库</div><div class="line">注：D:\Program Files\MySQL\MySQL Server 5.0\bin&gt;为你安装的MYSQL安装目录,\bin为mysqldump管理工具所有在的目录;</div><div class="line">mysqldump -h[hosname] -u[user_name] -p[password] --default-character-set=[char_set_name] [db_name] &gt; [save_path]</div><div class="line">eg：mysqldump -h119.12.12.11 -umysqluser -pmysqlpwd --default-character-set=utf8 dbname --skip-lock-tables&gt; d:\sqlname.sql</div><div class="line">步骤二：通过phpmyadmin或者其他数据库管理工具导入即可</div><div class="line">或者命令行导入</div><div class="line">http://jingyan.baidu.com/article/cbf0e500d15c762eab289362.html</div><div class="line"></div><div class="line">==</div><div class="line"></div><div class="line">指令：</div><div class="line">codecept bootstrap</div><div class="line">codecept build</div><div class="line">codecept run</div></pre></td></tr></table></figure>
 <p>步骤3 - 开始测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">1 用户测试模块</div><div class="line">①：测试寻找用户id</div><div class="line">过程：</div><div class="line">a.已输入的id</div><div class="line">b.判断id对应的用户名和用户名相同，并返回正确。</div><div class="line">c.不相同，返回错误。</div><div class="line">函数：</div><div class="line">    public function testFindUserById()</div><div class="line">    &#123;</div><div class="line">      //$user = User::findIdentity(1);</div><div class="line">      //print_r($user);</div><div class="line"></div><div class="line">        expect_that($user = User::findIdentity(1));</div><div class="line">        expect($user-&gt;username)-&gt;equals(&apos;aa@cc.cc&apos;);</div><div class="line"></div><div class="line">        expect_not(User::findIdentity(0));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">②：测试寻找用户token</div><div class="line">过程：</div><div class="line">a.已输入的token</div><div class="line">b.判断token对应的用户名和用户名相同，并返回正确。</div><div class="line">c.不相同，或不存在token，返回错误</div><div class="line">函数：</div><div class="line">public function testFindUserByAccessToken()</div><div class="line">    &#123;</div><div class="line">        expect_that($user = User::findIdentityByAccessToken(&apos;asdflawejflwefadsfasdf&apos;));</div><div class="line">        expect($user-&gt;username)-&gt;equals(&apos;aa@cc.cc&apos;);</div><div class="line"></div><div class="line">        expect_not(User::findIdentityByAccessToken(&apos;non-existing&apos;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">③：测试寻找用户用户名</div><div class="line">过程：</div><div class="line">a.判断用户对应的用户名和用户名相同，并返回正确。</div><div class="line">b.不存在，返回错误</div><div class="line">函数：  </div><div class="line">public function testFindUserByUsername()</div><div class="line">    &#123;</div><div class="line">        expect_that($user = User::findByUsername(&apos;aa@cc.cc&apos;));</div><div class="line">        expect_not(User::findByUsername(&apos;not-admin&apos;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">④：测试用户的key是否激活</div><div class="line">过程：</div><div class="line">a.输入用户名和用户的key，判断对应则激活。</div><div class="line">b.判断key和username不对应，则激活失败。</div><div class="line"></div><div class="line"></div><div class="line">c.判断用户的username和密码是否一样，一样返回正确</div><div class="line">d.不一致，返回错误</div><div class="line">函数：</div><div class="line">    /**</div><div class="line">     * @depends testFindUserByUsername</div><div class="line">     */</div><div class="line">    public function testActivationKey($user)</div><div class="line">    &#123;</div><div class="line">        $user = User::findByUsername(&apos;dd&apos;);</div><div class="line">        expect_that($user-&gt;findByActivationKey(&apos;awelvowaslfdf&apos;));</div><div class="line">        expect_not($user-&gt;findByActivationKey(&apos;test102key&apos;));</div><div class="line"></div><div class="line">        expect_that($user-&gt;validatePassword(&apos;abc123&apos;));</div><div class="line">        expect_not($user-&gt;validatePassword(&apos;123456&apos;));</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>1：<br> [Codeception\Exception\ConfigurationException]<br> Configuration file could not be found.<br> Run <code>bootstrap</code> to initialize Codeception.</p>
+<p>原因：无法找到配置文件<br>解决办法：运行codecept bootstrap，初始化</p>
+<p>2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Loading composer repositories with package information</div><div class="line">Updating dependencies (including require-dev)</div><div class="line">Your requirements could not be resolved to an installable set of packages.</div><div class="line"></div><div class="line">  Problem 1</div><div class="line">    - jenssegers/mongodb v3.1.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0-beta requires mongodb/mongodb ^1.0.0 -&gt; satisfia</div><div class="line">ble by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2,</div><div class="line"> 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.1 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.2 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.1.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line"></div><div class="line"></div><div class="line">解决办法：</div><div class="line">$ pecl install mongodb</div><div class="line">$ echo &quot;extension=mongodb.so&quot; &gt;&gt; `php --ini | grep &quot;Loaded Configuration&quot; | sed -e &quot;s|.*:\s*||&quot;`</div><div class="line"></div><div class="line">$ composer require &quot;mongodb/mongodb=^1.0.0&quot;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -206,7 +225,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -270,18 +311,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/16/PHP成长之路/php开发：Twilio-插件在Yii2中的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/16/韩语---/韩语元音-ㅐ-ㅔ-ㅚ-ㅟ-ㅡ/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          韩语
         
       </div>
     </a>
   
   
-    <a href="/2017/08/16/PHP成长之路/yii2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2017/08/16/Html/JS-之-jQuery--下拉框/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Jquery 下拉框的常用用法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -405,11 +446,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -417,7 +470,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -429,19 +506,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,6 +527,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

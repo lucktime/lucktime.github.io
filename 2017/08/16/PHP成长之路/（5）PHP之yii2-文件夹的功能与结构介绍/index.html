@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Luck、Time</title>
+  <title>PHP之yii2-文件夹的功能与结构介绍 | Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="转自：http://www.yiibai.com/文件夹目录： assets - 此文件夹包含在网页中引用的所有 .js和.css文件commands - 此文件夹包括可从终端中使用的控制器config - 此文件夹包含配置文件用于管理数据库，应用程序和应用参数mail - 此文件夹包含邮件布局models - 该文件夹包函在应用程序中使用的模型runtime − 此文件夹是用于存储运行时数据 t">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luck、Time">
+<meta property="og:title" content="PHP之yii2-文件夹的功能与结构介绍">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/PHP成长之路/（5）PHP之yii2-文件夹的功能与结构介绍/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="转自：http://www.yiibai.com/文件夹目录： assets - 此文件夹包含在网页中引用的所有 .js和.css文件commands - 此文件夹包括可从终端中使用的控制器config - 此文件夹包含配置文件用于管理数据库，应用程序和应用参数mail - 此文件夹包含邮件布局models - 该文件夹包函在应用程序中使用的模型runtime − 此文件夹是用于存储运行时数据 t">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-fc83d604b275a788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-81a7187401bafd1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-16T13:37:57.000Z">
+<meta property="og:updated_time" content="2017-08-17T13:31:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luck、Time">
+<meta name="twitter:title" content="PHP之yii2-文件夹的功能与结构介绍">
 <meta name="twitter:description" content="转自：http://www.yiibai.com/文件夹目录： assets - 此文件夹包含在网页中引用的所有 .js和.css文件commands - 此文件夹包括可从终端中使用的控制器config - 此文件夹包含配置文件用于管理数据库，应用程序和应用参数mail - 此文件夹包含邮件布局models - 该文件夹包函在应用程序中使用的模型runtime − 此文件夹是用于存储运行时数据 t">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1764965-fc83d604b275a788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
@@ -63,7 +64,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -151,7 +152,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -171,6 +172,21 @@
             <article id="post-PHP成长之路/（5）PHP之yii2-文件夹的功能与结构介绍" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP之yii2-文件夹的功能与结构介绍
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/PHP成长之路/（5）PHP之yii2-文件夹的功能与结构介绍/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>转自：<a href="http://www.yiibai.com/" target="_blank" rel="external">http://www.yiibai.com/</a><br>文件夹目录：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-fc83d604b275a788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
@@ -180,13 +196,13 @@
 <p>web − 网站入口点</p>
 <p>yii2的应用程序结构，采用的是MVC软件设计模式。<br><img src="http://upload-images.jianshu.io/upload_images/1764965-81a7187401bafd1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <p>下面的列表包含了所有Yii2的对象 -</p>
-<p>####模型，视图和控制器<br>模型数据表示(通常从数据库)。视图是用于显示的数据。控制器是用于处理请求和产生响应。</p>
-<p>####组件 - Components<br>创建一个可重复使用的功能，用户可以编写自己的组件。组件只是包含逻辑对象。例如，组件可以是一个重量转换器。</p>
-<p>####应用程序组件 - Application components<br>这些都是在整个应用只实例化的一个对象。 组件和应用组件之间的主要区别是，后者在整个应用程序只有一个实例。</p>
-<p>####小工具 - Widgets<br>Widget是含有逻辑和渲染代码可重用的对象。一个小部件可以是，例如，一个画廊滑块。</p>
-<p>####过滤器 -Filters<br>过滤器是在控制器动作的执行之前或之后运行的对象。</p>
-<p>####模块 - Modules<br>可以认为模块就是可重用的子应用程序，包括模型，视图，控制器等等。</p>
-<p>####扩展 - Extensions<br>扩展是可以由 Composer 来管理的软件包。</p>
+<h4 id="模型，视图和控制器"><a href="#模型，视图和控制器" class="headerlink" title="模型，视图和控制器"></a>模型，视图和控制器</h4><p>模型数据表示(通常从数据库)。视图是用于显示的数据。控制器是用于处理请求和产生响应。</p>
+<h4 id="组件-Components"><a href="#组件-Components" class="headerlink" title="组件 - Components"></a>组件 - Components</h4><p>创建一个可重复使用的功能，用户可以编写自己的组件。组件只是包含逻辑对象。例如，组件可以是一个重量转换器。</p>
+<h4 id="应用程序组件-Application-components"><a href="#应用程序组件-Application-components" class="headerlink" title="应用程序组件 - Application components"></a>应用程序组件 - Application components</h4><p>这些都是在整个应用只实例化的一个对象。 组件和应用组件之间的主要区别是，后者在整个应用程序只有一个实例。</p>
+<h4 id="小工具-Widgets"><a href="#小工具-Widgets" class="headerlink" title="小工具 - Widgets"></a>小工具 - Widgets</h4><p>Widget是含有逻辑和渲染代码可重用的对象。一个小部件可以是，例如，一个画廊滑块。</p>
+<h4 id="过滤器-Filters"><a href="#过滤器-Filters" class="headerlink" title="过滤器 -Filters"></a>过滤器 -Filters</h4><p>过滤器是在控制器动作的执行之前或之后运行的对象。</p>
+<h4 id="模块-Modules"><a href="#模块-Modules" class="headerlink" title="模块 - Modules"></a>模块 - Modules</h4><p>可以认为模块就是可重用的子应用程序，包括模型，视图，控制器等等。</p>
+<h4 id="扩展-Extensions"><a href="#扩展-Extensions" class="headerlink" title="扩展 - Extensions"></a>扩展 - Extensions</h4><p>扩展是可以由 Composer 来管理的软件包。</p>
 
       
 
@@ -216,7 +232,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -280,18 +318,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/16/Python的学习路/Py抓包并写入到csv文件中（1）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/16/PHP成长之路/在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建
         
       </div>
     </a>
   
   
-    <a href="/2017/08/16/Python的学习路/Python2-7的环境搭建-py2-7--beautifulSoup-、Scrapy-、selenium-、phantomis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2017/08/16/PHP成长之路/（6）PHP之Yii2入口脚本的熟悉/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PHP之Yii2入口脚本的熟悉</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -415,11 +453,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,7 +477,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,19 +513,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,6 +534,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

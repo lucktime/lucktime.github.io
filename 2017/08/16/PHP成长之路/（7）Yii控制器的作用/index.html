@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Luck、Time</title>
+  <title>Yii 控制器的作用 | Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。理解动作 控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。让我们看一下基本的应用程序 SiteController 的模板 -&amp;lt;?php namespace app\controllers; use Yii; use yii\fil">
+  <meta name="description" content="控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。理解动作 控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。让我们看一下基本的应用程序 SiteController 的模板 -1&amp;lt;?php namespace app\controllers; use Yii; use yii\fi">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luck、Time">
+<meta property="og:title" content="Yii 控制器的作用">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/PHP成长之路/（7）Yii控制器的作用/index.html">
 <meta property="og:site_name" content="Luck、Time">
-<meta property="og:description" content="控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。理解动作 控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。让我们看一下基本的应用程序 SiteController 的模板 -&amp;lt;?php namespace app\controllers; use Yii; use yii\fil">
+<meta property="og:description" content="控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。理解动作 控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。让我们看一下基本的应用程序 SiteController 的模板 -1&amp;lt;?php namespace app\controllers; use Yii; use yii\fi">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-659ca400c4c75953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-24266585a7a43532.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-1dd247aacaf75efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-16T13:37:57.000Z">
+<meta property="og:updated_time" content="2017-08-17T14:41:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luck、Time">
-<meta name="twitter:description" content="控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。理解动作 控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。让我们看一下基本的应用程序 SiteController 的模板 -&amp;lt;?php namespace app\controllers; use Yii; use yii\fil">
+<meta name="twitter:title" content="Yii 控制器的作用">
+<meta name="twitter:description" content="控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。理解动作 控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。让我们看一下基本的应用程序 SiteController 的模板 -1&amp;lt;?php namespace app\controllers; use Yii; use yii\fi">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1764965-659ca400c4c75953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
@@ -64,7 +65,7 @@
 	        
 				<li><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 	        
-				<li><a href="/tags/专业笔记/">专业笔记</a></li>
+				<li><a href="/categories/专业笔记/">专业笔记</a></li>
 	        
 				<li><a href="/aboutme/">个人简介</a></li>
 	        
@@ -152,7 +153,7 @@
 		        
 					<li style="width: 25%"><a href="/tags/小说鉴赏/">小说鉴赏</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/专业笔记/">专业笔记</a></li>
+					<li style="width: 25%"><a href="/categories/专业笔记/">专业笔记</a></li>
 		        
 					<li style="width: 25%"><a href="/aboutme/">个人简介</a></li>
 		        
@@ -172,10 +173,26 @@
             <article id="post-PHP成长之路/（7）Yii控制器的作用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Yii 控制器的作用
+    </h1>
+  
+
+        
+        <a href="/2017/08/16/PHP成长之路/（7）Yii控制器的作用/" class="archive-article-date">
+  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。<br>理解动作</p>
-<p>控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。<br>让我们看一下基本的应用程序 SiteController 的模板 -<br>&lt;?php namespace app\controllers; use Yii; use yii\filters\AccessControl; use yii\web\Controller; use yii\filters\VerbFilter; use app\models\LoginForm; use app\models\ContactForm; class SiteController extends Controller { public function behaviors() { return [ ‘access’ =&gt; [ ‘class’ =&gt; AccessControl::className(), ‘only’ =&gt; [‘logout’], ‘rules’ =&gt; [ [ ‘actions’ =&gt; [‘logout’], ‘allow’ =&gt; true, ‘roles’ =&gt; [‘@’], ], ], ], ‘verbs’ =&gt; [ ‘class’ =&gt; VerbFilter::className(), ‘actions’ =&gt; [ ‘logout’ =&gt; [‘post’], ], ], ]; } public function actions() { return [ ‘error’ =&gt; [ ‘class’ =&gt; ‘yii\web\ErrorAction’, ], ‘captcha’ =&gt; [ ‘class’ =&gt; ‘yii\captcha\CaptchaAction’, ‘fixedVerifyCode’ =&gt; YII_ENV_TEST ? ‘testme’ : null, ], ]; } public function actionIndex() { return $this-&gt;render(‘index’); } public function actionLogin() { if (!\Yii::$app-&gt;user-&gt;isGuest) { return $this-&gt;goHome(); } $model = new LoginForm(); if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;login()) { return $this-&gt;goBack(); } return $this-&gt;render(‘login’, [ ‘model’ =&gt; $model, ]); } public function actionLogout() { Yii::$app-&gt;user-&gt;logout(); return $this-&gt;goHome(); } public function actionContact() { //load ContactForm model $model = new ContactForm(); //if there was a POST request, then try to load POST data into a model if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model&gt;contact(Yii::$app-&gt;params [‘adminEmail’])) { Yii::$app-&gt;session-&gt;setFlash(‘contactFormSubmitted’); return $this-&gt;refresh(); } return $this-&gt;render(‘contact’, [ ‘model’ =&gt; $model, ]); } public function actionAbout() { return $this-&gt;render(‘about’); } public function actionSpeak($message = “default message”) { return $this-&gt;render(“speak”,[‘message’ =&gt; $message]); } } ?&gt;<br>使用PHP内置服务器运行基本的应用程序模板，并在Web浏览器打开地址：<em><a href="http://localhost:8080/index.php?r=site/contact" target="_blank" rel="external">http://localhost:8080/index.php?r=site/contact</a></em>. 您将看到以下页面输出 -<img src="http://upload-images.jianshu.io/upload_images/1764965-659ca400c4c75953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Yii控制器"><br>当您打开这个页面，执行 SiteController 控制器的 contact 动作。代码首先加载 ContactForm 模型。然后，它会传递模型进去并渲染 contact 视图。<br><img src="http://upload-images.jianshu.io/upload_images/1764965-24266585a7a43532.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">如果您填写表格，然后点击提交按钮，将看到如下 -<img src="http://upload-images.jianshu.io/upload_images/1764965-1dd247aacaf75efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>注意，提交后这一次是执行以下代码 -<br>if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;contact(Yii::$app&gt;params [‘adminEmail’])) { Yii::$app-&gt;session-&gt;setFlash(‘contactFormSubmitted’); return $this-&gt;refresh(); }<br>如果有一个POST请求，我们分配POST数据到模型，并尝试发送电子邮件。如果成功的话，我们设置了快闪的消息并使用文本“Thank you for contacting us. We will respond to you as soon as possible.“并刷新页面。<br>理解路由</p>
+<p>控制器包函动作。它们是用户请求执行的基本单位。一个控制器中可以有一个或几个动作。<br>让我们看一下基本的应用程序 SiteController 的模板 -<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php namespace app\controllers; use Yii; use yii\filters\AccessControl; use yii\web\Controller; use yii\filters\VerbFilter; use app\models\LoginForm; use app\models\ContactForm; class SiteController extends Controller &#123; public function behaviors() &#123; return [ &apos;access&apos; =&gt; [ &apos;class&apos; =&gt; AccessControl::className(), &apos;only&apos; =&gt; [&apos;logout&apos;], &apos;rules&apos; =&gt; [ [ &apos;actions&apos; =&gt; [&apos;logout&apos;], &apos;allow&apos; =&gt; true, &apos;roles&apos; =&gt; [&apos;@&apos;], ], ], ], &apos;verbs&apos; =&gt; [ &apos;class&apos; =&gt; VerbFilter::className(), &apos;actions&apos; =&gt; [ &apos;logout&apos; =&gt; [&apos;post&apos;], ], ], ]; &#125; public function actions() &#123; return [ &apos;error&apos; =&gt; [ &apos;class&apos; =&gt; &apos;yii\web\ErrorAction&apos;, ], &apos;captcha&apos; =&gt; [ &apos;class&apos; =&gt; &apos;yii\captcha\CaptchaAction&apos;, &apos;fixedVerifyCode&apos; =&gt; YII_ENV_TEST ? &apos;testme&apos; : null, ], ]; &#125; public function actionIndex() &#123; return $this-&gt;render(&apos;index&apos;); &#125; public function actionLogin() &#123; if (!\Yii::$app-&gt;user-&gt;isGuest) &#123; return $this-&gt;goHome(); &#125; $model = new LoginForm(); if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;login()) &#123; return $this-&gt;goBack(); &#125; return $this-&gt;render(&apos;login&apos;, [ &apos;model&apos; =&gt; $model, ]); &#125; public function actionLogout() &#123; Yii::$app-&gt;user-&gt;logout(); return $this-&gt;goHome(); &#125; public function actionContact() &#123; //load ContactForm model $model = new ContactForm(); //if there was a POST request, then try to load POST data into a model if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model&gt;contact(Yii::$app-&gt;params [&apos;adminEmail&apos;])) &#123; Yii::$app-&gt;session-&gt;setFlash(&apos;contactFormSubmitted&apos;); return $this-&gt;refresh(); &#125; return $this-&gt;render(&apos;contact&apos;, [ &apos;model&apos; =&gt; $model, ]); &#125; public function actionAbout() &#123; return $this-&gt;render(&apos;about&apos;); &#125; public function actionSpeak($message = &quot;default message&quot;) &#123; return $this-&gt;render(&quot;speak&quot;,[&apos;message&apos; =&gt; $message]); &#125; &#125; ?&gt;</div></pre></td></tr></table></figure></p>
+<p>使用PHP内置服务器运行基本的应用程序模板，并在Web浏览器打开地址：<em><a href="http://localhost:8080/index.php?r=site/contact" target="_blank" rel="external">http://localhost:8080/index.php?r=site/contact</a></em>. 您将看到以下页面输出 -<img src="http://upload-images.jianshu.io/upload_images/1764965-659ca400c4c75953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Yii控制器"><br>当您打开这个页面，执行 SiteController 控制器的 contact 动作。代码首先加载 ContactForm 模型。然后，它会传递模型进去并渲染 contact 视图。<br><img src="http://upload-images.jianshu.io/upload_images/1764965-24266585a7a43532.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">如果您填写表格，然后点击提交按钮，将看到如下 -<img src="http://upload-images.jianshu.io/upload_images/1764965-1dd247aacaf75efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>注意，提交后这一次是执行以下代码 -<br>if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;contact(Yii::$app&gt;params [‘adminEmail’])) { Yii::$app-&gt;session-&gt;setFlash(‘contactFormSubmitted’); return $this-&gt;refresh(); }<br>如果有一个POST请求，我们分配POST数据到模型，并尝试发送电子邮件。如果成功的话，我们设置了快闪的消息并使用文本“Thank you for contacting us. We will respond to you as soon as possible.“并刷新页面。<br>理解路由</p>
 <p>在上面的例子中，在URL =&gt; <a href="http://localhost:8080/index.php?r=site/contact" target="_blank" rel="external">http://localhost:8080/index.php?r=site/contact</a>, 路由是 site/contact. 在SiteController 中的 contact 动作(actionContact)将被执行。<br>根由以下部分组成─<br>moduleID − 如果控制器属于一个模块，则路由的模板ID这一部分会存在。</p>
 <p>controllerID (在上面的例子的 site) − 唯一字符串标识，在同一个模块或应用程序的所有控制器中的这个名称是唯一的。</p>
 <p>actionID (在上面的例子中的 contact) − 唯一字符串标识，在同一个控制器中的所有动作名称唯一(即类中的方法名称)。</p>
@@ -210,7 +227,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -274,18 +313,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/16/Python的学习路/[读书笔记]learn-python-the-hard-way---about-3rd-edition/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/16/PHP成长之路/（1）PHP基本资料-了解-/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          PHP基本资料-了解-
         
       </div>
     </a>
   
   
-    <a href="/2017/08/16/Python的学习路/python-“各个符号的理解”/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2017/08/16/ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ionic 百度定位插件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -409,11 +448,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -421,7 +472,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -433,19 +508,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wepy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,6 +529,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">
