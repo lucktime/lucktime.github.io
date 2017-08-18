@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>在yii项目中，连接多数据库进行操作 | Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在yii项目中，连接多数据库进行操作。step1：配置main.php 文件。 1234567891011121314&amp;apos;db&amp;apos; =&amp;gt; [    &amp;apos;class&amp;apos; =&amp;gt; &amp;apos;yii\db\Connection&amp;apos;,    &amp;apos;dsn&amp;apos; =&amp;gt; &amp;apos;mysql:host=127.0.0.1;dbname=b">
+  <meta name="description" content="在yii项目中，连接多数据库进行操作。step1：配置main.php 文件。">
 <meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在yii项目中，连接多数据库进行操作">
 <meta property="og:url" content="http://yoursite.com/2017/08/18/PHP成长之路/【Yii-多数据库连接】配置/index.html">
 <meta property="og:site_name" content="Luck、Time">
-<meta property="og:description" content="在yii项目中，连接多数据库进行操作。step1：配置main.php 文件。 1234567891011121314&amp;apos;db&amp;apos; =&amp;gt; [    &amp;apos;class&amp;apos; =&amp;gt; &amp;apos;yii\db\Connection&amp;apos;,    &amp;apos;dsn&amp;apos; =&amp;gt; &amp;apos;mysql:host=127.0.0.1;dbname=b">
+<meta property="og:description" content="在yii项目中，连接多数据库进行操作。step1：配置main.php 文件。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-8ef8dfb72caab644.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-17T18:17:44.000Z">
+<meta property="og:updated_time" content="2017-08-18T11:46:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在yii项目中，连接多数据库进行操作">
-<meta name="twitter:description" content="在yii项目中，连接多数据库进行操作。step1：配置main.php 文件。 1234567891011121314&amp;apos;db&amp;apos; =&amp;gt; [    &amp;apos;class&amp;apos; =&amp;gt; &amp;apos;yii\db\Connection&amp;apos;,    &amp;apos;dsn&amp;apos; =&amp;gt; &amp;apos;mysql:host=127.0.0.1;dbname=b">
+<meta name="twitter:description" content="在yii项目中，连接多数据库进行操作。step1：配置main.php 文件。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1764965-8ef8dfb72caab644.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
@@ -188,7 +188,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在yii项目中，连接多数据库进行操作。<br>step1：配置main.php 文件。</p>
+        <p>在yii项目中，连接多数据库进行操作。<br>step1：配置main.php 文件。<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;db&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,   //数据库1</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div><div class="line">&apos;db2&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=localhost;dbname=test&apos;,     //数据库test</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;test&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div></pre></td></tr></table></figure>
 <p>框架默认是 加载db数据库的，如果想要使用db2数据库的数据。<br>方法一：只需要在现有的model中重写getDb方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public static function getDb()</div><div class="line">&#123;</div><div class="line">  return Yii::$app-&gt;get(&apos;db2&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>方法二：在gii下，进行设置。</p>
@@ -308,18 +308,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/18/PHP成长之路/php的单元测试/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/18/PHP成长之路/php问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          php 单元测试
+          PHP常见问题
         
       </div>
     </a>
   
   
-    <a href="/2017/08/18/PHP成长之路/在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建</div>
+    <a href="/2017/08/18/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【yii2-后台实现】yiiBoot-后台系统的使用经验总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -459,11 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,11 +495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,11 +519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

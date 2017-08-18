@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/18/Html/【命名规范--学习和优化】/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="原文链接：http://www.86y.org/art_detail.aspx?id=740 一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中： 基本样式库 /css/core通用UI元素样式库 /css/libJS组件相关样式库 /css/ui 业务类的CSS是指和具体产品相关的文件，放在如下">
-<meta property="og:updated_time" content="2017-08-17T18:17:44.000Z">
+<meta property="og:updated_time" content="2017-08-18T11:42:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html命名规范--学习和优化">
 <meta name="twitter:description" content="原文链接：http://www.86y.org/art_detail.aspx?id=740 一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中： 基本样式库 /css/core通用UI元素样式库 /css/libJS组件相关样式库 /css/ui 业务类的CSS是指和具体产品相关的文件，放在如下">
@@ -189,8 +189,7 @@
         <p>原文链接：<a href="http://www.86y.org/art_detail.aspx?id=740" target="_blank" rel="external">http://www.86y.org/art_detail.aspx?id=740</a></p>
 <p>一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：</p>
 <p>基本样式库 /css/core<br>通用UI元素样式库 /css/lib<br>JS组件相关样式库 /css/ui</p>
-<p>业务类的CSS是指和具体产品相关的文件，放在如下目录中：<br>读书 /css/book/<br>电影 /css/movie/<br>音乐 /css/music/<br>社区 /css/sns/<br>小站 /css/site/<br>同城 /css/location/<br>电台 /css/radio/</p>
-<p>外联CSS文件适用于全站级和产品级通用的大文件。内联CSS文件适用于在一个或几个页面共用的CSS。另外一对具体的CSS进行文档化的整理。如：<br>util-01 reset /css/core/reset.css<br>util-02 通用模块容器 /css/core/mod.css<br>ui-01. 喜欢按钮 /css/core/fav_btn.css<br>ui-02. 视频/相册列表项 /css/core/media_item.css<br>ui-03. 评星 /css/core/rating.css<br>ui-04. 通用按钮 /css/core/common_button.css<br>ui-05. 分页 /css/core/pagination.css<br>ui-06. 推荐按钮 /css/core/rec_btn.css<br>ui-07. 老版对话框 /css/core/old_dialog.css<br>ui-08. 老版Tab /css/core/old_tab.css<br>ui-09. 老版成员列表 /css/core/old_userlist.css<br>ui-10. 老版信息区 /css/core/notify.css<br>ui-11. 社区用户导航 /css/core/profile_nav.css<br>ui-12. 当前大社区导航 /css/core/site_nav.css<br>ui-13. 加载中 /css/lib/loading.css</p>
+<p>业务类的CSS是指和具体产品相关的文件，放在如下目录中：<br>读书 /css/book/<br>电影 /css/movie/<br>音乐 /css/music/<br>社区 /css/sns/<br>小站 /css/site/<br>同城 /css/location/<br>电台 /css/radio/<br><a id="more"></a><br>外联CSS文件适用于全站级和产品级通用的大文件。内联CSS文件适用于在一个或几个页面共用的CSS。另外一对具体的CSS进行文档化的整理。如：<br>util-01 reset /css/core/reset.css<br>util-02 通用模块容器 /css/core/mod.css<br>ui-01. 喜欢按钮 /css/core/fav_btn.css<br>ui-02. 视频/相册列表项 /css/core/media_item.css<br>ui-03. 评星 /css/core/rating.css<br>ui-04. 通用按钮 /css/core/common_button.css<br>ui-05. 分页 /css/core/pagination.css<br>ui-06. 推荐按钮 /css/core/rec_btn.css<br>ui-07. 老版对话框 /css/core/old_dialog.css<br>ui-08. 老版Tab /css/core/old_tab.css<br>ui-09. 老版成员列表 /css/core/old_userlist.css<br>ui-10. 老版信息区 /css/core/notify.css<br>ui-11. 社区用户导航 /css/core/profile_nav.css<br>ui-12. 当前大社区导航 /css/core/site_nav.css<br>ui-13. 加载中 /css/lib/loading.css</p>
 <p>2、文件引入可通过外联或内联方式引入。<br>外联方式：（类型声明type=”text/css”可以省略）<br>内联方式： （类型声明type=”text/css”可以省略）</p>
 <p>link和style标签都应该放入head中，原则上，不允许在html上直接写样式。避免在CSS中使用@import，嵌套不要超过一层。<br>3、文件名、文件编码及文件大小<br>文件名必须由小写字母、数字、中划线组成<br>文件必须用UTF-8编码，使用UTF-8（非BOM），在HTML中指定UTF-8编码，在CSS中则不需要特别指定因为默认就是UTF-8。<br>单个CSS文件避免过大（建议少于300行）</p>
 <p>二、注释规范<br>1、文件顶部注释（推荐使用）<br>/*</p>
@@ -336,18 +335,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/18/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/18/Html/JS-之-jQuery--下拉框/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          【-ionic-】code-push-热更新。环境：mac
+          Jquery 下拉框的常用用法
         
       </div>
     </a>
   
   
-    <a href="/2017/08/18/个人信息/chrome-浏览器-的巧妙使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">chrome 常用插件</div>
+    <a href="/2017/08/18/Html/常用语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html常用语法总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -487,11 +486,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,11 +522,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +546,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

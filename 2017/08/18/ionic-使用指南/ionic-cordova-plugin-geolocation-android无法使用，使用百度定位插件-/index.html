@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/18/ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="ionic plugin add https://github.com/hewz/cordova-baidu-location –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU” 升级版，更新了watch功能 以下是操作步骤官方提供的有个叫cordova-plugin-geolocation的插件，在iOS上可以直接使用，但是在天朝因为某些网络">
-<meta property="og:updated_time" content="2017-08-17T18:17:44.000Z">
+<meta property="og:updated_time" content="2017-08-18T11:43:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ionic 百度定位插件">
 <meta name="twitter:description" content="ionic plugin add https://github.com/hewz/cordova-baidu-location –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU” 升级版，更新了watch功能 以下是操作步骤官方提供的有个叫cordova-plugin-geolocation的插件，在iOS上可以直接使用，但是在天朝因为某些网络">
@@ -191,10 +191,8 @@
 <p>以下是操作步骤<br>官方提供的有个叫cordova-plugin-geolocation的插件，在<a href="http://lib.csdn.net/base/ios" target="_blank" rel="external">iOS</a>上可以直接使用，但是在天朝因为某些网络原因不能给正常使用，或者是国内安卓环境混乱，不再支持cordova-plugin-geolocation 插件功能。 于是在github上找到合适的资源插件，以供使用。</p>
 <ol>
 <li>申请百度的秘钥 <a href="http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key" target="_blank" rel="external">百度秘钥申请地址</a></li>
-<li><p>安装插件：<br>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”API_KEY”</p>
-</li>
-<li><p>使用方法<br>在需要获取位置信息的地方直接使用以下代码:<br>baidu_location.getCurrentPosition(function ( message ) { console.debug(message); }, function ( message ) { console.debug(message); });</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function successCallback(data)&#123;</div><div class="line">              console.log(&quot;lontitude:&quot; + data.longitude);</div><div class="line">	          console.log(&quot;latitude:&quot; + data.latitude);</div><div class="line">				// alert(data.longitude);</div><div class="line"></div><div class="line">				//更新操作</div><div class="line">				// console.log(&quot;time:&quot; + data.time);</div><div class="line">				console.log(&quot;describe:&quot; + data.describe);</div><div class="line">				// alert(&quot;successCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				function failedCallback(data)&#123;</div><div class="line">                 //  失败的提示操作</div><div class="line">				alert(&quot;failedCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				baidu_location.watchPosition(successCallback, failedCallback,10);</div><div class="line">//第一个函数是成功的回调，第二个是失败的回调。</div></pre></td></tr></table></figure>
+<li>安装插件：<br>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”API_KEY”<a id="more"></a></li>
+<li>使用方法<br>在需要获取位置信息的地方直接使用以下代码:<br>baidu_location.getCurrentPosition(function ( message ) { console.debug(message); }, function ( message ) { console.debug(message); });<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function successCallback(data)&#123;</div><div class="line">              console.log(&quot;lontitude:&quot; + data.longitude);</div><div class="line">	          console.log(&quot;latitude:&quot; + data.latitude);</div><div class="line">				// alert(data.longitude);</div><div class="line"></div><div class="line">				//更新操作</div><div class="line">				// console.log(&quot;time:&quot; + data.time);</div><div class="line">				console.log(&quot;describe:&quot; + data.describe);</div><div class="line">				// alert(&quot;successCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				function failedCallback(data)&#123;</div><div class="line">                 //  失败的提示操作</div><div class="line">				alert(&quot;failedCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				baidu_location.watchPosition(successCallback, failedCallback,10);</div><div class="line">//第一个函数是成功的回调，第二个是失败的回调。</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>4.注意事项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">a).此插件只能在手机端测试，我的模拟器也无法定位。web更不可能，会出现baidu_location 没有被定义的问题。</div><div class="line">b).要先ionic remove platform android</div><div class="line">然后再执行ionic platform add android命令，不然插件不能正确的执行，事实上，每一次修改插件的内容，都要执行上面的两个操作，才能使插件正常运行.</div><div class="line">c).如果你使用sdk23版本进行打包的，你就要注意了，在最新的android6.0上面，和以前的权限授权机制已经不同，如果使用23版本的进行打包。</div><div class="line">d).在android6.0以上的手机上运行不会给出获取地理位置权限的弹窗，务必改为23以下的版本进行编译获取成功的话，默认是只给出经纬度信息的，如果要获取定位的地址的具体信息，要在插件里面的BaiduLocation.java</div><div class="line">文件把 option.setIsNeedAddress(false);</div><div class="line"> 改为 option.setIsNeedAddress(true);</div><div class="line">e).默认返回的是一个字符串，对于现在json这么流行的情况下，当然是获得json格式的数据比较让人喜欢，这个时候坐着已经替我们封装好了，只需要在BaiduLocation.java</div><div class="line">文件中把 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, sb.toString());</div><div class="line"> 改为 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, json.toString());，你就可以获得一个json格式的字符串了</div></pre></td></tr></table></figure></p>
@@ -324,8 +322,8 @@
     </a>
   
   
-    <a href="/2017/08/18/ionic-使用指南/ionic简单使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ionic 常用技巧及命令行</div>
+    <a href="/2017/08/18/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【-ionic-】-极光推送-ionic-和php服务器的搭建</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -465,11 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +523,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/18/Mysql/数据库建表-考虑/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="性别： 类型：boolean学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。 手机号码：varchar（20） 不需要进行数据操作，且给">
-<meta property="og:updated_time" content="2017-08-17T18:17:44.000Z">
+<meta property="og:updated_time" content="2017-08-18T11:47:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库建表-考虑">
 <meta name="twitter:description" content="性别： 类型：boolean学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。 手机号码：varchar（20） 不需要进行数据操作，且给">
@@ -187,7 +187,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
-<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[CREATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) [TABLE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/create-table.html) `pocket_It`.`personal` ( `id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; AUTO_INCREMENT COMMENT &apos;主键，自增id&apos; , `avatar_url`[VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;头像url&apos; , `wechat_id` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(11) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default)&apos;0&apos; COMMENT &apos;wechat表id&apos; , `name` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(50) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;用户姓名和微信昵称数据类型一致&apos; , `voice_url` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(255) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html)utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice url语音&apos; ,`voice_add_time` [BIGINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html)(13) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;voice 添加时间&apos; ,`birthday` [DATETIME](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;生日（年月日）&apos; , `gender`[BOOLEAN](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) FALSE COMMENT &apos;性别：0:&quot;男&quot; 1:&quot;女&quot;&apos; ,`education` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;学历：0:&quot;高中&quot; 1:&quot;大专&quot; 2:&quot;本科&quot; 3:&quot;硕士&quot; 4:&quot;博士&quot;&apos; , `seniority` [TINYINT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL [DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;0&apos; COMMENT &apos;工作年限&apos; , `salary` [INT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL[DEFAULT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/miscellaneous-functions.html#function_default) &apos;500&apos; COMMENT &apos;期望薪资&apos; , `position` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html)utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;期望职位&apos; ,`specialty` [TEXT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8 [COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not)NULL COMMENT &apos;个人特长标签&apos; , `phone` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(20) [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULLCOMMENT &apos;联系电话&apos; , `qrcode` [VARCHAR](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/string-types.html)(400) [CHARACTER](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) [SET](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset.html) utf8[COLLATE](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/charset-collations.html) utf8_unicode_ci [NOT](http://localhost:8088/phpmyadmin/url.php?url=http://dev.mysql.com/doc/refman/5.5/en/logical-operators.html#operator_not) NULL COMMENT &apos;二维码的url&apos; ) ENGINE= InnoDB;</div><div class="line"></div><div class="line">关闭</div></pre></td></tr></table></figure></p>
+<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）</p>
 
       
 
@@ -313,8 +313,8 @@
     </a>
   
   
-    <a href="/2017/08/18/PHP成长之路/composer-安装-失败/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">composer-安装</div>
+    <a href="/2017/08/18/PHP成长之路/CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -454,11 +454,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +514,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">
