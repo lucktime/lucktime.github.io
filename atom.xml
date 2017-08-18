@@ -88,61 +88,26 @@
   </entry>
   
   <entry>
-    <title>html命名规范--学习和优化</title>
-    <link href="http://yoursite.com/2017/08/18/Html/%E3%80%90%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83--%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BC%98%E5%8C%96%E3%80%91/"/>
-    <id>http://yoursite.com/2017/08/18/Html/【命名规范--学习和优化】/</id>
+    <title>mysql 时间管理</title>
+    <link href="http://yoursite.com/2017/08/18/Mysql/mysql-%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2017/08/18/Mysql/mysql-时间管理/</id>
     <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:42:58.000Z</updated>
+    <updated>2017-08-17T18:17:44.000Z</updated>
     
-    <content type="html"><![CDATA[<p>原文链接：<a href="http://www.86y.org/art_detail.aspx?id=740" target="_blank" rel="external">http://www.86y.org/art_detail.aspx?id=740</a></p>
-<p>一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：</p>
-<p>基本样式库 /css/core<br>通用UI元素样式库 /css/lib<br>JS组件相关样式库 /css/ui</p>
-<p>业务类的CSS是指和具体产品相关的文件，放在如下目录中：<br>读书 /css/book/<br>电影 /css/movie/<br>音乐 /css/music/<br>社区 /css/sns/<br>小站 /css/site/<br>同城 /css/location/<br>电台 /css/radio/<br><a id="more"></a><br>外联CSS文件适用于全站级和产品级通用的大文件。内联CSS文件适用于在一个或几个页面共用的CSS。另外一对具体的CSS进行文档化的整理。如：<br>util-01 reset /css/core/reset.css<br>util-02 通用模块容器 /css/core/mod.css<br>ui-01. 喜欢按钮 /css/core/fav_btn.css<br>ui-02. 视频/相册列表项 /css/core/media_item.css<br>ui-03. 评星 /css/core/rating.css<br>ui-04. 通用按钮 /css/core/common_button.css<br>ui-05. 分页 /css/core/pagination.css<br>ui-06. 推荐按钮 /css/core/rec_btn.css<br>ui-07. 老版对话框 /css/core/old_dialog.css<br>ui-08. 老版Tab /css/core/old_tab.css<br>ui-09. 老版成员列表 /css/core/old_userlist.css<br>ui-10. 老版信息区 /css/core/notify.css<br>ui-11. 社区用户导航 /css/core/profile_nav.css<br>ui-12. 当前大社区导航 /css/core/site_nav.css<br>ui-13. 加载中 /css/lib/loading.css</p>
-<p>2、文件引入可通过外联或内联方式引入。<br>外联方式：（类型声明type=”text/css”可以省略）<br>内联方式： （类型声明type=”text/css”可以省略）</p>
-<p>link和style标签都应该放入head中，原则上，不允许在html上直接写样式。避免在CSS中使用@import，嵌套不要超过一层。<br>3、文件名、文件编码及文件大小<br>文件名必须由小写字母、数字、中划线组成<br>文件必须用UTF-8编码，使用UTF-8（非BOM），在HTML中指定UTF-8编码，在CSS中则不需要特别指定因为默认就是UTF-8。<br>单个CSS文件避免过大（建议少于300行）</p>
-<p>二、注释规范<br>1、文件顶部注释（推荐使用）<br>/*</p>
-<ul>
-<li>@description: 中文说明</li>
-<li>@author: name</li>
-<li>@update: name (2013-04-13 18:32)<br>*/</li>
-</ul>
-<p>复制代码2、模块注释<br>/<em> module: module1 by 张三 </em>/<br>…<br>/<em> module: module2 by 张三 </em>/</p>
-<p>复制代码模块注释必须单独写在一行<br>3、 单行注释与多行注释<br>/<em> this is a short comment </em>/单行注释可以写在单独一行，也可以写在行尾，注释中的每一行长度不超过40个汉字，或者80个英文字符。/<em>* this is comment line 1.</em> this is comment line 2.<em>/多行注释必须写在单独行内<br>4、特殊注释<br>/</em> TODO: xxxx by name 2013-04-13 18:32 <em>//</em> BUGFIX: xxxx by name 2012-04-13 18:32 <em>/用于标注修改、待办等信息<br>5、区块注释<br>/</em> Header <em>/<br>/</em> Footer <em>/<br>/</em> Gallery */</p>
-<p>复制代码对一个代码区块注释（可选），将样式语句分区块并在新行中对其注释。<br>三、命名规范<br>使 用有意义的或通用的ID和class命名：ID和class的命名应反映该元素的功能或使用通用名称，而不要用抽象的晦涩的命名。反映元素的使用目的是首 选；使用通用名称代表该元素不表特定意义，与其同级元素无异，通常是用于辅助命名；使用功能性或通用的名称可以更适用于文档或模版变化的情况。<br>/<em> 不推荐: 无意义 </em>/ #yee-1901 {}<br>/<em> 不推荐: 与样式相关 </em>/ .button-green {}.clear {}<br>/<em> 推荐: 特殊性 </em>/ #gallery {}#login {}.video {}<br>/<em> 推荐: 通用性 </em>/ .aux {}.alt {}</p>
-<p>常 用命名（多记多查英文单词）：page、wrap、layout、header(head)、footer(foot、ft)、 content(cont)、menu、nav、main、submain、sidebar(side)、logo、banner、 title(tit)、popo(pop)、icon、note、btn、txt、iblock、window(win)、tips等<br>ID和class命名越简短越好，只要足够表达涵义。这样既有助于理解，也能提高代码效率。<br>/<em> 不推荐 </em>/ #navigation {}.atr {}<br>/<em> 推荐 </em>/ #nav {}.author {}</p>
-<p>类型选择器避免同时使用标签、ID和class作为定位一个元素选择器；从性能上考虑也应尽量减少选择器的层级。<br>/<em> 不推荐 </em>/ul#example {}div.error {}<br>/<em> 推荐 </em>/#example {}.error {}</p>
-<p>命名时需要注意的点：<br>规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或 _<br>命名避免使用中文拼音，应该采用更简明有语义的英文单词进行组合<br>命名注意缩写，但是不能盲目缩写，具体请参见常用的CSS命名规则<br>不允许通过1、2、3等序号进行命名<br>避免class与id重名<br>id用于标识模块或页面的某一个父容器区域，名称必须唯一，不要随意新建id<br>class用于标识某一个类型的对象，命名必须言简意赅。<br>尽可能提高代码模块的复用，样式尽量用组合的方式<br>规则名称中不应该包含颜色（red/blue）、定位（left/right）等与具体显示效果相关的信息。应该用意义命名，而不是样式显示结果命名。</p>
-<p>1、常用id的命名：<br>(1)页面结构<br>容器: container<br>页头：header<br>内容：content/container<br>页面主体：main<br>页尾：footer<br>导航：nav<br>侧栏：sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中：left right center</p>
-<p>(2)导航<br>导航：nav<br>主导航：mainbav<br>子导航：subnav<br>顶导航：topnav<br>边导航：sidebar<br>左导航：leftsidebar<br>右导航：rightsidebar<br>菜单：menu<br>子菜单：submenu<br>标题: title<br>摘要: summary</p>
-<p>(3)功能<br>标志：logo<br>广告：banner<br>登陆：login<br>登录条：loginbar<br>注册：regsiter<br>搜索：search<br>功能区：shop<br>标题：title<br>加入：joinus<br>状态：status<br>按钮：btn<br>滚动：scroll<br>标签页：tab<br>文章列表：list<br>提示信息：msg<br>当前的: current<br>小技巧：tips<br>图标: icon<br>注释：note<br>指南：guild<br>服务：service<br>热点：hot<br>新闻：news<br>下载：download<br>投票：vote<br>合作伙伴：partner<br>友情链接：link<br>版权：copyright</p>
-<p>2、常用class的命名：<br>(1)颜色:使用颜色的名称或者16进制代码,如<br>.red { color: red; }<br>.f60 { color: #f60; }<br>.ff8600 { color: #ff8600; }</p>
-<p>(2)字体大小,直接使用”font+字体大小”作为名称,如<br>.font12px { font-size: 12px; }<br>.font9pt {font-size: 9pt; }</p>
-<p>(3)对齐样式,使用对齐目标的英文名称,如<br>.left { float:left; }<br>.bottom { float:bottom; }</p>
-<p>(4)标题栏样式,使用”类别+功能”的方式命名,如<br>.barnews { }<br>.barproduct { }</p>
-<p>四、书写规范<br>1、排版规范(1)使用4个空格，而不使用tab或者混用空格+tab作为缩进；(2)规则可以写成单行，或者多行，但是整个文件内的规则排版必须统一；单行形式书写风格的排版约束<br>如果是在html中写内联的css，则必须写成单行；<br>每一条规则的大括号 { 前后加空格 ；<br>每一条规则结束的大括号 } 前加空格；<br>属性名冒号之前不加空格，冒号之后加空格；<br>每一个属性值后必须添加分号; 并且分号后空格；<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ；</p>
-<p>多行形式书写风格的排版约束<br>每一条规则的大括号 { 前添加空格;<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ;<br>每一条规则结束的大括号 } 必须与规则选择器的第一个字符对齐 ;<br>属性名冒号之前不加空格，冒号之后加空格;<br>属性值之后添加分号;</p>
-<p>2、属性编写顺序<br>显示属性：display/list-style/position/float/clear …<br>自身属性（盒模型）：width/height/margin/padding/border<br>背景：background<br>行高：line-height<br>文本属性：color/font/text-decoration/text-align/text-indent/vertical-align/white-space/content…<br>其他：cursor/z-index/zoom/overflow<br>CSS3属性：transform/transition/animation/box-shadow/border-radius<br>如果使用CSS3的属性，如果有必要加入浏览器前缀，则按照 -webkit- / -moz- / -ms- / -o- / std的顺序进行添加，标准属性写在最后。<br>链接的样式请严格按照如下顺序添加： a:link -&gt; a:visited -&gt; a:hover -&gt; a:active</p>
-<p>3、规则书写规范<br>使用单引号，不允许使用双引号;<br>每个声明结束都应该带一个分号，不管是不是最后一个声明;<br>除16进制颜色和字体设置外，CSS文件中的所有的代码都应该小写;<br>除了重置浏览器默认样式外，禁止直接为html tag添加css样式设置;<br>每一条规则应该确保选择器唯一，禁止直接为全局.nav/.header/.body等类设置属性;</p>
-<p>4、代码性能优化<br>合并margin、padding、border的-left/-top/-right/-bottom的设置，尽量使用短名称。<br>选择器应该在满足功能的基础上尽量简短，减少选择器嵌套，查询消耗。但是一定要避免覆盖全局样式设置。<br>注意选择器的性能，不要使用低性能的选择器。<br>禁止在css中使用*选择符。<br>除非必须，否则，一般有class或id的，不需要再写上元素对应的tag。<br>0后面不需要单位，比如0px可以省略成0，0.8px可以省略成.8px。<br>如果是16进制表示颜色，则颜色取值应该大写。<br>如果可以，颜色尽量用三位字符表示，例如#AABBCC写成#ABC 。<br>如果没有边框时，不要写成border:0，应该写成border:none 。<br>尽量避免使用AlphaImageLoader 。<br>在保持代码解耦的前提下，尽量合并重复的样式。<br>background、font等可以缩写的属性，尽量使用缩写形式 。</p>
-<p>5、CSS Hack的使用<br>请不用动不动就使用浏览器检测和CSS Hacks，先试试别的解决方法吧！考虑到代码高效率和易管理，虽然这两种方法能快速解决浏览器解析差异，但应被视为最后的手段。在长期的项目中，允许使用hack只会带来更多的hack，你越是使用它，你越是会依赖它！<br>推荐使用下面的：<br>[图片上传中。。。（1）]6、字体规则<br>为了防止文件合并及编码转换时造成问题，建议将样式中文字体名字改成对应的英文名字，如：黑体(SimHei) 宋体(SimSun) 微软雅黑 (Microsoft Yahei，几个单词中间有空格组成的必须加引号)<br>字体粗细采用具体数值，粗体bold写为700，正常normal写为400<br>font-size必须以px或pt为单位，推荐用px（注：pt为打印版字体大小设置），不允许使用xx-small/x-small/small/medium/large/x-large/xx-large等值<br>为了对font-family取值进行统一，更好的支持各个操作系统上各个浏览器的兼容性，font-family不允许在业务代码中随意设置</p>
-<p>五、其他规范<br>不要轻易改动全站级CSS和通用CSS库。改动后，要经过全面测试。<br>避免使用filter<br>避免在CSS中使用expression<br>避免过小的背景图片平铺。<br>尽量不要在CSS中使用!important<br>绝对不要在CSS中使用”*”选择符<br>层级(z-index)必须清晰明确，页面弹窗、气泡为最高级（最高级为999），不同弹窗气泡之间可在三位数之间调整；普通区块为10-90内10的倍数；区块展开、弹出为当前父层级上个位增加，禁止层级间盲目攀比。<br>背景图片请尽可能使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按照模块、业务、页面来划分均可。</p>
-<p>六、测试规范<br>1、了解浏览器特效支持为了页面性能考虑，如果浏览器不支持CSS3相关属性的，则该浏览器的某些特效将不再支持，属性的支持情况如下表所示（Y为支持，N为不支持）<br>[图片上传中。。。（2）]2、 设定浏览器支持标准[图片上传中。。。（3）]<br>A级－交互和视觉完全符全设计的要求<br>B级－视觉上允许有所差异，但不破坏页面的整体效果<br>C级－可忽略设计上的细节，但不防碍使用</p>
-<p>3、常用样式测试工具W3C CSS validator：<a href="http://jigsaw.w3.org/css-validator/" target="_blank" rel="external">http://jigsaw.w3.org/css-validator/</a><br>CSS Lint：<a href="http://csslint.net/CSS" target="_blank" rel="external">http://csslint.net/CSS</a> Usage：<a href="https://addons.mozilla.org/en-us/firefox/addon/css-usage/" target="_blank" rel="external">https://addons.mozilla.org/en-us/firefox/addon/css-usage/</a></p>
+    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/winter13292/article/details/7888358" target="_blank" rel="external">http://blog.csdn.net/winter13292/article/details/7888358</a><br><a href="http://stackoverflow.com/questions/4654961/mysql-only-within-the-current-month" target="_blank" rel="external">获取这个月起始时间</a></p>
+<p><a href="http://www.w3resource.com/mysql/date-and-time-functions/mysql-month-function.php" target="_blank" rel="external">数据库Date操作</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;原文链接：&lt;a href=&quot;http://www.86y.org/art_detail.aspx?id=740&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.86y.org/art_detail.aspx?id=740&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：&lt;/p&gt;
-&lt;p&gt;基本样式库 /css/core&lt;br&gt;通用UI元素样式库 /css/lib&lt;br&gt;JS组件相关样式库 /css/ui&lt;/p&gt;
-&lt;p&gt;业务类的CSS是指和具体产品相关的文件，放在如下目录中：&lt;br&gt;读书 /css/book/&lt;br&gt;电影 /css/movie/&lt;br&gt;音乐 /css/music/&lt;br&gt;社区 /css/sns/&lt;br&gt;小站 /css/site/&lt;br&gt;同城 /css/location/&lt;br&gt;电台 /css/radio/&lt;br&gt;
+      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/winter13292/article/details/7888358&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/winter13292/articl
     
     </summary>
     
-      <category term="Html" scheme="http://yoursite.com/categories/Html/"/>
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Html" scheme="http://yoursite.com/tags/Html/"/>
+      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
     
   </entry>
   
@@ -166,6 +131,30 @@
     
     
       <category term="Html" scheme="http://yoursite.com/tags/Html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库建表-考虑</title>
+    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8-%E8%80%83%E8%99%91/"/>
+    <id>http://yoursite.com/2017/08/18/Mysql/数据库建表-考虑/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:47:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
+<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;性别： 类型：boolean&lt;br&gt;学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255&lt;br&gt;时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，dateti
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
     
   </entry>
   
@@ -220,30 +209,6 @@
     
     
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库建表-考虑</title>
-    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8-%E8%80%83%E8%99%91/"/>
-    <id>http://yoursite.com/2017/08/18/Mysql/数据库建表-考虑/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:47:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
-<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;性别： 类型：boolean&lt;br&gt;学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255&lt;br&gt;时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，dateti
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
     
   </entry>
   
@@ -574,32 +539,6 @@ try {
   </entry>
   
   <entry>
-    <title>【yii2-后台实现】yiiBoot-后台系统的使用经验总结</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90yii2-%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0%E3%80%91yiiBoot-%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:46:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最初了解yiiBootB是在yii2 论坛和 <a href="https://www.oschina.net/news/80909/2016-oschina-git-top-50" target="_blank" rel="external">年度码云项目排行榜</a><br>1.clone 项目到本地。 git clone <a href="https://git.oschina.net/penngo/chadmin.git" target="_blank" rel="external">https://git.oschina.net/penngo/chadmin.git</a><br>2.导入 doc/db.sql 数据库到本地数据库，进行测试。<br>3.修改common/config/main.php<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">修改host,dbname,username,password 这些设置。</div><div class="line">            &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">            &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,</div><div class="line">            &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">            &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">            &apos;charset&apos; =&gt; &apos;utf8&apos;,</div></pre></td></tr></table></figure></p>
-<p>4.修改美化路由设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根据个人习惯，选择是否美化路由访问方式。</div><div class="line">      &apos;urlManager&apos; =&gt; [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">        &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">        &apos;showScriptName&apos; =&gt; false,</div><div class="line">        //&apos;caseSensitive&apos;=&gt;false,</div><div class="line">        &apos;rules&apos; =&gt; [</div><div class="line">          // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line"></div><div class="line">        ],</div></pre></td></tr></table></figure></p>
-<p>5.添加目录结构。<br><a href="https://git.oschina.net/penngo/chadmin/wikis/tutorial#create_table" target="_blank" rel="external">添加菜单教程</a></p>
-<p>6.分析自身公司所需要的功能实现，和接入。<br>以后，根据个人需求，实现后台系统的迁移。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最初了解yiiBootB是在yii2 论坛和 &lt;a href=&quot;https://www.oschina.net/news/80909/2016-oschina-git-top-50&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;年度码云项目排行榜&lt;/a&gt;&lt;br&gt;1.clone 项目到本地。 git clone &lt;a href=&quot;https://git.oschina.net/penngo/chadmin.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://git.oschina.net/penngo/chadmin.git&lt;/a&gt;&lt;br&gt;2.导入 doc/db.sql 数据库到本地数据库，进行测试。&lt;br&gt;3.修改common/config/main.php&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
     <title>在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建</title>
     <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%9C%A8win7%E4%B8%8B%EF%BC%8C%E5%AE%89%E8%A3%85XAMPP%EF%BC%8CComposer%E5%AE%89%E8%A3%85Yii2%E6%A1%86%E6%9E%B6%E6%A1%86%E6%9E%B6%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
     <id>http://yoursite.com/2017/08/18/PHP成长之路/在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建/</id>
@@ -629,6 +568,32 @@ try {
       &lt;p&gt;MongoDB 3.0.6 Windows 版本的下载： &lt;a href=&quot;https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;下载：&lt;a href=&quot;https://getcomposer.org/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Composer&lt;/a&gt;&lt;br&gt;eg:&lt;/p&gt;
 &lt;p&gt;##What？&lt;br&gt;Composer 是 PHP 的一个依赖管理工具。它允许你申明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 “packages” 和 “libraries”，但它在每个项目的基础上进行管理，在你项目的某个目录中(例如 vendor)进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【yii2-后台实现】yiiBoot-后台系统的使用经验总结</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90yii2-%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0%E3%80%91yiiBoot-%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:46:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最初了解yiiBootB是在yii2 论坛和 <a href="https://www.oschina.net/news/80909/2016-oschina-git-top-50" target="_blank" rel="external">年度码云项目排行榜</a><br>1.clone 项目到本地。 git clone <a href="https://git.oschina.net/penngo/chadmin.git" target="_blank" rel="external">https://git.oschina.net/penngo/chadmin.git</a><br>2.导入 doc/db.sql 数据库到本地数据库，进行测试。<br>3.修改common/config/main.php<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">修改host,dbname,username,password 这些设置。</div><div class="line">            &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">            &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,</div><div class="line">            &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">            &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">            &apos;charset&apos; =&gt; &apos;utf8&apos;,</div></pre></td></tr></table></figure></p>
+<p>4.修改美化路由设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根据个人习惯，选择是否美化路由访问方式。</div><div class="line">      &apos;urlManager&apos; =&gt; [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">        &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">        &apos;showScriptName&apos; =&gt; false,</div><div class="line">        //&apos;caseSensitive&apos;=&gt;false,</div><div class="line">        &apos;rules&apos; =&gt; [</div><div class="line">          // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line"></div><div class="line">        ],</div></pre></td></tr></table></figure></p>
+<p>5.添加目录结构。<br><a href="https://git.oschina.net/penngo/chadmin/wikis/tutorial#create_table" target="_blank" rel="external">添加菜单教程</a></p>
+<p>6.分析自身公司所需要的功能实现，和接入。<br>以后，根据个人需求，实现后台系统的迁移。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最初了解yiiBootB是在yii2 论坛和 &lt;a href=&quot;https://www.oschina.net/news/80909/2016-oschina-git-top-50&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;年度码云项目排行榜&lt;/a&gt;&lt;br&gt;1.clone 项目到本地。 git clone &lt;a href=&quot;https://git.oschina.net/penngo/chadmin.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://git.oschina.net/penngo/chadmin.git&lt;/a&gt;&lt;br&gt;2.导入 doc/db.sql 数据库到本地数据库，进行测试。&lt;br&gt;3.修改common/config/main.php&lt;br&gt;
     
     </summary>
     
