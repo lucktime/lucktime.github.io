@@ -163,28 +163,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ionic-使用指南/【-ionic-】code-push-热更新。环境：mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/">【-ionic-】-极光推送-ionic-和php服务器的搭建</a>
+      <a class="article-title" href="/2017/08/18/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/">【-ionic-】code-push-热更新。环境：mac</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>【官方文档】<a href="https://docs.jiguang.cn/jpush/server/3rd/php_sdk/" target="_blank" rel="external">https://docs.jiguang.cn/jpush/server/3rd/php_sdk/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ionic 客户端</div><div class="line">step1:注册账号，并创建应用</div><div class="line">https://www.jiguang.cn/</div><div class="line"></div><div class="line">step2:应用添加插件</div><div class="line">cordova plugin add jpush-phonegap-plugin --variable APP_KEY=******</div><div class="line"></div><div class="line">step3：app.js 添加代码</div><div class="line">  //启动极光推送服务</div><div class="line">  window.plugins.jPushPlugin.init();</div><div class="line"></div><div class="line">step4：设置别名，标签。</div><div class="line">  window.plugins.jPushPlugin.setAlias(&quot;12345678&quot;); 任意地方均可。</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">php 后台服务器端</div><div class="line">step1：安装插件</div><div class="line">composer require jpush/jpush</div><div class="line"></div><div class="line">vendor/jpush 有相关demo</div><div class="line"></div><div class="line">step2:</div><div class="line">功能实现：</div><div class="line"></div><div class="line">创建控制器：</div><div class="line">    public function actionPushonedriver()&#123;</div><div class="line">      // 简单推送示例</div><div class="line">      // 这只是使用样例,不应该直接用于实际生产环境中 !!</div><div class="line">      $rel = JpushFunction::sendJpushOneDriver();</div><div class="line">      return $rel;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">创建model：</div><div class="line">  public function sendJpushOneDriver()&#123;</div><div class="line">      $app_key = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;appKey&apos;];</div><div class="line">      $master_secret = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;masterSecret&apos;];</div><div class="line">      $client = new JPush($app_key, $master_secret);</div><div class="line">      $push_payload = $client-&gt;push()</div><div class="line">          -&gt;setPlatform(array(&apos;ios&apos;, &apos;android&apos;));</div><div class="line">          // -&gt;addAllAudience();</div><div class="line">          // -&gt;setAudience(&apos;all&apos;)</div><div class="line">          // -&gt;addAlias(&apos;alias&apos;)</div><div class="line">      try &#123;</div><div class="line">        $push_payload-&gt;addAlias(&apos;12345678&apos;)</div><div class="line">        -&gt;androidNotification(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ))</div><div class="line">        -&gt;message(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ));</div><div class="line">          $response = $push_payload-&gt;send();</div><div class="line">          print_r($response);</div><div class="line">      &#125; catch (\JPush\Exceptions\APIConnectionException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125; catch (\JPush\Exceptions\APIRequestException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">方法实现</div></pre></td></tr></table></figure>
+        <p>插件文档的使用<br><a href="http://microsoft.github.io/code-push/docs/getting-started.html" target="_blank" rel="external">http://microsoft.github.io/code-push/docs/getting-started.html</a><br><a href="https://www.npmjs.com/package/cordova-plugin-code-push#installmode" target="_blank" rel="external">https://www.npmjs.com/package/cordova-plugin-code-push#installmode</a><br><a href="https://my.oschina.net/u/783079/blog/674924" target="_blank" rel="external">https://my.oschina.net/u/783079/blog/674924</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">step1: 安装</div><div class="line">终端安装code-push-cli</div><div class="line">sudo npm install -g code-push -d</div><div class="line"></div><div class="line">step2：注册 选择github 获取 key，写入到终端</div><div class="line">![Paste_Image.png](http://upload-images.jianshu.io/upload_images/1764965-f827a9523190bcea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line"></div><div class="line">step3:创建新的code-push 应用</div><div class="line">创建android的应用。code-push app add myapp_android</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ FVqEweF8etZPuHTtUZ6p1xVIKOkHNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ o28jGrUvqf2LT81MvXf2FbC_K7SyNkA7m31RM </div><div class="line"></div><div class="line">创建ios的应用。code-push app add myapp_ios</div><div class="line">Successfully added the &quot;myapp_ios&quot; app, along with the following default deployments:</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ 0pUQJMvToiqK94DymbNqTt3zDqKtNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ jTr9klk_n8oxthmnRPimUCTFx3PyNkA7m31RM │</div><div class="line"></div><div class="line">step4：安装cordova插件</div><div class="line">如果项目不存在，则ionic start newproject ，并安装cordova。</div><div class="line">bower install ngCordova    安装 ngCordova</div><div class="line">index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">cordova plugin add cordova-plugin-code-push</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">step5：配置config.xml 文件</div><div class="line">将获取的staging的key替换。</div><div class="line">&lt;platform name=&quot;android&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-ANDROID-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line">&lt;platform name=&quot;ios&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-IOS-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line"></div><div class="line">&lt;access origin=&quot;*&quot; /&gt; </div><div class="line"></div><div class="line">step6： ionic plugin list  查看插件的安装列表 是否包含（code-push 和Whitelist）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">step7:app.js 修改代码</div><div class="line"></div><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">//其他代码</div><div class="line">window.codePush.sync(</div><div class="line">  function (syncStatus) &#123;</div><div class="line">    switch (syncStatus) &#123;</div><div class="line">      // Result (final) statuses</div><div class="line">      case SyncStatus.UP_TO_DATE:</div><div class="line">        navigator.notification.alert(&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        (&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        break;</div><div class="line">      case SyncStatus.ERROR:</div><div class="line">        navigator.notification.alert(&quot;软件自动更新失败，退出应用后，重新打开。&quot;, null, &apos;提示&apos;, &apos;我知道了&apos;);</div><div class="line">        break;     </div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    updateDialog: false, installMode: InstallMode.IMMEDIATE  </div><div class="line">  &#125;</div><div class="line">);</div><div class="line">//其他代码</div><div class="line">&#125;)</div><div class="line"></div><div class="line">step8: 代码添加到code-push</div><div class="line">sudo code-push release-cordova myapp_android android</div></pre></td></tr></table></figure>
 
       
 
@@ -219,7 +221,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/">展开全文 >></a>
         </p>
       
 
@@ -249,34 +251,61 @@
 
 
   
-    <article id="post-ios-学习笔记/CocoaPods-操作高德地图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Html/【命名规范--学习和优化】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/">cocoaPods 高德地图</a>
+      <a class="article-title" href="/2017/08/18/Html/【命名规范--学习和优化】/">html命名规范--学习和优化</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/Html/【命名规范--学习和优化】/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第一步：</p>
-<p>1.PodFile 文件 添加</p>
-<p>#pod ‘AMap3DMap’ #3D地图SDK<br>pod ‘AMap2DMap’ #2D地图SDK(2D地图和3D地图不能同时使用)<br>pod ‘AMapSearch’ #搜索服务SDK</p>
-<p>第二步：打开终端 到项目所在文件夹 cd 项目文件夹<br>pod install<br>或者</p>
-<p>第三步：在#import “AppDelegate.m”   中添加 </p>
-<p>#import “APIKey.h”</p>
-<p>#import <mamapkit mamapkit.h=""><br>或者只添加<br>[MAMapServices sharedServices].apiKey = (NSString *)APIKey];</mamapkit></p>
-<p>pod install –verbose –no-repo-update</p>
+        <p>原文链接：<a href="http://www.86y.org/art_detail.aspx?id=740" target="_blank" rel="external">http://www.86y.org/art_detail.aspx?id=740</a></p>
+<p>一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：</p>
+<p>基本样式库 /css/core<br>通用UI元素样式库 /css/lib<br>JS组件相关样式库 /css/ui</p>
+<p>业务类的CSS是指和具体产品相关的文件，放在如下目录中：<br>读书 /css/book/<br>电影 /css/movie/<br>音乐 /css/music/<br>社区 /css/sns/<br>小站 /css/site/<br>同城 /css/location/<br>电台 /css/radio/</p>
+<p>外联CSS文件适用于全站级和产品级通用的大文件。内联CSS文件适用于在一个或几个页面共用的CSS。另外一对具体的CSS进行文档化的整理。如：<br>util-01 reset /css/core/reset.css<br>util-02 通用模块容器 /css/core/mod.css<br>ui-01. 喜欢按钮 /css/core/fav_btn.css<br>ui-02. 视频/相册列表项 /css/core/media_item.css<br>ui-03. 评星 /css/core/rating.css<br>ui-04. 通用按钮 /css/core/common_button.css<br>ui-05. 分页 /css/core/pagination.css<br>ui-06. 推荐按钮 /css/core/rec_btn.css<br>ui-07. 老版对话框 /css/core/old_dialog.css<br>ui-08. 老版Tab /css/core/old_tab.css<br>ui-09. 老版成员列表 /css/core/old_userlist.css<br>ui-10. 老版信息区 /css/core/notify.css<br>ui-11. 社区用户导航 /css/core/profile_nav.css<br>ui-12. 当前大社区导航 /css/core/site_nav.css<br>ui-13. 加载中 /css/lib/loading.css</p>
+<p>2、文件引入可通过外联或内联方式引入。<br>外联方式：（类型声明type=”text/css”可以省略）<br>内联方式： （类型声明type=”text/css”可以省略）</p>
+<p>link和style标签都应该放入head中，原则上，不允许在html上直接写样式。避免在CSS中使用@import，嵌套不要超过一层。<br>3、文件名、文件编码及文件大小<br>文件名必须由小写字母、数字、中划线组成<br>文件必须用UTF-8编码，使用UTF-8（非BOM），在HTML中指定UTF-8编码，在CSS中则不需要特别指定因为默认就是UTF-8。<br>单个CSS文件避免过大（建议少于300行）</p>
+<p>二、注释规范<br>1、文件顶部注释（推荐使用）<br>/*</p>
+<ul>
+<li>@description: 中文说明</li>
+<li>@author: name</li>
+<li>@update: name (2013-04-13 18:32)<br>*/</li>
+</ul>
+<p>复制代码2、模块注释<br>/<em> module: module1 by 张三 </em>/<br>…<br>/<em> module: module2 by 张三 </em>/</p>
+<p>复制代码模块注释必须单独写在一行<br>3、 单行注释与多行注释<br>/<em> this is a short comment </em>/单行注释可以写在单独一行，也可以写在行尾，注释中的每一行长度不超过40个汉字，或者80个英文字符。/<em>* this is comment line 1.</em> this is comment line 2.<em>/多行注释必须写在单独行内<br>4、特殊注释<br>/</em> TODO: xxxx by name 2013-04-13 18:32 <em>//</em> BUGFIX: xxxx by name 2012-04-13 18:32 <em>/用于标注修改、待办等信息<br>5、区块注释<br>/</em> Header <em>/<br>/</em> Footer <em>/<br>/</em> Gallery */</p>
+<p>复制代码对一个代码区块注释（可选），将样式语句分区块并在新行中对其注释。<br>三、命名规范<br>使 用有意义的或通用的ID和class命名：ID和class的命名应反映该元素的功能或使用通用名称，而不要用抽象的晦涩的命名。反映元素的使用目的是首 选；使用通用名称代表该元素不表特定意义，与其同级元素无异，通常是用于辅助命名；使用功能性或通用的名称可以更适用于文档或模版变化的情况。<br>/<em> 不推荐: 无意义 </em>/ #yee-1901 {}<br>/<em> 不推荐: 与样式相关 </em>/ .button-green {}.clear {}<br>/<em> 推荐: 特殊性 </em>/ #gallery {}#login {}.video {}<br>/<em> 推荐: 通用性 </em>/ .aux {}.alt {}</p>
+<p>常 用命名（多记多查英文单词）：page、wrap、layout、header(head)、footer(foot、ft)、 content(cont)、menu、nav、main、submain、sidebar(side)、logo、banner、 title(tit)、popo(pop)、icon、note、btn、txt、iblock、window(win)、tips等<br>ID和class命名越简短越好，只要足够表达涵义。这样既有助于理解，也能提高代码效率。<br>/<em> 不推荐 </em>/ #navigation {}.atr {}<br>/<em> 推荐 </em>/ #nav {}.author {}</p>
+<p>类型选择器避免同时使用标签、ID和class作为定位一个元素选择器；从性能上考虑也应尽量减少选择器的层级。<br>/<em> 不推荐 </em>/ul#example {}div.error {}<br>/<em> 推荐 </em>/#example {}.error {}</p>
+<p>命名时需要注意的点：<br>规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或 _<br>命名避免使用中文拼音，应该采用更简明有语义的英文单词进行组合<br>命名注意缩写，但是不能盲目缩写，具体请参见常用的CSS命名规则<br>不允许通过1、2、3等序号进行命名<br>避免class与id重名<br>id用于标识模块或页面的某一个父容器区域，名称必须唯一，不要随意新建id<br>class用于标识某一个类型的对象，命名必须言简意赅。<br>尽可能提高代码模块的复用，样式尽量用组合的方式<br>规则名称中不应该包含颜色（red/blue）、定位（left/right）等与具体显示效果相关的信息。应该用意义命名，而不是样式显示结果命名。</p>
+<p>1、常用id的命名：<br>(1)页面结构<br>容器: container<br>页头：header<br>内容：content/container<br>页面主体：main<br>页尾：footer<br>导航：nav<br>侧栏：sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中：left right center</p>
+<p>(2)导航<br>导航：nav<br>主导航：mainbav<br>子导航：subnav<br>顶导航：topnav<br>边导航：sidebar<br>左导航：leftsidebar<br>右导航：rightsidebar<br>菜单：menu<br>子菜单：submenu<br>标题: title<br>摘要: summary</p>
+<p>(3)功能<br>标志：logo<br>广告：banner<br>登陆：login<br>登录条：loginbar<br>注册：regsiter<br>搜索：search<br>功能区：shop<br>标题：title<br>加入：joinus<br>状态：status<br>按钮：btn<br>滚动：scroll<br>标签页：tab<br>文章列表：list<br>提示信息：msg<br>当前的: current<br>小技巧：tips<br>图标: icon<br>注释：note<br>指南：guild<br>服务：service<br>热点：hot<br>新闻：news<br>下载：download<br>投票：vote<br>合作伙伴：partner<br>友情链接：link<br>版权：copyright</p>
+<p>2、常用class的命名：<br>(1)颜色:使用颜色的名称或者16进制代码,如<br>.red { color: red; }<br>.f60 { color: #f60; }<br>.ff8600 { color: #ff8600; }</p>
+<p>(2)字体大小,直接使用”font+字体大小”作为名称,如<br>.font12px { font-size: 12px; }<br>.font9pt {font-size: 9pt; }</p>
+<p>(3)对齐样式,使用对齐目标的英文名称,如<br>.left { float:left; }<br>.bottom { float:bottom; }</p>
+<p>(4)标题栏样式,使用”类别+功能”的方式命名,如<br>.barnews { }<br>.barproduct { }</p>
+<p>四、书写规范<br>1、排版规范(1)使用4个空格，而不使用tab或者混用空格+tab作为缩进；(2)规则可以写成单行，或者多行，但是整个文件内的规则排版必须统一；单行形式书写风格的排版约束<br>如果是在html中写内联的css，则必须写成单行；<br>每一条规则的大括号 { 前后加空格 ；<br>每一条规则结束的大括号 } 前加空格；<br>属性名冒号之前不加空格，冒号之后加空格；<br>每一个属性值后必须添加分号; 并且分号后空格；<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ；</p>
+<p>多行形式书写风格的排版约束<br>每一条规则的大括号 { 前添加空格;<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ;<br>每一条规则结束的大括号 } 必须与规则选择器的第一个字符对齐 ;<br>属性名冒号之前不加空格，冒号之后加空格;<br>属性值之后添加分号;</p>
+<p>2、属性编写顺序<br>显示属性：display/list-style/position/float/clear …<br>自身属性（盒模型）：width/height/margin/padding/border<br>背景：background<br>行高：line-height<br>文本属性：color/font/text-decoration/text-align/text-indent/vertical-align/white-space/content…<br>其他：cursor/z-index/zoom/overflow<br>CSS3属性：transform/transition/animation/box-shadow/border-radius<br>如果使用CSS3的属性，如果有必要加入浏览器前缀，则按照 -webkit- / -moz- / -ms- / -o- / std的顺序进行添加，标准属性写在最后。<br>链接的样式请严格按照如下顺序添加： a:link -&gt; a:visited -&gt; a:hover -&gt; a:active</p>
+<p>3、规则书写规范<br>使用单引号，不允许使用双引号;<br>每个声明结束都应该带一个分号，不管是不是最后一个声明;<br>除16进制颜色和字体设置外，CSS文件中的所有的代码都应该小写;<br>除了重置浏览器默认样式外，禁止直接为html tag添加css样式设置;<br>每一条规则应该确保选择器唯一，禁止直接为全局.nav/.header/.body等类设置属性;</p>
+<p>4、代码性能优化<br>合并margin、padding、border的-left/-top/-right/-bottom的设置，尽量使用短名称。<br>选择器应该在满足功能的基础上尽量简短，减少选择器嵌套，查询消耗。但是一定要避免覆盖全局样式设置。<br>注意选择器的性能，不要使用低性能的选择器。<br>禁止在css中使用*选择符。<br>除非必须，否则，一般有class或id的，不需要再写上元素对应的tag。<br>0后面不需要单位，比如0px可以省略成0，0.8px可以省略成.8px。<br>如果是16进制表示颜色，则颜色取值应该大写。<br>如果可以，颜色尽量用三位字符表示，例如#AABBCC写成#ABC 。<br>如果没有边框时，不要写成border:0，应该写成border:none 。<br>尽量避免使用AlphaImageLoader 。<br>在保持代码解耦的前提下，尽量合并重复的样式。<br>background、font等可以缩写的属性，尽量使用缩写形式 。</p>
+<p>5、CSS Hack的使用<br>请不用动不动就使用浏览器检测和CSS Hacks，先试试别的解决方法吧！考虑到代码高效率和易管理，虽然这两种方法能快速解决浏览器解析差异，但应被视为最后的手段。在长期的项目中，允许使用hack只会带来更多的hack，你越是使用它，你越是会依赖它！<br>推荐使用下面的：<br>[图片上传中。。。（1）]6、字体规则<br>为了防止文件合并及编码转换时造成问题，建议将样式中文字体名字改成对应的英文名字，如：黑体(SimHei) 宋体(SimSun) 微软雅黑 (Microsoft Yahei，几个单词中间有空格组成的必须加引号)<br>字体粗细采用具体数值，粗体bold写为700，正常normal写为400<br>font-size必须以px或pt为单位，推荐用px（注：pt为打印版字体大小设置），不允许使用xx-small/x-small/small/medium/large/x-large/xx-large等值<br>为了对font-family取值进行统一，更好的支持各个操作系统上各个浏览器的兼容性，font-family不允许在业务代码中随意设置</p>
+<p>五、其他规范<br>不要轻易改动全站级CSS和通用CSS库。改动后，要经过全面测试。<br>避免使用filter<br>避免在CSS中使用expression<br>避免过小的背景图片平铺。<br>尽量不要在CSS中使用!important<br>绝对不要在CSS中使用”*”选择符<br>层级(z-index)必须清晰明确，页面弹窗、气泡为最高级（最高级为999），不同弹窗气泡之间可在三位数之间调整；普通区块为10-90内10的倍数；区块展开、弹出为当前父层级上个位增加，禁止层级间盲目攀比。<br>背景图片请尽可能使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按照模块、业务、页面来划分均可。</p>
+<p>六、测试规范<br>1、了解浏览器特效支持为了页面性能考虑，如果浏览器不支持CSS3相关属性的，则该浏览器的某些特效将不再支持，属性的支持情况如下表所示（Y为支持，N为不支持）<br>[图片上传中。。。（2）]2、 设定浏览器支持标准[图片上传中。。。（3）]<br>A级－交互和视觉完全符全设计的要求<br>B级－视觉上允许有所差异，但不破坏页面的整体效果<br>C级－可忽略设计上的细节，但不防碍使用</p>
+<p>3、常用样式测试工具W3C CSS validator：<a href="http://jigsaw.w3.org/css-validator/" target="_blank" rel="external">http://jigsaw.w3.org/css-validator/</a><br>CSS Lint：<a href="http://csslint.net/CSS" target="_blank" rel="external">http://csslint.net/CSS</a> Usage：<a href="https://addons.mozilla.org/en-us/firefox/addon/css-usage/" target="_blank" rel="external">https://addons.mozilla.org/en-us/firefox/addon/css-usage/</a></p>
 
       
 
@@ -290,7 +319,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
         		</li>
       		
 		</ul>
@@ -302,7 +331,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/Html/" class="article-tag-list-link color5">Html</a>
         		</li>
       		
 		</ul>
@@ -311,7 +340,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/CocoaPods-操作高德地图/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/Html/【命名规范--学习和优化】/">展开全文 >></a>
         </p>
       
 
@@ -341,29 +370,40 @@
 
 
   
-    <article id="post-ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-个人信息/chrome-浏览器-的巧妙使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/">NSMutableDictionary---initWithCapacity-的作用和区别</a>
+      <a class="article-title" href="/2017/08/18/个人信息/chrome-浏览器-的巧妙使用/">chrome 常用插件</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/个人信息/chrome-浏览器-的巧妙使用/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>//用init初始化<br>NSMutableDictionary <em>adict_distance = [[NSMutableDictionary alloc] init];<br>//用initWithCapacity初始化<br>NSMutableDictionary </em>adict_distance = [[NSMutableDictionary alloc] initWithCapacity:10];</p>
-<p>这两者之间有什么区别吗？</p>
-<p>有这么几点，知道就好了，这个不必深究的：<br>1，initWithCapacity:10 并不代表里面的object数量不能大于10.也可以大于10.<br>2，init是在告诉程序，“我不知道要放多少object,暂且帮我初始化”。<br>3，如果你知道大概要放多少东西，那么最好用initWithCapacity,这个会提高程序内存运用效率。<br>4，如果你初始化了NSMutableDictionary，并且很长时间不会用到，建议用initWithCapacity:0。<br>其它的如NSMutableArray,也是这个道理。</p>
+        <h3 id="常用插件的安装"><a href="#常用插件的安装" class="headerlink" title="常用插件的安装"></a>常用插件的安装</h3><p>1.<a href="https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall?utm_source=InfinityNewtab" target="_blank" rel="external">oneTab：标签页一键归档</a></p>
+<p>2.<a href="https://chrome.google.com/webstore/detail/infinity-new-tab/dbfmnekepjoapopniengjbcpnbljalfg?utm_source=InfinityNewtab" target="_blank" rel="external">Infinity新标签页：帅气的标签页</a></p>
+<p>3.<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=InfinityNewtab" target="_blank" rel="external">Tampermonkey:js脚本工具箱。神器</a></p>
+<p><a href="http://tampermonkey.net/scripts.php" target="_blank" rel="external">Tampermonkey 资源网站</a></p>
+<p>链接: <a href="https://pan.baidu.com/s/1nv4Wmoh" target="_blank" rel="external">https://pan.baidu.com/s/1nv4Wmoh</a> 密码: 1qsn<br><img src="http://upload-images.jianshu.io/upload_images/1764965-f92269ddc6f7cc7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>4.<a href="https://chrome.google.com/webstore/detail/context/aalnjolghjkkogicompabhhbbkljnlka?utm_source=InfinityNewtab" target="_blank" rel="external">Context :检查一下你安装的扩展，是否真的一直需要启用它们</a></p>
+<p>5.<a href="https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?utm_source=InfinityNewtab" target="_blank" rel="external">Octotree github 树状图</a></p>
+<p>6.<a href="https://chrome.google.com/webstore/detail/user-agent-switcher-for-c/djflhoibgkdhkhhcedjiklpkjnoahfmg?utm_source=InfinityNewtab" target="_blank" rel="external">User-Agent Switcher for Chrome  浏览器适配</a></p>
+<p>7.<a href="https://chrome.google.com/webstore/detail/tunnello-vpn-unblock-ultr/hoapmlpnmpaehilehggglehfdlnoegck?utm_source=InfinityNewtab" target="_blank" rel="external">下一代Tunnello VPN - 解锁，不是很好用，打开过程繁琐</a></p>
+<p>7.1<a href="https://chrome.google.com/webstore/detail/unblock-sites-w-no-histor/iaidohholfjjhodbgoahlkdbikokepdl?hl=zh-CN" target="_blank" rel="external">VPN 翻墙 好用</a><br>7.2<a href="https://chrome.google.com/webstore/detail/%E8%B0%B7%E6%AD%8C%E8%AE%BF%E9%97%AE%E5%8A%A9%E6%89%8B/gocklaboggjfkolaknpbhddbaopcepfp?hl=zh-CN" target="_blank" rel="external">谷歌访问助手，可用于打开google 搜索，商城</a></p>
+<p>8.<a href="https://chrome.google.com/webstore/detail/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/ikhdkkncnoglghljlkmcimlnlhkeamad" target="_blank" rel="external"><strong>划词翻译: </strong>方便的翻译工具</a></p>
+<p>9.<a href="https://chrome.google.com/webstore/detail/better-history/obciceimmggglbmelaidpjlmodcebijb/related" target="_blank" rel="external">Better History 历史记录</a><br><img src="http://upload-images.jianshu.io/upload_images/1764965-b6a29006534d3064.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>10.<a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=zh-CN" target="_blank" rel="external">神器 vimium</a><br>10.1 <a href="https://sspai.com/post/27723" target="_blank" rel="external">vimium附带教程</a></p>
+<p>11<a href="https://chrome.google.com/webstore/detail/send-to-kindle-by-klipme/ipkfnchcgalnafehpglfbommidgmalan?utm_source=chrome-ntp-icon" target="_blank" rel="external">发送到kindle</a><br><a href="https://www.amazon.cn/mn/dcw/myx.html/ref=kinw_myk_redirect#/home/settings/payment" target="_blank" rel="external">需要设置 kindle的白名单</a></p>
 
       
 
@@ -377,7 +417,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">插件集合</a>
         		</li>
       		
 		</ul>
@@ -389,7 +429,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/个人信息/" class="article-tag-list-link color5">个人信息</a>
         		</li>
       		
 		</ul>
@@ -398,7 +438,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/NSMutableDictionary---initWithCapacity-的作用和区别/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/个人信息/chrome-浏览器-的巧妙使用/">展开全文 >></a>
         </p>
       
 
@@ -428,29 +468,30 @@
 
 
   
-    <article id="post-ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-个人信息/×××（收信人的简书id）！我在情人节等你回信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如/">NSString实例化时，initWithFormat方法，stringWithFormat应该如</a>
+      <a class="article-title" href="/2017/08/18/个人信息/×××（收信人的简书id）！我在情人节等你回信/">甜言密语，说给自己听</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/个人信息/×××（收信人的简书id）！我在情人节等你回信/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>NSString实例化时，initWithFormat方法，stringWithFormat应该如</p>
-<p>1、 initWithFormat是实例方法<br>只能通过 NSString<em> str = [[NSString alloc] initWithFormat:@”%@”,@”Hello World”] 调用，但是必须手动release来释放内存资源<br>2、 stringWithFormat是类方法<br>可以直接用 NSString</em> str = [NSString stringWithFormat:@”%@”,@”Hello World”] 调用，内存管理上是autorelease的，不用手动显式release<br>而且提出了一个常见错误:<br>label.text = [[NSString alloc] initWithFormat:@”%@”,@”abc”];<br>最后在dealloc中将label给release掉<br>但是仍然会发生内存泄漏！<br>原因在于：用label.text = …时，实际是隐式调用的label的setText方法，这会retain label内部的字符串变量text（哪怕这个字符串的内容 跟传进来的字符串内容相同 ，但系统仍然当成二个不同 的字符串对象），所以最后release label时，实际上只释放了label内部的text字符串，但是最初用initWithFormat生成的字符串并未释放，最终造成了泄漏。<br>解决办法有二个:<br>1、<br>NSString * str = [[NSString alloc] initWithFormat:@”%@”,@”abc”];<br>label.text = str;<br>[str release]<br>最后在dealloc中再[label release]<br>2、<br>label.text = [NSString stringWithFormat:@”%@”,@”abc”];<br>然后剩下的事情交给NSAutoreleasePool<br>最后，如果你不确定你的代码是否有内存泄漏问题，可以用Xcode中的Build–&gt;Build And Analyze 做初步的检查.</p>
-
+        <pre><code>此间，我只有想你才能写出最好的诗。与你分分离离已达四次有余，我不知道如何再去爱你，也不知道怎么才能忘却。
+有你的时光，总是快乐的。肉肉的手心，微暖的笑脸，和甜蜜的话。你从不会主动撩我，也时而对我爱理不理。也许太早熟的你早已不会去伪装甜蜜，也许我不应该再记录这件事，因为过去虽甜，缺不应常常品味。。
+我常想，如果我每一次坚持到最后，而不是因为我们没有共同的言语，因为你繁忙时，不会回复我的话，不是因为我们见面时的尴尬。不是因为我小心的维护着可怜的自尊心。那么我们可能还继续深恋着彼此。。
+</code></pre>
       
 
       
@@ -463,7 +504,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
         		</li>
       		
 		</ul>
@@ -475,7 +516,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/个人信息/" class="article-tag-list-link color5">个人信息</a>
         		</li>
       		
 		</ul>
@@ -484,7 +525,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/NSString实例化时，initWithFormat方法，stringWithFormat应该如/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/个人信息/×××（收信人的简书id）！我在情人节等你回信/">展开全文 >></a>
         </p>
       
 
@@ -514,30 +555,30 @@
 
 
   
-    <article id="post-ios-学习笔记/CocoaPods-的常用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-个人信息/软考中级-软件设计师-准备指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/CocoaPods-的常用技巧/">配置 CocoaPods 环境</a>
+      <a class="article-title" href="/2017/08/18/个人信息/软考中级-软件设计师-准备指南/">软考中级设计师指南</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/CocoaPods-的常用技巧/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/个人信息/软考中级-软件设计师-准备指南/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1 配置 CocoaPods 环境<br>1）、Ruby环境搭建<br>2）、更新ruby<br>2、下载安装CocoaPods<br>终端输入：sudo gem install cocoapods </p>
-<p> platform :ios<br>pod ‘JSONKit’,       ‘~&gt; 1.4’<br>pod ‘AFNetworking’,  ‘~&gt; 2.0’</p>
-<p>2、CocoaPods可以查找你想要的第三方库<br>终端输入命令：pod search UI<br>疯了了，我怎么查找这么大众的关键字，好多库～～</p>
-<p>不要随便删除ruby的lib，随便删一个都会导致gem不能使用。。不太懂的时候，都是泪啊。。删了改。。</p>
+        <p>可以直接考中级，高级需要资质。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　[报名时间：此为四川时间，不一定准确。我省上半年考试的报名时间统一定于2017年2月15日至3月15日;下半年考试的报名时间统一定于2017年8月1日至8月31日](http://www.exam8.com/computer/spks/baoming/)</div><div class="line">2017年软考考试时间预计为：上半年2017年5月20日，下半年2017年11月11日。</div><div class="line">       (1)高级资格：信息系统项目管理师、系统分析师(原系统分析员)、系统构架设计师;</div><div class="line">       (2)中级资格：软件设计师(原高级程序员)、网络工程师、信息系统监理师、电子商务设计师、软件评测师、多媒体应用设计师、数据库系统工程师、嵌入式系统设计师、计算机辅助设计师、信息系统管理工程师、信息技术支持工程师;</div><div class="line">       (3)初级资格：程序员(原初级程序员、程序员)、网络管理员、信息处理技术员、电子商务技术员、多媒体应用制作技术员、信息系统运行管理员</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.educity.cn/tiku/g7.html" target="_blank" rel="external">题库</a></p>
+<p><a href="http://search.dangdang.com/?key=%C8%ED%BC%FE%C9%E8%BC%C6%CA%A6&amp;act=input" target="_blank" rel="external">软件设计书</a></p>
+<p><a href="http://www.educity.cn/shipin/v3582.html" target="_blank" rel="external">软件设计师的资料详解</a></p>
 
       
 
@@ -551,7 +592,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">fighting</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
         		</li>
       		
 		</ul>
@@ -563,7 +608,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/个人信息/" class="article-tag-list-link color5">个人信息</a>
         		</li>
       		
 		</ul>
@@ -572,7 +617,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/CocoaPods-的常用技巧/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/个人信息/软考中级-软件设计师-准备指南/">展开全文 >></a>
         </p>
       
 
@@ -602,62 +647,33 @@
 
 
   
-    <article id="post-ios-学习笔记/alloc-init-and-new-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-安卓/-Mac下Android-Studio中获取SHA1和MD5-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/">alloc init 和 new 的区别</a>
+      <a class="article-title" href="/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/">Mac下Android-Studio中获取SHA1和MD5-</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.在实际开发中很少会用到new，一般创建对象咱们看到的全是[[className alloc] init]</p>
-<p>但是并不意味着你不会接触到new，在一些代码中还是会看到[className new]，</p>
-<p>还有去面试的时候，也很可能被问到这个问题。</p>
-<p>2.那么，他们两者之间到底有什么区别呢</p>
-<p>我们看源码：</p>
-<ul>
-<li>new<br>{<br>id newObject = (*_alloc)((Class)self, 0);<br>Class metaClass = self-&gt;isa;<br>if (class_getVersion(metaClass) &gt; 1)<br>return [newObject init];<br>else<br>return newObject;<br>} </li>
-</ul>
-<p>//而 alloc/init 像这样： </p>
-<ul>
-<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>} </li>
-</ul>
-<ul>
-<li>init<br>{<br>return self;<br>}<br>通过源码中我们发现，[className new]基本等同于[[className alloc] init]；</li>
-</ul>
-<p>区别只在于alloc分配内存的时候使用了zone.</p>
-<p>这个zone是个什么东东呢？</p>
-<p>它是给对象分配内存的时候，把关联的对象分配到一个相邻的内存区域内，以便于调用时消耗很少的代价，提升了程序处理速度；</p>
-<p>3.而为什么不推荐使用new？</p>
-<p>不知大家发现了没有：如果使用new的话，初始化方法被固定死只能调用init.</p>
-<p>而你想调用initXXX怎么办？没门儿！据说最初的设计是完全借鉴Smalltalk语法来的。</p>
-<p>传说那个时候已经有allocFromZone:这个方法，</p>
-<p>但是这个方法需要传个参数id myCompanion = [[TheClass allocFromZone:[self zone]] init];</p>
-<p>这个方法像下面这样：</p>
-<ul>
-<li>allocFromZone:(void <em>) z<br>{<br>return (</em>_zoneAlloc)((Class)self, 0, z);<br>} </li>
-</ul>
-<p>//后来简化为下面这个： </p>
-<ul>
-<li>alloc<br>{<br>return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());<br>}<br>但是，出现个问题：这个方法只是给对象分配了内存，并没有初始化实例变量。</li>
-</ul>
-<p>是不是又回到new那样的处理方式：在方法内部隐式调用init方法呢？</p>
-<p>后来发现“显示调用总比隐式调用要好”，所以后来就把两个方法分开了。</p>
-<p>概括来说，new和alloc/init在功能上几乎是一致的，分配内存并完成初始化。</p>
-<p>差别在于，采用new的方式只能采用默认的init方法完成初始化，</p>
-<p>采用alloc的方式可以用其他定制的初始化方法。</p>
+        <p><a href="http://blog.csdn.net/jackymvc/article/details/50222503" target="_blank" rel="external">http://blog.csdn.net/jackymvc/article/details/50222503</a></p>
+<p>打开Android Studio中的Terminal，也可以直接打开系统的</p>
+<p>获取debug.keystore的SHA1和MD5</p>
+<p>keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
+<p>获取其他keystore的，如正式签名文件的</p>
+<p>keytool -list -v -keystore ~/User/你的用户名/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
+<p>需要把路径和密码改成相应的就可以了</p>
 
       
 
@@ -671,28 +687,17 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/alloc-init-and-new-/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/">展开全文 >></a>
         </p>
       
 
@@ -722,35 +727,32 @@
 
 
   
-    <article id="post-ios-学习笔记/ios-类方法-和实例方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-安卓/android" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/ios-类方法-和实例方法/">类方法和实例方法详解</a>
+      <a class="article-title" href="/2017/08/18/安卓/android/">安卓环境配置</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/ios-类方法-和实例方法/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/安卓/android/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>类方法： 也被称为静态方法，指 static关键字修饰的方法。此类方法属于类本身的方法，不属于类的某一个实例（对象）。在类方法中不可以直接使用实例变量。其调用方式有三种，可直接调用、类名、方法名、对象名。</p>
-<p>实例方法：指的是不用static关键字修饰的方法，每个实例对象都有自身的实例方法，互相独立，不共享。其调用方式只能是对象名，方法名。</p>
-<p>何时用静态方法，何时用类方法？<br>实例方法： 当你给一个类写一个方法，如果该方法需要访问某个实例的成员变量时，那么方法该被定义为实例方法。 一个类的实例通常有一些成员变量，其中含有该实例的状态信息。而该方法需要改变这些状态，那么该方法需要声明成实例方法。</p>
-<p>类方法（静态方法）：它不需要访问某个实例的成员变量，不需要改变某个实例的状态，我们把该方法定义为静态方法。</p>
-<p>类方法和实例方法的误区:<br>静态方法常驻内存，实例方法不是。所以静态方法效率更高，但占内存。。（错误的）<br>事实上，方法都是一样，在加载时机和占用内存上，静态方法和实例方法是一样的。在类型第一次被使用时加载，调用的速度基本没有差别</p>
-<p>静态方法在堆上分配内存，实例方法在栈上（错误）<br>事实上，所有的方法都不可能在堆上或者栈上分配内存，方法作为代码是被分配到特使的代码内存区域，这个代码内存区域是不可写的。</p>
-<p>实例方法需要先创建实例才可以调用，比较麻烦，静态方法不用，比较简单。（错误）<br>事实上，如果一个方法不访问某实例成员变量或者不改变实例状态，那么就应该写成静态方法。</p>
-<p>常用实例和类<br>第一种方式：声明实，调用实例方法<br>当一个类有多个实例，例如学生这个类，实例可以有学生甲乙丙丁。etc 我们就用第一种方式，在多线程的情况下，只要每个线程创建自己的实例，那么第一种方法通常是线程安全的</p>
-<p>第二种：通过静态的实例去调用实例方法</p>
+        <h2 id="前记"><a href="#前记" class="headerlink" title="前记:"></a>前记:</h2><p>   在寒假空闲之余，本来打算自学安卓的开发，就看了百度云中的学习资料…计算机视频文件夹中的安卓开发。<br>   首先是安卓环境的搭建<br>   需要三个部分1.java的环境搭建<br>             2.开发ide:android studio<br>             3.android  sdk虚拟机</p>
+<p>这三个步骤都不是很难，可是由于google被大陆禁止，导致下载好sdk.却无法更新安卓虚拟机系统。。</p>
+<p>忙了一下午，使用了离线压缩包可是没成功。又使用了翻墙软件。可能使用的是免费版的，也没有链接上所需要的内容。</p>
+<p>最好的方法还是改hosts文件的方法，更新速度较快。<br>Windows在C:\WINDOWS\system32\drivers\etc目录下<br>Linux用户打开/etc/hosts文件。<br>打开文件后添加以下内容。</p>
+<h3 id="Google主页"><a href="#Google主页" class="headerlink" title="Google主页"></a>Google主页</h3><p>203.208.46.146 www.google.com<br>这行是为了方便打开Android开发官网 现在好像不翻墙也可以打开<br>74.125.113.121 developer.android.com</p>
+<h3 id="更新的内容从以下地址下载"><a href="#更新的内容从以下地址下载" class="headerlink" title="更新的内容从以下地址下载"></a>更新的内容从以下地址下载</h3><p>203.208.46.146 dl.google.com<br>203.208.46.146 dl-ssl.google.com</p>
 
       
 
@@ -764,28 +766,17 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/ios-类方法-和实例方法/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/安卓/android/">展开全文 >></a>
         </p>
       
 
@@ -815,80 +806,31 @@
 
 
   
-    <article id="post-ios-学习笔记/ios-数组的基本用法-和排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-开发必备软件/PHP开发-所需软件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/ios-数组的基本用法-和排序/">数组的基本用法</a>
+      <a class="article-title" href="/2017/08/18/开发必备软件/PHP开发-所需软件/">PHP 开发所需软件</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/ios-数组的基本用法-和排序/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/开发必备软件/PHP开发-所需软件/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.创建数组</p>
-<p>[objc] view plaincopy在CODE上查看代码片派生到我的代码片<br>// 创建一个空的数组<br>NSArray <em>array = [NSArray array];<br>// 创建有1个元素的数组<br>array = [NSArray arrayWithObject:@”123”];<br>// 创建有多个元素的数组<br>array = [NSArray arrayWithObjects:@”a”, @”b”, @”c”, nil nil];<br>NSArray </em>array3 = [array arrayByAddingObjectsFromArray:[NSArray arrayWithObjects:@”4”, @”5”, nil nil]];  </p>
-<p>NSArray <em>array4 = [NSArray arrayWithObjects:@”1”, @”2”, @”3”, @”4”, nil nil];<br>NSRange range = NSMakeRange(1, 2);<br>NSArray </em>array5 = [array4 subarrayWithRange:range];  </p>
-<p>2.数组的一些基本方法</p>
-<p>[objc] view plaincopy在CODE上查看代码片派生到我的代码片<br>int count = [array count];//个数<br>// 判断是否包含了某个元素<br>if ([array containsObject:@”a”]) {<br>    NSLog(@”包含了字符串a”);<br>}<br>NSString <em>last = [array lastObject];最后一个元素<br>NSString </em>str = [array objectAtIndex:1];根据索引获取数组中的元素<br>int index = [array indexOfObject:@”c”];获取指定元素的索引<br>// 让数组里面的所有对象都调用test方法，123为参数<br>NSArray <em>array = [NSArray arrayWithObjects:stu1, stu2, stu3, nil nil];<br>[array makeObjectsPerformSelector:@selector(test2:) withObject:@”123”];<br>NSArray </em>array = [NSArray arrayWithObjects:@”1”, @”2”, @”3”, @”4”, nil nil];<br>// 1-2-3-4<br>// 利用分隔符-拼接所有的数组元素<br>NSString <em>str = [array componentsJoinedByString:@”-“];<br>// 将一个数组写入文件（生成的是一个xml文件）<br>NSString </em>path = @”/Users/apple/Desktop/array.xml”;<br>[array writeToFile:path atomically:YES];<br>path = @”/Users/apple/Desktop/array.txt”;<br>// 从文件中读取数组内容（文件有严格的格式要求）<br>NSArray *array2 = [NSArray arrayWithContentsOfFile:path];<br>3.遍历数组</p>
-<p>[objc] view plaincopy在CODE上查看代码片派生到我的代码片</p>
-<p>#pragma mark 遍历数组1<br>void arrayFor1() {<br>    NSArray *array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    int count = array.count;<br>    for (int i = 0; i&lt;count; i++) {<br>        id obj = [array objectAtIndex:i];<br>    }<br>}  </p>
-<p>#pragma mark 遍历数组2 快速遍历<br>void arrayFor2() {<br>    Student <em>stu1 = [Student student];<br>    NSArray </em>array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    int i =0;<br>    for (id obj in array) {<br>        NSLog(@”%i-%@”, i, obj);<br>        i++;<br>    }<br>}  </p>
-<p>#pragma mark 遍历数组3<br>void arrayFor3() {<br>    Student <em>stu1 = [Student student];<br>    NSArray </em>array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    [array enumerateObjectsUsingBlock:<br>     ^(id obj, NSUInteger idx, BOOLBOOL <em>stop) {<br>        NSLog(@”%i-%@”, idx, obj);<br>         // 如果索引为1，就停止遍历<br>         if (idx == 1) {<br>             // 利用指针修改外面BOOL变量的值  
-             </em>stop = YES;<br>         }<br>    }];<br>}  </p>
-<p>#pragma mark 遍历数组4<br>void arrayFor4() {<br>    Student <em>stu1 = [Student student];<br>    NSArray </em>array = [NSArray arrayWithObjects:stu1, @”1”, @”2”, @”3”, nil nil];<br>    // 获取数组的迭代器<br>    // NSEnumerator <em>enumerator = [array objectEnumerator];<br>    // 反序迭代器（从尾部开始遍历元素）<br>    NSEnumerator </em>enumerator = [array reverseObjectEnumerator];<br>    // allObjects是取出没有被遍历过的对象<br>    NSArray *array2 = [enumerator allObjects];<br>    NSLog(@”array2:%@”, array2);<br>    // 获取下一个需要遍历的元素<br>    id obj = nil;<br>    while (obj = [enumerator nextObject]) {<br>        NSLog(@”obj=%@”, obj);<br>    }<br>}  </p>
-<p>4.数组排序<br>[objc] view plaincopy在CODE上查看代码片派生到我的代码片</p>
-<p>#pragma mark 数组排序1<br>void arraySort1() {<br>    NSArray *array = [NSArray arrayWithObjects:@”2”, @”3”, @”1”, @”4”, nil nil];  </p>
-<pre><code>// 返回一个排好序的数组，原来数组的元素顺序不会改变  
-// 指定元素的比较方法：compare:  
-NSArray *array2 = [array sortedArrayUsingSelector:@selector(compare:)];  
-NSLog(@&quot;array2:%@&quot;, array2);  
-</code></pre><p>}  </p>
-<p>#pragma mark 数组排序2<br>void arraySort2() {<br>    Student <em>stu1 = [Student studentWithFirstname:@”MingJie” lastname:@”Li”];<br>    Student </em>stu2 = [Student studentWithFirstname:@”LongHu” lastname:@”Huang”];<br>    Student <em>stu3 = [Student studentWithFirstname:@”LianJie” lastname:@”Li”];<br>    Student </em>stu4 = [Student studentWithFirstname:@”Jian” lastname:@”Xiao”];<br>    NSArray <em>array = [NSArray arrayWithObjects:stu1,stu2,stu3, stu4, nil nil];<br>    // 指定排序的比较方法<br>    NSArray </em>array2 = [array sortedArrayUsingSelector:@selector(compareStudent:)];<br>    NSLog(@”array2:%@”, array2);<br>}  </p>
-<ul>
-<li>(NSComparisonResult)compareStudent:(Student *)stu {<br>  // 先按照姓排序<br>  NSComparisonResult result = [self.lastname compare:stu.lastname];<br>  // 如果有相同的姓，就比较名字<br>  if (result == NSOrderedSame) {  <pre><code>result = [self.firstname compare:stu.firstname];  
-</code></pre>  }<br>  return result;<br>}  </li>
-</ul>
-<p>#pragma mark 数组排序3<br>void arraySort3() {<br>    Student <em>stu1 = [Student studentWithFirstname:@”MingJie” lastname:@”Li”];<br>    Student </em>stu2 = [Student studentWithFirstname:@”LongHu” lastname:@”Huang”];<br>    Student <em>stu3 = [Student studentWithFirstname:@”LianJie” lastname:@”Li”];<br>    Student </em>stu4 = [Student studentWithFirstname:@”Jian” lastname:@”Xiao”];<br>    NSArray *array = [NSArray arrayWithObjects:stu1,stu2,stu3, stu4, nil nil];  </p>
-<pre><code>// 利用block进行排序  
-NSArray *array2 = [array sortedArrayUsingComparator:  
- ^NSComparisonResult(Student *obj1, Student *obj2) {  
-     // 先按照姓排序  
-     NSComparisonResult result = [obj1.lastname compare:obj2.lastname];  
-     // 如果有相同的姓，就比较名字  
-     if (result == NSOrderedSame) {  
-         result = [obj1.firstname compare:obj2.firstname];  
-     }  
-
-     return result;  
-}];  
-
-NSLog(@&quot;array2:%@&quot;, array2);  
-</code></pre><p>}  </p>
-<p>#pragma mark 数组排序4-高级排序<br>void arraySort4() {<br>    Student <em>stu1 = [Student studentWithFirstname:@”MingJie” lastname:@”Li” bookName:@”book1”];<br>    Student </em>stu2 = [Student studentWithFirstname:@”LongHu” lastname:@”Huang” bookName:@”book2”];<br>    Student <em>stu3 = [Student studentWithFirstname:@”LianJie” lastname:@”Li” bookName:@”book2”];<br>    Student </em>stu4 = [Student studentWithFirstname:@”Jian” lastname:@”Xiao” bookName:@”book1”];<br>    NSArray *array = [NSArray arrayWithObjects:stu1,stu2,stu3, stu4, nil nil];  </p>
-<pre><code>// 1.先按照书名进行排序  
-// 这里的key写的是@property的名称  
-NSSortDescriptor *bookNameDesc = [NSSortDescriptor sortDescriptorWithKey:@&quot;book.name&quot; ascending:YES];  
-// 2.再按照姓进行排序  
-NSSortDescriptor *lastnameDesc = [NSSortDescriptor sortDescriptorWithKey:@&quot;lastname&quot; ascending:YES];  
-// 3.再按照名进行排序  
-NSSortDescriptor *firstnameDesc = [NSSortDescriptor sortDescriptorWithKey:@&quot;firstname&quot; ascending:YES];  
-// 按顺序添加排序描述器  
-NSArray *descs = [NSArray arrayWithObjects:bookNameDesc, lastnameDesc, firstnameDesc, nil nil];  
-
-NSArray *array2 = [array sortedArrayUsingDescriptors:descs];  
-
-NSLog(@&quot;array2:%@&quot;, array2);  
-</code></pre><p>}  </p>
+        <p>php 套件 Xampp 或者Phpstudy<br>php编写工具 <a href="http://www.cr173.com/soft/55484.html" target="_blank" rel="external">sublime3 text3</a></p>
+<p>AndroidStudio</p>
+<p>python 2.7<br>yii2 </p>
+<p>git</p>
+<p>包管理工具 <em>Composer</em></p>
 
       
 
@@ -902,7 +844,7 @@ NSLog(@&quot;array2:%@&quot;, array2);
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
         		</li>
       		
 		</ul>
@@ -914,7 +856,7 @@ NSLog(@&quot;array2:%@&quot;, array2);
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/软件开发/" class="article-tag-list-link color5">软件开发</a>
         		</li>
       		
 		</ul>
@@ -923,7 +865,7 @@ NSLog(@&quot;array2:%@&quot;, array2);
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/ios-数组的基本用法-和排序/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/开发必备软件/PHP开发-所需软件/">展开全文 >></a>
         </p>
       
 
@@ -953,199 +895,28 @@ NSLog(@&quot;array2:%@&quot;, array2);
 
 
   
-    <article id="post-ios-学习笔记/iOS多线程-之NSThread的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-微信小程序/#简单入门学习#" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/iOS多线程-之NSThread的使用/">iOS多线程-之NSThread的使用</a>
+      <a class="article-title" href="/2017/08/18/微信小程序/#简单入门学习#/">小程序入门总结</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/iOS多线程-之NSThread的使用/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/微信小程序/#简单入门学习#/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、简介：<br>1.1 iOS有三种多线程编程的技术，分别是：<br>1.、NSThread<br>2、Cocoa NSOperation （iOS多线程编程之NSOperation和NSOperationQueue的使用）<br>3、GCD  全称：Grand Central Dispatch（ iOS多线程编程之Grand Central Dispatch(GCD)介绍和使用）<br>这三种编程方式从上到下，抽象度层次是从低到高的，抽象度越高的使用越简单，也是Apple最推荐使用的。<br>这篇我们主要介绍和使用NSThread，后面会继续2、3 的讲解和使用。<br>1.2 三种方式的有缺点介绍：<br>NSThread:<br>优点：NSThread 比其他两个轻量级<br>缺点：需要自己管理线程的生命周期，线程同步。线程同步对数据的加锁会有一定的系统开销<br>NSThread实现的技术有下面三种：</p>
-<p>Technology<br>Description<br>Cocoa threads<br>Cocoa implements threads using the NSThread class. Cocoa also provides methods on NSObject for spawning new threads and executing code on already-running threads. For more information, see “Using NSThread” and “Using NSObject to Spawn a Thread.”<br>POSIX threads<br>POSIX threads provide a C-based interface for creating threads. If you are not writing a Cocoa application, this is the best choice for creating threads. The POSIX interface is relatively simple to use and offers ample flexibility for configuring your threads. For more information, see “Using POSIX Threads”<br>Multiprocessing Services<br>Multiprocessing Services is a legacy C-based interface used by applications transitioning from older versions of Mac OS. This technology is available in OS X only and should be avoided for any new development. Instead, you should use the NSThread class or POSIX threads. If you need more information on this technology, see Multiprocessing Services Programming Guide.<br>一般使用cocoa thread 技术。</p>
-<p>Cocoa operation<br>优点：不需要关心线程管理，数据同步的事情，可以把精力放在自己需要执行的操作上。<br>Cocoa operation 相关的类是 NSOperation ，NSOperationQueue。NSOperation是个抽象类，使用它必须用它的子类，可以实现它或者使用它定义好的两个子类：NSInvocationOperation 和 NSBlockOperation。创建NSOperation子类的对象，把对象添加到NSOperationQueue队列里执行。<br>GCD<br>Grand Central Dispatch (GCD)是Apple开发的一个多核编程的解决方法。在iOS4.0开始之后才能使用。GCD是一个替代诸如NSThread, NSOperationQueue, NSInvocationOperation等技术的很高效和强大的技术。现在的iOS系统都升级到6了，所以不用担心该技术不能使用。</p>
-<p>介绍完这三种多线程编程方式，我们这篇先介绍NSThread的使用。<br>2、NSThread的使用<br>2.1 NSThread 有两种直接创建方式：</p>
-<ul>
-<li>(id)initWithTarget:(id)target selector:(SEL)selector object:(id)argument</li>
-</ul>
-<ul>
-<li>(void)detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument<br>第一个是实例方法，第二个是类方法</li>
-</ul>
-<p>[cpp]  view plaincopy<br>1、[NSThread detachNewThreadSelector:@selector(doSomething:) toTarget:self withObject:nil];<br>2、NSThread* myThread = [[NSThread alloc] initWithTarget:self<br>                                        selector:@selector(doSomething:)<br>                                        object:nil];<br>[myThread start];<br>2.2参数的意义：</p>
-<p>selector ：线程执行的方法，这个selector只能有一个参数，而且不能有返回值。<br>target  ：selector消息发送的对象<br>argument:传输给target的唯一参数，也可以是nil<br>第一种方式会直接创建线程并且开始运行线程，第二种方式是先创建线程对象，然后再运行线程操作，在运行线程操作前可以设置线程的优先级等线程信息<br>2.3 PS:不显式创建线程的方法：<br>用NSObject的类方法  performSelectorInBackground:withObject: 创建一个线程：<br>[Obj performSelectorInBackground:@selector(doSomething) withObject:nil];<br>2.4 下载图片的例子：<br>2.4.1  新建singeView app<br>新建项目，并在xib文件上放置一个imageView控件。按住control键拖到viewControll<br>er.h文件中创建imageView IBOutlet<br>ViewController.m中实现：<br>[cpp]  view plaincopy<br>//<br>//  ViewController.m<br>//  NSThreadDemo<br>//<br>//  Created by rongfzh on 12-9-23.<br>//  Copyright (c) 2012年 rongfzh. All rights reserved.<br>//  </p>
-<p>#import “ViewController.h”  </p>
-<p>#define kURL @”<a href="http://avatar.csdn.net/2/C/D/1_totogo2010.jpg" target="_blank" rel="external">http://avatar.csdn.net/2/C/D/1_totogo2010.jpg</a>“<br>@interface ViewController ()  </p>
-<p>@end  </p>
-<p>@implementation ViewController  </p>
-<p>-(void)downloadImage:(NSString <em>) url{<br>    NSData </em>data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];<br>    UIImage *image = [[UIImage alloc]initWithData:data];<br>    if(image == nil){  </p>
-<pre><code>}else{  
-    [self performSelectorOnMainThread:@selector(updateUI:) withObject:image waitUntilDone:YES];  
-}  
-</code></pre><p>}  </p>
-<p>-(void)updateUI:(UIImage*) image{<br>    self.imageView.image = image;<br>}  </p>
-<ul>
-<li>(void)viewDidLoad<br>{<br>  [super viewDidLoad];  </li>
-</ul>
-<p>//    [NSThread detachNewThreadSelector:@selector(downloadImage:) toTarget:self withObject:kURL];<br>    NSThread *thread = [[NSThread alloc]initWithTarget:self selector:@selector(downloadImage:) object:kURL];<br>    [thread start];<br>}  </p>
-<ul>
-<li>(void)didReceiveMemoryWarning<br>{<br>  [super didReceiveMemoryWarning];<br>  // Dispose of any resources that can be recreated.<br>}  </li>
-</ul>
-<p>@end<br>2.4.2线程间通讯<br>线程下载完图片后怎么通知主线程更新界面呢？</p>
-<p>[self performSelectorOnMainThread:@selector(updateUI:) withObject:image waitUntilDone:YES];<br>performSelectorOnMainThread是NSObject的方法，除了可以更新主线程的数据外，还可以更新其他线程的比如：<br>用：performSelector:onThread:withObject:waitUntilDone:<br>运行下载图片：</p>
-<p>图片下载下来了。<br>2.3 线程同步<br>我们演示一个经典的卖票的例子来讲NSThread的线程同步：<br>.h</p>
-<p>[cpp]  view plaincopy</p>
-<p>#import <uikit uikit.h="">  </uikit></p>
-<p>@class ViewController;  </p>
-<p>@interface AppDelegate : UIResponder <uiapplicationdelegate><br>{<br>    int tickets;<br>    int count;<br>    NSThread<em> ticketsThreadone;<br>    NSThread</em> ticketsThreadtwo;<br>    NSCondition<em> ticketsCondition;<br>    NSLock </em>theLock;<br>}<br>@property (strong, nonatomic) UIWindow *window;  </uiapplicationdelegate></p>
-<p>@property (strong, nonatomic) ViewController *viewController;  </p>
-<p>@end  </p>
-<p>[cpp]  view plaincopy</p>
-<ul>
-<li><p>(BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions<br>{  </p>
-<p>  tickets = 100;<br>  count = 0;<br>  theLock = [[NSLock alloc] init];<br>  // 锁对象<br>  ticketsCondition = [[NSCondition alloc] init];<br>  ticketsThreadone = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];<br>  [ticketsThreadone setName:@”Thread-1”];<br>  [ticketsThreadone start];  </p>
-</li>
-</ul>
-<pre><code>ticketsThreadtwo = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];  
-[ticketsThreadtwo setName:@&quot;Thread-2&quot;];  
-[ticketsThreadtwo start];  
-
-self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];  
-// Override point for customization after application launch.  
-self.viewController = [[ViewController alloc] initWithNibName:@&quot;ViewController&quot; bundle:nil];  
-self.window.rootViewController = self.viewController;  
-[self.window makeKeyAndVisible];  
-return YES;  
-</code></pre><p>}  </p>
-<ul>
-<li>(void)run{<br>  while (TRUE) {  <pre><code>// 上锁  
-</code></pre>//        [ticketsCondition lock];  <pre><code>[theLock lock];  
-if(tickets &gt;= 0){  
-    [NSThread sleepForTimeInterval:0.09];  
-    count = 100 - tickets;  
-    NSLog(@&quot;当前票数是:%d,售出:%d,线程名:%@&quot;,tickets,count,[[NSThread currentThread] name]);  
-    tickets--;  
-}else{  
-    break;  
-}  
-[theLock unlock];  
-</code></pre>//        [ticketsCondition unlock];<br>  }<br>}<br>如果没有线程同步的lock，卖票数可能是-1.加上lock之后线程同步保证了数据的正确性。</li>
-</ul>
-<p>上面例子我使用了两种锁，一种NSCondition ，一种是：NSLock。 NSCondition我已经注释了。</p>
-<p>线程的顺序执行<br>他们都可以通过<br>        [ticketsCondition signal]; 发送信号的方式，在一个线程唤醒另外一个线程的等待。<br>比如：<br>[cpp]  view plaincopy</p>
-<p>#import “AppDelegate.h”  </p>
-<p>#import “ViewController.h”  </p>
-<p>@implementation AppDelegate  </p>
-<ul>
-<li><p>(BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions<br>{  </p>
-<p>  tickets = 100;<br>  count = 0;<br>  theLock = [[NSLock alloc] init];<br>  // 锁对象<br>  ticketsCondition = [[NSCondition alloc] init];<br>  ticketsThreadone = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];<br>  [ticketsThreadone setName:@”Thread-1”];<br>  [ticketsThreadone start];  </p>
-<p>  ticketsThreadtwo = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];<br>  [ticketsThreadtwo setName:@”Thread-2”];<br>  [ticketsThreadtwo start];  </p>
-<p>  NSThread *ticketsThreadthree = [[NSThread alloc] initWithTarget:self selector:@selector(run3) object:nil];<br>  [ticketsThreadthree setName:@”Thread-3”];<br>  [ticketsThreadthree start];<br>  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];<br>  // Override point for customization after application launch.<br>  self.viewController = [[ViewController alloc] initWithNibName:@”ViewController” bundle:nil];<br>  self.window.rootViewController = self.viewController;<br>  [self.window makeKeyAndVisible];<br>  return YES;<br>}  </p>
-</li>
-</ul>
-<p>-(void)run3{<br>    while (YES) {<br>        [ticketsCondition lock];<br>        [NSThread sleepForTimeInterval:3];<br>        [ticketsCondition signal];<br>        [ticketsCondition unlock];<br>    }<br>}  </p>
-<ul>
-<li>(void)run{<br>  while (TRUE) {  <pre><code>// 上锁  
-[ticketsCondition lock];  
-[ticketsCondition wait];  
-[theLock lock];  
-if(tickets &gt;= 0){  
-    [NSThread sleepForTimeInterval:0.09];  
-    count = 100 - tickets;  
-    NSLog(@&quot;当前票数是:%d,售出:%d,线程名:%@&quot;,tickets,count,[[NSThread currentThread] name]);  
-    tickets--;  
-}else{  
-    break;  
-}  
-[theLock unlock];  
-[ticketsCondition unlock];  
-</code></pre>  }<br>}<br>wait是等待，我加了一个 线程3 去唤醒其他两个线程锁中的wait</li>
-</ul>
-<p>其他同步<br>我们可以使用指令 @synchronized 来简化 NSLock的使用，这样我们就不必显示编写创建NSLock,加锁并解锁相关代码。</p>
-<ul>
-<li>(void)doSomeThing:(id)anObj<br>{<br>  @synchronized(anObj)<br>  {<pre><code>// Everything between the braces is protected by the @synchronized directive.
-</code></pre>  }<br>}<br>还有其他的一些锁对象，比如：循环锁NSRecursiveLock，条件锁NSConditionLock，分布式锁NSDistributedLock等等,可以自己看官方文档学习<br>NSThread下载图片的例子代码：<a href="http://download.csdn.net/detail/totogo2010/4591149" target="_blank" rel="external">http://download.csdn.net/detail/totogo2010/4591149</a><br>著作权声明：本文由<a href="http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!" target="_blank" rel="external">http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!</a></li>
-</ul>
-<p>《iOS多线程编程之NSThread的使用》</p>
-<p>介绍三种多线程编程和NSThread的使用，这篇介绍NSOperation的使用。<br>使用 NSOperation的方式有两种，</p>
-<p>一种是用定义好的两个子类：</p>
-<p>NSInvocationOperation 和 NSBlockOperation。</p>
-<p>另一种是继承NSOperation</p>
-<p>如果你也熟悉Java，NSOperation就和java.lang.Runnable接口很相似。和Java的Runnable一样，NSOperation也是设计用来扩展的，只需继承重写NSOperation的一个方法main。相当与java 中Runnalbe的Run方法。然后把NSOperation子类的对象放入NSOperationQueue队列中，该队列就会启动并开始处理它。</p>
-<p>NSInvocationOperation例子：</p>
-<p>和前面一篇博文一样，我们实现一个下载图片的例子。新建一个Single View app，拖放一个ImageView控件到xib界面。</p>
-<p>实现代码如下：</p>
-<p>[cpp] view plaincopy</p>
-<p>#import “ViewController.h”  </p>
-<p>#define kURL @”<a href="http://avatar.csdn.net/2/C/D/1_totogo2010.jpg" target="_blank" rel="external">http://avatar.csdn.net/2/C/D/1_totogo2010.jpg</a>“  </p>
-<p>@interface ViewController ()  </p>
-<p>@end  </p>
-<p>@implementation ViewController  </p>
-<ul>
-<li><p>(void)viewDidLoad<br>{<br>  [super viewDidLoad];<br>  NSInvocationOperation *operation = [[NSInvocationOperation alloc]initWithTarget:self  </p>
-<pre><code>selector:@selector(downloadImage:)  
-  object:kURL];  
-</code></pre><p>  NSOperationQueue *queue = [[NSOperationQueue alloc]init];<br>  [queue addOperation:operation];<br>  // Do any additional setup after loading the view, typically from a nib.<br>}  </p>
-</li>
-</ul>
-<p>-(void)downloadImage:(NSString <em>)url{<br>    NSLog(@”url:%@”, url);<br>    NSURL </em>nsUrl = [NSURL URLWithString:url];<br>    NSData <em>data = [[NSData alloc]initWithContentsOfURL:nsUrl];<br>    UIImage </em> image = [[UIImage alloc]initWithData:data];<br>    [self performSelectorOnMainThread:@selector(updateUI:) withObject:image waitUntilDone:YES];<br>}<br>-(void)updateUI:(UIImage*) image{<br>    self.imageView.image = image;<br>}<br>viewDidLoad方法里可以看到我们用NSInvocationOperation建了一个后台线程，并且放到NSOperationQueue中。后台线程执行downloadImage方法。<br>downloadImage 方法处理下载图片的逻辑。下载完成后用performSelectorOnMainThread执行主线程updateUI方法。<br>updateUI 并把下载的图片显示到图片控件中。<br>运行可以看到下载图片显示在界面上。</p>
-<p>第二种方式继承NSOperation </p>
-<p>在.m文件中实现main方法，main方法编写要执行的代码即可。</p>
-<p>如何控制线程池中的线程数？</p>
-<p>队列里可以加入很多个NSOperation, 可以把NSOperationQueue看作一个线程池，可往线程池中添加操作（NSOperation）到队列中。线程池中的线程可看作消费者，从队列中取走操作，并执行它。</p>
-<p>通过下面的代码设置：<br>[queue setMaxConcurrentOperationCount:5];<br>线程池中的线程数，也就是并发操作数。默认情况下是-1，-1表示没有限制，这样会同时运行队列中的全部的操作。</p>
-<p>介绍：</p>
-<p>Grand Central Dispatch 简称（GCD）是苹果公司开发的技术，以优化的应用程序支持多核心处理器和其他的对称多处理系统的系统。这建立在任务并行执行的线程池模式的基础上的。它首次发布在Mac OS X 10.6 ，iOS 4及以上也可用。</p>
-<p>设计：</p>
-<p>GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。</p>
-<p>一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。</p>
-<p>GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行<br>dispatch queue分为下面三种：</p>
-<p>Serial         </p>
-<p>又称为private dispatch queues，同时只执行一个任务。Serial queue通常用于同步访问特定的资源或数据。当你创建多个Serial queue时，虽然它们各自是同步执行的，但Serial queue与Serial queue之间是并发执行的。</p>
-<p>Concurrent</p>
-<p>又称为global dispatch queue，可以并发地执行多个任务，但是执行完成的顺序是随机的。</p>
-<p>Main dispatch queue</p>
-<p>它是全局可用的serial queue，它是在应用程序主线程上执行任务的。</p>
-<p>我们看看dispatch queue如何使用</p>
-<p>1、常用的方法dispatch_async</p>
-<p>为了避免界面在处理耗时的操作时卡死，比如读取网络数据，IO,数据库读写等，我们会在另外一个线程中处理这些操作，然后通知主线程更新界面。</p>
-<p>用GCD实现这个流程的操作比前面介绍的NSThread  NSOperation的方法都要简单。代码框架结构如下：</p>
-<p>[cpp] view plaincopy<br>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{<br>    // 耗时的操作<br>    dispatch_async(dispatch_get_main_queue(), ^{<br>        // 更新界面<br>    });<br>});<br>如果这样还不清晰的话，那我们还是用上两篇博客中的下载图片为例子，代码如下：<br>[cpp] view plaincopy<br>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{<br>    NSURL <em> url = [NSURL URLWithString:@”<a href="http://avatar.csdn.net/2/C/D/1_totogo2010.jpg" target="_blank" rel="external">http://avatar.csdn.net/2/C/D/1_totogo2010.jpg</a>“];<br>    NSData </em> data = [[NSData alloc]initWithContentsOfURL:url];<br>    UIImage *image = [[UIImage alloc]initWithData:data];<br>    if (data != nil) {<br>        dispatch_async(dispatch_get_main_queue(), ^{<br>            self.imageView.image = image;<br>         });<br>    }<br>});<br>运行显示：</p>
-<p>是不是代码比NSThread  NSOperation简洁很多，而且GCD会自动根据任务在多核处理器上分配资源，优化程序。<br>系统给每一个应用程序提供了三个concurrent dispatch queues。这三个并发调度队列是全局的，它们只有优先级的不同。因为是全局的，我们不需要去创建。我们只需要通过使用函数dispath_get_global_queue去得到队列，如下：</p>
-<p>[cpp] view plaincopy<br>dispatch_queue_t globalQ = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>这里也用到了系统默认就有一个串行队列main_queue</p>
-<p>[cpp] view plaincopy<br>dispatch_queue_t mainQ = dispatch_get_main_queue();<br>虽然dispatch queue是引用计数的对象，但是以上两个都是全局的队列，不用retain或release。</p>
-<p>2、dispatch_group_async的使用</p>
-<p>dispatch_group_async可以实现监听一组任务是否完成，完成后得到通知执行其他的操作。这个方法很有用，比如你执行三个下载任务，当三个任务都下载完成后你才通知界面说完成的了。下面是一段例子代码：</p>
-<p>[cpp] view plaincopy<br>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>dispatch_group_t group = dispatch_group_create();<br>dispatch_group_async(group, queue, ^{<br>    [NSThread sleepForTimeInterval:1];<br>    NSLog(@”group1”);<br>});<br>dispatch_group_async(group, queue, ^{<br>    [NSThread sleepForTimeInterval:2];<br>    NSLog(@”group2”);<br>});<br>dispatch_group_async(group, queue, ^{<br>    [NSThread sleepForTimeInterval:3];<br>    NSLog(@”group3”);<br>});<br>dispatch_group_notify(group, dispatch_get_main_queue(), ^{<br>    NSLog(@”updateUi”);<br>});<br>dispatch_release(group);<br>dispatch_group_async是异步的方法，运行后可以看到打印结果：<br>2012-09-25 16:04:16.737 gcdTest[43328:11303] group1<br>2012-09-25 16:04:17.738 gcdTest[43328:12a1b] group2<br>2012-09-25 16:04:18.738 gcdTest[43328:13003] group3<br>2012-09-25 16:04:18.739 gcdTest[43328:f803] updateUi</p>
-<p>每个一秒打印一个，当第三个任务执行后，upadteUi被打印。</p>
-<p>3、dispatch_barrier_async的使用</p>
-<p>dispatch_barrier_async是在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行</p>
-<p>例子代码如下：</p>
-<p>[cpp] view plaincopy<br>dispatch_queue_t queue = dispatch_queue_create(“gcdtest.rongfzh.yc”, DISPATCH_QUEUE_CONCURRENT);<br>dispatch_async(queue, ^{<br>    [NSThread sleepForTimeInterval:2];<br>    NSLog(@”dispatch_async1”);<br>});<br>dispatch_async(queue, ^{<br>    [NSThread sleepForTimeInterval:4];<br>    NSLog(@”dispatch_async2”);<br>});<br>dispatch_barrier_async(queue, ^{<br>    NSLog(@”dispatch_barrier_async”);<br>    [NSThread sleepForTimeInterval:4];  </p>
-<p>});<br>dispatch_async(queue, ^{<br>    [NSThread sleepForTimeInterval:1];<br>    NSLog(@”dispatch_async3”);<br>});  </p>
-<p>打印结果：<br>2012-09-25 16:20:33.967 gcdTest[45547:11203] dispatch_async1</p>
-<p>2012-09-25 16:20:35.967 gcdTest[45547:11303] dispatch_async2</p>
-<p>2012-09-25 16:20:35.967 gcdTest[45547:11303] dispatch_barrier_async</p>
-<p>2012-09-25 16:20:40.970 gcdTest[45547:11303] dispatch_async3</p>
-<p>请注意执行的时间，可以看到执行的顺序如上所述。<br>4、dispatch_apply </p>
-<p>执行某个代码片段N次。<br>dispatch_apply(5, globalQ, ^(size_t index) {<br>    // 执行5次<br>});</p>
-<p>本篇使用的到的例子代码：<a href="http://download.csdn.net/detail/totogo2010/4596471" target="_blank" rel="external">http://download.csdn.net/detail/totogo2010/4596471</a></p>
-<p>GCD还有很多其他用法，可以参考官方文档</p>
-<p>参考的文档还有：<a href="http://en.wikipedia.org/wiki/Grand_Central_Dispatch" target="_blank" rel="external">http://en.wikipedia.org/wiki/Grand_Central_Dispatch</a></p>
-<p>前两篇多线程博文：iOS多线程编程之NSThread的使用</p>
-<pre><code>iOS多线程编程之NSOperation和NSOperationQueue的使用
-</code></pre><p>著作权声明：本文由<a href="http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!" target="_blank" rel="external">http://blog.csdn.net/totogo2010/原创，欢迎转载分享。请尊重作者劳动，转载时保留该声明和作者博客链接，谢谢!</a></p>
+        <p>仅适用于原生小程序 技巧1：快速创建page页面。在项目app.json的pages写下路径，运行。则会自动创建文件夹及路径文件。</p>
+<p>[css flax 布局] (<a href="http://www.wxapp-union.com/article-902-1.html" target="_blank" rel="external">http://www.wxapp-union.com/article-902-1.html</a>)</p>
 
       
 
@@ -1159,7 +930,7 @@ if(tickets &gt;= 0){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
         		</li>
       		
 		</ul>
@@ -1171,7 +942,7 @@ if(tickets &gt;= 0){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/小程序/" class="article-tag-list-link color4">小程序</a>
         		</li>
       		
 		</ul>
@@ -1180,7 +951,7 @@ if(tickets &gt;= 0){
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/iOS多线程-之NSThread的使用/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/微信小程序/#简单入门学习#/">展开全文 >></a>
         </p>
       
 
@@ -1210,89 +981,47 @@ if(tickets &gt;= 0){
 
 
   
-    <article id="post-ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-开发必备软件/PHP抓包方法集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo/">iskindofclass,isnumbersofclass,respondsToSelector,instancesRespondTo 比较</a>
+      <a class="article-title" href="/2017/08/18/开发必备软件/PHP抓包方法集合/">PHP抓包方法集合</a>
     </h1>
   
 
         
-        <a href="/2017/08/16/ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:37:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+        <a href="/2017/08/18/开发必备软件/PHP抓包方法集合/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Objective-C语法之动态类型(isKindOfClass, isMemberOfClass,id)等</p>
-<p>对象在运行时获取其类型的能力称为内省。内省可以有多种方法实现。</p>
-<p>判断对象类型</p>
-<p>-(BOOL) isKindOfClass: classObj判断是否是这个类或者这个类的子类的实例</p>
-<p>-(BOOL) isMemberOfClass: classObj 判断是否是这个类的实例</p>
-<p>ps：本篇新建的类主要用于熟悉本篇内容设计，未考虑内存管理因素。</p>
-<p>我们试试这两个方法的使用。</p>
-<p>1、新建Person类继承NSObject,新建Teacher类继承Person</p>
-<p>1.1、新建Person类</p>
-<p>[cpp] view plaincopy</p>
-<p>#import <foundation foundation.h="">  </foundation></p>
-<p>@interface Person : NSObject<br>{<br>    NSString <em>name;<br>}<br>-(void)setName:(NSString</em>)n;  </p>
-<p>@end  </p>
-<p>[cpp] view plaincopy</p>
-<p>#import “Person.h”  </p>
-<p>@implementation Person<br>-(void)setName:(NSString *)n<br>{<br>    name = n;<br>}  </p>
-<p>@end<br>1.2新建Teacher类</p>
-<p>[cpp] view plaincopy</p>
-<p>#import “Person.h”  </p>
-<p>@interface Teacher : Person  </p>
-<p>-(void)teach;  </p>
-<p>@end<br>[cpp] view plaincopy</p>
-<p>#import “Teacher.h”  </p>
-<p>@implementation Teacher<br>-(void)teach<br>{<br>    NSLog(@”我教数学”);<br>}<br>@end<br>1.3 我们先实验下isMemberOfClass方法。</p>
-<p>[cpp] view plaincopy<br>NSAutoreleasePool <em>pool = [[NSAutoreleasePool alloc] init];<br>   Person </em>person = [[Person alloc] init];<br>   Teacher *teacher = [[Teacher alloc] init];  </p>
-<p>   //YES<br>   if ([teacher isMemberOfClass:[Teacher class]]) {<br>        NSLog(@”teacher Teacher类的成员”);<br>   }<br>   //NO<br>   if ([teacher isMemberOfClass:[Person class]]) {<br>       NSLog(@”teacher Person类的成员”);<br>   }<br>   //NO<br>   if ([teacher isMemberOfClass:[NSObject class]]) {<br>       NSLog(@”teacher NSObject类的成员”);<br>   }<br>   [person release];<br>   [teacher release];<br>   [pool release];<br>打印结果：</p>
-<p>2012-07-04 14:23:07.965 ObjectiveCTest[2460:f803] teacher Teacher类的成员</p>
-<p>只有第一个判断打印出来，isMemberOfClass判断是否是属于这类的实例，是否跟父类有关系他不管。</p>
-<p>1.4 isKindOfClass方法</p>
-<p>[cpp] view plaincopy<br>NSAutoreleasePool <em>pool = [[NSAutoreleasePool alloc] init];<br>Person </em>person = [[Person alloc] init];<br>Teacher *teacher = [[Teacher alloc] init];  </p>
-<p>//YES<br>if ([teacher isKindOfClass:[Teacher class]]) {<br>    NSLog(@”teacher 是 Teacher类或Teacher的子类”);<br>}<br>//YES<br>if ([teacher isKindOfClass:[Person class]]) {<br>    NSLog(@”teacher 是 Person类或Person的子类”);<br>}<br>//YES<br>if ([teacher isKindOfClass:[NSObject class]]) {<br>    NSLog(@”teacher 是 NSObject类或NSObject的子类”);<br>}<br>[person release];<br>[teacher release];<br>[pool release];<br>2012-07-04 14:34:17.315 ObjectiveCTest[2595:f803] teacher 是 Teacher类或Teacher的子类</p>
-<p>2012-07-04 14:34:17.316 ObjectiveCTest[2595:f803] teacher 是 Person类或Person的子类</p>
-<p>2012-07-04 14:34:17.316 ObjectiveCTest[2595:f803] teacher 是 NSObject类或NSObject的子类</p>
-<p>三个结果都打印出来了。<br>2、</p>
-<p>-(BOOL) respondsToSelector: selector 判读实例是否有这样方法<br>+(BOOL) instancesRespondToSelector:  判断类是否有这个方法。此方法是类方法，不能用在类的对象</p>
-<p>2.1 respondsToSelector的使用</p>
-<p>这里不写对象的创建和释放了，参考上面的代码</p>
-<p>[cpp] view plaincopy<br>// YES<br>if ( [teacher respondsToSelector: @selector( setName: )] == YES ) {<br>    NSLog(@”teacher responds to setSize: method” );<br>}  </p>
-<p>// NO<br>if ( [teacher respondsToSelector: @selector( abcde )] == YES ) {<br>    NSLog(@”teacher responds to nonExistant method” );<br>}  </p>
-<p>// YES<br>if ( [teacher respondsToSelector: @selector( alloc )] == YES ) {<br>    NSLog(@”teacher class responds to alloc method\n” );<br>}<br>打印结果：<br>2012-07-04 14:39:49.853 ObjectiveCTest[2723:f803] teacher responds to setSize: method</p>
-<p>2012-07-04 14:39:49.854 ObjectiveCTest[2723:f803] teacher class responds to alloc method</p>
-<p>中间的那个判断我随便写了个selector,当然没有了。respondsToSelector 检查类方法 alloc返回YES</p>
-<p>2.2 instancesRespondToSelector</p>
-<p>[cpp] view plaincopy<br>// NO<br>    if ( [Person instancesRespondToSelector: @selector(teach)] == YES ) {<br>        NSLog(@”Person instance responds to teach method” );<br>    }  </p>
-<pre><code>// YES  
-if ( [Teacher instancesRespondToSelector: @selector(teach)] == YES ) {  
-    NSLog(@&quot;Teacher instance responds to teach method&quot;);  
-}  
-// YES  
-if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {  
-    NSLog(@&quot;Teacher instance responds to setName: method&quot; );  
-}  
-</code></pre><p>打印结果：<br>[cpp] view plaincopy<br>2012-07-04 14:52:29.378 ObjectiveCTest[2961:f803] Teacher instance responds to teach method<br>2012-07-04 14:52:29.379 ObjectiveCTest[2961:f803] Teacher instance responds to setName: method  </p>
-<p>3、Objective-C的id类型</p>
-<p>C++ 使用的是强类型：对象必须符合其类型，否则不能通过编译。在 Objective-C 中，id类型类似于(void*) ,可以指向任何类的实例。而不需要强制转换。<br>下面看看使用，</p>
-<p>先把Teacher类中的 teach方法修改一下，改成</p>
-<p>-(void)teach</p>
-<p>{</p>
-<pre><code>NSLog(@&quot;%@ 教数学&quot; ,name);
-</code></pre><p>}</p>
-<p>然后实现并调用<br>[cpp] view plaincopy<br>NSAutoreleasePool <em>pool = [[NSAutoreleasePool alloc] init];<br>Person </em>person = [[Person alloc] init];<br>Teacher *teacher = [[Teacher alloc] init];  </p>
-<p>id p = person;<br>id t = teacher;<br>[t setName:@”张三老师”];<br>[t teach];  </p>
-<p>[person release];<br>[teacher release];<br>[pool release];<br>打印结果：<br>[cpp] view plaincopy<br>2012-07-04 14:57:55.905 ObjectiveCTest[3085:f803] 张三老师 教数学  </p>
+        <h3 id="抓包框架：php-spider"><a href="#抓包框架：php-spider" class="headerlink" title="抓包框架：php-spider"></a><strong><a href="https://github.com/mvdbos/php-spider" target="_blank" rel="external">抓包框架：php-spider</a></strong></h3><p>简介：<br>The easiest way to install PHP-Spider is with composer. Find it on Packagist.<br>PHP-Spoder在Composer上安装非常简单。<br>特性：<br>（1）supports two traversal algorithms: breadth-first and depth-first<br>（1）支持两种遍历算法：广度优先和深度优先</p>
+<p>（2）supports crawl depth limiting, queue size limiting and max downloads limiting<br>（2）支持抓取深度限制，队列大小限制和最大下载限制</p>
+<p>（3）supports adding custom URI discovery logic, based on XPath, CSS selectors, or plain old PHP<br>（3）支持基于XPath，CSS选择器，或普通的PHP的自定义url设计模式</p>
+<p>（4）comes with a useful set of URI filters, such as Domain limiting<br>（4）配备一套有用的URI的过滤器，如限域</p>
+<p>（5）supports custom URI filters, both prefetch (URI) and postfetch (Resource content)<br>（5）支持自定义URL过滤器，预取（URI）和postfetch（资源量）</p>
+<p>（6）supports custom request handling logic<br>（6）支持自定义请求处理逻辑</p>
+<p>（7）comes with a useful set of persistence handlers (memory, file. Redis soon to follow)<br>（7）自带一个有用的持久化处理程序集（内存，文件。redis跟随）</p>
+<p>（8）supports custom persistence handlers<br>（8）支持自定义持久处理程序</p>
+<p>（9）collects statistics about the crawl for reporting<br>（9）收集关于报告的抓取的统计信息</p>
+<p>（10）dispatches useful events, allowing developers to add even more custom behavior<br>（10）将有用的事件，允许开发者添加更多的自定义行为</p>
+<p>（11）supports a politeness policy<br>（11）符合法律规定</p>
+<p>（12）will soon come with many default discoverers: RSS, Atom, RDF, etc.<br>（12）即将支持（暂未实现）：RSS，原子，RDF，等。</p>
+<p>（13）will soon support multiple queueing mechanisms (file, memcache, redis)<br>即将支持（暂未实现）多队列机制（文件、Memcache、Redis）</p>
+<p>（14） will eventually support distributed spidering with a central queue<br>（14）最终将支持分布式搜索与中央队列</p>
+<p>使用教程：<br>Windows 上安装 需要composer 环境<br>（1）下载：<a href="https://github.com/mvdbos/php-spider" target="_blank" rel="external">https://github.com/mvdbos/php-spider</a> 下载到本地，放在xampp环境下的htdoc下。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-9dd4d7b4448b0d7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Spider.png"><br>（2）进入 目录 使用 composer update 更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd php-spider-master   // 打开目录</div><div class="line">composer update // 更新目录</div></pre></td></tr></table></figure></p>
+<p>网页打开即可使用<br><a href="http://localhost/php-spider-master/example/example_simple.php" target="_blank" rel="external">http://localhost/php-spider-master/example/example_simple.php</a></p>
+<p>使用技巧：非直译，有误请指正。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">（1）This is a very simple example. This code can be found in example/example_simple.php. For a more complete example with some logging, caching and filters, see example/example_complex.php. That file contains a more real-world example.</div><div class="line">First create the spider</div><div class="line"></div><div class="line">简单的例子：代码在 example/example_simple.php。  </div><div class="line">完整例子：example/example_complex.php。能查看日志，缓存和文件。</div><div class="line"></div><div class="line">$spider = new Spider(&apos;http://www.dmoz.org&apos;);</div><div class="line"></div><div class="line"></div><div class="line">（2）Add a URI discoverer. Without it, the spider does nothing. In this case, we want all </div><div class="line">&lt;a&gt;nodes from a certain&lt;div&gt;</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;set(new XPathExpressionDiscoverer(&quot;//div[@id=&apos;catalogs&apos;]//a&quot;));</div><div class="line"></div><div class="line">译：创建一个抓包url。 如果没有这个url，什么也不能做、、例如，我盟可以从&lt;div &gt; 中获取所有节点</div><div class="line">&lt;a&gt;$spider-&gt;getDiscovererSet()-&gt;set(new） XPathExpressionDiscoverer(&quot;//div[@id=&apos;catalogs&apos;]//a&quot;));</div><div class="line"></div><div class="line">（3）Set some sane options for this example. In this case, we only get the first 10 items from the start page.</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;maxDepth = 1;$spider-&gt;getQueueManager()-&gt;maxQueueSize = 10;</div><div class="line">译：对于这些例子做一些限制。例如，我们在开始页面中，只获取10个项目。</div><div class="line"></div><div class="line">（4）Add a listener to collect stats from the Spider and the QueueManager.There are more components that dispatch events you can use.</div><div class="line">$statsHandler = new StatsHandler();$spider-&gt;getQueueManager()-&gt;getDispatcher()-&gt;addSubscriber($statsHandler);$spider-&gt;getDispatcher()-&gt;addSubscriber($statsHandler);</div><div class="line">Execute the crawl</div><div class="line">$spider-&gt;crawl();</div><div class="line">译：在队列和抓包过程中添加监听器，这样你可以调度更多的事件去只用那些组件。</div><div class="line"></div><div class="line"></div><div class="line">（5）When crawling is done, we could get some info about the crawl</div><div class="line">echo &quot;\n ENQUEUED: &quot; . count($statsHandler-&gt;getQueued());echo &quot;\n SKIPPED: &quot; . count($statsHandler-&gt;getFiltered());echo &quot;\n FAILED: &quot; . count($statsHandler-&gt;getFailed());echo &quot;\n PERSISTED: &quot; . count($statsHandler-&gt;getPersisted());</div><div class="line">译“抓包完成后，我们通过以下方法能获取抓取的信息。</div><div class="line">（6）</div><div class="line">Finally we could do some processing on the downloaded resources. In this example, we will echo the title of all resources</div><div class="line">echo &quot;\n\nDOWNLOADED RESOURCES: &quot;;foreach ($spider-&gt;getDownloader()-&gt;getPersistenceHandler() as $resource) &#123; echo &quot;\n - &quot; . $resource-&gt;getCrawler()-&gt;filterXpath(&apos;//title&apos;)-&gt;text();&#125;</div><div class="line">译：最后我们可以下载这些资源来使用。在例子中，我们将获取title和所有资源。</div><div class="line">[贡献](https://github.com/mvdbos/php-spider#contributing)</div></pre></td></tr></table></figure></p>
+<p>demo：测试</p>
+<p>修改：文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">修改源网址。此步骤会请求网络，获取源代码。</div><div class="line">$spider = new Spider(&apos;http://www.hao123.com/&apos;);</div><div class="line">// Add a URI discoverer. Without it, the spider does nothing. In this case, we want &lt;a&gt; tags from a certain &lt;div&gt;</div><div class="line">筛选出自己想要的节点。</div><div class="line">  echo &quot;\n - &quot;. $spider-&gt;getDiscovererSet()-&gt;set(new XPathExpressionDiscoverer(&quot;//div[@id=&apos;layoutContainer&apos;]//a&quot;)) ;</div></pre></td></tr></table></figure></p>
+<p>常用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line">1 .设置我们抓取的url：</div><div class="line">// The URI we want to start crawling with</div><div class="line">$seed = &apos;http://www.dmoz.org&apos;;</div><div class="line"></div><div class="line">2. 设置是否允许获取子域内容。</div><div class="line">// We want to allow all subdomains of dmoz.org</div><div class="line">$allowSubDomains = true;</div><div class="line"></div><div class="line">3.创建一个抓包url。。</div><div class="line">// Create spider</div><div class="line">$spider = new Spider($seed);</div><div class="line">$spider-&gt;getDownloader()-&gt;setDownloadLimit(10);</div><div class="line"></div><div class="line">4. 设置 队列和日志 管理，用于监听管理，抓取信息。</div><div class="line">$statsHandler = new StatsHandler();</div><div class="line">$LogHandler = new LogHandler();</div><div class="line"></div><div class="line">$queueManager = new InMemoryQueueManager();</div><div class="line"></div><div class="line">$queueManager-&gt;getDispatcher()-&gt;addSubscriber($statsHandler);</div><div class="line">$queueManager-&gt;getDispatcher()-&gt;addSubscriber($LogHandler);</div><div class="line"></div><div class="line">5.设置网页的最大深度 和网页队列的最大资源数为10,</div><div class="line">// Set some sane defaults for this example. We only visit the first level of www.dmoz.org. We stop at 10 queued resources</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;maxDepth = 1;</div><div class="line"></div><div class="line">6.我们设置为广度优先，默认是深度优先。</div><div class="line">// This time, we set the traversal algorithm to breadth-first. The default is depth-first</div><div class="line">$queueManager-&gt;setTraversalAlgorithm(InMemoryQueueManager::ALGORITHM_BREADTH_FIRST);</div><div class="line"></div><div class="line">$spider-&gt;setQueueManager($queueManager);</div><div class="line"></div><div class="line">7.添加url队列，如果没有url，就不能抓包获取资源。</div><div class="line">// We add an URI discoverer. Without it, the spider wouldn&apos;t get past the seed resource.</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;set(new XPathExpressionDiscoverer(&quot;//*[@id=&apos;cat-list-content-2&apos;]/div/a&quot;));</div><div class="line"></div><div class="line">8.保存资源到文件</div><div class="line">// Let&apos;s tell the spider to save all found resources on the filesystem</div><div class="line">$spider-&gt;getDownloader()-&gt;setPersistenceHandler(</div><div class="line">    new \VDB\Spider\PersistenceHandler\FileSerializedResourcePersistenceHandler(__DIR__ . &apos;/results&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">9.添加一些过滤器，用于在请求数据之前执行</div><div class="line">拥有这些，可以更少的执行http请求</div><div class="line"></div><div class="line">// Add some prefetch filters. These are executed before a resource is requested.</div><div class="line">// The more you have of these, the less HTTP requests and work for the processors</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;addFilter(new AllowedSchemeFilter(array(&apos;http&apos;)));</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;addFilter(new AllowedHostsFilter(array($seed), $allowSubDomains));</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;addFilter(new UriWithHashFragmentFilter());</div><div class="line">$spider-&gt;getDiscovererSet()-&gt;addFilter(new UriWithQueryStringFilter());</div><div class="line"></div><div class="line"></div><div class="line">10.我们添加监听器用来实现爬虫。对于每个域名的请求我们需要等待450ms。</div><div class="line">// We add an eventlistener to the crawler that implements a politeness policy. We wait 450ms between every request to the same domain</div><div class="line">$politenessPolicyEventListener = new PolitenessPolicyListener(100);</div><div class="line">$spider-&gt;getDownloader()-&gt;getDispatcher()-&gt;addListener(</div><div class="line">    SpiderEvents::SPIDER_CRAWL_PRE_REQUEST,</div><div class="line">    array($politenessPolicyEventListener, &apos;onCrawlPreRequest&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">$spider-&gt;getDispatcher()-&gt;addSubscriber($statsHandler);</div><div class="line">$spider-&gt;getDispatcher()-&gt;addSubscriber($LogHandler);</div><div class="line"></div><div class="line">11. 添加一些东西，停止脚本。</div><div class="line">// Let&apos;s add something to enable us to stop the script</div><div class="line">$spider-&gt;getDispatcher()-&gt;addListener(</div><div class="line">    SpiderEvents::SPIDER_CRAWL_USER_STOPPED,</div><div class="line">    function (Event $event) &#123;</div><div class="line">        echo &quot;\nCrawl aborted by user.\n&quot;;</div><div class="line">        exit();</div><div class="line">    &#125;</div><div class="line">);</div><div class="line"></div><div class="line">12.添加CLI进度表</div><div class="line">// Let&apos;s add a CLI progress meter for fun</div><div class="line">echo &quot;\nCrawling&quot;;</div><div class="line">$spider-&gt;getDownloader()-&gt;getDispatcher()-&gt;addListener(</div><div class="line">    SpiderEvents::SPIDER_CRAWL_POST_REQUEST,</div><div class="line">    function (Event $event) &#123;</div><div class="line">        echo &apos;.&apos;;</div><div class="line">    &#125;</div><div class="line">);</div><div class="line"></div><div class="line">13.对每个http的抓包请求，设置缓存，日志打印和文件。</div><div class="line">// Set up some caching, logging and profiling on the HTTP client of the spider</div><div class="line">$guzzleClient = $spider-&gt;getDownloader()-&gt;getRequestHandler()-&gt;getClient();</div><div class="line">$tapMiddleware = Middleware::tap([$timerMiddleware, &apos;onRequest&apos;], [$timerMiddleware, &apos;onResponse&apos;]);</div><div class="line">$guzzleClient-&gt;getConfig(&apos;handler&apos;)-&gt;push($tapMiddleware, &apos;timer&apos;);</div><div class="line"></div><div class="line"></div><div class="line">14.开始抓取</div><div class="line">// Execute the crawl</div><div class="line">$result = $spider-&gt;crawl();</div><div class="line"></div><div class="line">15.执行结果</div><div class="line">// Report</div><div class="line">echo &quot;\n\nSPIDER ID: &quot; . $statsHandler-&gt;getSpiderId();</div><div class="line">echo &quot;\n  ENQUEUED:  &quot; . count($statsHandler-&gt;getQueued());</div><div class="line">echo &quot;\n  SKIPPED:   &quot; . count($statsHandler-&gt;getFiltered());</div><div class="line">echo &quot;\n  FAILED:    &quot; . count($statsHandler-&gt;getFailed());</div><div class="line">echo &quot;\n  PERSISTED:    &quot; . count($statsHandler-&gt;getPersisted());</div><div class="line"></div><div class="line">16.从插件和监听器中，获取一些确定的指标</div><div class="line">// With the information from some of plugins and listeners, we can determine some metrics</div><div class="line">$peakMem = round(memory_get_peak_usage(true) / 1024 / 1024, 2);</div><div class="line">$totalTime = round(microtime(true) - $start, 2);</div><div class="line">$totalDelay = round($politenessPolicyEventListener-&gt;totalDelay / 1000 / 1000, 2);</div><div class="line">echo &quot;\n\nMETRICS:&quot;;</div><div class="line">echo &quot;\n  PEAK MEM USAGE:       &quot; . $peakMem . &apos;MB&apos;;</div><div class="line">echo &quot;\n  TOTAL TIME:           &quot; . $totalTime . &apos;s&apos;;</div><div class="line">echo &quot;\n  REQUEST TIME:         &quot; . $timerMiddleware-&gt;getTotal() . &apos;s&apos;;</div><div class="line">echo &quot;\n  POLITENESS WAIT TIME: &quot; . $totalDelay . &apos;s&apos;;</div><div class="line">echo &quot;\n  PROCESSING TIME:      &quot; . ($totalTime - $timerMiddleware-&gt;getTotal() - $totalDelay) . &apos;s&apos;;</div><div class="line"></div><div class="line">17.最后：执行下载资源的进度</div><div class="line">// Finally we could start some processing on the downloaded resources</div><div class="line">echo &quot;\n\nDOWNLOADED RESOURCES: &quot;;</div><div class="line">$downloaded = $spider-&gt;getDownloader()-&gt;getPersistenceHandler();</div><div class="line">foreach ($downloaded as $resource) &#123;</div><div class="line">    $title = $resource-&gt;getCrawler()-&gt;filterXpath(&apos;//title&apos;)-&gt;text();</div><div class="line">    $contentLength = (int) $resource-&gt;getResponse()-&gt;getHeaderLine(&apos;Content-Length&apos;);</div><div class="line">    // do something with the data</div><div class="line">    echo &quot;\n - &quot; . str_pad(&quot;[&quot; . round($contentLength / 1024), 4, &apos; &apos;, STR_PAD_LEFT) . &quot;KB] $title&quot;;</div><div class="line">&#125;</div><div class="line">echo &quot;\n&quot;;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -1306,7 +1035,7 @@ if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">抓包</a>
         		</li>
       		
 		</ul>
@@ -1318,7 +1047,7 @@ if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/PHP/" class="article-tag-list-link color4">PHP</a>
         		</li>
       		
 		</ul>
@@ -1327,7 +1056,7 @@ if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/ios-学习笔记/iskindofclass--isnumbersofclass--respondsToSelector-instancesRespondTo/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/开发必备软件/PHP抓包方法集合/">展开全文 >></a>
         </p>
       
 
@@ -1359,7 +1088,7 @@ if ( [Teacher instancesRespondToSelector: @selector(setName:)] == YES ) {
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1462,31 +1191,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发方式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">进程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1502,10 +1223,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">fighting</a>
               </li>
              
@@ -1514,7 +1231,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1522,7 +1239,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序 - wepy</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1542,15 +1259,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">美句</a>
               </li>
             
             <div class="clearfix"></div>
