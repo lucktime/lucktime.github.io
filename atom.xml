@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-18T11:42:21.000Z</updated>
+  <updated>2017-08-23T10:28:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,707 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小程序开发资源汇总</title>
+    <link href="http://yoursite.com/2017/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2017/08/23/微信小程序/小程序开发资源汇总/</id>
+    <published>2017-08-23T10:26:11.000Z</published>
+    <updated>2017-08-23T10:28:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>转自于 :<a href="https://github.com/justjavac/awesome-wechat-weapp" target="_blank" rel="external">Github大牛整理微信小程序开发资源汇总</a></p>
+<h1 id="微信小程序开发资源汇总"><a href="#微信小程序开发资源汇总" class="headerlink" title="微信小程序开发资源汇总"></a>微信小程序开发资源汇总</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#官方文档">官方文档</a></li>
+<li><a href="#新闻报道">新闻报道</a></li>
+<li><a href="#社区">社区</a></li>
+<li><a href="#工具">工具</a></li>
+<li><a href="#插件">插件</a></li>
+<li><a href="#分析">分析</a></li>
+<li><a href="#讨论">讨论</a></li>
+<li><a href="#教程">教程</a></li>
+<li><a href="#视频教程">视频教程</a></li>
+<li><a href="#文章">文章</a></li>
+<li><a href="#代码">代码</a></li>
+<li><p><a href="#轮子">轮子</a></p>
+<a id="more"></a>
+<h2 id="置顶"><a href="#置顶" class="headerlink" title="置顶"></a>置顶</h2></li>
+<li><p><a href="https://github.com/wepyjs/wepy" target="_blank" rel="external">WePY：组件化的小程序开发框架</a></p>
+</li>
+<li><a href="https://github.com/youzan/zanui-weapp" target="_blank" rel="external">ZanUI-WeApp: 高颜值、好用、易扩展的微信小程序 UI 库，Powered by 有赞</a></li>
+</ul>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><ul>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/index.html" target="_blank" rel="external">小程序开发文档</a></li>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/design/index.html" target="_blank" rel="external">小程序设计指南</a></li>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="external">小程序开发者工具</a></li>
+</ul>
+<h2 id="新闻报道"><a href="#新闻报道" class="headerlink" title="新闻报道"></a>新闻报道</h2><ul>
+<li><a href="https://36kr.com/p/5053349.html" target="_blank" rel="external">微信正式开放内测“小程序”，不开发APP的日子真的来了？(36氪 • 缪定纯 • 2016-09-22 09:05)</a></li>
+<li><a href="http://www.10tiao.com/html/589/201609/2649293626/1.html" target="_blank" rel="external">关于微信小程序（应用号），我能透露的几个细节(可能吧 阿禅 Jason Ng)</a></li>
+<li><a href="https://www.huxiu.com/article/164700.html" target="_blank" rel="external">你的产品适不适合做微信小程序？你需要这篇产品逻辑分析(虎嗅网 • 三节课 • 2016-9-22)</a></li>
+</ul>
+<h2 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h2><ul>
+<li><a href="http://wxopen.club/" target="_blank" rel="external">WXOPEN Club | 微信小程序专业社区</a></li>
+<li><a href="http://www.wxapp-union.com/" target="_blank" rel="external">wxapp-union | 微信小程序联盟</a></li>
+<li><a href="http://bbs.larkapp.com/" target="_blank" rel="external">larkapp | 白鹭青雀社区</a></li>
+<li><a href="http://weixin1024.cn/" target="_blank" rel="external">蜂鸟小程序开发者社区</a></li>
+<li><a href="https://weappdev.com/" target="_blank" rel="external">微信小程序垂直开发社区</a></li>
+</ul>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
+<li><a href="https://github.com/wepyjs/wepy" target="_blank" rel="external">WePY 一个支持组件化的小程序开发框架</a></li>
+<li><del><a href="http://www.diycode.cc/topics/308" target="_blank" rel="external">微信小程序 (应用号) 微信 web 开发者工具破解版(DiyCode)</a></del></li>
+<li><a href="https://weapptool.com" target="_blank" rel="external">微信小程序配置及目录在线生成工具</a></li>
+<li><del><a href="https://github.com/gavinkwoe/weapp-ide-crack" target="_blank" rel="external">IDE + 破解 + Demo(gavinkwoe/weapp-ide-crack)</a></del></li>
+<li><a href="http://developer.egret.com/cn/github/egret-docs/Wing/update/update320/index.html" target="_blank" rel="external">Egret Wing 3.2.x 支持微信小程序实时预览的IDE)</a></li>
+<li><a href="https://github.com/maichong/labrador" target="_blank" rel="external">Labrador 支持ES6/7的微信小程序组件化开发框架</a></li>
+<li><a href="https://github.com/chemzqm/wept" target="_blank" rel="external">WEPT 一个微信小程序实时运行环境</a></li>
+<li><a href="https://github.com/seanlong/wxml-parser" target="_blank" rel="external">wxml-parser JavaScript WXML parser</a> 以及<a href="https://seanlong.github.io/wxapp-page-editor" target="_blank" rel="external">在线页面demo</a></li>
+<li><a href="http://allanguys.github.io/px2rpx" target="_blank" rel="external">Px转Rpx在线工具</a></li>
+<li><a href="https://github.com/xpmjs/xpmjs" target="_blank" rel="external">微信小程序云端增强 SDK XpmJS </a></li>
+<li><a href="https://github.com/chenzhuo1992/wech" target="_blank" rel="external">4kb模块化开发工具 将模块化的属性和方法映射成小程序页面</a></li>
+<li><a href="https://github.com/mdsb100/gulp-wxa-copy-npm" target="_blank" rel="external">gulp-wxa-copy-npm插件 能够使用ES6/7和NPM库</a></li>
+<li><a href="https://github.com/cytle/wechat_web_devtools" target="_blank" rel="external">wechat_web_devtools Linux下微信开发者工具</a></li>
+<li><a href="https://github.com/Jeff2Ma/WeApp-Workflow" target="_blank" rel="external">WeApp-Workflow 基于Gulp 的微信小程序前端开发工作流</a></li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li><a href="https://github.com/chemzqm/wxapp.vim" target="_blank" rel="external">vim 插件(chemzqm/wxapp.vim)</a></li>
+<li><a href="https://github.com/Abbotton/weapp-snippet-for-sublime-text-2-3" target="_blank" rel="external">sublime text 2&amp;3 snippet(Abbotton/weapp-snippet-for-sublime-text-2-3)</a></li>
+<li><a href="https://github.com/lypeer/Matchmaker" target="_blank" rel="external">IntelliJ IDEA插件，注入方法</a></li>
+<li><a href="https://github.com/qbright/wechatCode-complete" target="_blank" rel="external">webstorm 插件（代码提示）</a></li>
+<li><a href="https://github.com/FloydaGithub/wxapp" target="_blank" rel="external">sublime plugin - wxapp</a></li>
+</ul>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><ul>
+<li><a href="https://www.qcloud.com/act/event/yingyonghao.html" target="_blank" rel="external">从搭建一个微信小程序开始(腾讯云)</a></li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li><a href="http://blog.csdn.net/yulianlin/article/details/52621413" target="_blank" rel="external">从程序员的角度分析微信小程序(CSDN)</a></li>
+<li><a href="http://www.jianshu.com/p/060c6f3dd4e8" target="_blank" rel="external">微信小程序，一个有局限的类似 React Native 轮子！(简书)</a></li>
+<li><a href="http://www.jianshu.com/p/a256ea4a3d0e" target="_blank" rel="external">一篇文章读懂微信小程序(应用号)是什么？(简书)</a></li>
+</ul>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><ul>
+<li><a href="https://www.zhihu.com/question/50874500" target="_blank" rel="external">如何评价 9 月 21 日开始内测的「微信小程序」？(知乎)</a></li>
+<li><a href="https://www.zhihu.com/question/39374074" target="_blank" rel="external">如何看待微信将推应用号？(知乎)</a></li>
+<li><a href="https://www.zhihu.com/question/50875544" target="_blank" rel="external">微信小程序（应用号）价值是什么？(知乎)</a></li>
+<li><a href="https://www.zhihu.com/question/50878415" target="_blank" rel="external">微信应用号是否真能颠覆APP？(知乎)</a></li>
+<li><a href="https://www.zhihu.com/question/50900987" target="_blank" rel="external">微信小程序的出现会给前端开发带来什么？(知乎)</a></li>
+<li><a href="https://www.v2ex.com/t/308005" target="_blank" rel="external">封闭一周开发微信应用号（小程序）(v2ex)</a></li>
+<li><a href="https://github.com/airyland/vux/issues/587" target="_blank" rel="external">一个天大的误会：Vux并非微信应用号项目(github)</a></li>
+<li><a href="http://gold.xitu.io/entry/57e31c72bf22ec00584ca6b8/detail" target="_blank" rel="external">微信小程序即将发布，你怎么看？有啥有趣的点子？它会替代原生App吗？(掘金)</a></li>
+</ul>
+<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><ul>
+<li>全球首个微信应用号开发教程！通宵吐血赶稿，每日更新！<ul>
+<li><a href="http://www.diycode.cc/topics/311" target="_blank" rel="external">第一弹</a></li>
+<li><a href="http://www.diycode.cc/topics/312" target="_blank" rel="external">第二弹</a></li>
+<li><a href="http://www.diycode.cc/topics/316" target="_blank" rel="external">第三弹</a></li>
+<li><a href="http://www.diycode.cc/topics/325" target="_blank" rel="external">第四弹</a></li>
+<li><a href="http://www.diycode.cc/topics/328" target="_blank" rel="external">第五弹</a></li>
+</ul>
+</li>
+<li>微信小程序剖析(微信公众号)<ul>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5Mjg4NDMwMA==&amp;mid=2652974082&amp;idx=1&amp;sn=47c7f672caf629cd846e315b8df2b1c5&amp;scene=21#wechat_redirect" target="_blank" rel="external">「官方示例代码」浅析</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5Mjg4NDMwMA==&amp;mid=2652974093&amp;idx=1&amp;sn=0570a243304ea8bb7d1b636624886fb1&amp;scene=21#wechat_redirect" target="_blank" rel="external">（一）：运行机制</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5Mjg4NDMwMA==&amp;mid=2652974111&amp;idx=1&amp;sn=93a868cdb59b5dd77c65c7a5303e6e31#rd" target="_blank" rel="external">（二）：框架原理</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5Mjg4NDMwMA==&amp;mid=2652974133&amp;idx=1&amp;sn=3b67419e8ac0bb8262ca4c1e3cdabb35#rd" target="_blank" rel="external">（三）：让小程序运行在Chrome浏览器上</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5Mjg4NDMwMA==&amp;mid=2652974146&amp;idx=1&amp;sn=52041fdca4245e8f4b670ed20efa77de#rd" target="_blank" rel="external">（四）：原生的实时DOM转Virtual DOM</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5Mjg4NDMwMA==&amp;mid=2652974149&amp;idx=1&amp;sn=3efe5e6ee479ad6cbddc0a607cd40411#rd" target="_blank" rel="external">（五）：创建一个兼容「微信小程序」的Web框架</a></li>
+</ul>
+</li>
+<li><a href="https://zhuanlan.zhihu.com/p/22754296" target="_blank" rel="external">微信小程序架构分析(上)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22765476" target="_blank" rel="external">微信小程序架构分析(中)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22932309" target="_blank" rel="external">微信小程序架构分析(下)</a></li>
+<li><a href="http://gold.xitu.io/entry/57e34d6bd2030900691e9ad7" target="_blank" rel="external">首个微信小程序开发教程(掘金)</a></li>
+<li><a href="http://xituqu.com/508.html" target="_blank" rel="external">微信小程序开发教程！(稀土区)</a></li>
+<li><a href="http://www.ifanr.com/721124" target="_blank" rel="external">微信小程序怎么开发？玩物志用一个上午上线了电商应用(爱范儿)</a></li>
+<li><a href="http://lattecake.com/post/20098" target="_blank" rel="external">开发微信小程序入门前(LatteCake)</a></li>
+<li><a href="http://www.jianshu.com/p/fc958b73441a" target="_blank" rel="external">小程序来临，前端工程师的春天(简书)</a></li>
+<li><a href="https://github.com/dingyiming/weapp-example" target="_blank" rel="external">hello-weapp 微信小程序最简示例教程(dingyiming/weapp-example)</a></li>
+<li><a href="https://github.com/champion32/WeAppIdeIssue" target="_blank" rel="external">微信小应用IDE的安装以及安装过程的常见问题(champion32/WeAppIdeIssue)</a></li>
+<li><a href="https://cnodejs.org/topic/57ea257b3670ca3f44c5beb6" target="_blank" rel="external">分享我用cnode社区api做微信小应用的入门过程(CNode)</a></li>
+<li><a href="http://www.jianshu.com/p/aaef5ceb3936" target="_blank" rel="external">微信小程序开发教程-从零开始(简书)</a></li>
+<li><a href="https://seahub.github.io/2016/10/09/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F/" target="_blank" rel="external">我所理解的小程序 - 小程序真机调试(seahub)</a></li>
+<li><a href="http://www.jianshu.com/p/0831f0b08a57" target="_blank" rel="external">微信小程序快速入门教程|VR视频推荐DEMO(简书)</a></li>
+<li><a href="https://www.v2ex.com/t/352472" target="_blank" rel="external">微信小程序集成mobx</a></li>
+<li><a href="https://segmentfault.com/a/1190000007107646" target="_blank" rel="external">微信小程序集成Redux(Segmentfault)</a></li>
+<li><a href="http://www.toutiao.com/i6337811737235948034/?tt_from=weixin&amp;utm_campaign=client_share&amp;from=groupmessage&amp;app=news_article&amp;utm_source=weixin&amp;isappinstalled=1&amp;iid=5802414556&amp;utm_medium=toutiao_ios&amp;wxshare_count=2&amp;pbid=21507233636" target="_blank" rel="external">微信小程序ajax请求到自己的网站(庆恺的笔记)</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNjQwMzUwMQ==&amp;mid=2247484316&amp;idx=1&amp;sn=463bbea1626458beb30f55ce155b4983&amp;chksm=9723615ea054e848497c3b72e5264d99c9230144bd21862c508211085bf93b71078cc2fc1fc5&amp;mpshare=1&amp;scene=1&amp;srcid=1013yiCsz6WNYwpKs2UDYuOO#rd" target="_blank" rel="external">微信小程序剖析 | 运行机制及框架原理(前端之巅)</a></li>
+<li><a href="https://aotu.io/notes/2017/01/06/wxapp-img-loader/" target="_blank" rel="external">在微信小程序里实现图片预加载组件(凹凸实验室)</a></li>
+<li><a href="http://www.jianshu.com/p/6ceee5026d61" target="_blank" rel="external">开发到上线仅十六天 海外党微信小程序全攻略(简书)</a> 海外双机加速，免费证书配置等</li>
+<li><a href="http://www.wxapp-union.com/special/solution.html" target="_blank" rel="external">微信小程序解决方案专辑</a></li>
+</ul>
+<h2 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h2><ul>
+<li><a href="http://wxopen.club/topic/582d4999745f85100cd13a65" target="_blank" rel="external">免费视频教程 - WXOPEN.Club 出品微信小程序开发视频教程（持续更新中…）</a></li>
+<li><a href="http://www.howzhi.com/course/15035/" target="_blank" rel="external">视频 - 全网首个微信小程序开发视频教程</a></li>
+<li><a href="http://edu.csdn.net/course/detail/3011" target="_blank" rel="external">视频 - 微信小程序开发实战第一季(CSDN)</a></li>
+<li><a href="http://edu.csdn.net/course/detail/3045" target="_blank" rel="external">视频 - 微信小程序开发实战第二季(CSDN)</a></li>
+<li><a href="http://www.jikexueyuan.com/zhiye/course/34.html?type=8&amp;utm_source=jike&amp;utm_medium=www_index_cf&amp;utm_campaign=wechat_app&amp;utm_content=0930" target="_blank" rel="external">视频 - 极客学院微信小程序开发</a></li>
+<li><a href="http://edu.51cto.com/course/course_id-7242.html" target="_blank" rel="external">视频 - 微信小程序新手入门(51CTO)</a></li>
+</ul>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><ul>
+<li><a href="https://cnodejs.org/topic/57e330d07d8293463a01e7e0" target="_blank" rel="external">未来是h5的：写在微信应用号发布之际(CNode)</a></li>
+<li><a href="http://www.jianshu.com/p/60c8fd8d6862" target="_blank" rel="external">微信“小程序”让我脑洞大开(简书)</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzA3NTE4NTgzMQ==&amp;mid=2648022620&amp;idx=1&amp;sn=7cdff020ee181c661d62d2e971a6230e&amp;chksm=87555594b022dc822eeebf203e9a236268fef86d133b38d8d2dab73ebaee3cff236a5184a63a&amp;mpshare=1&amp;scene=1&amp;srcid=0927JARMptVhu0L9MzFdoZuZ#rd" target="_blank" rel="external">关于小程序你不知道的秘密(腾讯云助手)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22565340" target="_blank" rel="external">关于微信小程序（应用号）的底层逻辑分析和拥抱建议(知乎专栏)</a></li>
+<li><a href="http://geek.csdn.net/news/detail/103138" target="_blank" rel="external">开发微信小程序的必备技能图谱(CSDN)</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzAwODY4OTk2Mg==&amp;mid=2652039482&amp;idx=2&amp;sn=778e1313ebbd832b590b81a8088b63db#rd" target="_blank" rel="external">微信小程序和谷歌PWA有什么关系？(微信公众号)</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzI0ODU0MDg0Mw==&amp;mid=2247483754&amp;idx=1&amp;sn=9578311da11d1fd3889e0829505c3993&amp;scene=2&amp;srcid=0924io6H1CmEPGYJxmEQVtlA" target="_blank" rel="external">在微信小程序里，我们要怎样做数据分析（上）(微信公众号)</a></li>
+<li><a href="http://zhenhua-lee.github.io/manmage/wx.html" target="_blank" rel="external">一张图看微信小程序(前端之路 - DRY)</a></li>
+<li><a href="http://blog.csdn.net/yanzhenjie1003/article/details/52698184" target="_blank" rel="external">微信小程序要这样解读(CSDN)</a></li>
+<li><a href="http://blog.csdn.net/luoyanglizi/article/details/52681245" target="_blank" rel="external">一名Android开发者的微信小程序填坑之路(1)</a></li>
+<li><a href="http://blog.csdn.net/luoyanglizi/article/details/52711634" target="_blank" rel="external">小程序开发利器：Matchmaker(CSDN)</a></li>
+<li><a href="https://segmentfault.com/a/1190000007017985" target="_blank" rel="external">微信小程序开发三宗罪和解决方案(SegmentFault)</a></li>
+<li><a href="https://segmentfault.com/a/1190000007109050" target="_blank" rel="external">使用Labrador 0.3构建ES6/ES7标准模块化微信小程序(SegmentFault)</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzA5NTQ4NjkyMQ==&amp;mid=2650723004&amp;idx=1&amp;sn=a6bcbf354beca3e745c47e542e119e5c&amp;chksm=88b4e41abfc36d0c547698b6f4f3669b1aa351a879332c2848ffd6618dbf23cb41316dca570a&amp;scene=0#rd" target="_blank" rel="external">微信小程序真机测试多个DEMO)(微信公众号)</a></li>
+<li><a href="https://github.com/bestony/WeApp-Demo" target="_blank" rel="external">微信小程序真机测试视频源文件</a></li>
+<li><a href="https://devework.com/wordpress-rest-api-weixin-weapp.html" target="_blank" rel="external">WordPress 网站基于REST API 开发“微信小程序”实战</a></li>
+<li><a href="https://devework.com/wordpress-weapp-2.html" target="_blank" rel="external">WordPress 网站开发“微信小程序“实战(二)</a></li>
+<li><a href="https://devework.com/wordpress-weapp-3.html" target="_blank" rel="external">WordPress 网站开发“微信小程序“实战(三)</a></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><a href="https://github.com/Hao-Wu/WeApp-Demo" target="_blank" rel="external">微信小程序官方Demo(Hao-Wu/WeApp-Demo)</a></li>
+<li><a href="https://github.com/phodal/weapp-quick" target="_blank" rel="external">微信小应用示例代码(phodal/weapp-quick)</a></li>
+<li><a href="https://github.com/giscafer/wechat-weapp-mapdemo" target="_blank" rel="external">微信小应用地图定位demo(giscafer/wechat-weapp-mapdemo)</a></li>
+<li><a href="https://github.com/hilongjw/weapp-gold" target="_blank" rel="external">微信小应用- 掘金主页信息流(hilongjw/weapp-gold)</a></li>
+<li><a href="https://github.com/zce/weapp-demo" target="_blank" rel="external">微信小程序（应用号）示例：微信小程序豆瓣电影(zce/weapp-demo)</a></li>
+<li><a href="https://github.com/hingsir/weapp-douban-film" target="_blank" rel="external">微信小程序-豆瓣电影(hingsir/weapp-douban-film)</a></li>
+<li><a href="https://github.com/kunkun12/weapp" target="_blank" rel="external">小程序 hello world 尝鲜(kunkun12/weapp)</a></li>
+<li><a href="https://github.com/natee/wxapp-2048" target="_blank" rel="external">微信小程序版2048小游戏(natee/wxapp-2048)</a></li>
+<li><a href="https://github.com/wangmingjob/weapp-weipiao" target="_blank" rel="external">微信小程序-微票(wangmingjob/weapp-weipiao)</a></li>
+<li><a href="https://github.com/SeptemberMaples/wechat-weapp-demo" target="_blank" rel="external">微信小程序购物车DEMO(SeptemberMaples/wechat-weapp-demo)</a></li>
+<li><a href="https://github.com/jectychen/wechat-v2ex" target="_blank" rel="external">微信小程序V2EX(jectychen/wechat-v2ex)</a></li>
+<li><a href="https://github.com/myronliu347/wechat-app-zhihudaily" target="_blank" rel="external">微信小程序-知乎日报(myronliu347/wechat-app-zhihudaily)</a></li>
+<li><a href="https://github.com/hijiangtao/weapp-newsapp" target="_blank" rel="external">微信小程序-公众号热门文章信息流(hijiangtao/weapp-newsapp)</a></li>
+<li><a href="https://github.com/lypeer/wechat-weapp-gank" target="_blank" rel="external">微信小程序版Gank客户端(lypeer/wechat-weapp-gank)</a></li>
+<li><a href="https://github.com/charleyw/wechat-weapp-redux-todos" target="_blank" rel="external">微信小程序集成Redux实现的Todo list(charleyw/wechat-weapp-redux-todos)</a></li>
+<li><a href="https://github.com/leancloud/leantodo-weapp" target="_blank" rel="external">微信小程序集成 LeanCloud 实现的 Todo list(leancloud/leantodo-weapp)</a></li>
+<li><a href="https://github.com/kraaas/timer" target="_blank" rel="external">微信小程序-番茄时钟(kraaas/timer)</a></li>
+<li><a href="http://javascript.ctolib.com/categories/javascript-wechat-weapp.html" target="_blank" rel="external">微信小程序项目汇总</a></li>
+<li><a href="https://github.com/ericzyh/wechat-chat" target="_blank" rel="external">微信小程序版聊天室(ericzyh/wechat-chat)</a></li>
+<li><a href="https://github.com/BelinChung/wxapp-hiapp" target="_blank" rel="external">微信小程序-HiApp(BelinChung/wxapp-hiapp)</a></li>
+<li><a href="https://github.com/charleyw/wechat-weapp-redux" target="_blank" rel="external">小程序Redux绑定库(charleyw/wechat-weapp-redux)</a></li>
+<li><a href="https://github.com/18380435477/WeApp" target="_blank" rel="external">微信小程序版微信(18380435477/WeApp)</a></li>
+<li><a href="https://github.com/hardog/wechat-app-flexlayout" target="_blank" rel="external">小程序开发从布局开始(hardog/wechat-app-flexlayout)</a></li>
+<li><a href="https://github.com/eyasliu/wechat-app-music" target="_blank" rel="external">微信小程序-音乐播放器(eyasliu/wechat-app-music)</a></li>
+<li><a href="https://github.com/dunizb/wxapp-sCalc" target="_blank" rel="external">微信小程序-简易计算器-适合入门（dunizb/wxapp-sCalc）</a></li>
+<li><a href="https://github.com/zhengxiaowai/weapp-github" target="_blank" rel="external">微信小程序-github(zhengxiaowai/weapp-github)</a></li>
+<li><a href="https://github.com/harveyqing/BearDiary" target="_blank" rel="external">微信小程序-小熊の日记(harveyqing/BearDiary)</a></li>
+<li><a href="https://github.com/SeaHub/PigRaising" target="_blank" rel="external">微信小程序(Seahub/PigRaising)</a></li>
+<li><a href="https://github.com/brucevanfdm/WeChatMeiZhi" target="_blank" rel="external">微信小程序(WeChatMeiZhi妹子图)</a></li>
+<li><a href="https://github.com/zce/weapp-boilerplate" target="_blank" rel="external">微信小程序快速开发骨架</a></li>
+<li><a href="https://github.com/SuperKieran/weapp-artand" target="_blank" rel="external">微信小程序 - Artand 最专业的艺术设计平台</a></li>
+<li><a href="https://github.com/zhijieeeeee/wechat-app-joke" target="_blank" rel="external">微信小程序 - 开心一刻(zhijieeeeee/wechat-app-joke)</a></li>
+<li><a href="https://github.com/uniquexiaobai/wechat-app-githubfeed" target="_blank" rel="external">微信小程序 - GitHubFeed(uniquexiaobai/wechat-app-githubfeed)</a></li>
+<li><a href="https://github.com/fluency03/weapp-500px" target="_blank" rel="external">微信小程序 - 国外摄影社区500px(fluency03/weapp-500px)</a></li>
+<li><a href="https://github.com/bayetech/wechat_mall_applet" target="_blank" rel="external">微信小程序 - 巴爷供销社－电商平台(bayetech)</a></li>
+<li><a href="https://github.com/liujians/Wa-UI" target="_blank" rel="external">基于微信小程序的UI库（Wa-UI）</a></li>
+<li><a href="https://github.com/litt1e-p/weapp-girls" target="_blank" rel="external">微信小程序-豆瓣美女/妹子图(weapp-girls)</a></li>
+<li><a href="https://github.com/liumulin614/BeautifulGirl" target="_blank" rel="external">微信小程序-美女模特(BeautifulGirl)</a></li>
+<li><a href="https://github.com/RebeccaHanjw/weapp-wechat-zhihu" target="_blank" rel="external">微信小程序 - 知乎仿写(RebeccaHanjw/weapp-wechat-zhihu)</a></li>
+<li><a href="https://github.com/romoo/weapp-demo-breadtrip" target="_blank" rel="external">微信小程序 - 面包旅行(romoo/weapp-demo-breadtrip)</a></li>
+<li><a href="https://github.com/luuman/weapp-film" target="_blank" rel="external">微信小程序-淘票票(weapp-film)</a></li>
+<li><a href="https://github.com/ahonn/weapp-one" target="_blank" rel="external">微信小程序-仿ONE(ahonn/weapp-one)</a></li>
+<li><a href="https://github.com/vace/wechatapp-news-reader" target="_blank" rel="external">微信小程序-新闻阅读器(vace/wechatapp-news-reader)</a></li>
+<li><a href="https://github.com/Symous/WechatApp-BaisiSister" target="_blank" rel="external">微信小程序 - 百思不得姐(Symous/WechatApp-BaisiSister)</a></li>
+<li><a href="https://github.com/lanshan-studio/wecqupt" target="_blank" rel="external">微信小程序 - We重邮(lanshan-studio/wecqupt)</a></li>
+<li><a href="https://github.com/DengKe1994/weapp-calculator/tree/master" target="_blank" rel="external">微信小程序 - IOS计算器</a></li>
+<li><a href="https://github.com/monkindey/wx-github" target="_blank" rel="external">微信小程序 - github简历(monkindey/wx-github)</a></li>
+<li><a href="https://github.com/xujinyang/CoderCalendar-WeApp" target="_blank" rel="external">微信小程序-程序员老黄历(xujinyang/CoderCalendar-WeApp)</a></li>
+<li><a href="https://github.com/zce/weapp-todos" target="_blank" rel="external">微信小程序 - TODOS（任务清单）(zce/weapp-todos)</a></li>
+<li><a href="https://github.com/yaoshanliang/weapp-ssha" target="_blank" rel="external">微信小程序 - 企业宣传小程序(yaoshanliang/weapp-ssha)</a></li>
+<li><a href="https://github.com/dongweiming/weapp-zhihulive" target="_blank" rel="external">微信小程序 - Zhihu Live (dongweiming/weapp-zhihulive)</a></li>
+<li><a href="https://github.com/bruintong/wechat-webapp-douban-movie" target="_blank" rel="external">微信小程序 - 豆瓣电影(bruintong/wechat-webapp-douban-movie)</a></li>
+<li><a href="https://github.com/bruintong/wechat-webapp-douban-location" target="_blank" rel="external">微信小程序 - 豆瓣同城(bruintong/wechat-webapp-douban-location)</a></li>
+<li><a href="https://github.com/arkilis/weapp-jandan" target="_blank" rel="external">微信小程序 - 煎蛋微信小程序(arkilis/weapp-jandan)</a></li>
+</ul>
+<h2 id="轮子"><a href="#轮子" class="headerlink" title="轮子"></a>轮子</h2><ul>
+<li><a href="https://github.com/fanweixiao/wxapp-socket-io" target="_blank" rel="external">socket.io 风格的 websocket 类库</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzI0MjYwMjM2NQ==&amp;mid=2247483670&amp;idx=1&amp;sn=5aa5da2fff2415e9b19f848712ddf480&amp;chksm=e9789904de0f1012159332fda391c3eec0bb3d1c0db2c34ab557208ff0c04806a40d00e844fe&amp;mpshare=1&amp;scene=1&amp;srcid=1007cWRXdd0ug9oAceCsIWp6#rd" target="_blank" rel="external">微信小程序倒计时组件(微信公众号)</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzI0MjYwMjM2NQ==&amp;mid=2247483674&amp;idx=1&amp;sn=2bf242b391144f3f0e57e0ed0ebce36f&amp;chksm=e9789908de0f101ee23f7c125c9a48c4f9ba3f242a3b1c89b05ca5b9e8e68262c02b47fe3d12&amp;mpshare=1&amp;scene=1&amp;srcid=1008NvO9oI8wWGp4XBxlpLeL#rd" target="_blank" rel="external">微信小程序下拉筛选组件(微信公众号)</a></li>
+<li><a href="https://github.com/leancloud/weapp-polyfill" target="_blank" rel="external">w3c 标准 API polyfill</a></li>
+<li><a href="https://github.com/kiinlam/wetoast" target="_blank" rel="external">WeToast——微信小程序toast增强插件</a></li>
+<li><a href="https://github.com/icindy/wxParse" target="_blank" rel="external">wxParse-微信小程序富文本解析自定义组件，支持HTML及markdown解析</a></li>
+<li><a href="https://github.com/zhongjie-chen/wx-alphabetical-listview" target="_blank" rel="external">wx-alphabetical-listview带字母滑动的列表</a></li>
+<li><a href="https://github.com/zhongjie-chen/wx-drawer" target="_blank" rel="external">wx-drawer模仿QQ6.0侧滑菜单</a></li>
+<li><a href="https://github.com/zhongjie-chen/wx-scrollable-tab-view" target="_blank" rel="external">wx-scrollable-tab-view可滚动的tabview</a></li>
+<li><a href="https://github.com/o2team/wxapp-img-loader" target="_blank" rel="external">wxapp-img-loader 图片预加载组件</a></li>
+<li><a href="https://github.com/dlhandsome/we-swiper" target="_blank" rel="external">we-swiper 内容滑动插件</a></li>
+<li><a href="https://github.com/dlhandsome/we-cropper" target="_blank" rel="external">we-cropper 微信小程序图片裁剪工具</a></li>
+<li><a href="https://github.com/JoeZheng2015/wx-promise-request" target="_blank" rel="external">wx-promise-request 微信小程序请求队列管理库</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转自于 :&lt;a href=&quot;https://github.com/justjavac/awesome-wechat-weapp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github大牛整理微信小程序开发资源汇总&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;微信小程序开发资源汇总&quot;&gt;&lt;a href=&quot;#微信小程序开发资源汇总&quot; class=&quot;headerlink&quot; title=&quot;微信小程序开发资源汇总&quot;&gt;&lt;/a&gt;微信小程序开发资源汇总&lt;/h1&gt;&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#官方文档&quot;&gt;官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#新闻报道&quot;&gt;新闻报道&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#社区&quot;&gt;社区&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#工具&quot;&gt;工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#插件&quot;&gt;插件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#分析&quot;&gt;分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#讨论&quot;&gt;讨论&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#教程&quot;&gt;教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#视频教程&quot;&gt;视频教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#文章&quot;&gt;文章&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#代码&quot;&gt;代码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;#轮子&quot;&gt;轮子&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="小程序" scheme="http://yoursite.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="小程序" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>游小宝数据分析</title>
+    <link href="http://yoursite.com/2017/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E6%B8%B8%E5%B0%8F%E5%AE%9D%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    <id>http://yoursite.com/2017/08/23/微信小程序/游小宝数据分析/</id>
+    <published>2017-08-23T10:21:19.000Z</published>
+    <updated>2017-08-23T10:28:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>接口文档</h1>
+
+<a id="more"></a>
+<h2 id="注册文档"><a href="#注册文档" class="headerlink" title="注册文档"></a>注册文档</h2><h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>根据姓名，手机号，商户身份 微信授权，注册用户</p>
+<h3 id="完善信息"><a href="#完善信息" class="headerlink" title="完善信息"></a>完善信息</h3><p>信息完善界面，是否只要每完善一个页面。下次再打开时，都已经储存在数据库中？</p>
+<h4 id="联系方式的完善-必填"><a href="#联系方式的完善-必填" class="headerlink" title="联系方式的完善 必填"></a>联系方式的完善 必填</h4><p>经营地址，商户名称，业务联系人，业务电话，商标</p>
+<h4 id="服务项目的完善"><a href="#服务项目的完善" class="headerlink" title="服务项目的完善"></a>服务项目的完善</h4><p>服务项目，每天接待能力，单团人数上限，歇业休整期</p>
+<h4 id="费用说明"><a href="#费用说明" class="headerlink" title="费用说明"></a>费用说明</h4><p>人均消费，在线服务项目介绍。采用本地存储，取出数据</p>
+<h4 id="形象展示"><a href="#形象展示" class="headerlink" title="形象展示"></a>形象展示</h4><p>上传照片，店铺介绍，交通指南</p>
+<h3 id="注册接口"><a href="#注册接口" class="headerlink" title="注册接口"></a>注册接口</h3><h4 id="账号注册界面"><a href="#账号注册界面" class="headerlink" title="账号注册界面"></a>账号注册界面</h4><p>通过 姓名，手机号，验证码，身份 注册游小宝账户。如果信息不完善，则返回错误。完善信息继续注册。<br>通过 手机号获取验证码</p>
+<h4 id="信息完善界面"><a href="#信息完善界面" class="headerlink" title="信息完善界面"></a>信息完善界面</h4><p>界面通过一个tab，对不同模块的信息进行补全完善。</p>
+<h4 id="联系方式界面"><a href="#联系方式界面" class="headerlink" title="联系方式界面"></a>联系方式界面</h4><p>通过 级别列表，省市县的三级列表。（父级列表，如果父级为0，则为省。）<br>根据 用户标识ID，联系方式，经营地址，商户名称，业务联系人，业务电话，商标。 完善联系方式信息</p>
+<h4 id="服务项目界面"><a href="#服务项目界面" class="headerlink" title="服务项目界面"></a>服务项目界面</h4><p>根据 用户标识ID，获取服务项目列表<br>根据 服务项目，每天接待人数，组团人数上限，歇业休整期 提交数据</p>
+<h4 id="费用说明界面"><a href="#费用说明界面" class="headerlink" title="费用说明界面"></a>费用说明界面</h4><p>根据 人均消费水平，预约定金，单项服务项目说明 提交数据</p>
+<h4 id="形象展示界面"><a href="#形象展示界面" class="headerlink" title="形象展示界面"></a>形象展示界面</h4><p>图片上传，文字描述 。图片上传采用分布式存储</p>
+<h3 id="接口总结"><a href="#接口总结" class="headerlink" title="接口总结"></a>接口总结</h3><p>接口1：通过 姓名，手机号，验证码，身份 注册游小宝账户。如果信息不完善，则返回错误。完善信息继续注册。<br>接口2：通过 级别列表，省市县的三级列表。（父级列表，如果父级为0，则为省。）<br>接口3：根据 用户标识ID，联系方式，经营地址，商户名称，业务联系人，业务电话，商标。 完善联系方式信息 服务项目，每天接待人数，组团人数上限，歇业休整期 提交数据 人均消费水平，预约定金，单项服务项目说明 提交数据<br>接口4：根据 用户标识ID，获取服务项目列表</p>
+<hr>
+<h2 id="我的账户文档"><a href="#我的账户文档" class="headerlink" title="我的账户文档"></a>我的账户文档</h2><h3 id="我的账户界面"><a href="#我的账户界面" class="headerlink" title="我的账户界面"></a>我的账户界面</h3><p>根据用户标识ID微信关联信息 注册信息，以及用户的等级，等级天数。转发信息分析数据</p>
+<h3 id="我的名片"><a href="#我的名片" class="headerlink" title="我的名片"></a>我的名片</h3><p>生成小程序二维码</p>
+<h3 id="我的发布记录"><a href="#我的发布记录" class="headerlink" title="我的发布记录"></a>我的发布记录</h3><p>根据用户标识ID，获取用户的发布信息列表。</p>
+<h3 id="接口总结-1"><a href="#接口总结-1" class="headerlink" title="接口总结"></a>接口总结</h3><p>接口1：根据用户标识ID微信关联信息 注册信息，以及用户的等级，等级天数。转发信息分析数据<br>接口2：生成小程序二维码<br>接口3：根据用户标识ID，获取用户的发布信息列表。</p>
+<hr>
+<h2 id="内容发布和结账"><a href="#内容发布和结账" class="headerlink" title="内容发布和结账"></a>内容发布和结账</h2><h3 id="界面分析"><a href="#界面分析" class="headerlink" title="界面分析"></a>界面分析</h3><h4 id="发布图文"><a href="#发布图文" class="headerlink" title="发布图文"></a>发布图文</h4><p>发布图文 需要填写 编辑图文主题和图文详情。并且能达到图文预览的效果</p>
+<h4 id="发布活动"><a href="#发布活动" class="headerlink" title="发布活动"></a>发布活动</h4><p>发布活动 需要填写 活动主题，活动详情和活动的具体介绍。并且能实现活动的预览功能</p>
+<h4 id="发布路线"><a href="#发布路线" class="headerlink" title="发布路线"></a>发布路线</h4><p>发布行程 需要填写 行程主题，行程介绍，行程详情。并且能实现最终预览功能。</p>
+<h4 id="发布合作"><a href="#发布合作" class="headerlink" title="发布合作"></a>发布合作</h4><p>填写合作信息，发布合作  获取自己合作的信息列表</p>
+<h4 id="发布产品"><a href="#发布产品" class="headerlink" title="发布产品"></a>发布产品</h4><p>自主销售发售 自主销售主题 自主销售的介绍 自主销售的详细介绍 自主销售的预览介绍</p>
+<h4 id="发布记录"><a href="#发布记录" class="headerlink" title="发布记录"></a>发布记录</h4><p>根据用户ID，获取到用户曾经发布的活动主题。</p>
+<h4 id="图文发布参考页"><a href="#图文发布参考页" class="headerlink" title="图文发布参考页"></a>图文发布参考页</h4><p>展示数据库中的数据</p>
+<h4 id="优惠促销参考页"><a href="#优惠促销参考页" class="headerlink" title="优惠促销参考页"></a>优惠促销参考页</h4><p>展示数据库中的数据</p>
+<h4 id="活动预约"><a href="#活动预约" class="headerlink" title="活动预约"></a>活动预约</h4><p>预约的作用是什么</p>
+<h3 id="接口总结-2"><a href="#接口总结-2" class="headerlink" title="接口总结"></a>接口总结</h3><p> 分别根据标识ID，发布一些信息（发布图文，发布活动，发布线路，发布合作，发布产品）。写入到数据库中。</p>
+<hr>
+<h2 id="同行故事"><a href="#同行故事" class="headerlink" title="同行故事"></a>同行故事</h2><h3 id="界面分析-1"><a href="#界面分析-1" class="headerlink" title="界面分析"></a>界面分析</h3><h4 id="同行筛选"><a href="#同行筛选" class="headerlink" title="同行筛选"></a>同行筛选</h4><p>根据地点 或者关键词进行选择筛选</p>
+<h4 id="同行筛选结果"><a href="#同行筛选结果" class="headerlink" title="同行筛选结果"></a>同行筛选结果</h4><p>展示 筛选结果，展示在页面上</p>
+<h4 id="互助推广"><a href="#互助推广" class="headerlink" title="互助推广"></a>互助推广</h4><p>查看别人帮助你的信息列表，和哪些你还未帮助别人转发消息列表</p>
+<h4 id="商户主页"><a href="#商户主页" class="headerlink" title="商户主页"></a>商户主页</h4><p>展示商户的介绍，以及商户最近发布的主题活动</p>
+<h4 id="同行发布列表"><a href="#同行发布列表" class="headerlink" title="同行发布列表"></a>同行发布列表</h4><p>根据 </p>
+<h3 id="接口总结-3"><a href="#接口总结-3" class="headerlink" title="接口总结"></a>接口总结</h3><p>## </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;接口文档&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="小程序" scheme="http://yoursite.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="小程序" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序页面跳转和参数传递</title>
+    <link href="http://yoursite.com/2017/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8B%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E5%92%8C%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/"/>
+    <id>http://yoursite.com/2017/08/23/微信小程序/小程序之页面跳转和参数传递/</id>
+    <published>2017-08-23T10:21:11.000Z</published>
+    <updated>2017-08-23T10:21:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/component/navigator.html" target="_blank" rel="external">小程序官网</a>关于Navigator介绍：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-13ad3118fd9f161a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">open-type = navigate</div><div class="line">对应 wx.navigateTo的功能</div><div class="line"></div><div class="line">open-type = redirect</div><div class="line">对应 wx.redirectTo的功能</div><div class="line"></div><div class="line">open-type = switchTab</div><div class="line">对应 wx.switchTab的功能</div><div class="line"></div><div class="line">open-type = reLaunch</div><div class="line">对应 wx.reLaunch的功能</div><div class="line">[1.1.0](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/compatibility.html)</div><div class="line"></div><div class="line">navigateBack</div><div class="line">对应 wx.navigateBack的功能</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">页面跳转时传递</div><div class="line">主页面：</div><div class="line"></div><div class="line">&lt;!-- sample.wxml --&gt;</div><div class="line">&lt;!-- &lt;view class="btn-area"&gt;</div><div class="line">  &lt;navigator url="/page/navigate/navigate?title=newPagePath" hover-class="navigator-hover"&gt;跳转到新页面&lt;/navigator&gt;</div><div class="line">  &lt;navigator url="../../redirect/redirect/redirect?title=重定向页面&amp;ohterParmas=123" open-type="redirect" hover-class="other-navigator-hover"&gt;在当前页打开&lt;/navigator&gt;</div><div class="line">  &lt;navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover"&gt;切换 Tab&lt;/navigator&gt;</div><div class="line">&lt;/view&gt; --&gt;</div><div class="line">这里是带参跳转的，一个参数就用?=title,如果多个参数就是用?=title=”“&amp;ohterParmas=”“。</div><div class="line"></div><div class="line">页面跳转后，onload接受参数</div><div class="line">Page(&#123;</div><div class="line">  data:&#123;</div><div class="line"><span class="comment">//不需要再写user_id。</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">    onLoad(options) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'onLoad'</span>)</div><div class="line">      <span class="built_in">console</span>.log(options.user_id)</div><div class="line">      <span class="keyword">if</span> (options.user_id) &#123;</div><div class="line">        <span class="keyword">this</span>.setData(&#123;</div><div class="line">          user_id: options.user_id</div><div class="line">        &#125;)</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">this</span>.setData(&#123;</div><div class="line">          user_id: <span class="string">'暂无'</span></div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/debug/wxadoc/dev/component/navigator.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;小程序官网&lt;/a&gt;关于Navigator介绍：&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1764965-13ad3118fd9f161a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="小程序" scheme="http://yoursite.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="小程序" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>祭祀融资思路</title>
+    <link href="http://yoursite.com/2017/08/18/%E8%9E%8D%E8%B5%84%E5%AD%A6%E4%B9%A0/%E8%9E%8D%E8%B5%84-%E6%80%9D%E8%B7%AF%E5%9B%BE-/"/>
+    <id>http://yoursite.com/2017/08/18/融资学习/融资-思路图-/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>融资的项目：冥界烧纸网络化和现实的相结合</p>
+<p>通过网络化的烧纸，和现实中宗教的大师亲自祈祷完成烧纸的流程。</p>
+<p>网页设计，可以通过网页端进行烧纸的设计。</p>
+<p>网站能实现的功能，登录，查看， 祭祀 ，请愿，留言，烧纸，观看视频，语音。</p>
+<p>1.行业痛点：<br>缺少的 仪式感  和  归属感</p>
+<p>2.如何解决这个痛点：<br>如何解决这两方面的问题。1.o2o的经营模式，采用线上线下相结合。<br>线上祭祀，线下通过工作人员或专业的大师请愿。VR体验馆，大师专业烧纸，传达对亲人的思念。<br>线上：通过送花，祭酒，留言来实现功能。亲人开通祭祀活动后，可以开启访问。还有直播随时可以看到祭祀情况。<br>3.产品的盈利模式。可持续性的服务和前期的祭坛的位置。<br>通过线上服务和线下相结合。</p>
+<p>为自己打造一个留言笔记，生前为自己打造一个温馨的或者悲惨的</p>
+<p>链接推荐：<br><a href="http://www.chinabz.org/bzwh/lltt/4775.html" target="_blank" rel="external">公墓行业的互联网探讨</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;融资的项目：冥界烧纸网络化和现实的相结合&lt;/p&gt;
+&lt;p&gt;通过网络化的烧纸，和现实中宗教的大师亲自祈祷完成烧纸的流程。&lt;/p&gt;
+&lt;p&gt;网页设计，可以通过网页端进行烧纸的设计。&lt;/p&gt;
+&lt;p&gt;网站能实现的功能，登录，查看， 祭祀 ，请愿，留言，烧纸，观看视频，语音。&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="网上祭祀" scheme="http://yoursite.com/categories/%E7%BD%91%E4%B8%8A%E7%A5%AD%E7%A5%80/"/>
+    
+    
+      <category term="祭祀" scheme="http://yoursite.com/tags/%E7%A5%AD%E7%A5%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库主键设置为int(11)</title>
+    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E9%94%AE%E8%AE%BE%E7%BD%AE%E4%B8%BAint(11)/"/>
+    <id>http://yoursite.com/2017/08/18/Mysql/数据库主键设置为int(11)/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。</p>
+<p>也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。</p>
+<p>int和bigint的区别 ：int 符号性 -2^32+1 ~ 2^32  -1 符号性 0 - 2^32 大约四十亿条数据，足够一遍公司使用。（4 294 967 296）<br>相比来说，bigint占用的磁盘内存空间较大，会导致过多的无效数据交换，增加额外的io压力，对性能不利</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。&lt;/p&gt;
+&lt;p&gt;也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。&lt;/p&gt;
+&lt;p&gt;int和bigint的区别 ：int 符号
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库建表-考虑</title>
+    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8-%E8%80%83%E8%99%91/"/>
+    <id>http://yoursite.com/2017/08/18/Mysql/数据库建表-考虑/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:47:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
+<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;性别： 类型：boolean&lt;br&gt;学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255&lt;br&gt;时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，dateti
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SEM-SEO-PPC总结</title>
+    <link href="http://yoursite.com/2017/08/18/SEO-SEM/SEM-&amp;-SEO-&amp;-PPC-%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/08/18/SEO-SEM/SEM-&amp;-SEO-&amp;-PPC-总结/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="what：做的目的是什么"><a href="#what：做的目的是什么" class="headerlink" title="what：做的目的是什么"></a>what：做的目的是什么</h2><p>SEM 搜索引擎营销  <b>目的</b>：用于网站推广，增加搜索排行。 常用的有google ，百度，360的sem。<br>SEO 搜索引擎优化  <b>目的</b>：用户网站内部优化，质量好的网站能稳定增长网站排行。优化方向（内容质量、浏览体验、可访问性）<br><a id="more"></a></p>
+<h2 id="why：为什么做"><a href="#why：为什么做" class="headerlink" title="why：为什么做"></a>why：为什么做</h2><p>SEO<br>1、<b>成本低</b>  SEO优化相对于SEM等推广方法来说，是成本非常低的。<br>2、<b>排名持久稳定</b>    一般来说，只要经过正常的SEO优化排名排至首页的网站，排名都会比较持久稳定。<br>3、<b>有效点击</b> SEO不同于SEM，网站排名首页后，不用担心无效点击，不管点击网站的是竞争对手还是潜在的客户，我们都不用承担点击的代价。<br>4、<b>优化上去后无烦恼</b>   我们都知道，企业做竞价费用非常高，但是转化却也没有多少，这是为什么呢？因为有非常多的无效点击，假设一个关键词的费用的3元一次，每天100个无效点击就是300元，这样算下来每个月就白白花掉了9000元，而且没有效果！<br>5、<b>SEO的精准度高</b>     为什么说SEO的精准度高？因为很多时候，做SEO会做非常多的长尾词排名。<br>6、<b>用户体验好</b>  做SEO的网站，一般用户体验比较好，转化高**一个做了SEO的网站与一个专门做竞价的网站来说，用户体验可能会更好！<br>SEM<br>1、<b>时限不稳定</b>  SEM是花钱上排名的类型，你只要关掉了你的计划，排名马上就没了。<br>2、<b>速度快</b> 高效的网络推广方式。<br>3、<b>内容靠前</b> 网民只会浏览前几页的搜索内容，排前面更能让用户了解</p>
+<h2 id="when：什么时候去做"><a href="#when：什么时候去做" class="headerlink" title="when：什么时候去做"></a>when：什么时候去做</h2><p>SEO 开发过程中，做哪些：优化网页质量，网页速度，网站连接的有效性。<br>SEM 开发后期，上线迭代期。  做哪些：竞价排行（ppc），网站联盟。</p>
+<p>##who：谁去做<br>SEO  网站开发人员对网站框架优化，加快网站浏览速度，网站文章撰写者提供高质量的文章，充实网站信息。<br>SEM  第三方网站推广运营商（包含：百度广告推广点击，网站联盟）</p>
+<h2 id="where：从哪里入手"><a href="#where：从哪里入手" class="headerlink" title="where：从哪里入手"></a>where：从哪里入手</h2><h4 id="SEO-bntake"><a href="#SEO-bntake" class="headerlink" title="SEO    bntake"></a>SEO    bntake</h4><p>1、url 长度 不超过255<br>2、在静态页面上使用动态参数，会造成spider多次和重复抓取（php搭建的框架，不可避免的使用动态参数）<br>3、Meta及标题信息，设置keyword，mata，锚点关键词。<br>4、网站结构合理：尽量扁平式结构，辅助导航，面包屑导航的实用。<br>5、内容页结构设置：最新活动，最热文章，网站重点页推荐，相关页设置。<br>6、网站加载速度：服务器响应时间。<br>7、网站是否有fram框架（W3C，Div+CSS，静态网页，目录级别）。<br>8、页面结构简单，清晰。<br>9、图片链接ALT信息，通过ALT让搜索引擎了解该图片信息。<br>10、如果存在flash，flash的描述。<br>11、404页面、301跳转<br>12、网站内容更新。<br>13、适度优质关键词密度。（不可过高，或者太少）<br>14、外链建设  目的：是增加链接到你的网站的其他网站数目。<br>15、建立网站地图SiteMap。</p>
+<h4 id="SEM"><a href="#SEM" class="headerlink" title="SEM"></a>SEM</h4><p><a href="http://wangmeng.baidu.com/" target="_blank" rel="external">竞价排行</a>：一般搜索引擎的最前面或者右侧。被点击，收取推广费。<br>优点：见效快。只要充值，搜索关键词即可展示在页面上。<br>缺点：每次点击价格高，无效点击次数多。人们更信任自然排行下的数据搜索。<br>搜索引擎优化的关键.<br>网站联盟 <a href="http://wangmeng.baidu.com/" target="_blank" rel="external">百度联盟</a>、<a href="http://union.163.com/" target="_blank" rel="external">网易联盟</a>、<a href="http://u.ctrip.com/" target="_blank" rel="external">携程联盟</a></p>
+<h2 id="HOW：怎么做"><a href="#HOW：怎么做" class="headerlink" title="HOW：怎么做"></a>HOW：怎么做</h2><p>SEM  百度推广：6000元起步（5000元储备金，1000元服务费）（设置50000个关键词，关键词可以指定区域，时间等展示，根据不同价钱排行展示在页面上。如果价格高，会排在首页，办理方式需要找到业务人员签订合同办理）<br>SEO 使用工具 。<a href="http://tool.magua12138.com/" target="_blank" rel="external">站长工具集合</a><br>    Excel 最基本常用的；<br>    百度统计，CNZZ统计，google analytics 监控留细分流量 评估效果；<br>    第三方流量监测预估，爱站，5188，<br>    站长之家，百度指数，百度站长平台，360站长平台，搜狗站长平台 </p>
+<p>SEM 竞价排行</p>
+<h2 id="HOW-MUCH：需要耗费什么"><a href="#HOW-MUCH：需要耗费什么" class="headerlink" title="HOW MUCH：需要耗费什么"></a>HOW MUCH：需要耗费什么</h2><p>SEO  大量时间，程序优化，界面优化，功能优化<br>SEM  钱</p>
+<h4 id="上海电信广告弹窗-图片和视频两种投放方式"><a href="#上海电信广告弹窗-图片和视频两种投放方式" class="headerlink" title="上海电信广告弹窗  图片和视频两种投放方式"></a>上海电信广告弹窗  图片和视频两种投放方式</h4><p>网站<a href="http://hong360.cn/fukuanfangshi/" target="_blank" rel="external">北京宏志</a><br>联系人 13641035683    张先生<br>8毛一次点击，合作起步价10000次。<br>网站<a href="http://www.zhitou.com.cn/lianxi" target="_blank" rel="external">鼎盛</a><br>电脑7毛一次点击，手机6毛一次。<br>联系人 13810716678   冯向飞<br>网站<a href="http://ritering.com/" target="_blank" rel="external">睿投</a><br>0.025元1次，5000起充<br>网站<a href="http://www.xinhay.com/?action=contact" target="_blank" rel="external">心海</a> 【价位合适】<br>点击：0.2元/ip<br>弹窗：7元/1000ip<br>展示：4元/1000ip<br>3000起充<br>网站 <a href="http://www.niandai80.com/bmjz/" target="_blank" rel="external">八零传媒</a><br>0.025元1次，5000起充<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">CPC点击(cost pay click)</div><div class="line">*计费形式：*CPC点击形式广告是根据用户访问心海传媒旗下合作媒体的网站时，点击页面上用户所感兴趣的广告商广告条，到达相应的广告页面来计费，相同IP用户24小时内反复点击相同广告商广告条只计费一次。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式可以比较精准的获取对广告主广告内容感兴趣的用户，对宣传效果非常有帮助，一般对于做品牌宣传的广告主非常适用。</div><div class="line"></div><div class="line">*展现形式：*网页内嵌一般是图文，主题、标签云样式展现。</div><div class="line"></div><div class="line">*价格区间：*65元-500元/1000IP点击</div><div class="line"></div><div class="line">*图片格式：*JPG, PNG,GIF, Flash动画</div><div class="line"></div><div class="line">*规格大小：*468x60、728x90、960x90、960x60、640x60、460x60、580x90、760x90、250x250、200x200、336x280、400x300、300x250、360x300、120x270、300x250、250x200等</div><div class="line"></div><div class="line"> CPM弹窗(cost pay mille)</div><div class="line">*计费形式：*CPM弹窗形式广告是根据独立IP用户访问心海传媒旗下合作媒体的网站时，弹出广告商的目标页面来计费，相同IP用户24小时内反复弹出只计费一次，如果弹窗被浏览器拦截，将不会计费。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式对于用户群较大的广告商来说是一种性价比很高的推广形式，在迅速提升了网站访问量的同时，会沉淀下很多用户，对于初创的网站来说无疑是很好的推广选择。</div><div class="line"></div><div class="line">*展现形式：*直接全屏弹出要宣传的页面</div><div class="line"></div><div class="line">*价格区间：*5元-10元/1000IP弹出</div><div class="line"></div><div class="line">*元素格式：*url,iframe(虚拟弹窗)</div><div class="line"></div><div class="line">*规格大小：*自定义尺寸(仅对虚拟弹窗)</div><div class="line"></div><div class="line"> CPV富媒体(cost pay view)</div><div class="line">*计费形式：*CPV广告又称富媒体广告，是根据用户访问心海传媒旗下合作媒体的网站时，网站右下角会出现带关闭按钮的浮动图片或者视频窗口，当广告展示完毕，会根据独立IP展示广告的次数来计费，相同IP用户24小时内反复展示相同广告商广告条只计费一次。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式最大限度的保证了客户广告的曝光量，位置极佳，对于品牌和网站活动宣传有很好的推动作用，性价比极高，适合绝大多数的广告客户。</div><div class="line"></div><div class="line">*展现形式：*网页右下角跟随漂浮图片或视频，对联，横幅左下角等。</div><div class="line"></div><div class="line">*价格区间：*4-10元/1000IP展示</div><div class="line"></div><div class="line">*图片格式：*JPG, PNG,GIF, Flash动画</div><div class="line"></div><div class="line">*规格大小：*468x60、728x90、960x90、960x60、640x60、460x60、580x90、760x90、250x250、200x200、336x280、400x300、300x250、360x300、120x270、300x250、250x200等</div><div class="line"></div><div class="line"> CPA注册(cost pay action)</div><div class="line">*计费形式：*CPA注册形式广告是根据用户访问心海传媒旗下合作媒体的网站时，点击页面上用户所感兴趣的广告商广告条，到达相应的广告页面后并完成相应的注册或者信息提交要求来计费，相同IP用户24小时内反复注册或提交信息只计费一次。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式可以最直接的让广告主获取用户或者想要用户提供的信息，一般适合阶段性的活动或者需要累积注册用户的广告商比较适用。</div><div class="line"></div><div class="line">*展现形式：*网页固定或漂浮广告条以及文字链</div><div class="line"></div><div class="line">*价格区间：*3元-60元/每个有效注册不等。</div><div class="line"></div><div class="line">*图片格式：*JPG, PNG,GIF, Flash动画</div><div class="line"></div><div class="line">*规格大小：*468x60、728x90、960x90、960x60、640x60、460x60、580x90、760x90、250x250、200x200、336x280、400x300、300x250、360x300、120x270、300x250、250x200等</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;what：做的目的是什么&quot;&gt;&lt;a href=&quot;#what：做的目的是什么&quot; class=&quot;headerlink&quot; title=&quot;what：做的目的是什么&quot;&gt;&lt;/a&gt;what：做的目的是什么&lt;/h2&gt;&lt;p&gt;SEM 搜索引擎营销  &lt;b&gt;目的&lt;/b&gt;：用于网站推广，增加搜索排行。 常用的有google ，百度，360的sem。&lt;br&gt;SEO 搜索引擎优化  &lt;b&gt;目的&lt;/b&gt;：用户网站内部优化，质量好的网站能稳定增长网站排行。优化方向（内容质量、浏览体验、可访问性）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="推广" scheme="http://yoursite.com/categories/%E6%8E%A8%E5%B9%BF/"/>
+    
+    
+      <category term="推广" scheme="http://yoursite.com/tags/%E6%8E%A8%E5%B9%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 个人博客搭建 --持续优化</title>
+    <link href="http://yoursite.com/2017/08/18/hexo/hexoblog%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96/"/>
+    <id>http://yoursite.com/2017/08/18/hexo/hexoblog搭建持续优化/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-19T01:14:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。<br><a id="more"></a></p>
+<h1><br>    <center>Hexo 安装<center><br></center></center></h1>
+
+<h2 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h2><p><a href="https://git-scm.com/" target="_blank" rel="external">git下载地址</a></p>
+<h2 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h2><p><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js下载地址</a></p>
+<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方文档</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
+<h1><br>    <center>创建项目及主题安装<center><br></center></center></h1>
+
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>具体方法参考官网 <a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="external">建站</a></p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>主题github地址:  <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd 项目</div><div class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</div><div class="line">修改 根目录的 _config.yml 文件</div><div class="line">    theme: yilia</div></pre></td></tr></table></figure></p>
+<h3 id="其他主题介绍"><a href="#其他主题介绍" class="headerlink" title="其他主题介绍"></a>其他主题介绍</h3><p><a href="https://hexo.io/themes/" target="_blank" rel="external">其他hexo主题</a></p>
+<h1><br>    <center>插件选择安装<center><br></center></center></h1>
+
+<h3 id="更多插件介绍"><a href="#更多插件介绍" class="headerlink" title="更多插件介绍"></a>更多插件介绍</h3><p><a href="https://hexo.io/plugins/" target="_blank" rel="external">更多hexo插件</a></p>
+<h1><br>    <center>持续优化<center><br></center></center></h1>
+
+<h2 id="设置Yilia菜单"><a href="#设置Yilia菜单" class="headerlink" title="设置Yilia菜单"></a>设置Yilia菜单</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">打开 themes/_config.yml</div><div class="line"># Header</div><div class="line"></div><div class="line">menu:</div><div class="line">  主页: /</div><div class="line">  阅读笔记: /tags/阅读笔记/</div><div class="line">  电影观感: /tags/电影观感/</div><div class="line">  专业知识: /tags/专业知识/</div><div class="line">  关于更多: /aboutme</div><div class="line">对文章设置标签tag,从而使点击按钮时。自动筛选出相应文章列表.</div><div class="line">关于更多,可以自定义页面。</div></pre></td></tr></table></figure>
+<h2 id="设置tags"><a href="#设置tags" class="headerlink" title="设置tags"></a>设置tags</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-tag  框架默认已经安装</div></pre></td></tr></table></figure>
+<p>post 文章部分设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tag: </div><div class="line">  - 开发方式</div></pre></td></tr></table></figure></p>
+<h2 id="设置目录"><a href="#设置目录" class="headerlink" title="设置目录"></a>设置目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-tag  框架默认已经安装</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">post 结构</div><div class="line"> </div><div class="line">  title: Hexo 个人博客搭建 --持续优化 </div><div class="line">  data: 2017年8月17日10:00:09</div><div class="line">  tag: </div><div class="line">      - 开发方式</div><div class="line">  toc: true // 是否显示目录</div></pre></td></tr></table></figure>
+<h2 id="RSS-设置"><a href="#RSS-设置" class="headerlink" title="RSS 设置"></a>RSS 设置</h2><p><a href="http://hanhailong.com/2015/10/08/Hexo%E2%80%94%E6%AD%A3%E7%A1%AE%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/" target="_blank" rel="external">正确设置RSS</a></p>
+<h2 id="设置展示更多"><a href="#设置展示更多" class="headerlink" title="设置展示更多"></a>设置展示更多</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--more--&gt;</div></pre></td></tr></table></figure>
+<p>主题设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">themes/yilia/_config.yml</div><div class="line"># 文章太长，截断按钮文字</div><div class="line">excerpt_link: 展开全文</div><div class="line"># 文章卡片右下角常驻链接，不需要请设置为 false</div><div class="line"># show_all_link: &apos;展开全文&apos;</div><div class="line">show_all_link: false</div></pre></td></tr></table></figure></p>
+<h2 id="文章排序"><a href="#文章排序" class="headerlink" title="文章排序"></a>文章排序</h2><p>文章按照更新时间排序: 项目根目录/_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">index_generator:</div><div class="line">  path: &apos;&apos;</div><div class="line">  per_page: 10</div><div class="line">  #order_by: -date</div><div class="line">  order_by: -updated</div></pre></td></tr></table></figure></p>
+<p>参考：</p>
+<h3 id="hexo-generator-index"><a href="#hexo-generator-index" class="headerlink" title="hexo-generator-index"></a>hexo-generator-index</h3><p>插件地址：<a href="https://github.com/hexojs/hexo-generator-index" target="_blank" rel="external">https://github.com/hexojs/hexo-generator-index</a></p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-index --save</div></pre></td></tr></table></figure>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">index_generator:</span></div><div class="line"><span class="attr">  path:</span> <span class="string">''</span></div><div class="line"><span class="attr">  per_page:</span> <span class="number">10</span></div><div class="line"><span class="attr">  order_by:</span> <span class="bullet">-date</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>path</strong>: Root path for your blogs index page. (default = ‘’)</li>
+<li><strong>per_page</strong>: Posts displayed per page. (0 = disable pagination)</li>
+<li><strong>order_by</strong>: Posts order. (Order by date descending by default)</li>
+</ul>
+<h2 id="自定义打赏功能"><a href="#自定义打赏功能" class="headerlink" title="自定义打赏功能"></a>自定义打赏功能</h2><p>yilia打赏功能默认是支付宝和微信支付，也可以自定义其他。</p>
+<p>此次定义的是 thanks。仅表示谢谢</p>
+<p>打开主题 themes/yilia/layout/article.ejs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;reward-box&quot;&gt;</div><div class="line">&lt;% if(theme.alipay) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.alipay%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;支付宝&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;% if(theme.thanks) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.thanks%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;谢谢你哦&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;% if(theme.weixin) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.weixin%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;微信&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 常用技巧及命令行</title>
+    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/ionic%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/08/18/ionic-使用指南/ionic简单使用/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:44:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>版本：ionic  1.7.16<br>cordova 6.3.0<br>node 4.2.0</p>
+<p>sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16</p>
+<p><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a></p>
+<p>sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0</p>
+<a id="more"></a>
+<p>sudo npm install jshint –save-dev<br>sudo npm install async –save-dev</p>
+<p>sudo npm install uglify-js<br>  sudo npm install clean-css<br>  sudo npm install ng-annotate</p>
+<p>sudo npm install mv –save-dev </p>
+<p>sudo npm install cordova-uglify –save-dev </p>
+<p>npm update<br>npm rebuild</p>
+<p>sudo npm update -g cordova@latest<br>npm install grunt-contrib-imagemin –save-dev </p>
+<p>sudo  gulp templatecache<br>sudo gulp ng_annotate<br>sudo gulp useref</p>
+<p> cd myApp$ ionic platform add ios$ ionic build ios$ ionic emulate ios</p>
+<p>最后： ionic serve</p>
+<p>npm install -g cordova@6.1.1npm install -g ionic@1.7.16</p>
+<p>卸载ionic和cordova：<br>npm uninstall -g ionic cordova</p>
+<p>cordova platform add ios@4.0.1  添加4.0.1设备<br>cordova plugin add cordova-plugin-screen-orientation<br> 禁止屏幕旋转<br>adb logcat 查看运行的模拟器日志<br>android adv  android 模拟器<br>android  打开android 管理工具<br>chown 组权限管理<br>ionic emulate android  模拟器运行<br>ionic platform add android  添加设备<br>ionic platform remove ios 删除设备<br>chown -R -v liujian:staff styles.css   修改组权限<br>chown -R -v liujian:staff side-menu-app-google-map/<br>ll  == ls -l 查看文件权限<br> vi ~/.bash_profile 修改环境变量<br>source ~/.bash_profile 生效</p>
+<p>history  查看历史记录</p>
+<p>ionic plugin list 查看安装哪些插件</p>
+<p>git status  清除状态<br>git branch -a   查看分支情况<br>git branch newbranchname  创建新分支<br>git checkout newbranch  切换到新分支<br>git pull origin develop  拉取远程分支到本地分支，并合并分支<br>git push origin develop   推送本次提交的数据到远程分支<br>git merge develop   合并本地develop分支<br>git fetch 更新远程分支变换，但不合并。<br>git add . 提交的文件的信息添加到索引<br>git commit   提交当前工作空间的修改内容<br> touch .gitignore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"># phpstorm project files</div><div class="line">.idea</div><div class="line"></div><div class="line"># netbeans project files</div><div class="line">nbproject</div><div class="line"></div><div class="line"># zend studio for eclipse project files</div><div class="line">.buildpath</div><div class="line">.project</div><div class="line">.settings</div><div class="line"></div><div class="line"># windows thumbnail cache</div><div class="line">Thumbs.db</div><div class="line"></div><div class="line"># composer vendor dir</div><div class="line">/vendor</div><div class="line"></div><div class="line"># composer itself is not needed</div><div class="line">composer.phar</div><div class="line"></div><div class="line"># Mac DS_Store Files</div><div class="line">.DS_Store</div><div class="line"></div><div class="line"># phpunit itself is not needed</div><div class="line">phpunit.phar</div><div class="line"># local phpunit config</div><div class="line">/phpunit.xml</div><div class="line">/runtime</div><div class="line">/config</div><div class="line">/web/assets</div><div class="line">/web/uploads/</div></pre></td></tr></table></figure></p>
+<p> set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=../gradle-2.2.1-all.zip  设置android 下载的问题。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;版本：ionic  1.7.16&lt;br&gt;cordova 6.3.0&lt;br&gt;node 4.2.0&lt;/p&gt;
+&lt;p&gt;sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.runoob.com/ionic/ionic-install.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.runoob.com/ionic/ionic-install.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 常用插件</title>
+    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/Bntake____DriverApp-ionic-%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2017/08/18/ionic-使用指南/Bntake____DriverApp-ionic-扩展插件的安装/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:43:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装的插件，安装的方法：cordova plugin add  </p>
+<p>sudo cordova plugin add <a href="https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration" target="_blank" rel="external">https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration</a><br>bower install –save signature_pad  // 用于手写签名<br>bower install –save intl-tel-input  //用于拨打电话<br>cordova plugin add cordova-plugin-media// 用于play mp3 music</p>
+<a id="more"></a>
+<p>参考资料<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">bower install --save signature_pad  // 用于手写签名</div><div class="line">https://devdactic.com/signature-drawpad-ionic/</div><div class="line">https://github.com/szimek/signature_pad</div><div class="line">[https://content-security-policy.com/](https://content-security-policy.com/)</div><div class="line">ionic drawpad sign</div><div class="line"></div><div class="line"></div><div class="line">bower install intl-tel-input  用于ionic app电话。</div><div class="line">http://jackocnr.com/intl-tel-input.html</div><div class="line">https://github.com/jackocnr/intl-tel-input</div><div class="line">http://jackocnr.com/node_modules/intl-tel-input/examples/gen/is-valid-number.html</div><div class="line"></div><div class="line">cordova plugin add https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration   // 命令，用于扫描二维码的插件</div><div class="line">https://itsmebhavin.wordpress.com/2015/02/18/ionicangular-implement-a-barcode-scanner-using-ionic-framework/</div><div class="line">http://ngcordova.com/docs/plugins/barcodeScanner/</div><div class="line">qrcode display:  // ok!!! </div><div class="line">https://github.com/janantala/angular-qr</div><div class="line">http://janantala.github.io/angular-qr/demo/</div><div class="line">----</div><div class="line">http://ionicframework.com/docs/v2/platform/barcode/</div><div class="line">//ionic plugin add phonegap-plugin-barcodescanner</div><div class="line">https://github.com/phonegap/phonegap-plugin-barcodescanner/issues/137</div><div class="line">https://github.com/kbytesys/phonegap-plugin-barcodescanner/tree/android-zxing-integration</div><div class="line">cordova plugin add https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration</div><div class="line">//ok!!   要求用户自己安装第三方的 条码扫描器。然后用它来扫描得到结果使用！！</div><div class="line">-----</div><div class="line">https://github.com/lissdy/ionic_bar_code</div><div class="line">——question.</div><div class="line">识别部分有可能不稳定。</div><div class="line">那么，每份上面，再加一串数字。在整个串中。。</div><div class="line">可以供人输入。然后得到与数字相对应的二维码数据。再进行关联。</div><div class="line"></div><div class="line">新clone的项目需要 reset操作</div><div class="line">https://forum.ionicframework.com/t/how-to-install-all-my-codrova-plugins-listed-in-package-json/21328</div><div class="line">ionic state reset</div><div class="line"></div><div class="line">// 用于play mp3 music</div><div class="line">cordova plugin add cordova-plugin-media</div><div class="line">https://github.com/apache/cordova-plugin-media</div><div class="line">find the path:</div><div class="line">http://www.raymondcamden.com/2014/06/23/Cordova-Media-API-Example/</div><div class="line"></div><div class="line"></div><div class="line">// 用于日期选择</div><div class="line">http://codepen.io/katemihalikova/full/dYvjzP/</div><div class="line">https://github.com/katemihalikova/ion-datetime-picker</div><div class="line">bower install ion-datetime-picker --save</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">常用命令</div><div class="line">sudo ionic emulate android</div><div class="line">sudo ionic emulate ios</div><div class="line">sudo  ionic build  android </div><div class="line">sudo cordova platform add ios@4.0.0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">driver app 安装的插件有哪些</div><div class="line">cordova-plugin-compat 1.1.0 &quot;Compat&quot;</div><div class="line">cordova-plugin-console 1.0.5 &quot;Console&quot;</div><div class="line">cordova-plugin-device 1.1.4 &quot;Device&quot;</div><div class="line">cordova-plugin-screen-orientation 1.4.2 &quot;Screen Orientation&quot;</div><div class="line">cordova-plugin-splashscreen 4.0.1 &quot;Splashscreen&quot;</div><div class="line">cordova-plugin-statusbar 2.2.1 &quot;StatusBar&quot;</div><div class="line">cordova-plugin-whitelist 1.3.1 &quot;Whitelist&quot;</div><div class="line">ionic-plugin-keyboard 2.2.1 &quot;Keyboard&quot;</div><div class="line">phonegap-plugin-barcodescanner 4.1.0 &quot;BarcodeScanner&quot;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;安装的插件，安装的方法：cordova plugin add  &lt;/p&gt;
+&lt;p&gt;sudo cordova plugin add &lt;a href=&quot;https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration&lt;/a&gt;&lt;br&gt;bower install –save signature_pad  // 用于手写签名&lt;br&gt;bower install –save intl-tel-input  //用于拨打电话&lt;br&gt;cordova plugin add cordova-plugin-media// 用于play mp3 music&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 百度定位插件</title>
+    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/ionic-cordova-plugin-geolocation-android%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%EF%BC%8C%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%AE%9A%E4%BD%8D%E6%8F%92%E4%BB%B6-/"/>
+    <id>http://yoursite.com/2017/08/18/ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:43:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU”</p>
+<p><a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">升级版，更新了watch功能</a></p>
+<p>以下是操作步骤<br>官方提供的有个叫cordova-plugin-geolocation的插件，在<a href="http://lib.csdn.net/base/ios" target="_blank" rel="external">iOS</a>上可以直接使用，但是在天朝因为某些网络原因不能给正常使用，或者是国内安卓环境混乱，不再支持cordova-plugin-geolocation 插件功能。 于是在github上找到合适的资源插件，以供使用。</p>
+<ol>
+<li>申请百度的秘钥 <a href="http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key" target="_blank" rel="external">百度秘钥申请地址</a></li>
+<li>安装插件：<br>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”API_KEY”<a id="more"></a></li>
+<li>使用方法<br>在需要获取位置信息的地方直接使用以下代码:<br>baidu_location.getCurrentPosition(function ( message ) { console.debug(message); }, function ( message ) { console.debug(message); });<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function successCallback(data)&#123;</div><div class="line">              console.log(&quot;lontitude:&quot; + data.longitude);</div><div class="line">	          console.log(&quot;latitude:&quot; + data.latitude);</div><div class="line">				// alert(data.longitude);</div><div class="line"></div><div class="line">				//更新操作</div><div class="line">				// console.log(&quot;time:&quot; + data.time);</div><div class="line">				console.log(&quot;describe:&quot; + data.describe);</div><div class="line">				// alert(&quot;successCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				function failedCallback(data)&#123;</div><div class="line">                 //  失败的提示操作</div><div class="line">				alert(&quot;failedCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				baidu_location.watchPosition(successCallback, failedCallback,10);</div><div class="line">//第一个函数是成功的回调，第二个是失败的回调。</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.注意事项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">a).此插件只能在手机端测试，我的模拟器也无法定位。web更不可能，会出现baidu_location 没有被定义的问题。</div><div class="line">b).要先ionic remove platform android</div><div class="line">然后再执行ionic platform add android命令，不然插件不能正确的执行，事实上，每一次修改插件的内容，都要执行上面的两个操作，才能使插件正常运行.</div><div class="line">c).如果你使用sdk23版本进行打包的，你就要注意了，在最新的android6.0上面，和以前的权限授权机制已经不同，如果使用23版本的进行打包。</div><div class="line">d).在android6.0以上的手机上运行不会给出获取地理位置权限的弹窗，务必改为23以下的版本进行编译获取成功的话，默认是只给出经纬度信息的，如果要获取定位的地址的具体信息，要在插件里面的BaiduLocation.java</div><div class="line">文件把 option.setIsNeedAddress(false);</div><div class="line"> 改为 option.setIsNeedAddress(true);</div><div class="line">e).默认返回的是一个字符串，对于现在json这么流行的情况下，当然是获得json格式的数据比较让人喜欢，这个时候坐着已经替我们封装好了，只需要在BaiduLocation.java</div><div class="line">文件中把 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, sb.toString());</div><div class="line"> 改为 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, json.toString());，你就可以获得一个json格式的字符串了</div></pre></td></tr></table></figure></p>
+<p>最后<br>上面的内容大多数是在github上找到的，这里只是写上了自己遇到的一些问题，分享出来，这里附上github地址：<a href="https://github.com/liangzhenghui/cordova-qdc-baidu-location" target="_blank" rel="external">GitHub地址</a><br>升级版github地址：<a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">GitHub地址</a>  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ionic plugin add &lt;a href=&quot;https://github.com/hewz/cordova-baidu-location&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hewz/cordova-baidu-location&lt;/a&gt; –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU”&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/hewz/cordova-baidu-location&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;升级版，更新了watch功能&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下是操作步骤&lt;br&gt;官方提供的有个叫cordova-plugin-geolocation的插件，在&lt;a href=&quot;http://lib.csdn.net/base/ios&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS&lt;/a&gt;上可以直接使用，但是在天朝因为某些网络原因不能给正常使用，或者是国内安卓环境混乱，不再支持cordova-plugin-geolocation 插件功能。 于是在github上找到合适的资源插件，以供使用。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;申请百度的秘钥 &lt;a href=&quot;http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度秘钥申请地址&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;安装插件：&lt;br&gt;ionic plugin add &lt;a href=&quot;https://github.com/hewz/cordova-baidu-location&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hewz/cordova-baidu-location&lt;/a&gt; –variable API_KEY=”API_KEY”
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【-ionic-】-极光推送-ionic-和php服务器的搭建</title>
+    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E3%80%90-ionic-%E3%80%91-%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81-ionic-%E5%92%8Cphp%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2017/08/18/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:43:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>【官方文档】<a href="https://docs.jiguang.cn/jpush/server/3rd/php_sdk/" target="_blank" rel="external">https://docs.jiguang.cn/jpush/server/3rd/php_sdk/</a><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ionic 客户端</div><div class="line">step1:注册账号，并创建应用</div><div class="line">https://www.jiguang.cn/</div><div class="line"></div><div class="line">step2:应用添加插件</div><div class="line">cordova plugin add jpush-phonegap-plugin --variable APP_KEY=******</div><div class="line"></div><div class="line">step3：app.js 添加代码</div><div class="line">  //启动极光推送服务</div><div class="line">  window.plugins.jPushPlugin.init();</div><div class="line"></div><div class="line">step4：设置别名，标签。</div><div class="line">  window.plugins.jPushPlugin.setAlias(&quot;12345678&quot;); 任意地方均可。</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">php 后台服务器端</div><div class="line">step1：安装插件</div><div class="line">composer require jpush/jpush</div><div class="line"></div><div class="line">vendor/jpush 有相关demo</div><div class="line"></div><div class="line">step2:</div><div class="line">功能实现：</div><div class="line"></div><div class="line">创建控制器：</div><div class="line">    public function actionPushonedriver()&#123;</div><div class="line">      // 简单推送示例</div><div class="line">      // 这只是使用样例,不应该直接用于实际生产环境中 !!</div><div class="line">      $rel = JpushFunction::sendJpushOneDriver();</div><div class="line">      return $rel;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">创建model：</div><div class="line">  public function sendJpushOneDriver()&#123;</div><div class="line">      $app_key = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;appKey&apos;];</div><div class="line">      $master_secret = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;masterSecret&apos;];</div><div class="line">      $client = new JPush($app_key, $master_secret);</div><div class="line">      $push_payload = $client-&gt;push()</div><div class="line">          -&gt;setPlatform(array(&apos;ios&apos;, &apos;android&apos;));</div><div class="line">          // -&gt;addAllAudience();</div><div class="line">          // -&gt;setAudience(&apos;all&apos;)</div><div class="line">          // -&gt;addAlias(&apos;alias&apos;)</div><div class="line">      try &#123;</div><div class="line">        $push_payload-&gt;addAlias(&apos;12345678&apos;)</div><div class="line">        -&gt;androidNotification(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ))</div><div class="line">        -&gt;message(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ));</div><div class="line">          $response = $push_payload-&gt;send();</div><div class="line">          print_r($response);</div><div class="line">      &#125; catch (\JPush\Exceptions\APIConnectionException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125; catch (\JPush\Exceptions\APIRequestException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">方法实现</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;【官方文档】&lt;a href=&quot;https://docs.jiguang.cn/jpush/server/3rd/php_sdk/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.jiguang.cn/jpush/server/3rd/php_sdk/&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 本地通知 环境：mac</title>
+    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E9%80%9A%E7%9F%A5-/"/>
+    <id>http://yoursite.com/2017/08/18/ionic-使用指南/通知-/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:43:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/katzer/cordova-plugin-local-notifications" target="_blank" rel="external">ionic 通知</a></p>
+<p> cordova create myApp org.apache.cordova.myApp myApp<br>    cordova plugin add cordova-plugin-camera –save<br>    cordova platform add android –save<br>    cordova requirements android<br>    cordova build android –verbose<br>    cordova run android<br>    cordova build android –release – –keystore=”..\android.keystore” –storePassword=android –alias=mykey<br>ionic plugin list </p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.创建一个新项目作为测试 。ionic start mynotify tabs</div><div class="line">2.  ionic platform add android </div><div class="line">3.安装 sudo  cordova plugin add  https://github.com/katzer/cordova-plugin-local-notifications.git</div><div class="line">4.bower install ngCordova    安装 ngCordova</div><div class="line">5. index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">6.ionic platform add android </div><div class="line">7.ionic build android</div><div class="line">8.ionic emulate android</div></pre></td></tr></table></figure>
+<p>资料详解：<br><a href="http://devdactic.com/local-notifications-ionic/" target="_blank" rel="external">http://devdactic.com/local-notifications-ionic/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/katzer/cordova-plugin-local-notifications&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ionic 通知&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; cordova create myApp org.apache.cordova.myApp myApp&lt;br&gt;    cordova plugin add cordova-plugin-camera –save&lt;br&gt;    cordova platform add android –save&lt;br&gt;    cordova requirements android&lt;br&gt;    cordova build android –verbose&lt;br&gt;    cordova run android&lt;br&gt;    cordova build android –release – –keystore=”..\android.keystore” –storePassword=android –alias=mykey&lt;br&gt;ionic plugin list &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用接口记录</title>
+    <link href="http://yoursite.com/2017/08/18/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/API-%E8%AE%B0%E5%BD%95--php,ios==-/"/>
+    <id>http://yoursite.com/2017/08/18/个人信息/API-记录--php,ios==-/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#PHP#<br><a href="https://github.com/Stichoza/google-translate-php" target="_blank" rel="external">https://github.com/Stichoza/google-translate-php</a>   Google 翻译api</p>
+<p><a href="https://github.com/yangxu/google_flight_api" target="_blank" rel="external">https://github.com/yangxu/google_flight_api</a>        Google 航班查询api</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#PHP#&lt;br&gt;&lt;a href=&quot;https://github.com/Stichoza/google-translate-php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Stichoza/google-tra
+    
+    </summary>
+    
+      <category term="个人信息" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/"/>
+    
+    
+      <category term="接口集合" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>chrome 常用插件</title>
@@ -56,614 +757,136 @@
   </entry>
   
   <entry>
-    <title>mysql 时间管理</title>
-    <link href="http://yoursite.com/2017/08/18/Mysql/mysql-%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2017/08/18/Mysql/mysql-时间管理/</id>
+    <title>【-ionic-】code-push-热更新。环境：mac</title>
+    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E3%80%90-ionic-%E3%80%91code-push-%E7%83%AD%E6%9B%B4%E6%96%B0%E3%80%82%E7%8E%AF%E5%A2%83%EF%BC%9Amac/"/>
+    <id>http://yoursite.com/2017/08/18/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:43:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>插件文档的使用<br><a href="http://microsoft.github.io/code-push/docs/getting-started.html" target="_blank" rel="external">http://microsoft.github.io/code-push/docs/getting-started.html</a><br><a href="https://www.npmjs.com/package/cordova-plugin-code-push#installmode" target="_blank" rel="external">https://www.npmjs.com/package/cordova-plugin-code-push#installmode</a><br><a href="https://my.oschina.net/u/783079/blog/674924" target="_blank" rel="external">https://my.oschina.net/u/783079/blog/674924</a><br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">step1: 安装</div><div class="line">终端安装code-push-cli</div><div class="line">sudo npm install -g code-push -d</div><div class="line"></div><div class="line">step2：注册 选择github 获取 key，写入到终端</div><div class="line">![Paste_Image.png](http://upload-images.jianshu.io/upload_images/1764965-f827a9523190bcea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line"></div><div class="line">step3:创建新的code-push 应用</div><div class="line">创建android的应用。code-push app add myapp_android</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ FVqEweF8etZPuHTtUZ6p1xVIKOkHNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ o28jGrUvqf2LT81MvXf2FbC_K7SyNkA7m31RM </div><div class="line"></div><div class="line">创建ios的应用。code-push app add myapp_ios</div><div class="line">Successfully added the &quot;myapp_ios&quot; app, along with the following default deployments:</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ 0pUQJMvToiqK94DymbNqTt3zDqKtNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ jTr9klk_n8oxthmnRPimUCTFx3PyNkA7m31RM │</div><div class="line"></div><div class="line">step4：安装cordova插件</div><div class="line">如果项目不存在，则ionic start newproject ，并安装cordova。</div><div class="line">bower install ngCordova    安装 ngCordova</div><div class="line">index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">cordova plugin add cordova-plugin-code-push</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">step5：配置config.xml 文件</div><div class="line">将获取的staging的key替换。</div><div class="line">&lt;platform name=&quot;android&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-ANDROID-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line">&lt;platform name=&quot;ios&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-IOS-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line"></div><div class="line">&lt;access origin=&quot;*&quot; /&gt; </div><div class="line"></div><div class="line">step6： ionic plugin list  查看插件的安装列表 是否包含（code-push 和Whitelist）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">step7:app.js 修改代码</div><div class="line"></div><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">//其他代码</div><div class="line">window.codePush.sync(</div><div class="line">  function (syncStatus) &#123;</div><div class="line">    switch (syncStatus) &#123;</div><div class="line">      // Result (final) statuses</div><div class="line">      case SyncStatus.UP_TO_DATE:</div><div class="line">        navigator.notification.alert(&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        (&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        break;</div><div class="line">      case SyncStatus.ERROR:</div><div class="line">        navigator.notification.alert(&quot;软件自动更新失败，退出应用后，重新打开。&quot;, null, &apos;提示&apos;, &apos;我知道了&apos;);</div><div class="line">        break;     </div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    updateDialog: false, installMode: InstallMode.IMMEDIATE  </div><div class="line">  &#125;</div><div class="line">);</div><div class="line">//其他代码</div><div class="line">&#125;)</div><div class="line"></div><div class="line">step8: 代码添加到code-push</div><div class="line">sudo code-push release-cordova myapp_android android</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;插件文档的使用&lt;br&gt;&lt;a href=&quot;http://microsoft.github.io/code-push/docs/getting-started.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://microsoft.github.io/code-push/docs/getting-started.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.npmjs.com/package/cordova-plugin-code-push#installmode&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.npmjs.com/package/cordova-plugin-code-push#installmode&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://my.oschina.net/u/783079/blog/674924&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://my.oschina.net/u/783079/blog/674924&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>甜言密语，说给自己听</title>
+    <link href="http://yoursite.com/2017/08/18/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/%C3%97%C3%97%C3%97%EF%BC%88%E6%94%B6%E4%BF%A1%E4%BA%BA%E7%9A%84%E7%AE%80%E4%B9%A6id%EF%BC%89%EF%BC%81%E6%88%91%E5%9C%A8%E6%83%85%E4%BA%BA%E8%8A%82%E7%AD%89%E4%BD%A0%E5%9B%9E%E4%BF%A1/"/>
+    <id>http://yoursite.com/2017/08/18/个人信息/×××（收信人的简书id）！我在情人节等你回信/</id>
     <published>2017-08-17T18:17:44.000Z</published>
     <updated>2017-08-17T18:17:44.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/winter13292/article/details/7888358" target="_blank" rel="external">http://blog.csdn.net/winter13292/article/details/7888358</a><br><a href="http://stackoverflow.com/questions/4654961/mysql-only-within-the-current-month" target="_blank" rel="external">获取这个月起始时间</a></p>
-<p><a href="http://www.w3resource.com/mysql/date-and-time-functions/mysql-month-function.php" target="_blank" rel="external">数据库Date操作</a></p>
-]]></content>
+    <content type="html"><![CDATA[<pre><code>此间，我只有想你才能写出最好的诗。与你分分离离已达四次有余，我不知道如何再去爱你，也不知道怎么才能忘却。
+有你的时光，总是快乐的。肉肉的手心，微暖的笑脸，和甜蜜的话。你从不会主动撩我，也时而对我爱理不理。也许太早熟的你早已不会去伪装甜蜜，也许我不应该再记录这件事，因为过去虽甜，缺不应常常品味。。
+我常想，如果我每一次坚持到最后，而不是因为我们没有共同的言语，因为你繁忙时，不会回复我的话，不是因为我们见面时的尴尬。不是因为我小心的维护着可怜的自尊心。那么我们可能还继续深恋着彼此。。
+</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/winter13292/article/details/7888358&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/winter13292/articl
+      &lt;pre&gt;&lt;code&gt;此间，我只有想你才能写出最好的诗。与你分分离离已达四次有余，我不知道如何再去爱你，也不知道怎么才能忘却。
+有你的时光，总是快乐的。肉肉的手心，微暖的笑脸，和甜蜜的话。你从不会主动撩我，也时而对我爱理不理。也许太早熟的你早已不会去伪装甜蜜，也许我不应该再记录这
     
     </summary>
     
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+      <category term="个人信息" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/"/>
     
     
-      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
+      <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
-    <title>html常用语法总结</title>
-    <link href="http://yoursite.com/2017/08/18/Html/%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
-    <id>http://yoursite.com/2017/08/18/Html/常用语法/</id>
+    <title>软考中级设计师指南</title>
+    <link href="http://yoursite.com/2017/08/18/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/%E8%BD%AF%E8%80%83%E4%B8%AD%E7%BA%A7-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88-%E5%87%86%E5%A4%87%E6%8C%87%E5%8D%97/"/>
+    <id>http://yoursite.com/2017/08/18/个人信息/软考中级-软件设计师-准备指南/</id>
     <published>2017-08-17T18:17:44.000Z</published>
     <updated>2017-08-17T18:17:44.000Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">外链和项目内部链接</div><div class="line">&lt;a href=&quot;http://sender.bntake.com&quot; class=&quot;btn btn-default&quot; style=&quot;color:#ff6c2c;&quot;&gt;&lt;?= Yii::t(&apos;app&apos;, &apos;Place_Order_Web&apos;); ?&gt; &lt;span class=&quot;glyphicon glyphicon-send&quot;&gt;&lt;/span&gt;&lt;/a&gt;</div><div class="line">&lt;a href=&quot;/site/lookforbarcode&quot; class=&quot;btn btn-default&quot; style=&quot;color:#ff6c2c;&quot;&gt;&lt;?= Yii::t(&apos;app&apos;, &apos;Check_Order&apos;); ?&gt; &lt;span class=&quot;glyphicon glyphicon-send&quot;&gt;&lt;/span&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<p>可以直接考中级，高级需要资质。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　[报名时间：此为四川时间，不一定准确。我省上半年考试的报名时间统一定于2017年2月15日至3月15日;下半年考试的报名时间统一定于2017年8月1日至8月31日](http://www.exam8.com/computer/spks/baoming/)</div><div class="line">2017年软考考试时间预计为：上半年2017年5月20日，下半年2017年11月11日。</div><div class="line">       (1)高级资格：信息系统项目管理师、系统分析师(原系统分析员)、系统构架设计师;</div><div class="line">       (2)中级资格：软件设计师(原高级程序员)、网络工程师、信息系统监理师、电子商务设计师、软件评测师、多媒体应用设计师、数据库系统工程师、嵌入式系统设计师、计算机辅助设计师、信息系统管理工程师、信息技术支持工程师;</div><div class="line">       (3)初级资格：程序员(原初级程序员、程序员)、网络管理员、信息处理技术员、电子商务技术员、多媒体应用制作技术员、信息系统运行管理员</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.educity.cn/tiku/g7.html" target="_blank" rel="external">题库</a></p>
+<p><a href="http://search.dangdang.com/?key=%C8%ED%BC%FE%C9%E8%BC%C6%CA%A6&amp;act=input" target="_blank" rel="external">软件设计书</a></p>
+<p><a href="http://www.educity.cn/shipin/v3582.html" target="_blank" rel="external">软件设计师的资料详解</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+      &lt;p&gt;可以直接考中级，高级需要资质。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;
     
     </summary>
     
-      <category term="Html" scheme="http://yoursite.com/categories/Html/"/>
+      <category term="个人信息" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/"/>
     
     
-      <category term="Html" scheme="http://yoursite.com/tags/Html/"/>
+      <category term="fighting" scheme="http://yoursite.com/tags/fighting/"/>
+    
+      <category term="自学" scheme="http://yoursite.com/tags/%E8%87%AA%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
-    <title>html命名规范--学习和优化</title>
-    <link href="http://yoursite.com/2017/08/18/Html/%E3%80%90%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83--%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BC%98%E5%8C%96%E3%80%91/"/>
-    <id>http://yoursite.com/2017/08/18/Html/【命名规范--学习和优化】/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:42:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文链接：<a href="http://www.86y.org/art_detail.aspx?id=740" target="_blank" rel="external">http://www.86y.org/art_detail.aspx?id=740</a></p>
-<p>一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：</p>
-<p>基本样式库 /css/core<br>通用UI元素样式库 /css/lib<br>JS组件相关样式库 /css/ui</p>
-<p>业务类的CSS是指和具体产品相关的文件，放在如下目录中：<br>读书 /css/book/<br>电影 /css/movie/<br>音乐 /css/music/<br>社区 /css/sns/<br>小站 /css/site/<br>同城 /css/location/<br>电台 /css/radio/<br><a id="more"></a><br>外联CSS文件适用于全站级和产品级通用的大文件。内联CSS文件适用于在一个或几个页面共用的CSS。另外一对具体的CSS进行文档化的整理。如：<br>util-01 reset /css/core/reset.css<br>util-02 通用模块容器 /css/core/mod.css<br>ui-01. 喜欢按钮 /css/core/fav_btn.css<br>ui-02. 视频/相册列表项 /css/core/media_item.css<br>ui-03. 评星 /css/core/rating.css<br>ui-04. 通用按钮 /css/core/common_button.css<br>ui-05. 分页 /css/core/pagination.css<br>ui-06. 推荐按钮 /css/core/rec_btn.css<br>ui-07. 老版对话框 /css/core/old_dialog.css<br>ui-08. 老版Tab /css/core/old_tab.css<br>ui-09. 老版成员列表 /css/core/old_userlist.css<br>ui-10. 老版信息区 /css/core/notify.css<br>ui-11. 社区用户导航 /css/core/profile_nav.css<br>ui-12. 当前大社区导航 /css/core/site_nav.css<br>ui-13. 加载中 /css/lib/loading.css</p>
-<p>2、文件引入可通过外联或内联方式引入。<br>外联方式：（类型声明type=”text/css”可以省略）<br>内联方式： （类型声明type=”text/css”可以省略）</p>
-<p>link和style标签都应该放入head中，原则上，不允许在html上直接写样式。避免在CSS中使用@import，嵌套不要超过一层。<br>3、文件名、文件编码及文件大小<br>文件名必须由小写字母、数字、中划线组成<br>文件必须用UTF-8编码，使用UTF-8（非BOM），在HTML中指定UTF-8编码，在CSS中则不需要特别指定因为默认就是UTF-8。<br>单个CSS文件避免过大（建议少于300行）</p>
-<p>二、注释规范<br>1、文件顶部注释（推荐使用）<br>/*</p>
-<ul>
-<li>@description: 中文说明</li>
-<li>@author: name</li>
-<li>@update: name (2013-04-13 18:32)<br>*/</li>
-</ul>
-<p>复制代码2、模块注释<br>/<em> module: module1 by 张三 </em>/<br>…<br>/<em> module: module2 by 张三 </em>/</p>
-<p>复制代码模块注释必须单独写在一行<br>3、 单行注释与多行注释<br>/<em> this is a short comment </em>/单行注释可以写在单独一行，也可以写在行尾，注释中的每一行长度不超过40个汉字，或者80个英文字符。/<em>* this is comment line 1.</em> this is comment line 2.<em>/多行注释必须写在单独行内<br>4、特殊注释<br>/</em> TODO: xxxx by name 2013-04-13 18:32 <em>//</em> BUGFIX: xxxx by name 2012-04-13 18:32 <em>/用于标注修改、待办等信息<br>5、区块注释<br>/</em> Header <em>/<br>/</em> Footer <em>/<br>/</em> Gallery */</p>
-<p>复制代码对一个代码区块注释（可选），将样式语句分区块并在新行中对其注释。<br>三、命名规范<br>使 用有意义的或通用的ID和class命名：ID和class的命名应反映该元素的功能或使用通用名称，而不要用抽象的晦涩的命名。反映元素的使用目的是首 选；使用通用名称代表该元素不表特定意义，与其同级元素无异，通常是用于辅助命名；使用功能性或通用的名称可以更适用于文档或模版变化的情况。<br>/<em> 不推荐: 无意义 </em>/ #yee-1901 {}<br>/<em> 不推荐: 与样式相关 </em>/ .button-green {}.clear {}<br>/<em> 推荐: 特殊性 </em>/ #gallery {}#login {}.video {}<br>/<em> 推荐: 通用性 </em>/ .aux {}.alt {}</p>
-<p>常 用命名（多记多查英文单词）：page、wrap、layout、header(head)、footer(foot、ft)、 content(cont)、menu、nav、main、submain、sidebar(side)、logo、banner、 title(tit)、popo(pop)、icon、note、btn、txt、iblock、window(win)、tips等<br>ID和class命名越简短越好，只要足够表达涵义。这样既有助于理解，也能提高代码效率。<br>/<em> 不推荐 </em>/ #navigation {}.atr {}<br>/<em> 推荐 </em>/ #nav {}.author {}</p>
-<p>类型选择器避免同时使用标签、ID和class作为定位一个元素选择器；从性能上考虑也应尽量减少选择器的层级。<br>/<em> 不推荐 </em>/ul#example {}div.error {}<br>/<em> 推荐 </em>/#example {}.error {}</p>
-<p>命名时需要注意的点：<br>规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或 _<br>命名避免使用中文拼音，应该采用更简明有语义的英文单词进行组合<br>命名注意缩写，但是不能盲目缩写，具体请参见常用的CSS命名规则<br>不允许通过1、2、3等序号进行命名<br>避免class与id重名<br>id用于标识模块或页面的某一个父容器区域，名称必须唯一，不要随意新建id<br>class用于标识某一个类型的对象，命名必须言简意赅。<br>尽可能提高代码模块的复用，样式尽量用组合的方式<br>规则名称中不应该包含颜色（red/blue）、定位（left/right）等与具体显示效果相关的信息。应该用意义命名，而不是样式显示结果命名。</p>
-<p>1、常用id的命名：<br>(1)页面结构<br>容器: container<br>页头：header<br>内容：content/container<br>页面主体：main<br>页尾：footer<br>导航：nav<br>侧栏：sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中：left right center</p>
-<p>(2)导航<br>导航：nav<br>主导航：mainbav<br>子导航：subnav<br>顶导航：topnav<br>边导航：sidebar<br>左导航：leftsidebar<br>右导航：rightsidebar<br>菜单：menu<br>子菜单：submenu<br>标题: title<br>摘要: summary</p>
-<p>(3)功能<br>标志：logo<br>广告：banner<br>登陆：login<br>登录条：loginbar<br>注册：regsiter<br>搜索：search<br>功能区：shop<br>标题：title<br>加入：joinus<br>状态：status<br>按钮：btn<br>滚动：scroll<br>标签页：tab<br>文章列表：list<br>提示信息：msg<br>当前的: current<br>小技巧：tips<br>图标: icon<br>注释：note<br>指南：guild<br>服务：service<br>热点：hot<br>新闻：news<br>下载：download<br>投票：vote<br>合作伙伴：partner<br>友情链接：link<br>版权：copyright</p>
-<p>2、常用class的命名：<br>(1)颜色:使用颜色的名称或者16进制代码,如<br>.red { color: red; }<br>.f60 { color: #f60; }<br>.ff8600 { color: #ff8600; }</p>
-<p>(2)字体大小,直接使用”font+字体大小”作为名称,如<br>.font12px { font-size: 12px; }<br>.font9pt {font-size: 9pt; }</p>
-<p>(3)对齐样式,使用对齐目标的英文名称,如<br>.left { float:left; }<br>.bottom { float:bottom; }</p>
-<p>(4)标题栏样式,使用”类别+功能”的方式命名,如<br>.barnews { }<br>.barproduct { }</p>
-<p>四、书写规范<br>1、排版规范(1)使用4个空格，而不使用tab或者混用空格+tab作为缩进；(2)规则可以写成单行，或者多行，但是整个文件内的规则排版必须统一；单行形式书写风格的排版约束<br>如果是在html中写内联的css，则必须写成单行；<br>每一条规则的大括号 { 前后加空格 ；<br>每一条规则结束的大括号 } 前加空格；<br>属性名冒号之前不加空格，冒号之后加空格；<br>每一个属性值后必须添加分号; 并且分号后空格；<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ；</p>
-<p>多行形式书写风格的排版约束<br>每一条规则的大括号 { 前添加空格;<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ;<br>每一条规则结束的大括号 } 必须与规则选择器的第一个字符对齐 ;<br>属性名冒号之前不加空格，冒号之后加空格;<br>属性值之后添加分号;</p>
-<p>2、属性编写顺序<br>显示属性：display/list-style/position/float/clear …<br>自身属性（盒模型）：width/height/margin/padding/border<br>背景：background<br>行高：line-height<br>文本属性：color/font/text-decoration/text-align/text-indent/vertical-align/white-space/content…<br>其他：cursor/z-index/zoom/overflow<br>CSS3属性：transform/transition/animation/box-shadow/border-radius<br>如果使用CSS3的属性，如果有必要加入浏览器前缀，则按照 -webkit- / -moz- / -ms- / -o- / std的顺序进行添加，标准属性写在最后。<br>链接的样式请严格按照如下顺序添加： a:link -&gt; a:visited -&gt; a:hover -&gt; a:active</p>
-<p>3、规则书写规范<br>使用单引号，不允许使用双引号;<br>每个声明结束都应该带一个分号，不管是不是最后一个声明;<br>除16进制颜色和字体设置外，CSS文件中的所有的代码都应该小写;<br>除了重置浏览器默认样式外，禁止直接为html tag添加css样式设置;<br>每一条规则应该确保选择器唯一，禁止直接为全局.nav/.header/.body等类设置属性;</p>
-<p>4、代码性能优化<br>合并margin、padding、border的-left/-top/-right/-bottom的设置，尽量使用短名称。<br>选择器应该在满足功能的基础上尽量简短，减少选择器嵌套，查询消耗。但是一定要避免覆盖全局样式设置。<br>注意选择器的性能，不要使用低性能的选择器。<br>禁止在css中使用*选择符。<br>除非必须，否则，一般有class或id的，不需要再写上元素对应的tag。<br>0后面不需要单位，比如0px可以省略成0，0.8px可以省略成.8px。<br>如果是16进制表示颜色，则颜色取值应该大写。<br>如果可以，颜色尽量用三位字符表示，例如#AABBCC写成#ABC 。<br>如果没有边框时，不要写成border:0，应该写成border:none 。<br>尽量避免使用AlphaImageLoader 。<br>在保持代码解耦的前提下，尽量合并重复的样式。<br>background、font等可以缩写的属性，尽量使用缩写形式 。</p>
-<p>5、CSS Hack的使用<br>请不用动不动就使用浏览器检测和CSS Hacks，先试试别的解决方法吧！考虑到代码高效率和易管理，虽然这两种方法能快速解决浏览器解析差异，但应被视为最后的手段。在长期的项目中，允许使用hack只会带来更多的hack，你越是使用它，你越是会依赖它！<br>推荐使用下面的：<br>[图片上传中。。。（1）]6、字体规则<br>为了防止文件合并及编码转换时造成问题，建议将样式中文字体名字改成对应的英文名字，如：黑体(SimHei) 宋体(SimSun) 微软雅黑 (Microsoft Yahei，几个单词中间有空格组成的必须加引号)<br>字体粗细采用具体数值，粗体bold写为700，正常normal写为400<br>font-size必须以px或pt为单位，推荐用px（注：pt为打印版字体大小设置），不允许使用xx-small/x-small/small/medium/large/x-large/xx-large等值<br>为了对font-family取值进行统一，更好的支持各个操作系统上各个浏览器的兼容性，font-family不允许在业务代码中随意设置</p>
-<p>五、其他规范<br>不要轻易改动全站级CSS和通用CSS库。改动后，要经过全面测试。<br>避免使用filter<br>避免在CSS中使用expression<br>避免过小的背景图片平铺。<br>尽量不要在CSS中使用!important<br>绝对不要在CSS中使用”*”选择符<br>层级(z-index)必须清晰明确，页面弹窗、气泡为最高级（最高级为999），不同弹窗气泡之间可在三位数之间调整；普通区块为10-90内10的倍数；区块展开、弹出为当前父层级上个位增加，禁止层级间盲目攀比。<br>背景图片请尽可能使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按照模块、业务、页面来划分均可。</p>
-<p>六、测试规范<br>1、了解浏览器特效支持为了页面性能考虑，如果浏览器不支持CSS3相关属性的，则该浏览器的某些特效将不再支持，属性的支持情况如下表所示（Y为支持，N为不支持）<br>[图片上传中。。。（2）]2、 设定浏览器支持标准[图片上传中。。。（3）]<br>A级－交互和视觉完全符全设计的要求<br>B级－视觉上允许有所差异，但不破坏页面的整体效果<br>C级－可忽略设计上的细节，但不防碍使用</p>
-<p>3、常用样式测试工具W3C CSS validator：<a href="http://jigsaw.w3.org/css-validator/" target="_blank" rel="external">http://jigsaw.w3.org/css-validator/</a><br>CSS Lint：<a href="http://csslint.net/CSS" target="_blank" rel="external">http://csslint.net/CSS</a> Usage：<a href="https://addons.mozilla.org/en-us/firefox/addon/css-usage/" target="_blank" rel="external">https://addons.mozilla.org/en-us/firefox/addon/css-usage/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文链接：&lt;a href=&quot;http://www.86y.org/art_detail.aspx?id=740&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.86y.org/art_detail.aspx?id=740&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：&lt;/p&gt;
-&lt;p&gt;基本样式库 /css/core&lt;br&gt;通用UI元素样式库 /css/lib&lt;br&gt;JS组件相关样式库 /css/ui&lt;/p&gt;
-&lt;p&gt;业务类的CSS是指和具体产品相关的文件，放在如下目录中：&lt;br&gt;读书 /css/book/&lt;br&gt;电影 /css/movie/&lt;br&gt;音乐 /css/music/&lt;br&gt;社区 /css/sns/&lt;br&gt;小站 /css/site/&lt;br&gt;同城 /css/location/&lt;br&gt;电台 /css/radio/&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Html" scheme="http://yoursite.com/categories/Html/"/>
-    
-    
-      <category term="Html" scheme="http://yoursite.com/tags/Html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库建表-考虑</title>
-    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8-%E8%80%83%E8%99%91/"/>
-    <id>http://yoursite.com/2017/08/18/Mysql/数据库建表-考虑/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:47:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
-<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;性别： 类型：boolean&lt;br&gt;学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255&lt;br&gt;时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，dateti
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/CentOS%E4%B8%8B%E7%9A%84PHP-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-VMware-+-CentOS-+-PHP5-4-+%EF%BD%81%EF%BD%90%EF%BD%81%EF%BD%83%EF%BD%88/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ/</id>
+    <title>Mac下Android-Studio中获取SHA1和MD5-</title>
+    <link href="http://yoursite.com/2017/08/18/%E5%AE%89%E5%8D%93/-Mac%E4%B8%8BAndroid-Studio%E4%B8%AD%E8%8E%B7%E5%8F%96SHA1%E5%92%8CMD5-/"/>
+    <id>http://yoursite.com/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/</id>
     <published>2017-08-17T18:17:44.000Z</published>
     <updated>2017-08-17T18:17:44.000Z</updated>
     
-    <content type="html"><![CDATA[<p>１.下载ＶＭＷａｒｅ　　点击地址链接：<a href="http://pan.baidu.com/s/1nvrns5j" target="_blank" rel="external">http://pan.baidu.com/s/1nvrns5j</a> 密码：uyzz（版本包含 9 或11或者12）</p>
-<p>##在CentOS 7.2 环境下安装<br>2.<a href="http://www.centoscn.com/CentosSoft/iso/2016/0601/7341.html" target="_blank" rel="external">CentOS 系统 7.2 地址下载</a> </p>
-<p>3.<a href="http://jingyan.baidu.com/article/3d69c5518e82e3f0cf02d7ea.html" target="_blank" rel="external">LAMP环境的快速搭建推荐链接：</a><br><a id="more"></a></p>
-<p>##在CentOS 6.5环境下安装</p>
-<p>###（1）启动Apache 出现的问题<br>1.出现问题：连不上网络 。链接可看下<a href="http://www.ytyzx.net/index.php/如何设置CentOS_7获取动态及静态IP地址?nsukey=rLl%2BBgTkiFbxTEWvTdpSnNsFWcwo70qdo0voAEzu83em%2FztpvvYWy8T%2Bzn7E3yy0Sy6giNGqk2g3Ia4hiXWb%2Fg%3D%3D" target="_blank" rel="external">设置CentOS_7的网络</a><br>或者修改vi /etc/sysconfig/network-scripts/ifcfg-（自己的网卡）设置BOOTPROTO=static为静态</p>
-<p>2.网络不通。 测试：ping www.baidu.com 发现网络不通。<br>查看是否有网卡，如果没有。则需要打开<br><img src="http://upload-images.jianshu.io/upload_images/1764965-31e7e341520986d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>   vi /etc/sysconfig/network-scripts/ifcfg-enoxxxxxx。<br>更改这部分<br>ONBoot = yes<br>Service network restart 重新启动服务</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-370466d60266065a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>3.远程web浏览器无法打开页面<br>测试centos 是否打开apache   curl localhost<br>修改防火墙端口号：<br>查看当前配置：iptables -L<br>防火墙配置文件：<br>vi /etc/sysconfig/iptables<br>开放80端口：<br>iptables -A INPUT -p tcp -s 0/0 –dport 8180 -j ACCEPT<br>重启服务：<br>/etc/rc.d/init.d/iptables restart<br>启动和停止服务分别用start、stop<br>chkconfig –level 2345 iptables off<br>service iptables stop不推荐关闭防火墙<br>1) 重启后生效</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-2c779ceff70a57d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>（2）启动mysql 和配置相关命令<br>出现错误：<strong>mysqladmin: connect to server at ‘localhost’ failed       error: ‘Access denied for user ‘root’@’localhost’ (using password: YES)’</strong><br>原因 mysql登录错误</p>
-<p>解决办法</p>
-<p>composer update 失败 ：之前要 执行composer global require ”fxp/composer-asset-plugin：1.<em>”<br>或者 php composer.phar global require “fxp/composer-asset-plugin：1.</em>”<br>然后 composer update</p>
+    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/jackymvc/article/details/50222503" target="_blank" rel="external">http://blog.csdn.net/jackymvc/article/details/50222503</a></p>
+<p>打开Android Studio中的Terminal，也可以直接打开系统的</p>
+<p>获取debug.keystore的SHA1和MD5</p>
+<p>keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
+<p>获取其他keystore的，如正式签名文件的</p>
+<p>keytool -list -v -keystore ~/User/你的用户名/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
+<p>需要把路径和密码改成相应的就可以了</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;１.下载ＶＭＷａｒｅ　　点击地址链接：&lt;a href=&quot;http://pan.baidu.com/s/1nvrns5j&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1nvrns5j&lt;/a&gt; 密码：uyzz（版本包含 9 或11或者12）&lt;/p&gt;
-&lt;p&gt;##在CentOS 7.2 环境下安装&lt;br&gt;2.&lt;a href=&quot;http://www.centoscn.com/CentosSoft/iso/2016/0601/7341.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CentOS 系统 7.2 地址下载&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;3.&lt;a href=&quot;http://jingyan.baidu.com/article/3d69c5518e82e3f0cf02d7ea.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LAMP环境的快速搭建推荐链接：&lt;/a&gt;&lt;br&gt;
+      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/jackymvc/article/details/50222503&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/jackymvc/article/det
     
     </summary>
     
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
     
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+      <category term="安卓" scheme="http://yoursite.com/tags/%E5%AE%89%E5%8D%93/"/>
     
   </entry>
   
   <entry>
-    <title>数据库主键设置为int(11)</title>
-    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E9%94%AE%E8%AE%BE%E7%BD%AE%E4%B8%BAint(11)/"/>
-    <id>http://yoursite.com/2017/08/18/Mysql/数据库主键设置为int(11)/</id>
+    <title>安卓环境配置</title>
+    <link href="http://yoursite.com/2017/08/18/%E5%AE%89%E5%8D%93/android/"/>
+    <id>http://yoursite.com/2017/08/18/安卓/android/</id>
     <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
+    <updated>2017-08-18T11:49:09.000Z</updated>
     
-    <content type="html"><![CDATA[<p>通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。</p>
-<p>也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。</p>
-<p>int和bigint的区别 ：int 符号性 -2^32+1 ~ 2^32  -1 符号性 0 - 2^32 大约四十亿条数据，足够一遍公司使用。（4 294 967 296）<br>相比来说，bigint占用的磁盘内存空间较大，会导致过多的无效数据交换，增加额外的io压力，对性能不利</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。&lt;/p&gt;
-&lt;p&gt;也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。&lt;/p&gt;
-&lt;p&gt;int和bigint的区别 ：int 符号
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Yii的RestApi的使用方法</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/Yii%E7%9A%84RestApi%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/Yii的RestApi的使用方法/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:45:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.poluoluo.com/jzxy/201607/490527.html" target="_blank" rel="external">其他资料</a><br>1.设置美化路由和规则：<br>2.设置 .htaccess文件在app\web.htaccess文件中：<br>3.利用gii生成 MVC（Model，View，Controller）<br>4.访问api方式<br><a id="more"></a><br>1.设置美化路由和规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&apos;urlManager&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">    &apos;showScriptName&apos; =&gt; false,</div><div class="line">    &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">    &apos;enableStrictParsing&apos; =&gt; true,// 美化url</div><div class="line">    &apos;rules&apos; =&gt; [</div><div class="line">       &apos;&apos; =&gt; &apos;site/index&apos;,</div><div class="line">        // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;user&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;player&apos;],</div><div class="line">       [</div><div class="line">           &apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;,</div><div class="line">           &apos;controller&apos; =&gt; &apos;api&apos;,</div><div class="line">           &apos;pluralize&apos; =&gt; false,</div><div class="line">           &apos;extraPatterns&apos; =&gt; [</div><div class="line">           &apos;GET bntaketranslateapi&apos; =&gt; &apos;bntaketranslateapi&apos;, // 自定义GET 方式 actionBntaketranslateapi</div><div class="line">            ],</div><div class="line">       ],</div><div class="line">    //    [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;v1/goods&apos;, &apos;pluralize&apos; =&gt; false],</div><div class="line"></div><div class="line">    ],</div><div class="line">],</div></pre></td></tr></table></figure></p>
-<p>2.设置 .htaccess文件在app\web\.htaccess文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Options +FollowSymLinks</div><div class="line">IndexIgnore /</div><div class="line">RewriteEngine on</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line">RewriteRule . index.php</div></pre></td></tr></table></figure></p>
-<p>3.利用gii生成 MVC（Model，View，Controller）<br>ApiController.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace app\controllers;</div><div class="line"></div><div class="line">use yii\rest\ActiveController;</div><div class="line">use app\models\BntakeAPi;</div><div class="line"></div><div class="line">class ApiController extends ActiveController</div><div class="line">&#123;</div><div class="line">    public $modelClass = &apos;app\models\Api&apos;;</div><div class="line">    public $serializer = [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\rest\Serializer&apos;,</div><div class="line">        &apos;collectionEnvelope&apos; =&gt; &apos;items&apos;,</div><div class="line">    ];</div><div class="line">    public function checkAccess()</div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public function actionBntaketranslateapi($msg = &quot;hello world&quot;,$source=&quot;en&quot;,$target=&quot;zh&quot; )&#123;</div><div class="line">        $bntakeAPiTranslate = new BntakeAPi();</div><div class="line">        $model =  $bntakeAPiTranslate-&gt;TranslateENtoZH($msg,$source,$target);</div><div class="line">        return $model;</div><div class="line">        // return $this-&gt;render(&apos;/staff/testView&apos;,[</div><div class="line">        //     &apos;model&apos; =&gt;$model,</div><div class="line">        // ]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>自定义Model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">        &lt;?php</div><div class="line"></div><div class="line">namespace app\models;</div><div class="line"></div><div class="line">use Yii;</div><div class="line">use yii\base\Model;</div><div class="line">use Stichoza\GoogleTranslate\TranslateClient;      // other language Translate</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * BntakeAPi is the model  for test BntakeAPi</div><div class="line"> */</div><div class="line">class BntakeAPi extends Model</div><div class="line">&#123;</div><div class="line"></div><div class="line">    public function TranslateOtherlang()&#123;</div><div class="line">        $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">        $ka_translate = $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">        $ka_translateArray = $tr-&gt;translate([&apos;I can dance&apos;,&apos;I fine&apos;,&apos;And you&apos;]);</div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8887&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        Yii::trace($ka_translate, &apos;lucky&apos;);</div><div class="line">        Yii::trace($ka_translateArray,&apos;lucky&apos;);</div><div class="line">        $rawResult = $tr-&gt;getResponse(&apos;I can dance&apos;);</div><div class="line">        Yii::trace($tr-&gt;translate([&apos;I can dance&apos;, &apos;I like trains&apos;, &apos;Double rainbow&apos;]),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        Yii::trace( TranslateClient::translate(&apos;en&apos;, &apos;zh&apos;, &apos;Hello again&apos;),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8888&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        // echo</div><div class="line">        return $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // public function TranslateENtoZH($msg)&#123;</div><div class="line">    //     $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">    //     $ka_translate = $tr-&gt;translate($msg);</div><div class="line">    //     return $ka_translate;</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">    public function TranslateENtoZH($msg,$source,$target)&#123;</div><div class="line">        $apiKey = &apos;AIzaSyCtNLSiRhTn-TA0hk1XwKEC5XBFxNMFVwU&apos;;</div><div class="line">        $text = $msg;</div><div class="line">        $url = &apos;https://www.googleapis.com/language/translate/v2?key=&apos; . $apiKey . &apos;&amp;q=&apos; . rawurlencode($text) . &apos;&amp;source=&apos; . $source . &apos;&amp;target=&apos; . $target;</div><div class="line"></div><div class="line">        $handle = curl_init($url);</div><div class="line">        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);</div><div class="line">        $response = curl_exec($handle);</div><div class="line">        $responseDecoded = json_decode($response, true);</div><div class="line">        $responseCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);      //Here we fetch the HTTP response code</div><div class="line">        curl_close($handle);</div><div class="line"></div><div class="line">        if($responseCode != 200) &#123;</div><div class="line">            // echo &apos;Fetching translation failed! Server response code:&apos; . $responseCode . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Error description: &apos; . $responseDecoded[&apos;error&apos;][&apos;errors&apos;][0][&apos;message&apos;];</div><div class="line">            return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            // echo &apos;Source: &apos; . $text . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Translation: &apos; . $responseDecoded[&apos;data&apos;][&apos;translations&apos;][0][&apos;translatedText&apos;];</div><div class="line">             return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">         Yii::trace($responseDecoded,&apos;lucky&apos;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>4.访问api方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8887/api/bntaketranslateapi?msg=How are you. I am fine&amp;source=en&amp;target=zh</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.poluoluo.com/jzxy/201607/490527.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;其他资料&lt;/a&gt;&lt;br&gt;1.设置美化路由和规则：&lt;br&gt;2.设置 .htaccess文件在app\web.htaccess文件中：&lt;br&gt;3.利用gii生成 MVC（Model，View，Controller）&lt;br&gt;4.访问api方式&lt;br&gt;
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>composer-安装</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/composer-%E5%AE%89%E8%A3%85-%E5%A4%B1%E8%B4%A5/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/composer-安装-失败/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>composer global require “fxp/composer-asset-plugin:~1.0.2”<br>composer install –ignore-platform-reqs<br>出现问题：<br>        “yii2mod/yii2-braintree”: “^1.0”,<br>        “yii2mod/yii2-enum”: “~1.4”,</p>
-<h3 id="强制合并"><a href="#强制合并" class="headerlink" title="强制合并"></a>强制合并</h3><p>git fetch –all<br>git reset –hard origin/master</p>
+    <content type="html"><![CDATA[<h2 id="前记"><a href="#前记" class="headerlink" title="前记:"></a>前记:</h2><p>   在寒假空闲之余，本来打算自学安卓的开发，就看了百度云中的学习资料…计算机视频文件夹中的安卓开发。<br>   首先是安卓环境的搭建<br>   需要三个部分1.java的环境搭建<br>             2.开发ide:android studio<br>             3.android  sdk虚拟机</p>
 <a id="more"></a>
-<h3 id="设置中国镜像"><a href="#设置中国镜像" class="headerlink" title="设置中国镜像"></a>设置中国镜像</h3><p><a href="https://pkg.phpcomposer.com/" target="_blank" rel="external">中国镜像</a><br>配合 composer的config设置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">step1.通过 composer config -l -g 命令可以列出 composer 的全局配置信息，在这些信息中查找 [home] 配置项就是 composer 的主目录。然后vim config.json  修改配置。</div><div class="line">&#123;</div><div class="line">    &quot;config&quot;: &#123;</div><div class="line">    &#125;,</div><div class="line">    &quot;repositories&quot;: [</div><div class="line">        &#123;&quot;type&quot;: &quot;composer&quot;, &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;&#125;,</div><div class="line">        &#123;&quot;packagist&quot;: false&#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>step2.修改yii项目或者 laravel 项目的composer.json 文件 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">（老式写法）</div><div class="line">   &quot;repositories&quot;: [</div><div class="line">         &#123;&quot;type&quot;: &quot;composer&quot;, </div><div class="line">           &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;&#125;,</div><div class="line">         &#123;&quot;packagist&quot;: false&#125;</div><div class="line">     ],</div><div class="line">或者这样</div><div class="line">&quot;repositories&quot;: &#123;</div><div class="line">    &quot;packagist&quot;: &#123;</div><div class="line">        &quot;type&quot;: &quot;composer&quot;,</div><div class="line">        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>{<br>    “config”: {},<br>    “repositories”: {<br>        “packagist”: {<br>            “type”: “composer”,<br>            “url”: “<a href="https://packagist.phpcomposer.com" target="_blank" rel="external">https://packagist.phpcomposer.com</a>“<br>        }<br>    }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">file_put_contents(/Users/liujian/.composer/cache/repo/https---packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied</div><div class="line">https://packagist.phpcomposer.com could not be fully loaded, package information was loaded from the local cache and may be out of date</div><div class="line">file_put_contents(/Users/liujian/.composer/cache/repo/https---packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied</div><div class="line">https://packagist.phpcomposer.com could not be fully loaded, package information was loaded from the local cache and may be out of date</div></pre></td></tr></table></figure>
+<p>这三个步骤都不是很难，可是由于google被大陆禁止，导致下载好sdk.却无法更新安卓虚拟机系统。。</p>
+<p>忙了一下午，使用了离线压缩包可是没成功。又使用了翻墙软件。可能使用的是免费版的，也没有链接上所需要的内容。</p>
+<p>最好的方法还是改hosts文件的方法，更新速度较快。<br>Windows在C:\WINDOWS\system32\drivers\etc目录下<br>Linux用户打开/etc/hosts文件。<br>打开文件后添加以下内容。</p>
+<h3 id="Google主页"><a href="#Google主页" class="headerlink" title="Google主页"></a>Google主页</h3><p>203.208.46.146 www.google.com<br>这行是为了方便打开Android开发官网 现在好像不翻墙也可以打开<br>74.125.113.121 developer.android.com</p>
+<h3 id="更新的内容从以下地址下载"><a href="#更新的内容从以下地址下载" class="headerlink" title="更新的内容从以下地址下载"></a>更新的内容从以下地址下载</h3><p>203.208.46.146 dl.google.com<br>203.208.46.146 dl-ssl.google.com</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;composer global require “fxp/composer-asset-plugin:~1.0.2”&lt;br&gt;composer install –ignore-platform-reqs&lt;br&gt;出现问题：&lt;br&gt;        “yii2mod/yii2-braintree”: “^1.0”,&lt;br&gt;        “yii2mod/yii2-enum”: “~1.4”,&lt;/p&gt;
-&lt;h3 id=&quot;强制合并&quot;&gt;&lt;a href=&quot;#强制合并&quot; class=&quot;headerlink&quot; title=&quot;强制合并&quot;&gt;&lt;/a&gt;强制合并&lt;/h3&gt;&lt;p&gt;git fetch –all&lt;br&gt;git reset –hard origin/master&lt;/p&gt;
+      &lt;h2 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记:&quot;&gt;&lt;/a&gt;前记:&lt;/h2&gt;&lt;p&gt;   在寒假空闲之余，本来打算自学安卓的开发，就看了百度云中的学习资料…计算机视频文件夹中的安卓开发。&lt;br&gt;   首先是安卓环境的搭建&lt;br&gt;   需要三个部分1.java的环境搭建&lt;br&gt;             2.开发ide:android studio&lt;br&gt;             3.android  sdk虚拟机&lt;/p&gt;
     
     </summary>
     
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
     
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WAMP XAMPP PHPStudy比较</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/phpStudy-%E5%92%8CXAmpp%EF%BC%8CWAMP/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；<br>XAMPP：许多人通过他们自己的经验认识到安装 Apache 服务器是件不容易的事儿。如果您想添加 MySQL、PHP 和 Perl，那就更难了。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。<br>PHPstudy：能够随意版本却换。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；&lt;br&gt;XAMPP：许多人通过他们自己的经验
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git-commit-的规范化</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/git-commit-%E7%9A%84%E8%A7%84%E8%8C%83%E5%8C%96/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/git-commit-的规范化/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="external">资料来源1 commit 的使用规范介绍</a><br><a href="http://i.she.vc/yuanchuang/199824.html" target="_blank" rel="external">资料来源2 commitzen 的安装指南</a></p>
-<h3 id="commit介绍"><a href="#commit介绍" class="headerlink" title="commit介绍"></a>commit介绍</h3><p>我们在每次提交代码时，都需要编写Commit Message，否则是不允许提交的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;first commit with userInfo service&quot;</div></pre></td></tr></table></figure></p>
-<p>编写Commit Message需要遵循一定的范式，内容应该清晰明了，指明本次提交的目的，便于日后追踪问题。commitizen就是这么样一款工具,他用来规范化我们的commit消息。<br><a id="more"></a></p>
-<h3 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1.安装commitizen sudo npm install -g commitizen</div><div class="line">配置cd到.git所在目录</div><div class="line">2.commitizen init cz-conventional-changelog --save --save-exact</div><div class="line">3.使用用git cz命令来取代git commit</div><div class="line"></div><div class="line">异常情况 有可能提示你缺少[package.json]的下载地址</div><div class="line">配置第二个项目当我们配置第二个项目的时候我们只需要进入到对应的.git文件夹下，</div><div class="line">输入如下的命令commitizen init cz-conventional-changelog --force我们就可以使用git cz命令了</div></pre></td></tr></table></figure>
-<h3 id="commitzen-详解"><a href="#commitzen-详解" class="headerlink" title="commitzen 详解"></a>commitzen 详解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">commitizen详解 Message 格式一般来说，</div><div class="line">Commit Message 应包含三部分内容：Header、Body、Footer</div><div class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt; </div><div class="line">// 空一行</div><div class="line"> &lt;body&gt; </div><div class="line">// 空一行 </div><div class="line">&lt;footer&gt; </div><div class="line"></div><div class="line">HeaderHeader部分应只包含一行，包括三个字段：type、scope和subject</div><div class="line">type ：用于说明Commit的类型，包含一下7种类型</div><div class="line">  feat：新功能（feature） </div><div class="line">  fix：修补bug </div><div class="line">  docs：文档（documentation） </div><div class="line">  style： 格式（不影响代码运行的变动） </div><div class="line">  refactor：重构（即不是新增功能，也不是修改bug的代码变动） </div><div class="line">  test：增加测试 </div><div class="line">  chore：构建过程或辅助工具的变动 </div><div class="line">  </div><div class="line">scope scope用于说明本次Commit所影响的范围，比如controller、user或者 README，视项目的不同而不同。</div><div class="line"></div><div class="line"> subject：是本次Commit目的的简短描述，一般不要超过50个字符</div><div class="line">以动词开头，使用第一人称现在时，比如change，而不是changed或changes </div><div class="line">第一个字母小写 结尾不加句号（.） </div><div class="line"></div><div class="line">  BodyBody是对本地提交的一个详细描述，下面是一个示例</div><div class="line">More detailed explanatory text, if necessary. Wrap it to about 72 characters or so. Further paragraphs come after blank lines. - Bullet points are okay, too - Use a hanging indent </div><div class="line"></div><div class="line">  FooterFooter只用于两种情况</div><div class="line">**不兼容改动**如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。</div><div class="line">**关闭Issue**如果当前Commit是针对某个Issue的提交，那么久可以在Footer中关闭这个Issue：Closes</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;资料来源1 commit 的使用规范介绍&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://i.she.vc/yuanchuang/199824.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;资料来源2 commitzen 的安装指南&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;commit介绍&quot;&gt;&lt;a href=&quot;#commit介绍&quot; class=&quot;headerlink&quot; title=&quot;commit介绍&quot;&gt;&lt;/a&gt;commit介绍&lt;/h3&gt;&lt;p&gt;我们在每次提交代码时，都需要编写Commit Message，否则是不允许提交的。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git commit -m &amp;quot;first commit with userInfo service&amp;quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;编写Commit Message需要遵循一定的范式，内容应该清晰明了，指明本次提交的目的，便于日后追踪问题。commitizen就是这么样一款工具,他用来规范化我们的commit消息。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP 基础知识汇总</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/php-基础知识汇总/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>基础题: </p>
-<h4 id="1-表单中-get与post提交方法的区别"><a href="#1-表单中-get与post提交方法的区别" class="headerlink" title="1.表单中 get与post提交方法的区别?"></a>1.表单中 get与post提交方法的区别?</h4><p> 答:get是发送请求HTTP协议通过url参数传递进行接收,而post是实体数据,可以通过表单提交大量信息.<br>get和post是不同的请求方式。get请求是明文传递，通过url进行参数的传递。post是数据块传递，不在url上面显示传递的参数。get请求传递的参数字节有限制，字节长度小于url的字节长度，而post请求传递可传递的数据较大。<br>get请求是幂等操作，即同一个url请求返回的是同样的结果，get请求只是为了查找数据，而非修改参数，post请求大多数情况是为了修改数据，虽然两者都可以进行增删改查的操作。<br>post请求相对比于get更安全，因为get请求是明文url传递，在浏览器缓存中url是可以被看到的。而post请求的参数是随着urlencode编码而传递的，所以较为安全。<br>相比于http请求，https请求的更为安全。<br><a id="more"></a></p>
-<h4 id="2-Http和Https协议的区别？"><a href="#2-Http和Https协议的区别？" class="headerlink" title="2.Http和Https协议的区别？"></a>2.Http和Https协议的区别？</h4><p>答：https协议需要到ca申请证书，一般免费证书很少，需要交费。<br>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。<br>http和https使用的是完全不同的连接方式用的端口也不一样,前者是80,后者是443。<br>http的连接很简单,是无状态的。<br>HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议 要比http协议安全</p>
-<h4 id="3-session与cookie的区别"><a href="#3-session与cookie的区别" class="headerlink" title="3.session与cookie的区别?"></a>3.session与cookie的区别?</h4><p> 答：<br>session:储存用户访问的全局唯一变量,存储在服务器上的php指定的目录中的（session_dir）的位置进行的存放<br> cookie:用来存储连续訪問一个页面时所使用，是存储在客户端，对于Cookie来说是存储在用户WIN的Temp目录中的。      两者都可通过时间来设置时间长短。<br>session 用于服务器端存储，cookie适用于客户端信息存储。<br>cookie 和session 的区别：<br>cookie数据存放在客户的浏览器上，session数据放在服务器上。<br>cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session。<br>session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用COOKIE。<br>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。<br>所以个人建议：<br>   将登陆信息等重要信息存放为SESSION<br>   其他信息如果需要保留，可以放在COOKIE中</p>
-<h4 id="4-数据库中的事务是什么"><a href="#4-数据库中的事务是什么" class="headerlink" title="4.数据库中的事务是什么?"></a>4.数据库中的事务是什么?</h4><p> 答:事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，   事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;基础题: &lt;/p&gt;
-&lt;h4 id=&quot;1-表单中-get与post提交方法的区别&quot;&gt;&lt;a href=&quot;#1-表单中-get与post提交方法的区别&quot; class=&quot;headerlink&quot; title=&quot;1.表单中 get与post提交方法的区别?&quot;&gt;&lt;/a&gt;1.表单中 get与post提交方法的区别?&lt;/h4&gt;&lt;p&gt; 答:get是发送请求HTTP协议通过url参数传递进行接收,而post是实体数据,可以通过表单提交大量信息.&lt;br&gt;get和post是不同的请求方式。get请求是明文传递，通过url进行参数的传递。post是数据块传递，不在url上面显示传递的参数。get请求传递的参数字节有限制，字节长度小于url的字节长度，而post请求传递可传递的数据较大。&lt;br&gt;get请求是幂等操作，即同一个url请求返回的是同样的结果，get请求只是为了查找数据，而非修改参数，post请求大多数情况是为了修改数据，虽然两者都可以进行增删改查的操作。&lt;br&gt;post请求相对比于get更安全，因为get请求是明文url传递，在浏览器缓存中url是可以被看到的。而post请求的参数是随着urlencode编码而传递的，所以较为安全。&lt;br&gt;相比于http请求，https请求的更为安全。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP常见问题</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/php问题/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:45:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.jb51.net/article/70023.htm" target="_blank" rel="external">FastCGI 进程意外退出造成500错误</a><br><a href="http://www.tuicool.com/articles/6vaqIz" target="_blank" rel="external">Mac 缺少 ImageMagick安装(libpng)</a></p>
-<p><a href="http://www.jb51.net/article/57317.htm" target="_blank" rel="external">Invalid argument supplied for foreach() 强制转换类型</a><br><a href="">is not defined 多数情况是js内部的方法写错了，而非方法名未被定义</a><br><a href="https://segmentfault.com/q/1010000003958979/a-1020000003960387" target="_blank" rel="external">Operation not permitted   &amp;&amp; command not found</a><br>[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]<br><a id="more"></a><br>权限问题：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-05c5abe411a96029.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>原因是：一个文件夹的访问，是有权限的。初始的站点所对应的文件夹，安装的时候已经设置好权限了。<br>现在改了，但权限还没设置，所以被禁止。</p>
-<p>配置文件夹访问权限<br>下面添加该文件夹访问权限：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-d423a6695a376cf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>我们访问一个站点的时候，可以指定要访问的网页，比如：<br><a href="http://www.php34.com/day1/page1.php" target="_blank" rel="external">http://www.php34.com/day1/page1.php</a><br><a href="http://www.php34.com/day1/page2.html" target="_blank" rel="external">http://www.php34.com/day1/page2.html</a><br>也可以不指定，比如：<br><a href="http://www.php34.com" target="_blank" rel="external">http://www.php34.com</a><br><a href="http://www.php34.com/day1/" target="_blank" rel="external">http://www.php34.com/day1/</a><br>则对于后一种情况，apache就可以设定“默认网页”以提供给用户，形式为：<br> （默认配置中）</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-ce2faa8fb9cdec83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>此时，对于没有指定要访问明确网页的请求，会按顺序从前往后找这些文件，找到后就“返回”给用户。<br>但是，如果最终都没有找到，此时，Options中的Indexes就发挥作用了：显示该文件夹中的所有文件（和文件夹）<br>我们也可以将DirectoryIndex设置项放在一个单独的站点或单独的文件夹中，则只对该单独的站点或单独的文件夹起作用。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-9633721998e71702.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.jb51.net/article/70023.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FastCGI 进程意外退出造成500错误&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.tuicool.com/articles/6vaqIz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mac 缺少 ImageMagick安装(libpng)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.jb51.net/article/57317.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Invalid argument supplied for foreach() 强制转换类型&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;&quot;&gt;is not defined 多数情况是js内部的方法写错了，而非方法名未被定义&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/q/1010000003958979/a-1020000003960387&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Operation not permitted   &amp;amp;&amp;amp; command not found&lt;/a&gt;&lt;br&gt;[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]&lt;br&gt;
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php【discuz-本地测试安装】</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E3%80%90discuz-%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E3%80%91/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/php【discuz-本地测试安装】/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-安装教程链接"><a href="#1-安装教程链接" class="headerlink" title="1.安装教程链接"></a>1.<a href="http://www.discuz.net/thread-3456887-1-1.html" target="_blank" rel="external">安装教程链接</a></h3><a id="more"></a>
-<h3 id="2-注意事项："><a href="#2-注意事项：" class="headerlink" title="2.注意事项："></a>2.注意事项：</h3><p>1）。需要本地拥有 php 工具，mysql 工具。最好 直接安装xampp或者phpstudy 工具箱。<br>2）。如果 找不到文件夹。需要设置 localhost 为 127.0.0.1</p>
-<h3 id="3-安装插件"><a href="#3-安装插件" class="headerlink" title="3.安装插件"></a>3.安装插件</h3><p>需要绑定域名和qq号，输入密码才可以安装。（本人设置密码:qwe123）</p>
-<h3 id="4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。"><a href="#4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。" class="headerlink" title="4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。"></a>4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。</h3><p>前台登录：<a href="http://192.168.0.104:8888/forum.php" target="_blank" rel="external">http://192.168.0.104:8888/forum.php</a></p>
-<h3 id="5-查看数据库字典：http-localhost-phpmyadmin"><a href="#5-查看数据库字典：http-localhost-phpmyadmin" class="headerlink" title="5.查看数据库字典：http://localhost/phpmyadmin/"></a>5.查看数据库字典：<a href="http://localhost/phpmyadmin/" target="_blank" rel="external">http://localhost/phpmyadmin/</a></h3><p>找到数据表，点击结构-》查看数据字典</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-990765ee1adc2466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p><a href="http://www.discuz.net/forum.php" target="_blank" rel="external">更多资讯参考官网论坛</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-安装教程链接&quot;&gt;&lt;a href=&quot;#1-安装教程链接&quot; class=&quot;headerlink&quot; title=&quot;1.安装教程链接&quot;&gt;&lt;/a&gt;1.&lt;a href=&quot;http://www.discuz.net/thread-3456887-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装教程链接&lt;/a&gt;&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php 单元测试</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/php的单元测试/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>常用测试工具<br>codeception 和 phpunit<br>codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行</p>
-<a id="more"></a>
-<p>第1步 - 安装 Codeception 框架。运行下面的代码。<br>使用 composer 命令<br>composer global require “codeception/codeception”<br>composer global require “codeception/specify”<br>composer global require “codeception/verify”<br>步骤2 - 运行如下<br>ccomposer global status<br>输出“Changed current directory to <directory>”如下图所示：<br>Changed current directory to C:/Users/luky/AppData/Roaming/Composer<br>No local changes</directory></p>
-<p>添加到环境变量：应该加上’C:/Users/luky/AppData/Roaming/Composer/vendor/bin ‘ 到 PATH 环境变量。在本示例中，运行下面的代码 -<br>export PATH = $PATH:~/.composer/vendor/bin<br>注：windows系统可右键”我的电脑”=&gt;”高级系统设置”=&gt;”环境变量”来添加。</p>
-<p>linux下codecept安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">**codecept: command not found</div><div class="line">on Ubuntu then you should follow these steps:**</div><div class="line">sudo composer global require &quot;codeception/codeception=2.1.*&quot; &quot;codeception/specify=*&quot; &quot;codeception/verify=*&quot;</div><div class="line"></div><div class="line">and then run this command:</div><div class="line">sudo ln -s ~/.composer/vendor/bin/codecept /usr/local/bin/codecept</div><div class="line"></div><div class="line">其他~</div><div class="line">Socodecept build</div><div class="line">andcodecept run</div><div class="line">will work.</div><div class="line">**If you are using Windows then run this command:** </div><div class="line">composer global require &quot;codeception/codeception=2.1.*&quot; &quot;codeception/specify=*&quot; &quot;codeception/verify=*&quot;</div><div class="line"></div><div class="line">Add this line into your path:</div><div class="line">~\AppData\Roaming\Composer\vendor\bin</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">问题：如何将远程服务器的数据库导入到本地</div><div class="line">步骤一：从远程服务器下载数据库</div><div class="line">注：D:\Program Files\MySQL\MySQL Server 5.0\bin&gt;为你安装的MYSQL安装目录,\bin为mysqldump管理工具所有在的目录;</div><div class="line">mysqldump -h[hosname] -u[user_name] -p[password] --default-character-set=[char_set_name] [db_name] &gt; [save_path]</div><div class="line">eg：mysqldump -h119.12.12.11 -umysqluser -pmysqlpwd --default-character-set=utf8 dbname --skip-lock-tables&gt; d:\sqlname.sql</div><div class="line">步骤二：通过phpmyadmin或者其他数据库管理工具导入即可</div><div class="line">或者命令行导入</div><div class="line">http://jingyan.baidu.com/article/cbf0e500d15c762eab289362.html</div><div class="line"></div><div class="line">==</div><div class="line"></div><div class="line">指令：</div><div class="line">codecept bootstrap</div><div class="line">codecept build</div><div class="line">codecept run</div></pre></td></tr></table></figure>
-<p>步骤3 - 开始测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">1 用户测试模块</div><div class="line">①：测试寻找用户id</div><div class="line">过程：</div><div class="line">a.已输入的id</div><div class="line">b.判断id对应的用户名和用户名相同，并返回正确。</div><div class="line">c.不相同，返回错误。</div><div class="line">函数：</div><div class="line">    public function testFindUserById()</div><div class="line">    &#123;</div><div class="line">      //$user = User::findIdentity(1);</div><div class="line">      //print_r($user);</div><div class="line"></div><div class="line">        expect_that($user = User::findIdentity(1));</div><div class="line">        expect($user-&gt;username)-&gt;equals(&apos;aa@cc.cc&apos;);</div><div class="line"></div><div class="line">        expect_not(User::findIdentity(0));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">②：测试寻找用户token</div><div class="line">过程：</div><div class="line">a.已输入的token</div><div class="line">b.判断token对应的用户名和用户名相同，并返回正确。</div><div class="line">c.不相同，或不存在token，返回错误</div><div class="line">函数：</div><div class="line">public function testFindUserByAccessToken()</div><div class="line">    &#123;</div><div class="line">        expect_that($user = User::findIdentityByAccessToken(&apos;asdflawejflwefadsfasdf&apos;));</div><div class="line">        expect($user-&gt;username)-&gt;equals(&apos;aa@cc.cc&apos;);</div><div class="line"></div><div class="line">        expect_not(User::findIdentityByAccessToken(&apos;non-existing&apos;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">③：测试寻找用户用户名</div><div class="line">过程：</div><div class="line">a.判断用户对应的用户名和用户名相同，并返回正确。</div><div class="line">b.不存在，返回错误</div><div class="line">函数：  </div><div class="line">public function testFindUserByUsername()</div><div class="line">    &#123;</div><div class="line">        expect_that($user = User::findByUsername(&apos;aa@cc.cc&apos;));</div><div class="line">        expect_not(User::findByUsername(&apos;not-admin&apos;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">④：测试用户的key是否激活</div><div class="line">过程：</div><div class="line">a.输入用户名和用户的key，判断对应则激活。</div><div class="line">b.判断key和username不对应，则激活失败。</div><div class="line"></div><div class="line"></div><div class="line">c.判断用户的username和密码是否一样，一样返回正确</div><div class="line">d.不一致，返回错误</div><div class="line">函数：</div><div class="line">    /**</div><div class="line">     * @depends testFindUserByUsername</div><div class="line">     */</div><div class="line">    public function testActivationKey($user)</div><div class="line">    &#123;</div><div class="line">        $user = User::findByUsername(&apos;dd&apos;);</div><div class="line">        expect_that($user-&gt;findByActivationKey(&apos;awelvowaslfdf&apos;));</div><div class="line">        expect_not($user-&gt;findByActivationKey(&apos;test102key&apos;));</div><div class="line"></div><div class="line">        expect_that($user-&gt;validatePassword(&apos;abc123&apos;));</div><div class="line">        expect_not($user-&gt;validatePassword(&apos;123456&apos;));</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>1：<br> [Codeception\Exception\ConfigurationException]<br> Configuration file could not be found.<br> Run <code>bootstrap</code> to initialize Codeception.</p>
-<p>原因：无法找到配置文件<br>解决办法：运行codecept bootstrap，初始化</p>
-<p>2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Loading composer repositories with package information</div><div class="line">Updating dependencies (including require-dev)</div><div class="line">Your requirements could not be resolved to an installable set of packages.</div><div class="line"></div><div class="line">  Problem 1</div><div class="line">    - jenssegers/mongodb v3.1.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0-beta requires mongodb/mongodb ^1.0.0 -&gt; satisfia</div><div class="line">ble by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2,</div><div class="line"> 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.1 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.2 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.1.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line"></div><div class="line"></div><div class="line">解决办法：</div><div class="line">$ pecl install mongodb</div><div class="line">$ echo &quot;extension=mongodb.so&quot; &gt;&gt; `php --ini | grep &quot;Loaded Configuration&quot; | sed -e &quot;s|.*:\s*||&quot;`</div><div class="line"></div><div class="line">$ composer require &quot;mongodb/mongodb=^1.0.0&quot;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;常用测试工具&lt;br&gt;codeception 和 phpunit&lt;br&gt;codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php开发：Twilio-插件在Yii2中的使用</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E5%BC%80%E5%8F%91%EF%BC%9ATwilio-%E6%8F%92%E4%BB%B6%E5%9C%A8Yii2%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/php开发：Twilio-插件在Yii2中的使用/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:45:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4>妈的智障，妈的智障，妈的智障。远程不了公司电脑了，只好本机重新搭建一下环境了</h4>
-
-<p>系统环境：<br>win7<br>命令行操作：<br>composer 管理工具：<br>基于Yii2框架：<br>git 命令：<br>php 环境：xampp 或者 phpstudy：<br><a id="more"></a><br>（步骤1） <a href="https://getcomposer.org/download/" target="_blank" rel="external">安装composer 管理工具：</a><br>记得顺便安装插件 composer global require “fxp/composer-asset-plugin:*”  应该是文件传输插件</p>
-<p>(步骤2)<a href="https://git-scm.com/book/zh/v1/起步-安装-Git" target="_blank" rel="external">安装git管理工具</a></p>
-<p>(步骤3)创建新的yii2框架。<br>composer create-project –prefer-dist yiisoft/yii2-app-basic Twilioproject</p>
-<p>composer update</p>
-<p>最后安装插件<br>注意：过程中需要github的<a href="https://github.com/settings/tokens" target="_blank" rel="external">token:点进去寻找tokens</a></p>
-<p>(步骤4) 添加插件到yii2框架中<br>进入yii2项目目录<br>composer require –prefer-dist filipajdacic/yii2-twilio “*”</p>
-<p>出现问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Your requirements could not be resolved to an installable set of packages.</div><div class="line"></div><div class="line">  Problem 1</div><div class="line">    - The requested package filipajdacic/yii2-twilio * is satisfiable by filipaj</div><div class="line">dacic/yii2-twilio[dev-master] but these conflict with your requirements or minim</div><div class="line">um-stability.</div></pre></td></tr></table></figure></p>
-<p>方案：</p>
-<h1 id="打开项目的composer-phar更改-为-“minimum-stability”-“dev”"><a href="#打开项目的composer-phar更改-为-“minimum-stability”-“dev”" class="headerlink" title="打开项目的composer.phar更改 为   “minimum-stability”: “dev”,"></a>打开项目的composer.phar更改 为   “minimum-stability”: “dev”,</h1><p>（win环境下：正式开始twilio在php开发的使用）<br>1.进入：config/web.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&apos;components&apos; =&gt; array(</div><div class="line"> ...</div><div class="line"> &apos;Yii2Twilio&apos; =&gt; array( &apos;class&apos; =&gt; &apos;filipajdacic\yiitwilio\YiiTwilio&apos;,</div><div class="line"> &apos;account_sid&apos; =&gt; &apos;YOUR_TWILIO_ACCOUNT_SID_HERE&apos;, </div><div class="line"> &apos;auth_key&apos; =&gt; &apos;YOUR_TWILIO_AUTH_KEY_HERE&apos;,  ),</div><div class="line"> ...</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>2.在controller/sitecontroller 添加方法<br>该方法用于测试。twilio是否能在yii框架上运行<br>      /**</p>
-<pre><code> * Displays phonesystem page.
- *
- * @展示打电话系统页面
- */
-public function actionPhonesystem()
-{
-   // return $this-&gt;render(&apos;phonesystem&apos;);
-     $twilioService = Yii::$app-&gt;Yii2Twilio-&gt;initTwilio();
-
-try {
-    $message = $twilioService-&gt;account-&gt;messages-&gt;create(array(
-        &quot;From&quot; =&gt; &quot;+12345678901&quot;, // From a valid Twilio number
-        &quot;To&quot; =&gt; &quot;+12345678901&quot;,   // Text this number
-        &quot;Body&quot; =&gt; &quot;Hello from my Yii2 Application!&quot;,
-    ));
-} catch (\Services_Twilio_RestException $e) {
-        echo $e-&gt;getMessage();
-}
-}
-</code></pre><p>出现问题：</p>
-<p>1 找不到service class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">PHP Fatal Error – [yii\base\ErrorException](http://www.yiiframework.com/doc-2.0/yii-base-errorexception.html)</div><div class="line">Class &apos;Services_Twilio&apos; not found</div><div class="line"></div><div class="line">解决办法：</div><div class="line">在vendor-&gt; composer-&gt; autoload_files.php 中 增加：</div><div class="line">&apos;bccfaf6207f67190a92f35585e9a78b2&apos; =&gt; $vendorDir . &apos;/twilio/sdk/Services/Twilio.php&apos;,</div><div class="line">并且替换掉 /twilio/sdk/Service文件。</div><div class="line"></div><div class="line">文件在360云盘：488087887@qq.com</div><div class="line">https://yunpan.cn/cMbcIphrUH97I （提取码：1f21）</div></pre></td></tr></table></figure></p>
-<p>2.SSL 证书安全<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Services_Twilio_HttpException</div><div class="line">The OpenSSL extension is required but not currently enabled. For more information, see </div><div class="line">http://php.net/manual/en/book.openssl.php</div><div class="line"></div><div class="line">解决办法：</div><div class="line">php文件的php.ini 去掉；</div><div class="line">extension=php_openssl.dll</div><div class="line"></div><div class="line"></div><div class="line">然后：http://stackoverflow.com/questions/29153819/twilio-php-ssl-certificate-self-signed-certificate-in-certificate-chain</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4&gt;妈的智障，妈的智障，妈的智障。远程不了公司电脑了，只好本机重新搭建一下环境了&lt;/h4&gt;
-
-&lt;p&gt;系统环境：&lt;br&gt;win7&lt;br&gt;命令行操作：&lt;br&gt;composer 管理工具：&lt;br&gt;基于Yii2框架：&lt;br&gt;git 命令：&lt;br&gt;php 环境：xampp 或者 phpstudy：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在yii项目中，连接多数据库进行操作</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90Yii-%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E3%80%91%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/【Yii-多数据库连接】配置/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:46:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在yii项目中，连接多数据库进行操作。<br>step1：配置main.php 文件。<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;db&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,   //数据库1</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div><div class="line">&apos;db2&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=localhost;dbname=test&apos;,     //数据库test</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;test&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div></pre></td></tr></table></figure>
-<p>框架默认是 加载db数据库的，如果想要使用db2数据库的数据。<br>方法一：只需要在现有的model中重写getDb方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public static function getDb()</div><div class="line">&#123;</div><div class="line">  return Yii::$app-&gt;get(&apos;db2&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>方法二：在gii下，进行设置。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-8ef8dfb72caab644.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在yii项目中，连接多数据库进行操作。&lt;br&gt;step1：配置main.php 文件。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【yii2-后台实现】yiiBoot-后台系统的使用经验总结</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90yii2-%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0%E3%80%91yiiBoot-%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:46:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最初了解yiiBootB是在yii2 论坛和 <a href="https://www.oschina.net/news/80909/2016-oschina-git-top-50" target="_blank" rel="external">年度码云项目排行榜</a><br>1.clone 项目到本地。 git clone <a href="https://git.oschina.net/penngo/chadmin.git" target="_blank" rel="external">https://git.oschina.net/penngo/chadmin.git</a><br>2.导入 doc/db.sql 数据库到本地数据库，进行测试。<br>3.修改common/config/main.php<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">修改host,dbname,username,password 这些设置。</div><div class="line">            &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">            &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,</div><div class="line">            &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">            &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">            &apos;charset&apos; =&gt; &apos;utf8&apos;,</div></pre></td></tr></table></figure></p>
-<p>4.修改美化路由设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根据个人习惯，选择是否美化路由访问方式。</div><div class="line">      &apos;urlManager&apos; =&gt; [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">        &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">        &apos;showScriptName&apos; =&gt; false,</div><div class="line">        //&apos;caseSensitive&apos;=&gt;false,</div><div class="line">        &apos;rules&apos; =&gt; [</div><div class="line">          // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line"></div><div class="line">        ],</div></pre></td></tr></table></figure></p>
-<p>5.添加目录结构。<br><a href="https://git.oschina.net/penngo/chadmin/wikis/tutorial#create_table" target="_blank" rel="external">添加菜单教程</a></p>
-<p>6.分析自身公司所需要的功能实现，和接入。<br>以后，根据个人需求，实现后台系统的迁移。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最初了解yiiBootB是在yii2 论坛和 &lt;a href=&quot;https://www.oschina.net/news/80909/2016-oschina-git-top-50&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;年度码云项目排行榜&lt;/a&gt;&lt;br&gt;1.clone 项目到本地。 git clone &lt;a href=&quot;https://git.oschina.net/penngo/chadmin.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://git.oschina.net/penngo/chadmin.git&lt;/a&gt;&lt;br&gt;2.导入 doc/db.sql 数据库到本地数据库，进行测试。&lt;br&gt;3.修改common/config/main.php&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%9C%A8win7%E4%B8%8B%EF%BC%8C%E5%AE%89%E8%A3%85XAMPP%EF%BC%8CComposer%E5%AE%89%E8%A3%85Yii2%E6%A1%86%E6%9E%B6%E6%A1%86%E6%9E%B6%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:45:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>MongoDB 3.0.6 Windows 版本的下载： <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl" target="_blank" rel="external">https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl</a></p>
-<p>下载：<a href="https://getcomposer.org/download/" target="_blank" rel="external">Composer</a><br>eg:</p>
-<p>##What？<br>Composer 是 PHP 的一个依赖管理工具。它允许你申明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 “packages” 和 “libraries”，但它在每个项目的基础上进行管理，在你项目的某个目录中(例如 vendor)进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。<br><a id="more"></a></p>
-<p>##How？<br>选择适合的PHP版本号。我选择的是php5.5<br><img src="http://upload-images.jianshu.io/upload_images/1764965-61b6dc1a8e29975f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>选择代理url时，暂时选择了VPN设置的代理，<br><img src="http://upload-images.jianshu.io/upload_images/1764965-ff286c9b18e90dee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>注意：开启PHP的openssl支持<br>修改D:\phpStudy\php55配置文件php.ini<br>extension=php_openssl.dll  去掉注释；<br><img src="http://upload-images.jianshu.io/upload_images/1764965-372ba2cf63cd35f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>命令行操作Composer</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-74c5b24982dbba44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p><a href="http://www.yiiframework.com/download/" target="_blank" rel="external">下载安装YII2框架</a><br><a href="http://www.yiichina.com/tutorial/359" target="_blank" rel="external">无需安装的YII2</a><br>这是安装在phpStudy集成下<br><img src="http://upload-images.jianshu.io/upload_images/1764965-7043badfd3a10f0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>cmd 下打开需要下载的目录</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-c5bd9092cddc1de5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>composer create-project –prefer-dist –stability=dev yiisoft/yii2-app-basic yii_basic</p>
-<p>进入指定目录初始化<br><img src="http://upload-images.jianshu.io/upload_images/1764965-820beb05d9e464f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>init 初始化，并且选择0</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-e6428b519fc7a6ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>测试是否成功：<br>web上打开网址<br><a href="http://localhost/安装目录/yii2-app-advanced-master/frontend/web/" target="_blank" rel="external">http://localhost/安装目录/yii2-app-advanced-master/frontend/web/</a><br>如果显示界面，就成功。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;MongoDB 3.0.6 Windows 版本的下载： &lt;a href=&quot;https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;下载：&lt;a href=&quot;https://getcomposer.org/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Composer&lt;/a&gt;&lt;br&gt;eg:&lt;/p&gt;
-&lt;p&gt;##What？&lt;br&gt;Composer 是 PHP 的一个依赖管理工具。它允许你申明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 “packages” 和 “libraries”，但它在每个项目的基础上进行管理，在你项目的某个目录中(例如 vendor)进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP基本资料-了解</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%EF%BC%881%EF%BC%89PHP%E5%9F%BA%E6%9C%AC%E8%B5%84%E6%96%99-%E4%BA%86%E8%A7%A3-/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-PHP-介绍"><a href="#1-PHP-介绍" class="headerlink" title="1.PHP 介绍"></a>1.PHP 介绍</h2><p>链接：<a href="http://baike.so.com/doc/7103846-7326839.html" target="_blank" rel="external">PHP 历史百科 </a><br>•缩写：Personal Home Page ==&gt;&gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本<a href="http://baike.so.com/doc/6010-6155.html" target="_blank" rel="external">预处理器</a>“<br>•历史<br>    1995PHP/FI，Rasmus Lorderf，Personal Home Page<br>    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5<br><a id="more"></a></p>
-<h2 id="2-PHP-应用场景"><a href="#2-PHP-应用场景" class="headerlink" title="2.PHP 应用场景"></a>2.PHP 应用场景</h2><p>A). 服务器脚本：ＰＨＰ最主要，最重要的应用场景。<br>具备要求：（１）ＰＨＰ解析器　（２）ｗｅｂ服务器　（３）ｗｅｂ浏览器<br>B). 命令行脚本　不需要任何服务器或者浏览器就可以运行，仅仅需要ＰＨＰ解析器来执行脚本代码。<br>运行环境：<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">Cron</a>  （Unit 或者 Linux）或者　<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">TASK Schedule</a> （Ｗｉｎｄｏｗ　环境）的日常运行的脚本。<br>脚本也可以处理简单的文本。<br>C). 编写桌面应用程序　能做，但是ＰＨＰ不是开发图形应用程序最好的语言，但如果精通ＰＨＰ，可以通过ＰＨＰ－ＧＴＫ来编写这些程序。ＰＨＰ－ＧＴＫ是ＰＨＰ的扩展，通常发布的ＰＨＰ包中并不包含，需要去网站下载。<br>D).ＰＨＰ扩展库　 例如：mnoGoSearch搜索引擎函数、IRC 网关函数、   多种压缩工具(gzip、bz2)、日历转换、翻译……</p>
-<p><a href="http://www.cnblogs.com/lyyjack/archive/2011/10/22/2221209.html" target="_blank" rel="external">供参考的 php 学习路线</a></p>
-<h2 id="3-PHP运行环境"><a href="#3-PHP运行环境" class="headerlink" title="3.PHP运行环境"></a>3.PHP运行环境</h2><p><img src="http://upload-images.jianshu.io/upload_images/1764965-cd5365f332348b81.png" alt=" "><br>解释：客户通过浏览器或者PC端向服务器（软件Apache）发送请求。服务器开始执行PHP模块代码。并且通过PHP模块代码，获取数据库的数据。从而反馈给Apache想要的数据。最后在反馈给浏览器软件，将信息展示在页面上。。</p>
-<h3 id="安装环境-的选择"><a href="#安装环境-的选择" class="headerlink" title="安装环境 的选择"></a>安装环境 的选择</h3><p>三种方式：通过PHPStudy安装。或者Apache，Mysql，PHP三者分别安装。<br>1.PHPStudy 安装 安装简单，系统已经将环境配置安装好。<br><a href="http://www.phpstudy.net/" target="_blank" rel="external">PHPStudy 安装链接</a></p>
-<p>2.三者分别安装，尽量安装在同一个目录下，便于管理。此方法较为麻烦。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-d6d3344b361b4804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "><br>3.Xampp 安装</p>
-<h2 id="4-安装后检测"><a href="#4-安装后检测" class="headerlink" title="4.安装后检测"></a>4.安装后检测</h2><p>检测：PHP语法是否能运行。<br>//测试php代码可执行<br>$i = 10;<br>$i++;<br>echo “abcd——$i”;</p>
-<p>//显示当前时间（测试时间配置，检测时间是否是当前时间）：<br>echo date(“Y-m-d H:i:s”);</p>
-<p>//连接mysql数据库（测试数据库配置，检测数据库模块是否打开）：<br>$conn = mysql_connect(“localhost”, “root”, “123”);<br>命令行显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-fd9206bfad7f3f65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "></p>
-<p>浏览器显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-88a507dcf3b7cbe2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "></p>
-<p>##虚拟主机配置<br>端口监听：<br>端口：就是一个数字，目的是让一台电脑（对外只有一个IP）能够对外提供多项服务（多种功能）。<br>行业默认有如下常见的服务和端口对应：<br>web服务： 80<br>ftp服务： 21<br>邮件收取服务：110<br>邮件发送服务：25<br>mysql数据库服务：3306<br>一台电脑中，有6万多个端口，但通常一台服务器，一般只提供几个或10几个服务。<br>apache的端口监听设置，是指设定apache这个软件针对当前服务器的哪些端口提供web服务：<br>即apache是“服务生”，至于“外界”想要当前服务器提供什么服务，由外界提出“申请”（请求）。<br>通常，浏览器提出的都是web请求，但有些请求可能不在apache的服务范围内（端口不符）。<br>端口修改：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-ceb85261992fe08e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "></p>
-<p>// strpos()<br>// 1.strpos()<br>// 定义和用法<br>// strpos() 函数返回字符串在另一个字符串中第一次出现的位置。<br>// 如果没有找到该字符串，则返回 false。<br>// 语法<br>// strpos(string,find,start)<br>// 参数  描述<br>// string  必需。规定被搜索的字符串。<br>// find  必需。规定要查找的字符。<br>// start  可选。规定开始搜索的位置。。<br>在javascriptDOM和BOM之间的区别<br>BOM主要是浏览器对象模型，用来获取浏览器的行为动作，和浏览器的属性。比如浏览器的分辨率浏览器的版本号和浏览器的其他信息。<br>DOM是文档对象模型，用来获取浏览器内部网页document的标签属性input.lable.用来修改和获取文档标签的值。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-PHP-介绍&quot;&gt;&lt;a href=&quot;#1-PHP-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.PHP 介绍&quot;&gt;&lt;/a&gt;1.PHP 介绍&lt;/h2&gt;&lt;p&gt;链接：&lt;a href=&quot;http://baike.so.com/doc/7103846-7326839.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PHP 历史百科 &lt;/a&gt;&lt;br&gt;•缩写：Personal Home Page ==&amp;gt;&amp;gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本&lt;a href=&quot;http://baike.so.com/doc/6010-6155.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;预处理器&lt;/a&gt;“&lt;br&gt;•历史&lt;br&gt;    1995PHP/FI，Rasmus Lorderf，Personal Home Page&lt;br&gt;    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+      <category term="安卓" scheme="http://yoursite.com/tags/%E5%AE%89%E5%8D%93/"/>
     
   </entry>
   
