@@ -544,33 +544,6 @@
   </entry>
   
   <entry>
-    <title>Yii的RestApi的使用方法</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/Yii%E7%9A%84RestApi%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/Yii的RestApi的使用方法/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:45:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.poluoluo.com/jzxy/201607/490527.html" target="_blank" rel="external">其他资料</a><br>1.设置美化路由和规则：<br>2.设置 .htaccess文件在app\web.htaccess文件中：<br>3.利用gii生成 MVC（Model，View，Controller）<br>4.访问api方式<br><a id="more"></a><br>1.设置美化路由和规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&apos;urlManager&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">    &apos;showScriptName&apos; =&gt; false,</div><div class="line">    &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">    &apos;enableStrictParsing&apos; =&gt; true,// 美化url</div><div class="line">    &apos;rules&apos; =&gt; [</div><div class="line">       &apos;&apos; =&gt; &apos;site/index&apos;,</div><div class="line">        // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;user&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;player&apos;],</div><div class="line">       [</div><div class="line">           &apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;,</div><div class="line">           &apos;controller&apos; =&gt; &apos;api&apos;,</div><div class="line">           &apos;pluralize&apos; =&gt; false,</div><div class="line">           &apos;extraPatterns&apos; =&gt; [</div><div class="line">           &apos;GET bntaketranslateapi&apos; =&gt; &apos;bntaketranslateapi&apos;, // 自定义GET 方式 actionBntaketranslateapi</div><div class="line">            ],</div><div class="line">       ],</div><div class="line">    //    [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;v1/goods&apos;, &apos;pluralize&apos; =&gt; false],</div><div class="line"></div><div class="line">    ],</div><div class="line">],</div></pre></td></tr></table></figure></p>
-<p>2.设置 .htaccess文件在app\web\.htaccess文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Options +FollowSymLinks</div><div class="line">IndexIgnore /</div><div class="line">RewriteEngine on</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line">RewriteRule . index.php</div></pre></td></tr></table></figure></p>
-<p>3.利用gii生成 MVC（Model，View，Controller）<br>ApiController.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace app\controllers;</div><div class="line"></div><div class="line">use yii\rest\ActiveController;</div><div class="line">use app\models\BntakeAPi;</div><div class="line"></div><div class="line">class ApiController extends ActiveController</div><div class="line">&#123;</div><div class="line">    public $modelClass = &apos;app\models\Api&apos;;</div><div class="line">    public $serializer = [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\rest\Serializer&apos;,</div><div class="line">        &apos;collectionEnvelope&apos; =&gt; &apos;items&apos;,</div><div class="line">    ];</div><div class="line">    public function checkAccess()</div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public function actionBntaketranslateapi($msg = &quot;hello world&quot;,$source=&quot;en&quot;,$target=&quot;zh&quot; )&#123;</div><div class="line">        $bntakeAPiTranslate = new BntakeAPi();</div><div class="line">        $model =  $bntakeAPiTranslate-&gt;TranslateENtoZH($msg,$source,$target);</div><div class="line">        return $model;</div><div class="line">        // return $this-&gt;render(&apos;/staff/testView&apos;,[</div><div class="line">        //     &apos;model&apos; =&gt;$model,</div><div class="line">        // ]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>自定义Model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">        &lt;?php</div><div class="line"></div><div class="line">namespace app\models;</div><div class="line"></div><div class="line">use Yii;</div><div class="line">use yii\base\Model;</div><div class="line">use Stichoza\GoogleTranslate\TranslateClient;      // other language Translate</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * BntakeAPi is the model  for test BntakeAPi</div><div class="line"> */</div><div class="line">class BntakeAPi extends Model</div><div class="line">&#123;</div><div class="line"></div><div class="line">    public function TranslateOtherlang()&#123;</div><div class="line">        $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">        $ka_translate = $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">        $ka_translateArray = $tr-&gt;translate([&apos;I can dance&apos;,&apos;I fine&apos;,&apos;And you&apos;]);</div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8887&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        Yii::trace($ka_translate, &apos;lucky&apos;);</div><div class="line">        Yii::trace($ka_translateArray,&apos;lucky&apos;);</div><div class="line">        $rawResult = $tr-&gt;getResponse(&apos;I can dance&apos;);</div><div class="line">        Yii::trace($tr-&gt;translate([&apos;I can dance&apos;, &apos;I like trains&apos;, &apos;Double rainbow&apos;]),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        Yii::trace( TranslateClient::translate(&apos;en&apos;, &apos;zh&apos;, &apos;Hello again&apos;),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8888&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        // echo</div><div class="line">        return $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // public function TranslateENtoZH($msg)&#123;</div><div class="line">    //     $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">    //     $ka_translate = $tr-&gt;translate($msg);</div><div class="line">    //     return $ka_translate;</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">    public function TranslateENtoZH($msg,$source,$target)&#123;</div><div class="line">        $apiKey = &apos;AIzaSyCtNLSiRhTn-TA0hk1XwKEC5XBFxNMFVwU&apos;;</div><div class="line">        $text = $msg;</div><div class="line">        $url = &apos;https://www.googleapis.com/language/translate/v2?key=&apos; . $apiKey . &apos;&amp;q=&apos; . rawurlencode($text) . &apos;&amp;source=&apos; . $source . &apos;&amp;target=&apos; . $target;</div><div class="line"></div><div class="line">        $handle = curl_init($url);</div><div class="line">        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);</div><div class="line">        $response = curl_exec($handle);</div><div class="line">        $responseDecoded = json_decode($response, true);</div><div class="line">        $responseCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);      //Here we fetch the HTTP response code</div><div class="line">        curl_close($handle);</div><div class="line"></div><div class="line">        if($responseCode != 200) &#123;</div><div class="line">            // echo &apos;Fetching translation failed! Server response code:&apos; . $responseCode . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Error description: &apos; . $responseDecoded[&apos;error&apos;][&apos;errors&apos;][0][&apos;message&apos;];</div><div class="line">            return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            // echo &apos;Source: &apos; . $text . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Translation: &apos; . $responseDecoded[&apos;data&apos;][&apos;translations&apos;][0][&apos;translatedText&apos;];</div><div class="line">             return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">         Yii::trace($responseDecoded,&apos;lucky&apos;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>4.访问api方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8887/api/bntaketranslateapi?msg=How are you. I am fine&amp;source=en&amp;target=zh</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.poluoluo.com/jzxy/201607/490527.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;其他资料&lt;/a&gt;&lt;br&gt;1.设置美化路由和规则：&lt;br&gt;2.设置 .htaccess文件在app\web.htaccess文件中：&lt;br&gt;3.利用gii生成 MVC（Model，View，Controller）&lt;br&gt;4.访问api方式&lt;br&gt;
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ</title>
     <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/CentOS%E4%B8%8B%E7%9A%84PHP-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-VMware-+-CentOS-+-PHP5-4-+%EF%BD%81%EF%BD%90%EF%BD%81%EF%BD%83%EF%BD%88/"/>
     <id>http://yoursite.com/2017/08/18/PHP成长之路/CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ/</id>
@@ -603,6 +576,65 @@
     
     
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>html命名规范--学习和优化</title>
+    <link href="http://yoursite.com/2017/08/18/Html/%E3%80%90%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83--%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BC%98%E5%8C%96%E3%80%91/"/>
+    <id>http://yoursite.com/2017/08/18/Html/【命名规范--学习和优化】/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:42:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文链接：<a href="http://www.86y.org/art_detail.aspx?id=740" target="_blank" rel="external">http://www.86y.org/art_detail.aspx?id=740</a></p>
+<p>一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：</p>
+<p>基本样式库 /css/core<br>通用UI元素样式库 /css/lib<br>JS组件相关样式库 /css/ui</p>
+<p>业务类的CSS是指和具体产品相关的文件，放在如下目录中：<br>读书 /css/book/<br>电影 /css/movie/<br>音乐 /css/music/<br>社区 /css/sns/<br>小站 /css/site/<br>同城 /css/location/<br>电台 /css/radio/<br><a id="more"></a><br>外联CSS文件适用于全站级和产品级通用的大文件。内联CSS文件适用于在一个或几个页面共用的CSS。另外一对具体的CSS进行文档化的整理。如：<br>util-01 reset /css/core/reset.css<br>util-02 通用模块容器 /css/core/mod.css<br>ui-01. 喜欢按钮 /css/core/fav_btn.css<br>ui-02. 视频/相册列表项 /css/core/media_item.css<br>ui-03. 评星 /css/core/rating.css<br>ui-04. 通用按钮 /css/core/common_button.css<br>ui-05. 分页 /css/core/pagination.css<br>ui-06. 推荐按钮 /css/core/rec_btn.css<br>ui-07. 老版对话框 /css/core/old_dialog.css<br>ui-08. 老版Tab /css/core/old_tab.css<br>ui-09. 老版成员列表 /css/core/old_userlist.css<br>ui-10. 老版信息区 /css/core/notify.css<br>ui-11. 社区用户导航 /css/core/profile_nav.css<br>ui-12. 当前大社区导航 /css/core/site_nav.css<br>ui-13. 加载中 /css/lib/loading.css</p>
+<p>2、文件引入可通过外联或内联方式引入。<br>外联方式：（类型声明type=”text/css”可以省略）<br>内联方式： （类型声明type=”text/css”可以省略）</p>
+<p>link和style标签都应该放入head中，原则上，不允许在html上直接写样式。避免在CSS中使用@import，嵌套不要超过一层。<br>3、文件名、文件编码及文件大小<br>文件名必须由小写字母、数字、中划线组成<br>文件必须用UTF-8编码，使用UTF-8（非BOM），在HTML中指定UTF-8编码，在CSS中则不需要特别指定因为默认就是UTF-8。<br>单个CSS文件避免过大（建议少于300行）</p>
+<p>二、注释规范<br>1、文件顶部注释（推荐使用）<br>/*</p>
+<ul>
+<li>@description: 中文说明</li>
+<li>@author: name</li>
+<li>@update: name (2013-04-13 18:32)<br>*/</li>
+</ul>
+<p>复制代码2、模块注释<br>/<em> module: module1 by 张三 </em>/<br>…<br>/<em> module: module2 by 张三 </em>/</p>
+<p>复制代码模块注释必须单独写在一行<br>3、 单行注释与多行注释<br>/<em> this is a short comment </em>/单行注释可以写在单独一行，也可以写在行尾，注释中的每一行长度不超过40个汉字，或者80个英文字符。/<em>* this is comment line 1.</em> this is comment line 2.<em>/多行注释必须写在单独行内<br>4、特殊注释<br>/</em> TODO: xxxx by name 2013-04-13 18:32 <em>//</em> BUGFIX: xxxx by name 2012-04-13 18:32 <em>/用于标注修改、待办等信息<br>5、区块注释<br>/</em> Header <em>/<br>/</em> Footer <em>/<br>/</em> Gallery */</p>
+<p>复制代码对一个代码区块注释（可选），将样式语句分区块并在新行中对其注释。<br>三、命名规范<br>使 用有意义的或通用的ID和class命名：ID和class的命名应反映该元素的功能或使用通用名称，而不要用抽象的晦涩的命名。反映元素的使用目的是首 选；使用通用名称代表该元素不表特定意义，与其同级元素无异，通常是用于辅助命名；使用功能性或通用的名称可以更适用于文档或模版变化的情况。<br>/<em> 不推荐: 无意义 </em>/ #yee-1901 {}<br>/<em> 不推荐: 与样式相关 </em>/ .button-green {}.clear {}<br>/<em> 推荐: 特殊性 </em>/ #gallery {}#login {}.video {}<br>/<em> 推荐: 通用性 </em>/ .aux {}.alt {}</p>
+<p>常 用命名（多记多查英文单词）：page、wrap、layout、header(head)、footer(foot、ft)、 content(cont)、menu、nav、main、submain、sidebar(side)、logo、banner、 title(tit)、popo(pop)、icon、note、btn、txt、iblock、window(win)、tips等<br>ID和class命名越简短越好，只要足够表达涵义。这样既有助于理解，也能提高代码效率。<br>/<em> 不推荐 </em>/ #navigation {}.atr {}<br>/<em> 推荐 </em>/ #nav {}.author {}</p>
+<p>类型选择器避免同时使用标签、ID和class作为定位一个元素选择器；从性能上考虑也应尽量减少选择器的层级。<br>/<em> 不推荐 </em>/ul#example {}div.error {}<br>/<em> 推荐 </em>/#example {}.error {}</p>
+<p>命名时需要注意的点：<br>规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或 _<br>命名避免使用中文拼音，应该采用更简明有语义的英文单词进行组合<br>命名注意缩写，但是不能盲目缩写，具体请参见常用的CSS命名规则<br>不允许通过1、2、3等序号进行命名<br>避免class与id重名<br>id用于标识模块或页面的某一个父容器区域，名称必须唯一，不要随意新建id<br>class用于标识某一个类型的对象，命名必须言简意赅。<br>尽可能提高代码模块的复用，样式尽量用组合的方式<br>规则名称中不应该包含颜色（red/blue）、定位（left/right）等与具体显示效果相关的信息。应该用意义命名，而不是样式显示结果命名。</p>
+<p>1、常用id的命名：<br>(1)页面结构<br>容器: container<br>页头：header<br>内容：content/container<br>页面主体：main<br>页尾：footer<br>导航：nav<br>侧栏：sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中：left right center</p>
+<p>(2)导航<br>导航：nav<br>主导航：mainbav<br>子导航：subnav<br>顶导航：topnav<br>边导航：sidebar<br>左导航：leftsidebar<br>右导航：rightsidebar<br>菜单：menu<br>子菜单：submenu<br>标题: title<br>摘要: summary</p>
+<p>(3)功能<br>标志：logo<br>广告：banner<br>登陆：login<br>登录条：loginbar<br>注册：regsiter<br>搜索：search<br>功能区：shop<br>标题：title<br>加入：joinus<br>状态：status<br>按钮：btn<br>滚动：scroll<br>标签页：tab<br>文章列表：list<br>提示信息：msg<br>当前的: current<br>小技巧：tips<br>图标: icon<br>注释：note<br>指南：guild<br>服务：service<br>热点：hot<br>新闻：news<br>下载：download<br>投票：vote<br>合作伙伴：partner<br>友情链接：link<br>版权：copyright</p>
+<p>2、常用class的命名：<br>(1)颜色:使用颜色的名称或者16进制代码,如<br>.red { color: red; }<br>.f60 { color: #f60; }<br>.ff8600 { color: #ff8600; }</p>
+<p>(2)字体大小,直接使用”font+字体大小”作为名称,如<br>.font12px { font-size: 12px; }<br>.font9pt {font-size: 9pt; }</p>
+<p>(3)对齐样式,使用对齐目标的英文名称,如<br>.left { float:left; }<br>.bottom { float:bottom; }</p>
+<p>(4)标题栏样式,使用”类别+功能”的方式命名,如<br>.barnews { }<br>.barproduct { }</p>
+<p>四、书写规范<br>1、排版规范(1)使用4个空格，而不使用tab或者混用空格+tab作为缩进；(2)规则可以写成单行，或者多行，但是整个文件内的规则排版必须统一；单行形式书写风格的排版约束<br>如果是在html中写内联的css，则必须写成单行；<br>每一条规则的大括号 { 前后加空格 ；<br>每一条规则结束的大括号 } 前加空格；<br>属性名冒号之前不加空格，冒号之后加空格；<br>每一个属性值后必须添加分号; 并且分号后空格；<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ；</p>
+<p>多行形式书写风格的排版约束<br>每一条规则的大括号 { 前添加空格;<br>多个selector共用一个样式集，则多个selector必须写成多行形式 ;<br>每一条规则结束的大括号 } 必须与规则选择器的第一个字符对齐 ;<br>属性名冒号之前不加空格，冒号之后加空格;<br>属性值之后添加分号;</p>
+<p>2、属性编写顺序<br>显示属性：display/list-style/position/float/clear …<br>自身属性（盒模型）：width/height/margin/padding/border<br>背景：background<br>行高：line-height<br>文本属性：color/font/text-decoration/text-align/text-indent/vertical-align/white-space/content…<br>其他：cursor/z-index/zoom/overflow<br>CSS3属性：transform/transition/animation/box-shadow/border-radius<br>如果使用CSS3的属性，如果有必要加入浏览器前缀，则按照 -webkit- / -moz- / -ms- / -o- / std的顺序进行添加，标准属性写在最后。<br>链接的样式请严格按照如下顺序添加： a:link -&gt; a:visited -&gt; a:hover -&gt; a:active</p>
+<p>3、规则书写规范<br>使用单引号，不允许使用双引号;<br>每个声明结束都应该带一个分号，不管是不是最后一个声明;<br>除16进制颜色和字体设置外，CSS文件中的所有的代码都应该小写;<br>除了重置浏览器默认样式外，禁止直接为html tag添加css样式设置;<br>每一条规则应该确保选择器唯一，禁止直接为全局.nav/.header/.body等类设置属性;</p>
+<p>4、代码性能优化<br>合并margin、padding、border的-left/-top/-right/-bottom的设置，尽量使用短名称。<br>选择器应该在满足功能的基础上尽量简短，减少选择器嵌套，查询消耗。但是一定要避免覆盖全局样式设置。<br>注意选择器的性能，不要使用低性能的选择器。<br>禁止在css中使用*选择符。<br>除非必须，否则，一般有class或id的，不需要再写上元素对应的tag。<br>0后面不需要单位，比如0px可以省略成0，0.8px可以省略成.8px。<br>如果是16进制表示颜色，则颜色取值应该大写。<br>如果可以，颜色尽量用三位字符表示，例如#AABBCC写成#ABC 。<br>如果没有边框时，不要写成border:0，应该写成border:none 。<br>尽量避免使用AlphaImageLoader 。<br>在保持代码解耦的前提下，尽量合并重复的样式。<br>background、font等可以缩写的属性，尽量使用缩写形式 。</p>
+<p>5、CSS Hack的使用<br>请不用动不动就使用浏览器检测和CSS Hacks，先试试别的解决方法吧！考虑到代码高效率和易管理，虽然这两种方法能快速解决浏览器解析差异，但应被视为最后的手段。在长期的项目中，允许使用hack只会带来更多的hack，你越是使用它，你越是会依赖它！<br>推荐使用下面的：<br>[图片上传中。。。（1）]6、字体规则<br>为了防止文件合并及编码转换时造成问题，建议将样式中文字体名字改成对应的英文名字，如：黑体(SimHei) 宋体(SimSun) 微软雅黑 (Microsoft Yahei，几个单词中间有空格组成的必须加引号)<br>字体粗细采用具体数值，粗体bold写为700，正常normal写为400<br>font-size必须以px或pt为单位，推荐用px（注：pt为打印版字体大小设置），不允许使用xx-small/x-small/small/medium/large/x-large/xx-large等值<br>为了对font-family取值进行统一，更好的支持各个操作系统上各个浏览器的兼容性，font-family不允许在业务代码中随意设置</p>
+<p>五、其他规范<br>不要轻易改动全站级CSS和通用CSS库。改动后，要经过全面测试。<br>避免使用filter<br>避免在CSS中使用expression<br>避免过小的背景图片平铺。<br>尽量不要在CSS中使用!important<br>绝对不要在CSS中使用”*”选择符<br>层级(z-index)必须清晰明确，页面弹窗、气泡为最高级（最高级为999），不同弹窗气泡之间可在三位数之间调整；普通区块为10-90内10的倍数；区块展开、弹出为当前父层级上个位增加，禁止层级间盲目攀比。<br>背景图片请尽可能使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按照模块、业务、页面来划分均可。</p>
+<p>六、测试规范<br>1、了解浏览器特效支持为了页面性能考虑，如果浏览器不支持CSS3相关属性的，则该浏览器的某些特效将不再支持，属性的支持情况如下表所示（Y为支持，N为不支持）<br>[图片上传中。。。（2）]2、 设定浏览器支持标准[图片上传中。。。（3）]<br>A级－交互和视觉完全符全设计的要求<br>B级－视觉上允许有所差异，但不破坏页面的整体效果<br>C级－可忽略设计上的细节，但不防碍使用</p>
+<p>3、常用样式测试工具W3C CSS validator：<a href="http://jigsaw.w3.org/css-validator/" target="_blank" rel="external">http://jigsaw.w3.org/css-validator/</a><br>CSS Lint：<a href="http://csslint.net/CSS" target="_blank" rel="external">http://csslint.net/CSS</a> Usage：<a href="https://addons.mozilla.org/en-us/firefox/addon/css-usage/" target="_blank" rel="external">https://addons.mozilla.org/en-us/firefox/addon/css-usage/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文链接：&lt;a href=&quot;http://www.86y.org/art_detail.aspx?id=740&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.86y.org/art_detail.aspx?id=740&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;一、文件规范1、文件均归档至约定的目录中。具体要求通过豆瓣的CSS规范进行讲解：所有的CSS分为两大类：通用类和业务类。通用的CSS文件，放在如下目录中：&lt;/p&gt;
+&lt;p&gt;基本样式库 /css/core&lt;br&gt;通用UI元素样式库 /css/lib&lt;br&gt;JS组件相关样式库 /css/ui&lt;/p&gt;
+&lt;p&gt;业务类的CSS是指和具体产品相关的文件，放在如下目录中：&lt;br&gt;读书 /css/book/&lt;br&gt;电影 /css/movie/&lt;br&gt;音乐 /css/music/&lt;br&gt;社区 /css/sns/&lt;br&gt;小站 /css/site/&lt;br&gt;同城 /css/location/&lt;br&gt;电台 /css/radio/&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Html" scheme="http://yoursite.com/categories/Html/"/>
+    
+    
+      <category term="Html" scheme="http://yoursite.com/tags/Html/"/>
     
   </entry>
   
@@ -667,6 +699,29 @@
   </entry>
   
   <entry>
+    <title>WAMP XAMPP PHPStudy比较</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/phpStudy-%E5%92%8CXAmpp%EF%BC%8CWAMP/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；<br>XAMPP：许多人通过他们自己的经验认识到安装 Apache 服务器是件不容易的事儿。如果您想添加 MySQL、PHP 和 Perl，那就更难了。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。<br>PHPstudy：能够随意版本却换。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；&lt;br&gt;XAMPP：许多人通过他们自己的经验
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PHP 基础知识汇总</title>
     <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"/>
     <id>http://yoursite.com/2017/08/18/PHP成长之路/php-基础知识汇总/</id>
@@ -695,22 +750,28 @@
   </entry>
   
   <entry>
-    <title>WAMP XAMPP PHPStudy比较</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/phpStudy-%E5%92%8CXAmpp%EF%BC%8CWAMP/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/</id>
+    <title>php【discuz-本地测试安装】</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E3%80%90discuz-%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E3%80%91/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/php【discuz-本地测试安装】/</id>
     <published>2017-08-17T18:17:44.000Z</published>
     <updated>2017-08-17T18:17:44.000Z</updated>
     
-    <content type="html"><![CDATA[<p>WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；<br>XAMPP：许多人通过他们自己的经验认识到安装 Apache 服务器是件不容易的事儿。如果您想添加 MySQL、PHP 和 Perl，那就更难了。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。<br>PHPstudy：能够随意版本却换。</p>
+    <content type="html"><![CDATA[<h3 id="1-安装教程链接"><a href="#1-安装教程链接" class="headerlink" title="1.安装教程链接"></a>1.<a href="http://www.discuz.net/thread-3456887-1-1.html" target="_blank" rel="external">安装教程链接</a></h3><a id="more"></a>
+<h3 id="2-注意事项："><a href="#2-注意事项：" class="headerlink" title="2.注意事项："></a>2.注意事项：</h3><p>1）。需要本地拥有 php 工具，mysql 工具。最好 直接安装xampp或者phpstudy 工具箱。<br>2）。如果 找不到文件夹。需要设置 localhost 为 127.0.0.1</p>
+<h3 id="3-安装插件"><a href="#3-安装插件" class="headerlink" title="3.安装插件"></a>3.安装插件</h3><p>需要绑定域名和qq号，输入密码才可以安装。（本人设置密码:qwe123）</p>
+<h3 id="4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。"><a href="#4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。" class="headerlink" title="4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。"></a>4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。</h3><p>前台登录：<a href="http://192.168.0.104:8888/forum.php" target="_blank" rel="external">http://192.168.0.104:8888/forum.php</a></p>
+<h3 id="5-查看数据库字典：http-localhost-phpmyadmin"><a href="#5-查看数据库字典：http-localhost-phpmyadmin" class="headerlink" title="5.查看数据库字典：http://localhost/phpmyadmin/"></a>5.查看数据库字典：<a href="http://localhost/phpmyadmin/" target="_blank" rel="external">http://localhost/phpmyadmin/</a></h3><p>找到数据表，点击结构-》查看数据字典</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-990765ee1adc2466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><a href="http://www.discuz.net/forum.php" target="_blank" rel="external">更多资讯参考官网论坛</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；&lt;br&gt;XAMPP：许多人通过他们自己的经验
+      &lt;h3 id=&quot;1-安装教程链接&quot;&gt;&lt;a href=&quot;#1-安装教程链接&quot; class=&quot;headerlink&quot; title=&quot;1.安装教程链接&quot;&gt;&lt;/a&gt;1.&lt;a href=&quot;http://www.discuz.net/thread-3456887-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装教程链接&lt;/a&gt;&lt;/h3&gt;
     
     </summary>
     
-      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
@@ -766,35 +827,6 @@ try {
       &lt;h4&gt;妈的智障，妈的智障，妈的智障。远程不了公司电脑了，只好本机重新搭建一下环境了&lt;/h4&gt;
 
 &lt;p&gt;系统环境：&lt;br&gt;win7&lt;br&gt;命令行操作：&lt;br&gt;composer 管理工具：&lt;br&gt;基于Yii2框架：&lt;br&gt;git 命令：&lt;br&gt;php 环境：xampp 或者 phpstudy：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php【discuz-本地测试安装】</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E3%80%90discuz-%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E3%80%91/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/php【discuz-本地测试安装】/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-安装教程链接"><a href="#1-安装教程链接" class="headerlink" title="1.安装教程链接"></a>1.<a href="http://www.discuz.net/thread-3456887-1-1.html" target="_blank" rel="external">安装教程链接</a></h3><a id="more"></a>
-<h3 id="2-注意事项："><a href="#2-注意事项：" class="headerlink" title="2.注意事项："></a>2.注意事项：</h3><p>1）。需要本地拥有 php 工具，mysql 工具。最好 直接安装xampp或者phpstudy 工具箱。<br>2）。如果 找不到文件夹。需要设置 localhost 为 127.0.0.1</p>
-<h3 id="3-安装插件"><a href="#3-安装插件" class="headerlink" title="3.安装插件"></a>3.安装插件</h3><p>需要绑定域名和qq号，输入密码才可以安装。（本人设置密码:qwe123）</p>
-<h3 id="4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。"><a href="#4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。" class="headerlink" title="4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。"></a>4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。</h3><p>前台登录：<a href="http://192.168.0.104:8888/forum.php" target="_blank" rel="external">http://192.168.0.104:8888/forum.php</a></p>
-<h3 id="5-查看数据库字典：http-localhost-phpmyadmin"><a href="#5-查看数据库字典：http-localhost-phpmyadmin" class="headerlink" title="5.查看数据库字典：http://localhost/phpmyadmin/"></a>5.查看数据库字典：<a href="http://localhost/phpmyadmin/" target="_blank" rel="external">http://localhost/phpmyadmin/</a></h3><p>找到数据表，点击结构-》查看数据字典</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1764965-990765ee1adc2466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p><a href="http://www.discuz.net/forum.php" target="_blank" rel="external">更多资讯参考官网论坛</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-安装教程链接&quot;&gt;&lt;a href=&quot;#1-安装教程链接&quot; class=&quot;headerlink&quot; title=&quot;1.安装教程链接&quot;&gt;&lt;/a&gt;1.&lt;a href=&quot;http://www.discuz.net/thread-3456887-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装教程链接&lt;/a&gt;&lt;/h3&gt;
     
     </summary>
     
@@ -870,32 +902,6 @@ try {
   </entry>
   
   <entry>
-    <title>【yii2-后台实现】yiiBoot-后台系统的使用经验总结</title>
-    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90yii2-%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0%E3%80%91yiiBoot-%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/08/18/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:46:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最初了解yiiBootB是在yii2 论坛和 <a href="https://www.oschina.net/news/80909/2016-oschina-git-top-50" target="_blank" rel="external">年度码云项目排行榜</a><br>1.clone 项目到本地。 git clone <a href="https://git.oschina.net/penngo/chadmin.git" target="_blank" rel="external">https://git.oschina.net/penngo/chadmin.git</a><br>2.导入 doc/db.sql 数据库到本地数据库，进行测试。<br>3.修改common/config/main.php<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">修改host,dbname,username,password 这些设置。</div><div class="line">            &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">            &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,</div><div class="line">            &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">            &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">            &apos;charset&apos; =&gt; &apos;utf8&apos;,</div></pre></td></tr></table></figure></p>
-<p>4.修改美化路由设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根据个人习惯，选择是否美化路由访问方式。</div><div class="line">      &apos;urlManager&apos; =&gt; [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">        &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">        &apos;showScriptName&apos; =&gt; false,</div><div class="line">        //&apos;caseSensitive&apos;=&gt;false,</div><div class="line">        &apos;rules&apos; =&gt; [</div><div class="line">          // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line"></div><div class="line">        ],</div></pre></td></tr></table></figure></p>
-<p>5.添加目录结构。<br><a href="https://git.oschina.net/penngo/chadmin/wikis/tutorial#create_table" target="_blank" rel="external">添加菜单教程</a></p>
-<p>6.分析自身公司所需要的功能实现，和接入。<br>以后，根据个人需求，实现后台系统的迁移。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最初了解yiiBootB是在yii2 论坛和 &lt;a href=&quot;https://www.oschina.net/news/80909/2016-oschina-git-top-50&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;年度码云项目排行榜&lt;/a&gt;&lt;br&gt;1.clone 项目到本地。 git clone &lt;a href=&quot;https://git.oschina.net/penngo/chadmin.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://git.oschina.net/penngo/chadmin.git&lt;/a&gt;&lt;br&gt;2.导入 doc/db.sql 数据库到本地数据库，进行测试。&lt;br&gt;3.修改common/config/main.php&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
     <title>在yii项目中，连接多数据库进行操作</title>
     <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90Yii-%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E3%80%91%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2017/08/18/PHP成长之路/【Yii-多数据库连接】配置/</id>
@@ -948,6 +954,32 @@ try {
     <summary type="html">
     
       &lt;h2 id=&quot;1-PHP-介绍&quot;&gt;&lt;a href=&quot;#1-PHP-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.PHP 介绍&quot;&gt;&lt;/a&gt;1.PHP 介绍&lt;/h2&gt;&lt;p&gt;链接：&lt;a href=&quot;http://baike.so.com/doc/7103846-7326839.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PHP 历史百科 &lt;/a&gt;&lt;br&gt;•缩写：Personal Home Page ==&amp;gt;&amp;gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本&lt;a href=&quot;http://baike.so.com/doc/6010-6155.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;预处理器&lt;/a&gt;“&lt;br&gt;•历史&lt;br&gt;    1995PHP/FI，Rasmus Lorderf，Personal Home Page&lt;br&gt;    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【yii2-后台实现】yiiBoot-后台系统的使用经验总结</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90yii2-%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0%E3%80%91yiiBoot-%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:46:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最初了解yiiBootB是在yii2 论坛和 <a href="https://www.oschina.net/news/80909/2016-oschina-git-top-50" target="_blank" rel="external">年度码云项目排行榜</a><br>1.clone 项目到本地。 git clone <a href="https://git.oschina.net/penngo/chadmin.git" target="_blank" rel="external">https://git.oschina.net/penngo/chadmin.git</a><br>2.导入 doc/db.sql 数据库到本地数据库，进行测试。<br>3.修改common/config/main.php<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">修改host,dbname,username,password 这些设置。</div><div class="line">            &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">            &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,</div><div class="line">            &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">            &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">            &apos;charset&apos; =&gt; &apos;utf8&apos;,</div></pre></td></tr></table></figure></p>
+<p>4.修改美化路由设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根据个人习惯，选择是否美化路由访问方式。</div><div class="line">      &apos;urlManager&apos; =&gt; [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">        &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">        &apos;showScriptName&apos; =&gt; false,</div><div class="line">        //&apos;caseSensitive&apos;=&gt;false,</div><div class="line">        &apos;rules&apos; =&gt; [</div><div class="line">          // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line"></div><div class="line">        ],</div></pre></td></tr></table></figure></p>
+<p>5.添加目录结构。<br><a href="https://git.oschina.net/penngo/chadmin/wikis/tutorial#create_table" target="_blank" rel="external">添加菜单教程</a></p>
+<p>6.分析自身公司所需要的功能实现，和接入。<br>以后，根据个人需求，实现后台系统的迁移。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最初了解yiiBootB是在yii2 论坛和 &lt;a href=&quot;https://www.oschina.net/news/80909/2016-oschina-git-top-50&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;年度码云项目排行榜&lt;/a&gt;&lt;br&gt;1.clone 项目到本地。 git clone &lt;a href=&quot;https://git.oschina.net/penngo/chadmin.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://git.oschina.net/penngo/chadmin.git&lt;/a&gt;&lt;br&gt;2.导入 doc/db.sql 数据库到本地数据库，进行测试。&lt;br&gt;3.修改common/config/main.php&lt;br&gt;
     
     </summary>
     
