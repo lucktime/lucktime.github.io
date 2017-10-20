@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-23T10:28:34.000Z</updated>
+  <updated>2017-10-20T13:10:05.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,156 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>百度地图在wordpress上的使用，wordpress添加地图插件</title>
+    <link href="http://yoursite.com/2017/10/20/wordpress/Baidu%20Map%20%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/10/20/wordpress/Baidu Map 的使用/</id>
+    <published>2017-10-20T12:38:36.000Z</published>
+    <updated>2017-10-20T13:10:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用插件：WP Baidu Map<br>在 文章编辑页中，添加代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[baidu_map id=&quot;map_1508394094&quot; w=&quot;100%&quot; h=&quot;100% lat=&quot;35&quot; lon=&quot;135&quot; biz_name=&quot;&quot; address=&quot;郑州人民公园&quot; email=&quot;&quot; phone=&quot;&quot;]</div></pre></td></tr></table></figure></p>
+<p>或者编辑文章时，点击按钮添加地图。<br><img src="http://upload-images.jianshu.io/upload_images/1053390-6b4d8b99d6ffa3f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>由于，我想实现的功能是:根据ip显示用户位置，和显示指定地点的位置。并按照两者之间的距离，自动缩放比例。<br>因此，我需要修改插件代码。<br><a id="more"></a><br>修改部分：<br>1.ak 的值<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*百度地图AK , 请在 http://lbsyun.baidu.com/apiconsole/key 这里申请,免费的。*/</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> $ak = <span class="string">'5upeZi9ESotIhhBvDkERXuUB'</span>;</div></pre></td></tr></table></figure><br>2.地图部分的css部分.由于使用的主题，和插件有冲突。所以使用!important 更改了权重。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="xml">            div#<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span></span> &#123;display: block !important;&#125;</span></div><div class="line"><span class="xml">            #<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span></span> &#123;width:<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $w <span class="meta">?&gt;</span></span>; height:<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $h <span class="meta">?&gt;</span></span>;overflow: hidden;margin:0;&#125;</span></div><div class="line"><span class="undefined">            #l-map&#123;height:100%;width:78%;float:left;border-right:2px solid #bcbcbc;&#125;</span></div><div class="line"><span class="undefined">            #r-result&#123;height:100%;width:20%;float:left;&#125;</span></div><div class="line"><span class="undefined">            .mywindow&#123; height:auto; width:auto; font-size:12px; line-height:22px;&#125;</span></div><div class="line"><span class="undefined">            .mylocationcontainer&#123;width:100%; height:100%; margin:0 auto;&#125;</span></div><div class="line"><span class="undefined">            .map img&#123;width:100%;height:100%;padding: 0px !important; background-color:transparent&#125;</span></div><div class="line"><span class="undefined">           .BMap_cpyCtrl span,.anchorBL&#123;display:none!important;&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure><br>3.显示自己当前的位置（根据浏览器ip）<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 定位个人位置 并做标记marker</div><div class="line">     var geolocation = new BMap.Geolocation();</div><div class="line">     geolocation.getCurrentPosition(function(r)&#123;</div><div class="line">            if(this.getStatus() == BMAP_STATUS_SUCCESS)&#123;</div><div class="line">                var mk = new BMap.Marker(r.point);</div><div class="line">                // map.addOverlay(mk);</div><div class="line">                // map.panTo(r.point);</div><div class="line">                var selfpoint = new BMap.Point(r.point.lng,r.point.lat);</div><div class="line">               // alert('您的位置：'+r.point.lng+','+r.point.lat);</div><div class="line">                var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));</div><div class="line">                var selfmarker = new BMap.Marker(selfpoint,&#123;icon:myIcon&#125;); </div><div class="line">                // map<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span></span>.centerAndZoom(point, 9);</div><div class="line">                map<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span></span>.addOverlay(selfmarker);</div><div class="line">                var zoom = getZoom(<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lon <span class="meta">?&gt;</span></span>, r.point.lng, <span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lat <span class="meta">?&gt;</span></span>, r.point.lat);</div><div class="line">                var cenLng =(parseFloat(r.point.lng)+parseFloat(<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lon <span class="meta">?&gt;</span></span>))/2;  </div><div class="line">                var cenLat = (parseFloat(r.point.lat)+parseFloat(<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lat <span class="meta">?&gt;</span></span>))/2;    </div><div class="line">                map<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span></span>.centerAndZoom(new BMap.Point(cenLng,cenLat), zoom);  </div><div class="line">            &#125;</div><div class="line">            else &#123;</div><div class="line">                //alert('failed'+this.getStatus());</div><div class="line">            &#125;        </div><div class="line">        &#125;,&#123;enableHighAccuracy: true&#125;)</div></pre></td></tr></table></figure><br>修改后的代码：<br>wp-baidu-map.php 文件（可以直接在已安装插件中编辑代码）<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">Plugin Name:WP Baidu Map</span></div><div class="line"><span class="comment">Plugin URI: https://coolwp.com/wp-baidu-map.html</span></div><div class="line"><span class="comment">Description: A real Baidu map plugin.</span></div><div class="line"><span class="comment">Author:suifengtec</span></div><div class="line"><span class="comment">Version: 1.1</span></div><div class="line"><span class="comment">Author URI: https://coolwp.com</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">1.0 : 初始发布;</span></div><div class="line"><span class="comment">1.1 : 添加编辑器按钮插入;支持将输入的地址转换为百度地图的坐标;代码优化;支持在同一页面显示N多地图;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line">defined(<span class="string">'ABSPATH'</span>) || <span class="keyword">exit</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span>(!class_exists(<span class="string">'WP_Baidu_Maps'</span>)):</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WP_Baidu_Maps</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/*百度地图AK , 请在 http://lbsyun.baidu.com/apiconsole/key 这里申请,免费的。*/</span></div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $ak = <span class="string">'5upeZi9ESotIhhBvDkERXuUB'</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> $instance;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__clone</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123; &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">instance</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ( ! <span class="keyword">isset</span>( <span class="keyword">self</span>::$instance ) &amp;&amp; ! ( <span class="keyword">self</span>::$instance <span class="keyword">instanceof</span> WP_Baidu_Maps ) ) &#123;</div><div class="line">            <span class="keyword">self</span>::$instance = <span class="keyword">new</span> <span class="keyword">self</span>();</div><div class="line">            <span class="keyword">self</span>::$instance-&gt;hooks();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>::$instance;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hooks</span><span class="params">()</span></span>&#123;</div><div class="line">        add_action(<span class="string">'init'</span>, <span class="keyword">array</span>( <span class="keyword">$this</span>, <span class="string">'add_shortcode'</span> ) );</div><div class="line">        add_action(<span class="string">'admin_init'</span>, <span class="keyword">array</span> ( <span class="keyword">__CLASS__</span>, <span class="string">'add_insert_btn'</span> ) );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">add_insert_btn</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line"><span class="comment">/*        if ( ! current_user_can('edit_posts') &amp;&amp; ! current_user_can('edit_pages') ) &#123;</span></div><div class="line"><span class="comment">            return;</span></div><div class="line"><span class="comment">        &#125;*/</span></div><div class="line">        add_filter(<span class="string">'mce_buttons'</span>, <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>,<span class="string">'register_baidumap_button'</span>));</div><div class="line">        add_filter(<span class="string">'mce_external_plugins'</span>, <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>,<span class="string">'add_baidumap_button_plugin'</span>));</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">register_baidumap_button</span><span class="params">( $buttons )</span> </span>&#123;</div><div class="line"></div><div class="line">        array_push( $buttons, <span class="string">"|"</span>, <span class="string">"baidumap"</span> );</div><div class="line">        <span class="keyword">return</span> $buttons;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">add_baidumap_button_plugin</span><span class="params">($plugin_array)</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">echo</span> <span class="string">'&lt;script&gt;var baiduMapAK ="'</span>.<span class="keyword">self</span>::$ak.<span class="string">'";&lt;/script&gt;'</span>;</div><div class="line"></div><div class="line"></div><div class="line">        $plugin_array[<span class="string">'baidumap'</span>] =  plugins_url(<span class="string">'js/baidu-map.js'</span>,<span class="keyword">__FILE__</span>);</div><div class="line">        <span class="keyword">return</span> $plugin_array;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">public</span>  <span class="function"><span class="keyword">function</span> <span class="title">add_shortcode</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">        add_shortcode(<span class="string">'baidu_map'</span>, <span class="keyword">array</span>( <span class="keyword">__CLASS__</span> ,<span class="string">'add_sc'</span> ) );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span>  <span class="function"><span class="keyword">function</span> <span class="title">add_sc</span><span class="params">( $atts= array<span class="params">()</span>, $content=<span class="string">''</span> )</span></span>&#123;</div><div class="line"></div><div class="line">        extract(shortcode_atts(<span class="keyword">array</span>(</div><div class="line">            <span class="string">'id'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'w'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'h'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'lon'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'lat'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'biz_name'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'address'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'email'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'phone'</span>=&gt;<span class="string">''</span>,</div><div class="line">            <span class="string">'ak'</span>=&gt; <span class="keyword">self</span>::$ak,</div><div class="line">            ) ,$atts));</div><div class="line"></div><div class="line">        $id = $id?$id:<span class="string">'wp-baidu-map'</span>;</div><div class="line">        $w = $w?$w:<span class="string">'100%'</span>;</div><div class="line">        $h = $h?$h:<span class="string">'400px'</span>;</div><div class="line">        $biz_name = $biz_name?$biz_name:<span class="keyword">false</span>;</div><div class="line">        $lon = $lon?$lon:<span class="keyword">false</span>;</div><div class="line">        $lat = $lat?$lat:<span class="keyword">false</span>;</div><div class="line">        $address = $address?$address:<span class="keyword">false</span>;</div><div class="line">        $email = $email?$email:<span class="keyword">false</span>;</div><div class="line">        $phone = $phone?$phone:<span class="keyword">false</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(!$lon||!$lat)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">'设置经纬度后才能显示地图哦！'</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ob_start();</div><div class="line">        <span class="meta">?&gt;</span></div><div class="line">        &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"https://api.map.baidu.com/api?v=2.0&amp;ak=&lt;?php echo $ak?&gt;"</span>&gt;&lt;/script&gt;</div><div class="line">        &lt;style&gt;</div><div class="line">            div<span class="comment">#&lt;?php echo esc_attr($id) ?&gt; &#123;display: block !important;&#125;</span></div><div class="line">            <span class="comment">#&lt;?php echo esc_attr($id) ?&gt; &#123;width:&lt;?php echo $w ?&gt;; height:&lt;?php echo $h ?&gt;;overflow: hidden;margin:0;&#125;</span></div><div class="line">            <span class="comment">#l-map&#123;height:100%;width:78%;float:left;border-right:2px solid #bcbcbc;&#125;</span></div><div class="line">            <span class="comment">#r-result&#123;height:100%;width:20%;float:left;&#125;</span></div><div class="line">            .mywindow&#123; height:auto; width:auto; font-size:<span class="number">12</span>px; line-height:<span class="number">22</span>px;&#125;</div><div class="line">            .mylocationcontainer&#123;width:<span class="number">100</span>%; height:<span class="number">100</span>%; margin:<span class="number">0</span> auto;&#125;</div><div class="line">            .map img&#123;width:<span class="number">100</span>%;height:<span class="number">100</span>%;padding: <span class="number">0</span>px !important; background-color:transparent&#125;</div><div class="line">           .BMap_cpyCtrl span,.anchorBL&#123;display:none!important;&#125;</div><div class="line">        &lt;/style&gt;</div><div class="line">        &lt;div class="map"&gt;&lt;div id="&lt;?php echo esc_attr($id) ?&gt;"&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">        &lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">            <span class="keyword">var</span> map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span> = <span class="keyword">new</span> BMap.Map(<span class="string">"&lt;?php echo esc_attr($id) ?&gt;"</span>);</div><div class="line">            <span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lon <span class="meta">?&gt;</span>,<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lat <span class="meta">?&gt;</span>);</div><div class="line">            map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.enableScrollWheelZoom(<span class="keyword">true</span>);</div><div class="line">            map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.enableContinuousZoom();</div><div class="line">            map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.addControl(<span class="keyword">new</span> BMap.NavigationControl());</div><div class="line">            <span class="keyword">var</span> marker = <span class="keyword">new</span> BMap.Marker(point);</div><div class="line">            marker.setAnimation(BMAP_ANIMATION_BOUNCE);</div><div class="line">            <span class="keyword">var</span> sContent =<span class="string">'&lt;div class="mywindow"&gt;&lt;?php echo $biz_name ?&gt;&lt;?php if(!empty($address))&#123;echo '</span>&lt;br&gt;地址：<span class="string">'.$address;&#125; ?&gt;&lt;?php if(!empty($phone))&#123;echo '</span>&lt;br&gt;电话：<span class="string">'.$phone;&#125; ?&gt;&lt;?php if(!empty($email))&#123;echo '</span>&lt;br&gt;电邮：<span class="string">'.$email;&#125; ?&gt;&lt;/div&gt;'</span>;</div><div class="line"></div><div class="line">            <span class="keyword">var</span> infoWindow = <span class="keyword">new</span> BMap.InfoWindow(sContent);</div><div class="line">            map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.centerAndZoom(point, <span class="number">9</span>);</div><div class="line">            map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.addOverlay(marker);</div><div class="line">            marker.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">               this.openInfoWindow(infoWindow);</div><div class="line">               window.onload = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line">                   infoWindow.redraw();</div><div class="line">               &#125;</div><div class="line">            &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 定位个人位置 并做标记marker</span></div><div class="line">            <span class="keyword">var</span> geolocation = <span class="keyword">new</span> BMap.Geolocation();</div><div class="line">	        geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span><span class="params">(r)</span></span>&#123;</div><div class="line">                <span class="keyword">if</span>(this.getStatus() == BMAP_STATUS_SUCCESS)&#123;</div><div class="line">                    <span class="keyword">var</span> mk = <span class="keyword">new</span> BMap.Marker(r.point);</div><div class="line">                    <span class="comment">// map.addOverlay(mk);</span></div><div class="line">                    <span class="comment">// map.panTo(r.point);</span></div><div class="line">                    <span class="keyword">var</span> selfpoint = <span class="keyword">new</span> BMap.Point(r.point.lng,r.point.lat);</div><div class="line">                   <span class="comment">// alert('您的位置：'+r.point.lng+','+r.point.lat);</span></div><div class="line">                    <span class="keyword">var</span> myIcon = <span class="keyword">new</span> BMap.Icon(<span class="string">"http://lbsyun.baidu.com/jsdemo/img/fox.gif"</span>, <span class="keyword">new</span> BMap.Size(<span class="number">300</span>,<span class="number">157</span>));</div><div class="line">                    <span class="keyword">var</span> selfmarker = <span class="keyword">new</span> BMap.Marker(selfpoint,&#123;icon:myIcon&#125;); </div><div class="line">                    <span class="comment">// map<span class="meta">&lt;?php</span> echo esc_attr($id) <span class="meta">?&gt;</span>.centerAndZoom(point, 9);</span></div><div class="line">                    map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.addOverlay(selfmarker);</div><div class="line">                    <span class="keyword">var</span> zoom = getZoom(<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lon <span class="meta">?&gt;</span>, r.point.lng, <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lat <span class="meta">?&gt;</span>, r.point.lat);</div><div class="line">                    <span class="keyword">var</span> cenLng =(parseFloat(r.point.lng)+parseFloat(<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lon <span class="meta">?&gt;</span>))/<span class="number">2</span>;  </div><div class="line">                    <span class="keyword">var</span> cenLat = (parseFloat(r.point.lat)+parseFloat(<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $lat <span class="meta">?&gt;</span>))/<span class="number">2</span>;    </div><div class="line">                    map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.centerAndZoom(<span class="keyword">new</span> BMap.Point(cenLng,cenLat), zoom);  </div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="comment">//alert('failed'+this.getStatus());</span></div><div class="line">                &#125;        </div><div class="line">            &#125;,&#123;enableHighAccuracy: <span class="keyword">true</span>&#125;)</div><div class="line"></div><div class="line">            <span class="comment">//根据经纬极值计算绽放级别。  </span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getZoom</span> <span class="params">(maxLng, minLng, maxLat, minLat)</span> </span>&#123;  </div><div class="line">            <span class="keyword">var</span> zoom = [<span class="string">"50"</span>,<span class="string">"100"</span>,<span class="string">"200"</span>,<span class="string">"500"</span>,<span class="string">"1000"</span>,<span class="string">"2000"</span>,<span class="string">"5000"</span>,<span class="string">"10000"</span>,<span class="string">"20000"</span>,<span class="string">"25000"</span>,<span class="string">"50000"</span>,<span class="string">"100000"</span>,<span class="string">"200000"</span>,<span class="string">"500000"</span>,<span class="string">"1000000"</span>,<span class="string">"2000000"</span>]<span class="comment">//级别18到3。  </span></div><div class="line">            <span class="keyword">var</span> pointA = <span class="keyword">new</span> BMap.Point(maxLng,maxLat);  <span class="comment">// 创建点坐标A  </span></div><div class="line">            <span class="keyword">var</span> pointB = <span class="keyword">new</span> BMap.Point(minLng,minLat);  <span class="comment">// 创建点坐标B  </span></div><div class="line">            <span class="keyword">var</span> distance = map<span class="meta">&lt;?php</span> <span class="keyword">echo</span> esc_attr($id) <span class="meta">?&gt;</span>.getDistance(pointA,pointB).toFixed(<span class="number">1</span>);  <span class="comment">//获取两点距离,保留小数点后两位  </span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,zoomLen = zoom.length; i &lt; zoomLen; i++) &#123;  </div><div class="line">                <span class="keyword">if</span>(zoom[i] - distance &gt; <span class="number">0</span>)&#123;  </div><div class="line">                    <span class="keyword">return</span> <span class="number">18</span>-i+<span class="number">3</span>;<span class="comment">//之所以会多3，是因为地图范围常常是比例尺距离的10倍以上。所以级别会增加3。  </span></div><div class="line">                &#125;  </div><div class="line">            &#125;;  </div><div class="line">    &#125;  </div><div class="line">        &lt;/script&gt;</div><div class="line">       <span class="meta">&lt;?php</span></div><div class="line"></div><div class="line">        $output = ob_get_clean();</div><div class="line">        <span class="keyword">return</span> $output;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">$GLOBALS[<span class="string">'wp_baidu_map'</span>] = WP_Baidu_Maps::instance();</div><div class="line"></div><div class="line"><span class="keyword">endif</span>;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用插件：WP Baidu Map&lt;br&gt;在 文章编辑页中，添加代码&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[baidu_map id=&amp;quot;map_1508394094&amp;quot; w=&amp;quot;100%&amp;quot; h=&amp;quot;100% lat=&amp;quot;35&amp;quot; lon=&amp;quot;135&amp;quot; biz_name=&amp;quot;&amp;quot; address=&amp;quot;郑州人民公园&amp;quot; email=&amp;quot;&amp;quot; phone=&amp;quot;&amp;quot;]&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;或者编辑文章时，点击按钮添加地图。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1053390-6b4d8b99d6ffa3f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;br&gt;由于，我想实现的功能是:根据ip显示用户位置，和显示指定地点的位置。并按照两者之间的距离，自动缩放比例。&lt;br&gt;因此，我需要修改插件代码。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Wordpress" scheme="http://yoursite.com/categories/Wordpress/"/>
+    
+    
+      <category term="Wordpress" scheme="http://yoursite.com/tags/Wordpress/"/>
+    
+      <category term="Map" scheme="http://yoursite.com/tags/Map/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>走在人生边上--杨绛</title>
+    <link href="http://yoursite.com/2017/08/26/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E8%B5%B0%E5%9C%A8%E4%BA%BA%E7%94%9F%E8%BE%B9%E4%B8%8A/"/>
+    <id>http://yoursite.com/2017/08/26/阅读笔记/走在人生边上/</id>
+    <published>2017-08-26T02:20:27.000Z</published>
+    <updated>2017-08-26T03:42:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>知道罐子要碎了，就趁早摔碎。有时候，回想起来自己又何尝不是这样。《愿 改 之》<br><a id="more"></a></p>
+<blockquote><ol>
+<li>一棵树上的叶子叶叶不同，人性之不同各如其菌。</li>
+<li>从小看看，到老一半</li>
+<li>江山易改，本性难移</li>
+<li>七卡二变，本性难变</li>
+<li>人之本性： 食色性也,灵性良心， </li>
+</ol>
+<footer><strong>杨绛--关于人的问题</strong></footer></blockquote>
+<blockquote><ol>
+<li>I love three things in this world: sun, moon, and you. Sun for morning, moon for night and you forever.</li>
+</ol>
+<p>天地之间，三事吾之所欣：昼则乐日，夜则惜月，一世则恋君。</p>
+<footer><strong>--墨倾</strong></footer></blockquote>
+<blockquote><ol>
+<li>Some of us get dipped in flat, some in satin, some in gloss… But every once in a while you find someone who’s iridescent, and when you do, nothing will ever compare.</li>
+</ol>
+<p>有人住高楼，有人在深沟，有人光万丈，有人一身锈，世人万千种，浮云莫去求，斯人若彩虹，遇上方知有。</p>
+<footer><strong>怦然心动--译:韩寒</strong></footer></blockquote>
+<blockquote><ol>
+<li>Everything will be fine, if it’s not now, it’s not the end.<br>每件事情都不会那么糟糕的，如过现在还不是，那证明就是还没到最后。</li>
+</ol>
+<footer><strong>出处：未知</strong></footer></blockquote>
+<blockquote><ol>
+<li>Don’t cry boy. The bad guys will laugh at you.</li>
+</ol>
+<p>不要哭，坏人会笑的！</p>
+<footer><strong>出处 ：beyond the hill</strong></footer></blockquote>
+<blockquote><ol>
+<li>How many loved your moments of glad grace,and loved your beauty with love false or true.</li>
+</ol>
+<p>But one man loved the pilgrim soul in you, and loved the sorrows of your changing face.</p>
+<p>多少人爱你青春欢畅的时辰， 爱慕你的美丽，假意或真心。</p>
+<p>只有一个人爱你那朝圣者的灵魂， 爱你衰老了的脸上痛苦的皱纹；</p>
+<footer><strong>出处 ：当你老了</strong></footer></blockquote>
+<blockquote><ol>
+<li>You are the apple of my eye.</li>
+</ol>
+<p>你最珍贵！</p>
+<footer><strong>出处 ： 知乎</strong></footer></blockquote>
+<blockquote><ol>
+<li>Stay foolish, stay hungry!</li>
+</ol>
+<p>求知若饥，虚心若愚！</p>
+<footer><strong>出处 ： 知乎</strong></footer></blockquote>
+<blockquote><ol>
+<li>In me, the tiger sniffs the rose.</li>
+</ol>
+<p>心有猛虎，细嗅蔷薇。</p>
+<footer><strong>余光中：猛虎与蔷薇</strong></footer></blockquote>
+<blockquote><ol>
+<li>In your life, there will be at least one time that you forget yourself for someone, asking for no result, no company, no ownership nor love. Just ask for meeting you in my most beautiful years.</li>
+</ol>
+<p>一生至少该有一次，为了某个人而忘了自己，不求有结果，不求同行，不求曾经拥有，甚至不求你爱我。只求在我最美的年华里，遇到你。</p>
+<footer><strong>桐华: 最美的时光</strong></footer></blockquote>
+<blockquote><ol>
+<li>The world has kissed my soul with its pain, asking for its return in songs.</li>
+</ol>
+<p>世界以痛吻我，让我报之以歌。</p>
+<footer><strong>泰戈尔: 飞鸟集</strong></footer></blockquote>
+<blockquote><ol>
+<li>Promises are often like the butterfly,which disappear after beautiful hover.</li>
+</ol>
+<p>承诺常常就像蝴蝶，美丽的飞盘旋然后不见。</p>
+<footer><strong>张韶涵：遗失的美好</strong></footer></blockquote>
+<blockquote><ol>
+<li>No matter how low you consider yourself ,there is always someone look up to you wishing they were that high.</li>
+</ol>
+<p>不管你觉得自己多么低，总有人仰视着你，希望他们自己有你那么高大！</p>
+<footer><strong>出处: 未知</strong></footer></blockquote>
+<blockquote><ol>
+<li>I will always be with you</li>
+</ol>
+<p>纵使寂寞开成海，我一直都在！</p>
+<footer><strong>出处: 某小说名</strong></footer></blockquote>
+<blockquote><ol>
+<li>We are all in the gutter, but some of us are looking at the stars.</li>
+</ol>
+<p>我们都生活在阴沟里，但仍有人仰望星空。</p>
+<footer><strong>出处: 奥斯卡·王尔德</strong></footer></blockquote>
+<blockquote><ol>
+<li>I think, therefore I am！<br>我思故我在！</li>
+</ol>
+<footer><strong>出处: 笛卡尔</strong></footer></blockquote>
+<blockquote><ol>
+<li>Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.<br>夏天的飞鸟，飞到我的窗前唱歌，又飞去了。秋天的黄叶，它们没有什么可唱，只叹息一声，飞落在那里。</li>
+</ol>
+<footer><strong>泰戈尔: 飞鸟集</strong></footer></blockquote>
+<blockquote><ol>
+<li>I’m a slow walker, but I never walk backwards.<br>我走得很慢，但我会一直向前。</li>
+</ol>
+<footer><strong>出处: 林肯</strong></footer></blockquote>
+<blockquote><ol>
+<li>Life was like a box of chocolate,you never know what you are gonna get.</li>
+</ol>
+<p>生活就像一盒巧克力，你永远不知道下一块是什么味道。</p>
+<footer><strong>电影: 阿甘正传</strong></footer></blockquote>
+<blockquote><ol>
+<li>Never frown, because you never know who is falling in love with you and what will hurt him.</li>
+</ol>
+<p>不要皱眉，因为你永远不会知道谁正在爱上你，你的伤心会伤了他的心。</p>
+<footer><strong>出处: 知乎</strong></footer></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;知道罐子要碎了，就趁早摔碎。有时候，回想起来自己又何尝不是这样。《愿 改 之》&lt;br&gt;
+    
+    </summary>
+    
+      <category term="小说鉴赏" scheme="http://yoursite.com/categories/%E5%B0%8F%E8%AF%B4%E9%89%B4%E8%B5%8F/"/>
+    
+    
+      <category term="美句" scheme="http://yoursite.com/tags/%E7%BE%8E%E5%8F%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>小程序开发资源汇总</title>
@@ -337,7 +487,7 @@
     
     <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/component/navigator.html" target="_blank" rel="external">小程序官网</a>关于Navigator介绍：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-13ad3118fd9f161a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">open-type = navigate</div><div class="line">对应 wx.navigateTo的功能</div><div class="line"></div><div class="line">open-type = redirect</div><div class="line">对应 wx.redirectTo的功能</div><div class="line"></div><div class="line">open-type = switchTab</div><div class="line">对应 wx.switchTab的功能</div><div class="line"></div><div class="line">open-type = reLaunch</div><div class="line">对应 wx.reLaunch的功能</div><div class="line">[1.1.0](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/compatibility.html)</div><div class="line"></div><div class="line">navigateBack</div><div class="line">对应 wx.navigateBack的功能</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">页面跳转时传递</div><div class="line">主页面：</div><div class="line"></div><div class="line">&lt;!-- sample.wxml --&gt;</div><div class="line">&lt;!-- &lt;view class="btn-area"&gt;</div><div class="line">  &lt;navigator url="/page/navigate/navigate?title=newPagePath" hover-class="navigator-hover"&gt;跳转到新页面&lt;/navigator&gt;</div><div class="line">  &lt;navigator url="../../redirect/redirect/redirect?title=重定向页面&amp;ohterParmas=123" open-type="redirect" hover-class="other-navigator-hover"&gt;在当前页打开&lt;/navigator&gt;</div><div class="line">  &lt;navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover"&gt;切换 Tab&lt;/navigator&gt;</div><div class="line">&lt;/view&gt; --&gt;</div><div class="line">这里是带参跳转的，一个参数就用?=title,如果多个参数就是用?=title=”“&amp;ohterParmas=”“。</div><div class="line"></div><div class="line">页面跳转后，onload接受参数</div><div class="line">Page(&#123;</div><div class="line">  data:&#123;</div><div class="line"><span class="comment">//不需要再写user_id。</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">    onLoad(options) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'onLoad'</span>)</div><div class="line">      <span class="built_in">console</span>.log(options.user_id)</div><div class="line">      <span class="keyword">if</span> (options.user_id) &#123;</div><div class="line">        <span class="keyword">this</span>.setData(&#123;</div><div class="line">          user_id: options.user_id</div><div class="line">        &#125;)</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">this</span>.setData(&#123;</div><div class="line">          user_id: <span class="string">'暂无'</span></div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">页面跳转时传递</div><div class="line">主页面：</div><div class="line"></div><div class="line">&lt;!-- sample.wxml --&gt;</div><div class="line">&lt;!-- <span class="xml"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"btn-area"</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">"/page/navigate/navigate?title=newPagePath"</span> <span class="attr">hover-class</span>=<span class="string">"navigator-hover"</span>&gt;</span>跳转到新页面<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">"../../redirect/redirect/redirect?title=重定向页面&amp;ohterParmas=123"</span> <span class="attr">open-type</span>=<span class="string">"redirect"</span> <span class="attr">hover-class</span>=<span class="string">"other-navigator-hover"</span>&gt;</span>在当前页打开<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">"/page/index/index"</span> <span class="attr">open-type</span>=<span class="string">"switchTab"</span> <span class="attr">hover-class</span>=<span class="string">"other-navigator-hover"</span>&gt;</span>切换 Tab<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span> --&gt;</div><div class="line">这里是带参跳转的，一个参数就用?=title,如果多个参数就是用?=title=”“&amp;ohterParmas=”“。</div><div class="line"></div><div class="line">页面跳转后，onload接受参数</div><div class="line">Page(&#123;</div><div class="line">  data:&#123;</div><div class="line"><span class="comment">//不需要再写user_id。</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">    onLoad(options) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'onLoad'</span>)</div><div class="line">      <span class="built_in">console</span>.log(options.user_id)</div><div class="line">      <span class="keyword">if</span> (options.user_id) &#123;</div><div class="line">        <span class="keyword">this</span>.setData(&#123;</div><div class="line">          user_id: options.user_id</div><div class="line">        &#125;)</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">this</span>.setData(&#123;</div><div class="line">          user_id: <span class="string">'暂无'</span></div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -350,369 +500,6 @@
     
     
       <category term="小程序" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>祭祀融资思路</title>
-    <link href="http://yoursite.com/2017/08/18/%E8%9E%8D%E8%B5%84%E5%AD%A6%E4%B9%A0/%E8%9E%8D%E8%B5%84-%E6%80%9D%E8%B7%AF%E5%9B%BE-/"/>
-    <id>http://yoursite.com/2017/08/18/融资学习/融资-思路图-/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>融资的项目：冥界烧纸网络化和现实的相结合</p>
-<p>通过网络化的烧纸，和现实中宗教的大师亲自祈祷完成烧纸的流程。</p>
-<p>网页设计，可以通过网页端进行烧纸的设计。</p>
-<p>网站能实现的功能，登录，查看， 祭祀 ，请愿，留言，烧纸，观看视频，语音。</p>
-<p>1.行业痛点：<br>缺少的 仪式感  和  归属感</p>
-<p>2.如何解决这个痛点：<br>如何解决这两方面的问题。1.o2o的经营模式，采用线上线下相结合。<br>线上祭祀，线下通过工作人员或专业的大师请愿。VR体验馆，大师专业烧纸，传达对亲人的思念。<br>线上：通过送花，祭酒，留言来实现功能。亲人开通祭祀活动后，可以开启访问。还有直播随时可以看到祭祀情况。<br>3.产品的盈利模式。可持续性的服务和前期的祭坛的位置。<br>通过线上服务和线下相结合。</p>
-<p>为自己打造一个留言笔记，生前为自己打造一个温馨的或者悲惨的</p>
-<p>链接推荐：<br><a href="http://www.chinabz.org/bzwh/lltt/4775.html" target="_blank" rel="external">公墓行业的互联网探讨</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;融资的项目：冥界烧纸网络化和现实的相结合&lt;/p&gt;
-&lt;p&gt;通过网络化的烧纸，和现实中宗教的大师亲自祈祷完成烧纸的流程。&lt;/p&gt;
-&lt;p&gt;网页设计，可以通过网页端进行烧纸的设计。&lt;/p&gt;
-&lt;p&gt;网站能实现的功能，登录，查看， 祭祀 ，请愿，留言，烧纸，观看视频，语音。&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-      <category term="网上祭祀" scheme="http://yoursite.com/categories/%E7%BD%91%E4%B8%8A%E7%A5%AD%E7%A5%80/"/>
-    
-    
-      <category term="祭祀" scheme="http://yoursite.com/tags/%E7%A5%AD%E7%A5%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库主键设置为int(11)</title>
-    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E9%94%AE%E8%AE%BE%E7%BD%AE%E4%B8%BAint(11)/"/>
-    <id>http://yoursite.com/2017/08/18/Mysql/数据库主键设置为int(11)/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。</p>
-<p>也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。</p>
-<p>int和bigint的区别 ：int 符号性 -2^32+1 ~ 2^32  -1 符号性 0 - 2^32 大约四十亿条数据，足够一遍公司使用。（4 294 967 296）<br>相比来说，bigint占用的磁盘内存空间较大，会导致过多的无效数据交换，增加额外的io压力，对性能不利</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。&lt;/p&gt;
-&lt;p&gt;也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。&lt;/p&gt;
-&lt;p&gt;int和bigint的区别 ：int 符号
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库建表-考虑</title>
-    <link href="http://yoursite.com/2017/08/18/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8-%E8%80%83%E8%99%91/"/>
-    <id>http://yoursite.com/2017/08/18/Mysql/数据库建表-考虑/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:47:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>性别： 类型：boolean<br>学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255<br>时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，datetime更加显眼，不需要转换。timestamp 需要注意2038年事件（自行百度）。</p>
-<p>手机号码：varchar（20） 不需要进行数据操作，且给未来留点改善空间。（+时区以及其它问题）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;性别： 类型：boolean&lt;br&gt;学历：tinyint  不使用枚举，因为PHP是弱类型语言，用“ 引号”可能会出现找不到的情况。tinyint 0-255&lt;br&gt;时间戳：datetime 或者bigint （13） 性能差不多，bigint性能上更占有优势，dateti
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SEM-SEO-PPC总结</title>
-    <link href="http://yoursite.com/2017/08/18/SEO-SEM/SEM-&amp;-SEO-&amp;-PPC-%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/08/18/SEO-SEM/SEM-&amp;-SEO-&amp;-PPC-总结/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="what：做的目的是什么"><a href="#what：做的目的是什么" class="headerlink" title="what：做的目的是什么"></a>what：做的目的是什么</h2><p>SEM 搜索引擎营销  <b>目的</b>：用于网站推广，增加搜索排行。 常用的有google ，百度，360的sem。<br>SEO 搜索引擎优化  <b>目的</b>：用户网站内部优化，质量好的网站能稳定增长网站排行。优化方向（内容质量、浏览体验、可访问性）<br><a id="more"></a></p>
-<h2 id="why：为什么做"><a href="#why：为什么做" class="headerlink" title="why：为什么做"></a>why：为什么做</h2><p>SEO<br>1、<b>成本低</b>  SEO优化相对于SEM等推广方法来说，是成本非常低的。<br>2、<b>排名持久稳定</b>    一般来说，只要经过正常的SEO优化排名排至首页的网站，排名都会比较持久稳定。<br>3、<b>有效点击</b> SEO不同于SEM，网站排名首页后，不用担心无效点击，不管点击网站的是竞争对手还是潜在的客户，我们都不用承担点击的代价。<br>4、<b>优化上去后无烦恼</b>   我们都知道，企业做竞价费用非常高，但是转化却也没有多少，这是为什么呢？因为有非常多的无效点击，假设一个关键词的费用的3元一次，每天100个无效点击就是300元，这样算下来每个月就白白花掉了9000元，而且没有效果！<br>5、<b>SEO的精准度高</b>     为什么说SEO的精准度高？因为很多时候，做SEO会做非常多的长尾词排名。<br>6、<b>用户体验好</b>  做SEO的网站，一般用户体验比较好，转化高**一个做了SEO的网站与一个专门做竞价的网站来说，用户体验可能会更好！<br>SEM<br>1、<b>时限不稳定</b>  SEM是花钱上排名的类型，你只要关掉了你的计划，排名马上就没了。<br>2、<b>速度快</b> 高效的网络推广方式。<br>3、<b>内容靠前</b> 网民只会浏览前几页的搜索内容，排前面更能让用户了解</p>
-<h2 id="when：什么时候去做"><a href="#when：什么时候去做" class="headerlink" title="when：什么时候去做"></a>when：什么时候去做</h2><p>SEO 开发过程中，做哪些：优化网页质量，网页速度，网站连接的有效性。<br>SEM 开发后期，上线迭代期。  做哪些：竞价排行（ppc），网站联盟。</p>
-<p>##who：谁去做<br>SEO  网站开发人员对网站框架优化，加快网站浏览速度，网站文章撰写者提供高质量的文章，充实网站信息。<br>SEM  第三方网站推广运营商（包含：百度广告推广点击，网站联盟）</p>
-<h2 id="where：从哪里入手"><a href="#where：从哪里入手" class="headerlink" title="where：从哪里入手"></a>where：从哪里入手</h2><h4 id="SEO-bntake"><a href="#SEO-bntake" class="headerlink" title="SEO    bntake"></a>SEO    bntake</h4><p>1、url 长度 不超过255<br>2、在静态页面上使用动态参数，会造成spider多次和重复抓取（php搭建的框架，不可避免的使用动态参数）<br>3、Meta及标题信息，设置keyword，mata，锚点关键词。<br>4、网站结构合理：尽量扁平式结构，辅助导航，面包屑导航的实用。<br>5、内容页结构设置：最新活动，最热文章，网站重点页推荐，相关页设置。<br>6、网站加载速度：服务器响应时间。<br>7、网站是否有fram框架（W3C，Div+CSS，静态网页，目录级别）。<br>8、页面结构简单，清晰。<br>9、图片链接ALT信息，通过ALT让搜索引擎了解该图片信息。<br>10、如果存在flash，flash的描述。<br>11、404页面、301跳转<br>12、网站内容更新。<br>13、适度优质关键词密度。（不可过高，或者太少）<br>14、外链建设  目的：是增加链接到你的网站的其他网站数目。<br>15、建立网站地图SiteMap。</p>
-<h4 id="SEM"><a href="#SEM" class="headerlink" title="SEM"></a>SEM</h4><p><a href="http://wangmeng.baidu.com/" target="_blank" rel="external">竞价排行</a>：一般搜索引擎的最前面或者右侧。被点击，收取推广费。<br>优点：见效快。只要充值，搜索关键词即可展示在页面上。<br>缺点：每次点击价格高，无效点击次数多。人们更信任自然排行下的数据搜索。<br>搜索引擎优化的关键.<br>网站联盟 <a href="http://wangmeng.baidu.com/" target="_blank" rel="external">百度联盟</a>、<a href="http://union.163.com/" target="_blank" rel="external">网易联盟</a>、<a href="http://u.ctrip.com/" target="_blank" rel="external">携程联盟</a></p>
-<h2 id="HOW：怎么做"><a href="#HOW：怎么做" class="headerlink" title="HOW：怎么做"></a>HOW：怎么做</h2><p>SEM  百度推广：6000元起步（5000元储备金，1000元服务费）（设置50000个关键词，关键词可以指定区域，时间等展示，根据不同价钱排行展示在页面上。如果价格高，会排在首页，办理方式需要找到业务人员签订合同办理）<br>SEO 使用工具 。<a href="http://tool.magua12138.com/" target="_blank" rel="external">站长工具集合</a><br>    Excel 最基本常用的；<br>    百度统计，CNZZ统计，google analytics 监控留细分流量 评估效果；<br>    第三方流量监测预估，爱站，5188，<br>    站长之家，百度指数，百度站长平台，360站长平台，搜狗站长平台 </p>
-<p>SEM 竞价排行</p>
-<h2 id="HOW-MUCH：需要耗费什么"><a href="#HOW-MUCH：需要耗费什么" class="headerlink" title="HOW MUCH：需要耗费什么"></a>HOW MUCH：需要耗费什么</h2><p>SEO  大量时间，程序优化，界面优化，功能优化<br>SEM  钱</p>
-<h4 id="上海电信广告弹窗-图片和视频两种投放方式"><a href="#上海电信广告弹窗-图片和视频两种投放方式" class="headerlink" title="上海电信广告弹窗  图片和视频两种投放方式"></a>上海电信广告弹窗  图片和视频两种投放方式</h4><p>网站<a href="http://hong360.cn/fukuanfangshi/" target="_blank" rel="external">北京宏志</a><br>联系人 13641035683    张先生<br>8毛一次点击，合作起步价10000次。<br>网站<a href="http://www.zhitou.com.cn/lianxi" target="_blank" rel="external">鼎盛</a><br>电脑7毛一次点击，手机6毛一次。<br>联系人 13810716678   冯向飞<br>网站<a href="http://ritering.com/" target="_blank" rel="external">睿投</a><br>0.025元1次，5000起充<br>网站<a href="http://www.xinhay.com/?action=contact" target="_blank" rel="external">心海</a> 【价位合适】<br>点击：0.2元/ip<br>弹窗：7元/1000ip<br>展示：4元/1000ip<br>3000起充<br>网站 <a href="http://www.niandai80.com/bmjz/" target="_blank" rel="external">八零传媒</a><br>0.025元1次，5000起充<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">CPC点击(cost pay click)</div><div class="line">*计费形式：*CPC点击形式广告是根据用户访问心海传媒旗下合作媒体的网站时，点击页面上用户所感兴趣的广告商广告条，到达相应的广告页面来计费，相同IP用户24小时内反复点击相同广告商广告条只计费一次。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式可以比较精准的获取对广告主广告内容感兴趣的用户，对宣传效果非常有帮助，一般对于做品牌宣传的广告主非常适用。</div><div class="line"></div><div class="line">*展现形式：*网页内嵌一般是图文，主题、标签云样式展现。</div><div class="line"></div><div class="line">*价格区间：*65元-500元/1000IP点击</div><div class="line"></div><div class="line">*图片格式：*JPG, PNG,GIF, Flash动画</div><div class="line"></div><div class="line">*规格大小：*468x60、728x90、960x90、960x60、640x60、460x60、580x90、760x90、250x250、200x200、336x280、400x300、300x250、360x300、120x270、300x250、250x200等</div><div class="line"></div><div class="line"> CPM弹窗(cost pay mille)</div><div class="line">*计费形式：*CPM弹窗形式广告是根据独立IP用户访问心海传媒旗下合作媒体的网站时，弹出广告商的目标页面来计费，相同IP用户24小时内反复弹出只计费一次，如果弹窗被浏览器拦截，将不会计费。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式对于用户群较大的广告商来说是一种性价比很高的推广形式，在迅速提升了网站访问量的同时，会沉淀下很多用户，对于初创的网站来说无疑是很好的推广选择。</div><div class="line"></div><div class="line">*展现形式：*直接全屏弹出要宣传的页面</div><div class="line"></div><div class="line">*价格区间：*5元-10元/1000IP弹出</div><div class="line"></div><div class="line">*元素格式：*url,iframe(虚拟弹窗)</div><div class="line"></div><div class="line">*规格大小：*自定义尺寸(仅对虚拟弹窗)</div><div class="line"></div><div class="line"> CPV富媒体(cost pay view)</div><div class="line">*计费形式：*CPV广告又称富媒体广告，是根据用户访问心海传媒旗下合作媒体的网站时，网站右下角会出现带关闭按钮的浮动图片或者视频窗口，当广告展示完毕，会根据独立IP展示广告的次数来计费，相同IP用户24小时内反复展示相同广告商广告条只计费一次。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式最大限度的保证了客户广告的曝光量，位置极佳，对于品牌和网站活动宣传有很好的推动作用，性价比极高，适合绝大多数的广告客户。</div><div class="line"></div><div class="line">*展现形式：*网页右下角跟随漂浮图片或视频，对联，横幅左下角等。</div><div class="line"></div><div class="line">*价格区间：*4-10元/1000IP展示</div><div class="line"></div><div class="line">*图片格式：*JPG, PNG,GIF, Flash动画</div><div class="line"></div><div class="line">*规格大小：*468x60、728x90、960x90、960x60、640x60、460x60、580x90、760x90、250x250、200x200、336x280、400x300、300x250、360x300、120x270、300x250、250x200等</div><div class="line"></div><div class="line"> CPA注册(cost pay action)</div><div class="line">*计费形式：*CPA注册形式广告是根据用户访问心海传媒旗下合作媒体的网站时，点击页面上用户所感兴趣的广告商广告条，到达相应的广告页面后并完成相应的注册或者信息提交要求来计费，相同IP用户24小时内反复注册或提交信息只计费一次。</div><div class="line"></div><div class="line">*广告效果：*这种广告形式可以最直接的让广告主获取用户或者想要用户提供的信息，一般适合阶段性的活动或者需要累积注册用户的广告商比较适用。</div><div class="line"></div><div class="line">*展现形式：*网页固定或漂浮广告条以及文字链</div><div class="line"></div><div class="line">*价格区间：*3元-60元/每个有效注册不等。</div><div class="line"></div><div class="line">*图片格式：*JPG, PNG,GIF, Flash动画</div><div class="line"></div><div class="line">*规格大小：*468x60、728x90、960x90、960x60、640x60、460x60、580x90、760x90、250x250、200x200、336x280、400x300、300x250、360x300、120x270、300x250、250x200等</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;what：做的目的是什么&quot;&gt;&lt;a href=&quot;#what：做的目的是什么&quot; class=&quot;headerlink&quot; title=&quot;what：做的目的是什么&quot;&gt;&lt;/a&gt;what：做的目的是什么&lt;/h2&gt;&lt;p&gt;SEM 搜索引擎营销  &lt;b&gt;目的&lt;/b&gt;：用于网站推广，增加搜索排行。 常用的有google ，百度，360的sem。&lt;br&gt;SEO 搜索引擎优化  &lt;b&gt;目的&lt;/b&gt;：用户网站内部优化，质量好的网站能稳定增长网站排行。优化方向（内容质量、浏览体验、可访问性）&lt;br&gt;
-    
-    </summary>
-    
-      <category term="推广" scheme="http://yoursite.com/categories/%E6%8E%A8%E5%B9%BF/"/>
-    
-    
-      <category term="推广" scheme="http://yoursite.com/tags/%E6%8E%A8%E5%B9%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 个人博客搭建 --持续优化</title>
-    <link href="http://yoursite.com/2017/08/18/hexo/hexoblog%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96/"/>
-    <id>http://yoursite.com/2017/08/18/hexo/hexoblog搭建持续优化/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-19T01:14:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。<br><a id="more"></a></p>
-<h1><br>    <center>Hexo 安装<center><br></center></center></h1>
-
-<h2 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h2><p><a href="https://git-scm.com/" target="_blank" rel="external">git下载地址</a></p>
-<h2 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h2><p><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js下载地址</a></p>
-<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方文档</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
-<h1><br>    <center>创建项目及主题安装<center><br></center></center></h1>
-
-<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>具体方法参考官网 <a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="external">建站</a></p>
-<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>主题github地址:  <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd 项目</div><div class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</div><div class="line">修改 根目录的 _config.yml 文件</div><div class="line">    theme: yilia</div></pre></td></tr></table></figure></p>
-<h3 id="其他主题介绍"><a href="#其他主题介绍" class="headerlink" title="其他主题介绍"></a>其他主题介绍</h3><p><a href="https://hexo.io/themes/" target="_blank" rel="external">其他hexo主题</a></p>
-<h1><br>    <center>插件选择安装<center><br></center></center></h1>
-
-<h3 id="更多插件介绍"><a href="#更多插件介绍" class="headerlink" title="更多插件介绍"></a>更多插件介绍</h3><p><a href="https://hexo.io/plugins/" target="_blank" rel="external">更多hexo插件</a></p>
-<h1><br>    <center>持续优化<center><br></center></center></h1>
-
-<h2 id="设置Yilia菜单"><a href="#设置Yilia菜单" class="headerlink" title="设置Yilia菜单"></a>设置Yilia菜单</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">打开 themes/_config.yml</div><div class="line"># Header</div><div class="line"></div><div class="line">menu:</div><div class="line">  主页: /</div><div class="line">  阅读笔记: /tags/阅读笔记/</div><div class="line">  电影观感: /tags/电影观感/</div><div class="line">  专业知识: /tags/专业知识/</div><div class="line">  关于更多: /aboutme</div><div class="line">对文章设置标签tag,从而使点击按钮时。自动筛选出相应文章列表.</div><div class="line">关于更多,可以自定义页面。</div></pre></td></tr></table></figure>
-<h2 id="设置tags"><a href="#设置tags" class="headerlink" title="设置tags"></a>设置tags</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-tag  框架默认已经安装</div></pre></td></tr></table></figure>
-<p>post 文章部分设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tag: </div><div class="line">  - 开发方式</div></pre></td></tr></table></figure></p>
-<h2 id="设置目录"><a href="#设置目录" class="headerlink" title="设置目录"></a>设置目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-tag  框架默认已经安装</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">post 结构</div><div class="line"> </div><div class="line">  title: Hexo 个人博客搭建 --持续优化 </div><div class="line">  data: 2017年8月17日10:00:09</div><div class="line">  tag: </div><div class="line">      - 开发方式</div><div class="line">  toc: true // 是否显示目录</div></pre></td></tr></table></figure>
-<h2 id="RSS-设置"><a href="#RSS-设置" class="headerlink" title="RSS 设置"></a>RSS 设置</h2><p><a href="http://hanhailong.com/2015/10/08/Hexo%E2%80%94%E6%AD%A3%E7%A1%AE%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/" target="_blank" rel="external">正确设置RSS</a></p>
-<h2 id="设置展示更多"><a href="#设置展示更多" class="headerlink" title="设置展示更多"></a>设置展示更多</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--more--&gt;</div></pre></td></tr></table></figure>
-<p>主题设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">themes/yilia/_config.yml</div><div class="line"># 文章太长，截断按钮文字</div><div class="line">excerpt_link: 展开全文</div><div class="line"># 文章卡片右下角常驻链接，不需要请设置为 false</div><div class="line"># show_all_link: &apos;展开全文&apos;</div><div class="line">show_all_link: false</div></pre></td></tr></table></figure></p>
-<h2 id="文章排序"><a href="#文章排序" class="headerlink" title="文章排序"></a>文章排序</h2><p>文章按照更新时间排序: 项目根目录/_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">index_generator:</div><div class="line">  path: &apos;&apos;</div><div class="line">  per_page: 10</div><div class="line">  #order_by: -date</div><div class="line">  order_by: -updated</div></pre></td></tr></table></figure></p>
-<p>参考：</p>
-<h3 id="hexo-generator-index"><a href="#hexo-generator-index" class="headerlink" title="hexo-generator-index"></a>hexo-generator-index</h3><p>插件地址：<a href="https://github.com/hexojs/hexo-generator-index" target="_blank" rel="external">https://github.com/hexojs/hexo-generator-index</a></p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-index --save</div></pre></td></tr></table></figure>
-<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">index_generator:</span></div><div class="line"><span class="attr">  path:</span> <span class="string">''</span></div><div class="line"><span class="attr">  per_page:</span> <span class="number">10</span></div><div class="line"><span class="attr">  order_by:</span> <span class="bullet">-date</span></div></pre></td></tr></table></figure>
-<ul>
-<li><strong>path</strong>: Root path for your blogs index page. (default = ‘’)</li>
-<li><strong>per_page</strong>: Posts displayed per page. (0 = disable pagination)</li>
-<li><strong>order_by</strong>: Posts order. (Order by date descending by default)</li>
-</ul>
-<h2 id="自定义打赏功能"><a href="#自定义打赏功能" class="headerlink" title="自定义打赏功能"></a>自定义打赏功能</h2><p>yilia打赏功能默认是支付宝和微信支付，也可以自定义其他。</p>
-<p>此次定义的是 thanks。仅表示谢谢</p>
-<p>打开主题 themes/yilia/layout/article.ejs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;reward-box&quot;&gt;</div><div class="line">&lt;% if(theme.alipay) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.alipay%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;支付宝&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;% if(theme.thanks) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.thanks%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;谢谢你哦&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;% if(theme.weixin) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.weixin%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;微信&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ionic 常用技巧及命令行</title>
-    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/ionic%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/08/18/ionic-使用指南/ionic简单使用/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:44:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>版本：ionic  1.7.16<br>cordova 6.3.0<br>node 4.2.0</p>
-<p>sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16</p>
-<p><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a></p>
-<p>sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0</p>
-<a id="more"></a>
-<p>sudo npm install jshint –save-dev<br>sudo npm install async –save-dev</p>
-<p>sudo npm install uglify-js<br>  sudo npm install clean-css<br>  sudo npm install ng-annotate</p>
-<p>sudo npm install mv –save-dev </p>
-<p>sudo npm install cordova-uglify –save-dev </p>
-<p>npm update<br>npm rebuild</p>
-<p>sudo npm update -g cordova@latest<br>npm install grunt-contrib-imagemin –save-dev </p>
-<p>sudo  gulp templatecache<br>sudo gulp ng_annotate<br>sudo gulp useref</p>
-<p> cd myApp$ ionic platform add ios$ ionic build ios$ ionic emulate ios</p>
-<p>最后： ionic serve</p>
-<p>npm install -g cordova@6.1.1npm install -g ionic@1.7.16</p>
-<p>卸载ionic和cordova：<br>npm uninstall -g ionic cordova</p>
-<p>cordova platform add ios@4.0.1  添加4.0.1设备<br>cordova plugin add cordova-plugin-screen-orientation<br> 禁止屏幕旋转<br>adb logcat 查看运行的模拟器日志<br>android adv  android 模拟器<br>android  打开android 管理工具<br>chown 组权限管理<br>ionic emulate android  模拟器运行<br>ionic platform add android  添加设备<br>ionic platform remove ios 删除设备<br>chown -R -v liujian:staff styles.css   修改组权限<br>chown -R -v liujian:staff side-menu-app-google-map/<br>ll  == ls -l 查看文件权限<br> vi ~/.bash_profile 修改环境变量<br>source ~/.bash_profile 生效</p>
-<p>history  查看历史记录</p>
-<p>ionic plugin list 查看安装哪些插件</p>
-<p>git status  清除状态<br>git branch -a   查看分支情况<br>git branch newbranchname  创建新分支<br>git checkout newbranch  切换到新分支<br>git pull origin develop  拉取远程分支到本地分支，并合并分支<br>git push origin develop   推送本次提交的数据到远程分支<br>git merge develop   合并本地develop分支<br>git fetch 更新远程分支变换，但不合并。<br>git add . 提交的文件的信息添加到索引<br>git commit   提交当前工作空间的修改内容<br> touch .gitignore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"># phpstorm project files</div><div class="line">.idea</div><div class="line"></div><div class="line"># netbeans project files</div><div class="line">nbproject</div><div class="line"></div><div class="line"># zend studio for eclipse project files</div><div class="line">.buildpath</div><div class="line">.project</div><div class="line">.settings</div><div class="line"></div><div class="line"># windows thumbnail cache</div><div class="line">Thumbs.db</div><div class="line"></div><div class="line"># composer vendor dir</div><div class="line">/vendor</div><div class="line"></div><div class="line"># composer itself is not needed</div><div class="line">composer.phar</div><div class="line"></div><div class="line"># Mac DS_Store Files</div><div class="line">.DS_Store</div><div class="line"></div><div class="line"># phpunit itself is not needed</div><div class="line">phpunit.phar</div><div class="line"># local phpunit config</div><div class="line">/phpunit.xml</div><div class="line">/runtime</div><div class="line">/config</div><div class="line">/web/assets</div><div class="line">/web/uploads/</div></pre></td></tr></table></figure></p>
-<p> set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=../gradle-2.2.1-all.zip  设置android 下载的问题。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;版本：ionic  1.7.16&lt;br&gt;cordova 6.3.0&lt;br&gt;node 4.2.0&lt;/p&gt;
-&lt;p&gt;sudo npm i -g ionic@1.7.16   替换版本为ionic@1.7.16&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.runoob.com/ionic/ionic-install.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.runoob.com/ionic/ionic-install.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;sudo npm install gulp gulp-util bower gulp-concat  gulp-sass  gulp-minify-css gulp-rename shelljs gulp-angular-templatecache@1.9.1 gulp-ng-annotate gulp-useref@2.1.0&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
-    
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ionic 常用插件</title>
-    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/Bntake____DriverApp-ionic-%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2017/08/18/ionic-使用指南/Bntake____DriverApp-ionic-扩展插件的安装/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:43:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装的插件，安装的方法：cordova plugin add  </p>
-<p>sudo cordova plugin add <a href="https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration" target="_blank" rel="external">https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration</a><br>bower install –save signature_pad  // 用于手写签名<br>bower install –save intl-tel-input  //用于拨打电话<br>cordova plugin add cordova-plugin-media// 用于play mp3 music</p>
-<a id="more"></a>
-<p>参考资料<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">bower install --save signature_pad  // 用于手写签名</div><div class="line">https://devdactic.com/signature-drawpad-ionic/</div><div class="line">https://github.com/szimek/signature_pad</div><div class="line">[https://content-security-policy.com/](https://content-security-policy.com/)</div><div class="line">ionic drawpad sign</div><div class="line"></div><div class="line"></div><div class="line">bower install intl-tel-input  用于ionic app电话。</div><div class="line">http://jackocnr.com/intl-tel-input.html</div><div class="line">https://github.com/jackocnr/intl-tel-input</div><div class="line">http://jackocnr.com/node_modules/intl-tel-input/examples/gen/is-valid-number.html</div><div class="line"></div><div class="line">cordova plugin add https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration   // 命令，用于扫描二维码的插件</div><div class="line">https://itsmebhavin.wordpress.com/2015/02/18/ionicangular-implement-a-barcode-scanner-using-ionic-framework/</div><div class="line">http://ngcordova.com/docs/plugins/barcodeScanner/</div><div class="line">qrcode display:  // ok!!! </div><div class="line">https://github.com/janantala/angular-qr</div><div class="line">http://janantala.github.io/angular-qr/demo/</div><div class="line">----</div><div class="line">http://ionicframework.com/docs/v2/platform/barcode/</div><div class="line">//ionic plugin add phonegap-plugin-barcodescanner</div><div class="line">https://github.com/phonegap/phonegap-plugin-barcodescanner/issues/137</div><div class="line">https://github.com/kbytesys/phonegap-plugin-barcodescanner/tree/android-zxing-integration</div><div class="line">cordova plugin add https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration</div><div class="line">//ok!!   要求用户自己安装第三方的 条码扫描器。然后用它来扫描得到结果使用！！</div><div class="line">-----</div><div class="line">https://github.com/lissdy/ionic_bar_code</div><div class="line">——question.</div><div class="line">识别部分有可能不稳定。</div><div class="line">那么，每份上面，再加一串数字。在整个串中。。</div><div class="line">可以供人输入。然后得到与数字相对应的二维码数据。再进行关联。</div><div class="line"></div><div class="line">新clone的项目需要 reset操作</div><div class="line">https://forum.ionicframework.com/t/how-to-install-all-my-codrova-plugins-listed-in-package-json/21328</div><div class="line">ionic state reset</div><div class="line"></div><div class="line">// 用于play mp3 music</div><div class="line">cordova plugin add cordova-plugin-media</div><div class="line">https://github.com/apache/cordova-plugin-media</div><div class="line">find the path:</div><div class="line">http://www.raymondcamden.com/2014/06/23/Cordova-Media-API-Example/</div><div class="line"></div><div class="line"></div><div class="line">// 用于日期选择</div><div class="line">http://codepen.io/katemihalikova/full/dYvjzP/</div><div class="line">https://github.com/katemihalikova/ion-datetime-picker</div><div class="line">bower install ion-datetime-picker --save</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">常用命令</div><div class="line">sudo ionic emulate android</div><div class="line">sudo ionic emulate ios</div><div class="line">sudo  ionic build  android </div><div class="line">sudo cordova platform add ios@4.0.0</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">driver app 安装的插件有哪些</div><div class="line">cordova-plugin-compat 1.1.0 &quot;Compat&quot;</div><div class="line">cordova-plugin-console 1.0.5 &quot;Console&quot;</div><div class="line">cordova-plugin-device 1.1.4 &quot;Device&quot;</div><div class="line">cordova-plugin-screen-orientation 1.4.2 &quot;Screen Orientation&quot;</div><div class="line">cordova-plugin-splashscreen 4.0.1 &quot;Splashscreen&quot;</div><div class="line">cordova-plugin-statusbar 2.2.1 &quot;StatusBar&quot;</div><div class="line">cordova-plugin-whitelist 1.3.1 &quot;Whitelist&quot;</div><div class="line">ionic-plugin-keyboard 2.2.1 &quot;Keyboard&quot;</div><div class="line">phonegap-plugin-barcodescanner 4.1.0 &quot;BarcodeScanner&quot;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;安装的插件，安装的方法：cordova plugin add  &lt;/p&gt;
-&lt;p&gt;sudo cordova plugin add &lt;a href=&quot;https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/kbytesys/phonegap-plugin-barcodescanner.git#android-zxing-integration&lt;/a&gt;&lt;br&gt;bower install –save signature_pad  // 用于手写签名&lt;br&gt;bower install –save intl-tel-input  //用于拨打电话&lt;br&gt;cordova plugin add cordova-plugin-media// 用于play mp3 music&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
-    
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ionic 百度定位插件</title>
-    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/ionic-cordova-plugin-geolocation-android%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%EF%BC%8C%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%AE%9A%E4%BD%8D%E6%8F%92%E4%BB%B6-/"/>
-    <id>http://yoursite.com/2017/08/18/ionic-使用指南/ionic-cordova-plugin-geolocation-android无法使用，使用百度定位插件-/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:43:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU”</p>
-<p><a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">升级版，更新了watch功能</a></p>
-<p>以下是操作步骤<br>官方提供的有个叫cordova-plugin-geolocation的插件，在<a href="http://lib.csdn.net/base/ios" target="_blank" rel="external">iOS</a>上可以直接使用，但是在天朝因为某些网络原因不能给正常使用，或者是国内安卓环境混乱，不再支持cordova-plugin-geolocation 插件功能。 于是在github上找到合适的资源插件，以供使用。</p>
-<ol>
-<li>申请百度的秘钥 <a href="http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key" target="_blank" rel="external">百度秘钥申请地址</a></li>
-<li>安装插件：<br>ionic plugin add <a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">https://github.com/hewz/cordova-baidu-location</a> –variable API_KEY=”API_KEY”<a id="more"></a></li>
-<li>使用方法<br>在需要获取位置信息的地方直接使用以下代码:<br>baidu_location.getCurrentPosition(function ( message ) { console.debug(message); }, function ( message ) { console.debug(message); });<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function successCallback(data)&#123;</div><div class="line">              console.log(&quot;lontitude:&quot; + data.longitude);</div><div class="line">	          console.log(&quot;latitude:&quot; + data.latitude);</div><div class="line">				// alert(data.longitude);</div><div class="line"></div><div class="line">				//更新操作</div><div class="line">				// console.log(&quot;time:&quot; + data.time);</div><div class="line">				console.log(&quot;describe:&quot; + data.describe);</div><div class="line">				// alert(&quot;successCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				function failedCallback(data)&#123;</div><div class="line">                 //  失败的提示操作</div><div class="line">				alert(&quot;failedCallback&quot;);</div><div class="line">				&#125;;</div><div class="line">				baidu_location.watchPosition(successCallback, failedCallback,10);</div><div class="line">//第一个函数是成功的回调，第二个是失败的回调。</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>4.注意事项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">a).此插件只能在手机端测试，我的模拟器也无法定位。web更不可能，会出现baidu_location 没有被定义的问题。</div><div class="line">b).要先ionic remove platform android</div><div class="line">然后再执行ionic platform add android命令，不然插件不能正确的执行，事实上，每一次修改插件的内容，都要执行上面的两个操作，才能使插件正常运行.</div><div class="line">c).如果你使用sdk23版本进行打包的，你就要注意了，在最新的android6.0上面，和以前的权限授权机制已经不同，如果使用23版本的进行打包。</div><div class="line">d).在android6.0以上的手机上运行不会给出获取地理位置权限的弹窗，务必改为23以下的版本进行编译获取成功的话，默认是只给出经纬度信息的，如果要获取定位的地址的具体信息，要在插件里面的BaiduLocation.java</div><div class="line">文件把 option.setIsNeedAddress(false);</div><div class="line"> 改为 option.setIsNeedAddress(true);</div><div class="line">e).默认返回的是一个字符串，对于现在json这么流行的情况下，当然是获得json格式的数据比较让人喜欢，这个时候坐着已经替我们封装好了，只需要在BaiduLocation.java</div><div class="line">文件中把 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, sb.toString());</div><div class="line"> 改为 PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, json.toString());，你就可以获得一个json格式的字符串了</div></pre></td></tr></table></figure></p>
-<p>最后<br>上面的内容大多数是在github上找到的，这里只是写上了自己遇到的一些问题，分享出来，这里附上github地址：<a href="https://github.com/liangzhenghui/cordova-qdc-baidu-location" target="_blank" rel="external">GitHub地址</a><br>升级版github地址：<a href="https://github.com/hewz/cordova-baidu-location" target="_blank" rel="external">GitHub地址</a>  </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ionic plugin add &lt;a href=&quot;https://github.com/hewz/cordova-baidu-location&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hewz/cordova-baidu-location&lt;/a&gt; –variable API_KEY=”H7ZRpoaHboqyXtVYHqU6Zd0GNr7OQkWU”&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/hewz/cordova-baidu-location&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;升级版，更新了watch功能&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;以下是操作步骤&lt;br&gt;官方提供的有个叫cordova-plugin-geolocation的插件，在&lt;a href=&quot;http://lib.csdn.net/base/ios&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS&lt;/a&gt;上可以直接使用，但是在天朝因为某些网络原因不能给正常使用，或者是国内安卓环境混乱，不再支持cordova-plugin-geolocation 插件功能。 于是在github上找到合适的资源插件，以供使用。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;申请百度的秘钥 &lt;a href=&quot;http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度秘钥申请地址&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;安装插件：&lt;br&gt;ionic plugin add &lt;a href=&quot;https://github.com/hewz/cordova-baidu-location&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hewz/cordova-baidu-location&lt;/a&gt; –variable API_KEY=”API_KEY”
-    
-    </summary>
-    
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
-    
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【-ionic-】-极光推送-ionic-和php服务器的搭建</title>
-    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E3%80%90-ionic-%E3%80%91-%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81-ionic-%E5%92%8Cphp%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2017/08/18/ionic-使用指南/【-ionic-】-极光推送-ionic-和php服务器的搭建/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:43:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>【官方文档】<a href="https://docs.jiguang.cn/jpush/server/3rd/php_sdk/" target="_blank" rel="external">https://docs.jiguang.cn/jpush/server/3rd/php_sdk/</a><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ionic 客户端</div><div class="line">step1:注册账号，并创建应用</div><div class="line">https://www.jiguang.cn/</div><div class="line"></div><div class="line">step2:应用添加插件</div><div class="line">cordova plugin add jpush-phonegap-plugin --variable APP_KEY=******</div><div class="line"></div><div class="line">step3：app.js 添加代码</div><div class="line">  //启动极光推送服务</div><div class="line">  window.plugins.jPushPlugin.init();</div><div class="line"></div><div class="line">step4：设置别名，标签。</div><div class="line">  window.plugins.jPushPlugin.setAlias(&quot;12345678&quot;); 任意地方均可。</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">php 后台服务器端</div><div class="line">step1：安装插件</div><div class="line">composer require jpush/jpush</div><div class="line"></div><div class="line">vendor/jpush 有相关demo</div><div class="line"></div><div class="line">step2:</div><div class="line">功能实现：</div><div class="line"></div><div class="line">创建控制器：</div><div class="line">    public function actionPushonedriver()&#123;</div><div class="line">      // 简单推送示例</div><div class="line">      // 这只是使用样例,不应该直接用于实际生产环境中 !!</div><div class="line">      $rel = JpushFunction::sendJpushOneDriver();</div><div class="line">      return $rel;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">创建model：</div><div class="line">  public function sendJpushOneDriver()&#123;</div><div class="line">      $app_key = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;appKey&apos;];</div><div class="line">      $master_secret = Yii::$app-&gt;params[&apos;jpush&apos;][&apos;masterSecret&apos;];</div><div class="line">      $client = new JPush($app_key, $master_secret);</div><div class="line">      $push_payload = $client-&gt;push()</div><div class="line">          -&gt;setPlatform(array(&apos;ios&apos;, &apos;android&apos;));</div><div class="line">          // -&gt;addAllAudience();</div><div class="line">          // -&gt;setAudience(&apos;all&apos;)</div><div class="line">          // -&gt;addAlias(&apos;alias&apos;)</div><div class="line">      try &#123;</div><div class="line">        $push_payload-&gt;addAlias(&apos;12345678&apos;)</div><div class="line">        -&gt;androidNotification(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ))</div><div class="line">        -&gt;message(&apos;分配给你新订单了，请注意派送&apos;, array(</div><div class="line">            &apos;title&apos; =&gt; &apos;新订单分配&apos;,</div><div class="line">            // &apos;builder_id&apos; =&gt; 2,</div><div class="line">            &apos;extras&apos; =&gt; array(</div><div class="line">                &apos;key&apos; =&gt; &apos;neworderdelivery&apos;,</div><div class="line">                &apos;jiguang&apos;</div><div class="line">            ),</div><div class="line">        ));</div><div class="line">          $response = $push_payload-&gt;send();</div><div class="line">          print_r($response);</div><div class="line">      &#125; catch (\JPush\Exceptions\APIConnectionException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125; catch (\JPush\Exceptions\APIRequestException $e) &#123;</div><div class="line">          // try something here</div><div class="line">          print $e;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">方法实现</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;【官方文档】&lt;a href=&quot;https://docs.jiguang.cn/jpush/server/3rd/php_sdk/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.jiguang.cn/jpush/server/3rd/php_sdk/&lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
-    
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ionic 本地通知 环境：mac</title>
-    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E9%80%9A%E7%9F%A5-/"/>
-    <id>http://yoursite.com/2017/08/18/ionic-使用指南/通知-/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:43:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/katzer/cordova-plugin-local-notifications" target="_blank" rel="external">ionic 通知</a></p>
-<p> cordova create myApp org.apache.cordova.myApp myApp<br>    cordova plugin add cordova-plugin-camera –save<br>    cordova platform add android –save<br>    cordova requirements android<br>    cordova build android –verbose<br>    cordova run android<br>    cordova build android –release – –keystore=”..\android.keystore” –storePassword=android –alias=mykey<br>ionic plugin list </p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.创建一个新项目作为测试 。ionic start mynotify tabs</div><div class="line">2.  ionic platform add android </div><div class="line">3.安装 sudo  cordova plugin add  https://github.com/katzer/cordova-plugin-local-notifications.git</div><div class="line">4.bower install ngCordova    安装 ngCordova</div><div class="line">5. index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">6.ionic platform add android </div><div class="line">7.ionic build android</div><div class="line">8.ionic emulate android</div></pre></td></tr></table></figure>
-<p>资料详解：<br><a href="http://devdactic.com/local-notifications-ionic/" target="_blank" rel="external">http://devdactic.com/local-notifications-ionic/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/katzer/cordova-plugin-local-notifications&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ionic 通知&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt; cordova create myApp org.apache.cordova.myApp myApp&lt;br&gt;    cordova plugin add cordova-plugin-camera –save&lt;br&gt;    cordova platform add android –save&lt;br&gt;    cordova requirements android&lt;br&gt;    cordova build android –verbose&lt;br&gt;    cordova run android&lt;br&gt;    cordova build android –release – –keystore=”..\android.keystore” –storePassword=android –alias=mykey&lt;br&gt;ionic plugin list &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
-    
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用接口记录</title>
-    <link href="http://yoursite.com/2017/08/18/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/API-%E8%AE%B0%E5%BD%95--php,ios==-/"/>
-    <id>http://yoursite.com/2017/08/18/个人信息/API-记录--php,ios==-/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>#PHP#<br><a href="https://github.com/Stichoza/google-translate-php" target="_blank" rel="external">https://github.com/Stichoza/google-translate-php</a>   Google 翻译api</p>
-<p><a href="https://github.com/yangxu/google_flight_api" target="_blank" rel="external">https://github.com/yangxu/google_flight_api</a>        Google 航班查询api</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;#PHP#&lt;br&gt;&lt;a href=&quot;https://github.com/Stichoza/google-translate-php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Stichoza/google-tra
-    
-    </summary>
-    
-      <category term="个人信息" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/"/>
-    
-    
-      <category term="接口集合" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E9%9B%86%E5%90%88/"/>
     
   </entry>
   
@@ -757,136 +544,457 @@
   </entry>
   
   <entry>
-    <title>【-ionic-】code-push-热更新。环境：mac</title>
-    <link href="http://yoursite.com/2017/08/18/ionic-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E3%80%90-ionic-%E3%80%91code-push-%E7%83%AD%E6%9B%B4%E6%96%B0%E3%80%82%E7%8E%AF%E5%A2%83%EF%BC%9Amac/"/>
-    <id>http://yoursite.com/2017/08/18/ionic-使用指南/【-ionic-】code-push-热更新。环境：mac/</id>
+    <title>Yii的RestApi的使用方法</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/Yii%E7%9A%84RestApi%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/Yii的RestApi的使用方法/</id>
     <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:43:34.000Z</updated>
+    <updated>2017-08-18T11:45:36.000Z</updated>
     
-    <content type="html"><![CDATA[<p>插件文档的使用<br><a href="http://microsoft.github.io/code-push/docs/getting-started.html" target="_blank" rel="external">http://microsoft.github.io/code-push/docs/getting-started.html</a><br><a href="https://www.npmjs.com/package/cordova-plugin-code-push#installmode" target="_blank" rel="external">https://www.npmjs.com/package/cordova-plugin-code-push#installmode</a><br><a href="https://my.oschina.net/u/783079/blog/674924" target="_blank" rel="external">https://my.oschina.net/u/783079/blog/674924</a><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">step1: 安装</div><div class="line">终端安装code-push-cli</div><div class="line">sudo npm install -g code-push -d</div><div class="line"></div><div class="line">step2：注册 选择github 获取 key，写入到终端</div><div class="line">![Paste_Image.png](http://upload-images.jianshu.io/upload_images/1764965-f827a9523190bcea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line"></div><div class="line">step3:创建新的code-push 应用</div><div class="line">创建android的应用。code-push app add myapp_android</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ FVqEweF8etZPuHTtUZ6p1xVIKOkHNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ o28jGrUvqf2LT81MvXf2FbC_K7SyNkA7m31RM </div><div class="line"></div><div class="line">创建ios的应用。code-push app add myapp_ios</div><div class="line">Successfully added the &quot;myapp_ios&quot; app, along with the following default deployments:</div><div class="line">┌────────────┬───────────────────────────────────────┐</div><div class="line">│ Name       │ Deployment Key                        │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Production │ 0pUQJMvToiqK94DymbNqTt3zDqKtNkA7m31RM │</div><div class="line">├────────────┼───────────────────────────────────────┤</div><div class="line">│ Staging    │ jTr9klk_n8oxthmnRPimUCTFx3PyNkA7m31RM │</div><div class="line"></div><div class="line">step4：安装cordova插件</div><div class="line">如果项目不存在，则ionic start newproject ，并安装cordova。</div><div class="line">bower install ngCordova    安装 ngCordova</div><div class="line">index.html  添加：</div><div class="line">    &lt;script src=&quot;lib/ngCordova/dist/ng-cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">cordova plugin add cordova-plugin-code-push</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">step5：配置config.xml 文件</div><div class="line">将获取的staging的key替换。</div><div class="line">&lt;platform name=&quot;android&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-ANDROID-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line">&lt;platform name=&quot;ios&quot;&gt;</div><div class="line">    &lt;preference name=&quot;CodePushDeploymentKey&quot; value=&quot;YOUR-IOS-DEPLOYMENT-KEY&quot; /&gt;</div><div class="line">&lt;/platform&gt;</div><div class="line"></div><div class="line">&lt;access origin=&quot;*&quot; /&gt; </div><div class="line"></div><div class="line">step6： ionic plugin list  查看插件的安装列表 是否包含（code-push 和Whitelist）</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">step7:app.js 修改代码</div><div class="line"></div><div class="line">$ionicPlatform.ready(function () &#123;</div><div class="line">//其他代码</div><div class="line">window.codePush.sync(</div><div class="line">  function (syncStatus) &#123;</div><div class="line">    switch (syncStatus) &#123;</div><div class="line">      // Result (final) statuses</div><div class="line">      case SyncStatus.UP_TO_DATE:</div><div class="line">        navigator.notification.alert(&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        (&quot;软件又有所更新啦。&quot;, null, &apos;提示&apos;, &apos;棒棒的&apos;);</div><div class="line">        break;</div><div class="line">      case SyncStatus.ERROR:</div><div class="line">        navigator.notification.alert(&quot;软件自动更新失败，退出应用后，重新打开。&quot;, null, &apos;提示&apos;, &apos;我知道了&apos;);</div><div class="line">        break;     </div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    updateDialog: false, installMode: InstallMode.IMMEDIATE  </div><div class="line">  &#125;</div><div class="line">);</div><div class="line">//其他代码</div><div class="line">&#125;)</div><div class="line"></div><div class="line">step8: 代码添加到code-push</div><div class="line">sudo code-push release-cordova myapp_android android</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<p><a href="http://www.poluoluo.com/jzxy/201607/490527.html" target="_blank" rel="external">其他资料</a><br>1.设置美化路由和规则：<br>2.设置 .htaccess文件在app\web.htaccess文件中：<br>3.利用gii生成 MVC（Model，View，Controller）<br>4.访问api方式<br><a id="more"></a><br>1.设置美化路由和规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&apos;urlManager&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">    &apos;showScriptName&apos; =&gt; false,</div><div class="line">    &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">    &apos;enableStrictParsing&apos; =&gt; true,// 美化url</div><div class="line">    &apos;rules&apos; =&gt; [</div><div class="line">       &apos;&apos; =&gt; &apos;site/index&apos;,</div><div class="line">        // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;user&apos;],</div><div class="line">       [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;player&apos;],</div><div class="line">       [</div><div class="line">           &apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;,</div><div class="line">           &apos;controller&apos; =&gt; &apos;api&apos;,</div><div class="line">           &apos;pluralize&apos; =&gt; false,</div><div class="line">           &apos;extraPatterns&apos; =&gt; [</div><div class="line">           &apos;GET bntaketranslateapi&apos; =&gt; &apos;bntaketranslateapi&apos;, // 自定义GET 方式 actionBntaketranslateapi</div><div class="line">            ],</div><div class="line">       ],</div><div class="line">    //    [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;v1/goods&apos;, &apos;pluralize&apos; =&gt; false],</div><div class="line"></div><div class="line">    ],</div><div class="line">],</div></pre></td></tr></table></figure></p>
+<p>2.设置 .htaccess文件在app\web\.htaccess文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Options +FollowSymLinks</div><div class="line">IndexIgnore /</div><div class="line">RewriteEngine on</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line">RewriteRule . index.php</div></pre></td></tr></table></figure></p>
+<p>3.利用gii生成 MVC（Model，View，Controller）<br>ApiController.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace app\controllers;</div><div class="line"></div><div class="line">use yii\rest\ActiveController;</div><div class="line">use app\models\BntakeAPi;</div><div class="line"></div><div class="line">class ApiController extends ActiveController</div><div class="line">&#123;</div><div class="line">    public $modelClass = &apos;app\models\Api&apos;;</div><div class="line">    public $serializer = [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\rest\Serializer&apos;,</div><div class="line">        &apos;collectionEnvelope&apos; =&gt; &apos;items&apos;,</div><div class="line">    ];</div><div class="line">    public function checkAccess()</div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public function actionBntaketranslateapi($msg = &quot;hello world&quot;,$source=&quot;en&quot;,$target=&quot;zh&quot; )&#123;</div><div class="line">        $bntakeAPiTranslate = new BntakeAPi();</div><div class="line">        $model =  $bntakeAPiTranslate-&gt;TranslateENtoZH($msg,$source,$target);</div><div class="line">        return $model;</div><div class="line">        // return $this-&gt;render(&apos;/staff/testView&apos;,[</div><div class="line">        //     &apos;model&apos; =&gt;$model,</div><div class="line">        // ]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>自定义Model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">        &lt;?php</div><div class="line"></div><div class="line">namespace app\models;</div><div class="line"></div><div class="line">use Yii;</div><div class="line">use yii\base\Model;</div><div class="line">use Stichoza\GoogleTranslate\TranslateClient;      // other language Translate</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * BntakeAPi is the model  for test BntakeAPi</div><div class="line"> */</div><div class="line">class BntakeAPi extends Model</div><div class="line">&#123;</div><div class="line"></div><div class="line">    public function TranslateOtherlang()&#123;</div><div class="line">        $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">        $ka_translate = $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">        $ka_translateArray = $tr-&gt;translate([&apos;I can dance&apos;,&apos;I fine&apos;,&apos;And you&apos;]);</div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8887&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        Yii::trace($ka_translate, &apos;lucky&apos;);</div><div class="line">        Yii::trace($ka_translateArray,&apos;lucky&apos;);</div><div class="line">        $rawResult = $tr-&gt;getResponse(&apos;I can dance&apos;);</div><div class="line">        Yii::trace($tr-&gt;translate([&apos;I can dance&apos;, &apos;I like trains&apos;, &apos;Double rainbow&apos;]),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        Yii::trace( TranslateClient::translate(&apos;en&apos;, &apos;zh&apos;, &apos;Hello again&apos;),&apos;lucky&apos;);</div><div class="line"></div><div class="line">        // $tr-&gt;setHttpOption([&apos;proxy&apos; =&gt; &apos;tcp://localhost:8888&apos;])-&gt;translate(&apos;Hello&apos;);</div><div class="line">        // echo</div><div class="line">        return $tr-&gt;translate(&apos;Hello World!&apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // public function TranslateENtoZH($msg)&#123;</div><div class="line">    //     $tr = new TranslateClient(&apos;en&apos;, &apos;zh&apos;);</div><div class="line">    //     $ka_translate = $tr-&gt;translate($msg);</div><div class="line">    //     return $ka_translate;</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">    public function TranslateENtoZH($msg,$source,$target)&#123;</div><div class="line">        $apiKey = &apos;AIzaSyCtNLSiRhTn-TA0hk1XwKEC5XBFxNMFVwU&apos;;</div><div class="line">        $text = $msg;</div><div class="line">        $url = &apos;https://www.googleapis.com/language/translate/v2?key=&apos; . $apiKey . &apos;&amp;q=&apos; . rawurlencode($text) . &apos;&amp;source=&apos; . $source . &apos;&amp;target=&apos; . $target;</div><div class="line"></div><div class="line">        $handle = curl_init($url);</div><div class="line">        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);</div><div class="line">        $response = curl_exec($handle);</div><div class="line">        $responseDecoded = json_decode($response, true);</div><div class="line">        $responseCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);      //Here we fetch the HTTP response code</div><div class="line">        curl_close($handle);</div><div class="line"></div><div class="line">        if($responseCode != 200) &#123;</div><div class="line">            // echo &apos;Fetching translation failed! Server response code:&apos; . $responseCode . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Error description: &apos; . $responseDecoded[&apos;error&apos;][&apos;errors&apos;][0][&apos;message&apos;];</div><div class="line">            return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            // echo &apos;Source: &apos; . $text . &apos;&lt;br&gt;&apos;;</div><div class="line">            // echo &apos;Translation: &apos; . $responseDecoded[&apos;data&apos;][&apos;translations&apos;][0][&apos;translatedText&apos;];</div><div class="line">             return $responseDecoded;</div><div class="line">        &#125;</div><div class="line">         Yii::trace($responseDecoded,&apos;lucky&apos;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.访问api方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8887/api/bntaketranslateapi?msg=How are you. I am fine&amp;source=en&amp;target=zh</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;插件文档的使用&lt;br&gt;&lt;a href=&quot;http://microsoft.github.io/code-push/docs/getting-started.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://microsoft.github.io/code-push/docs/getting-started.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.npmjs.com/package/cordova-plugin-code-push#installmode&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.npmjs.com/package/cordova-plugin-code-push#installmode&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://my.oschina.net/u/783079/blog/674924&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://my.oschina.net/u/783079/blog/674924&lt;/a&gt;&lt;br&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.poluoluo.com/jzxy/201607/490527.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;其他资料&lt;/a&gt;&lt;br&gt;1.设置美化路由和规则：&lt;br&gt;2.设置 .htaccess文件在app\web.htaccess文件中：&lt;br&gt;3.利用gii生成 MVC（Model，View，Controller）&lt;br&gt;4.访问api方式&lt;br&gt;
     
     </summary>
     
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
     
     
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
   </entry>
   
   <entry>
-    <title>甜言密语，说给自己听</title>
-    <link href="http://yoursite.com/2017/08/18/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/%C3%97%C3%97%C3%97%EF%BC%88%E6%94%B6%E4%BF%A1%E4%BA%BA%E7%9A%84%E7%AE%80%E4%B9%A6id%EF%BC%89%EF%BC%81%E6%88%91%E5%9C%A8%E6%83%85%E4%BA%BA%E8%8A%82%E7%AD%89%E4%BD%A0%E5%9B%9E%E4%BF%A1/"/>
-    <id>http://yoursite.com/2017/08/18/个人信息/×××（收信人的简书id）！我在情人节等你回信/</id>
+    <title>CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/CentOS%E4%B8%8B%E7%9A%84PHP-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-VMware-+-CentOS-+-PHP5-4-+%EF%BD%81%EF%BD%90%EF%BD%81%EF%BD%83%EF%BD%88/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ/</id>
     <published>2017-08-17T18:17:44.000Z</published>
     <updated>2017-08-17T18:17:44.000Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>此间，我只有想你才能写出最好的诗。与你分分离离已达四次有余，我不知道如何再去爱你，也不知道怎么才能忘却。
-有你的时光，总是快乐的。肉肉的手心，微暖的笑脸，和甜蜜的话。你从不会主动撩我，也时而对我爱理不理。也许太早熟的你早已不会去伪装甜蜜，也许我不应该再记录这件事，因为过去虽甜，缺不应常常品味。。
-我常想，如果我每一次坚持到最后，而不是因为我们没有共同的言语，因为你繁忙时，不会回复我的话，不是因为我们见面时的尴尬。不是因为我小心的维护着可怜的自尊心。那么我们可能还继续深恋着彼此。。
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;此间，我只有想你才能写出最好的诗。与你分分离离已达四次有余，我不知道如何再去爱你，也不知道怎么才能忘却。
-有你的时光，总是快乐的。肉肉的手心，微暖的笑脸，和甜蜜的话。你从不会主动撩我，也时而对我爱理不理。也许太早熟的你早已不会去伪装甜蜜，也许我不应该再记录这
-    
-    </summary>
-    
-      <category term="个人信息" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/"/>
-    
-    
-      <category term="日记" scheme="http://yoursite.com/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软考中级设计师指南</title>
-    <link href="http://yoursite.com/2017/08/18/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/%E8%BD%AF%E8%80%83%E4%B8%AD%E7%BA%A7-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88-%E5%87%86%E5%A4%87%E6%8C%87%E5%8D%97/"/>
-    <id>http://yoursite.com/2017/08/18/个人信息/软考中级-软件设计师-准备指南/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-17T18:17:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>可以直接考中级，高级需要资质。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　[报名时间：此为四川时间，不一定准确。我省上半年考试的报名时间统一定于2017年2月15日至3月15日;下半年考试的报名时间统一定于2017年8月1日至8月31日](http://www.exam8.com/computer/spks/baoming/)</div><div class="line">2017年软考考试时间预计为：上半年2017年5月20日，下半年2017年11月11日。</div><div class="line">       (1)高级资格：信息系统项目管理师、系统分析师(原系统分析员)、系统构架设计师;</div><div class="line">       (2)中级资格：软件设计师(原高级程序员)、网络工程师、信息系统监理师、电子商务设计师、软件评测师、多媒体应用设计师、数据库系统工程师、嵌入式系统设计师、计算机辅助设计师、信息系统管理工程师、信息技术支持工程师;</div><div class="line">       (3)初级资格：程序员(原初级程序员、程序员)、网络管理员、信息处理技术员、电子商务技术员、多媒体应用制作技术员、信息系统运行管理员</div></pre></td></tr></table></figure></p>
-<p><a href="http://www.educity.cn/tiku/g7.html" target="_blank" rel="external">题库</a></p>
-<p><a href="http://search.dangdang.com/?key=%C8%ED%BC%FE%C9%E8%BC%C6%CA%A6&amp;act=input" target="_blank" rel="external">软件设计书</a></p>
-<p><a href="http://www.educity.cn/shipin/v3582.html" target="_blank" rel="external">软件设计师的资料详解</a></p>
+    <content type="html"><![CDATA[<p>１.下载ＶＭＷａｒｅ　　点击地址链接：<a href="http://pan.baidu.com/s/1nvrns5j" target="_blank" rel="external">http://pan.baidu.com/s/1nvrns5j</a> 密码：uyzz（版本包含 9 或11或者12）</p>
+<p>##在CentOS 7.2 环境下安装<br>2.<a href="http://www.centoscn.com/CentosSoft/iso/2016/0601/7341.html" target="_blank" rel="external">CentOS 系统 7.2 地址下载</a> </p>
+<p>3.<a href="http://jingyan.baidu.com/article/3d69c5518e82e3f0cf02d7ea.html" target="_blank" rel="external">LAMP环境的快速搭建推荐链接：</a><br><a id="more"></a></p>
+<p>##在CentOS 6.5环境下安装</p>
+<p>###（1）启动Apache 出现的问题<br>1.出现问题：连不上网络 。链接可看下<a href="http://www.ytyzx.net/index.php/如何设置CentOS_7获取动态及静态IP地址?nsukey=rLl%2BBgTkiFbxTEWvTdpSnNsFWcwo70qdo0voAEzu83em%2FztpvvYWy8T%2Bzn7E3yy0Sy6giNGqk2g3Ia4hiXWb%2Fg%3D%3D" target="_blank" rel="external">设置CentOS_7的网络</a><br>或者修改vi /etc/sysconfig/network-scripts/ifcfg-（自己的网卡）设置BOOTPROTO=static为静态</p>
+<p>2.网络不通。 测试：ping www.baidu.com 发现网络不通。<br>查看是否有网卡，如果没有。则需要打开<br><img src="http://upload-images.jianshu.io/upload_images/1764965-31e7e341520986d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br>   vi /etc/sysconfig/network-scripts/ifcfg-enoxxxxxx。<br>更改这部分<br>ONBoot = yes<br>Service network restart 重新启动服务</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-370466d60266065a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>3.远程web浏览器无法打开页面<br>测试centos 是否打开apache   curl localhost<br>修改防火墙端口号：<br>查看当前配置：iptables -L<br>防火墙配置文件：<br>vi /etc/sysconfig/iptables<br>开放80端口：<br>iptables -A INPUT -p tcp -s 0/0 –dport 8180 -j ACCEPT<br>重启服务：<br>/etc/rc.d/init.d/iptables restart<br>启动和停止服务分别用start、stop<br>chkconfig –level 2345 iptables off<br>service iptables stop不推荐关闭防火墙<br>1) 重启后生效</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-2c779ceff70a57d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>（2）启动mysql 和配置相关命令<br>出现错误：<strong>mysqladmin: connect to server at ‘localhost’ failed       error: ‘Access denied for user ‘root’@’localhost’ (using password: YES)’</strong><br>原因 mysql登录错误</p>
+<p>解决办法</p>
+<p>composer update 失败 ：之前要 执行composer global require ”fxp/composer-asset-plugin：1.<em>”<br>或者 php composer.phar global require “fxp/composer-asset-plugin：1.</em>”<br>然后 composer update</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;可以直接考中级，高级需要资质。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;
+      &lt;p&gt;１.下载ＶＭＷａｒｅ　　点击地址链接：&lt;a href=&quot;http://pan.baidu.com/s/1nvrns5j&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1nvrns5j&lt;/a&gt; 密码：uyzz（版本包含 9 或11或者12）&lt;/p&gt;
+&lt;p&gt;##在CentOS 7.2 环境下安装&lt;br&gt;2.&lt;a href=&quot;http://www.centoscn.com/CentosSoft/iso/2016/0601/7341.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CentOS 系统 7.2 地址下载&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;3.&lt;a href=&quot;http://jingyan.baidu.com/article/3d69c5518e82e3f0cf02d7ea.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LAMP环境的快速搭建推荐链接：&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
-      <category term="个人信息" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/"/>
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="fighting" scheme="http://yoursite.com/tags/fighting/"/>
-    
-      <category term="自学" scheme="http://yoursite.com/tags/%E8%87%AA%E5%AD%A6/"/>
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
   </entry>
   
   <entry>
-    <title>Mac下Android-Studio中获取SHA1和MD5-</title>
-    <link href="http://yoursite.com/2017/08/18/%E5%AE%89%E5%8D%93/-Mac%E4%B8%8BAndroid-Studio%E4%B8%AD%E8%8E%B7%E5%8F%96SHA1%E5%92%8CMD5-/"/>
-    <id>http://yoursite.com/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/</id>
+    <title>composer-安装</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/composer-%E5%AE%89%E8%A3%85-%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/composer-安装-失败/</id>
     <published>2017-08-17T18:17:44.000Z</published>
     <updated>2017-08-17T18:17:44.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/jackymvc/article/details/50222503" target="_blank" rel="external">http://blog.csdn.net/jackymvc/article/details/50222503</a></p>
-<p>打开Android Studio中的Terminal，也可以直接打开系统的</p>
-<p>获取debug.keystore的SHA1和MD5</p>
-<p>keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
-<p>获取其他keystore的，如正式签名文件的</p>
-<p>keytool -list -v -keystore ~/User/你的用户名/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
-<p>需要把路径和密码改成相应的就可以了</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/jackymvc/article/details/50222503&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/jackymvc/article/det
-    
-    </summary>
-    
-    
-      <category term="安卓" scheme="http://yoursite.com/tags/%E5%AE%89%E5%8D%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓环境配置</title>
-    <link href="http://yoursite.com/2017/08/18/%E5%AE%89%E5%8D%93/android/"/>
-    <id>http://yoursite.com/2017/08/18/安卓/android/</id>
-    <published>2017-08-17T18:17:44.000Z</published>
-    <updated>2017-08-18T11:49:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前记"><a href="#前记" class="headerlink" title="前记:"></a>前记:</h2><p>   在寒假空闲之余，本来打算自学安卓的开发，就看了百度云中的学习资料…计算机视频文件夹中的安卓开发。<br>   首先是安卓环境的搭建<br>   需要三个部分1.java的环境搭建<br>             2.开发ide:android studio<br>             3.android  sdk虚拟机</p>
+    <content type="html"><![CDATA[<p>composer global require “fxp/composer-asset-plugin:~1.0.2”<br>composer install –ignore-platform-reqs<br>出现问题：<br>        “yii2mod/yii2-braintree”: “^1.0”,<br>        “yii2mod/yii2-enum”: “~1.4”,</p>
+<h3 id="强制合并"><a href="#强制合并" class="headerlink" title="强制合并"></a>强制合并</h3><p>git fetch –all<br>git reset –hard origin/master</p>
 <a id="more"></a>
-<p>这三个步骤都不是很难，可是由于google被大陆禁止，导致下载好sdk.却无法更新安卓虚拟机系统。。</p>
-<p>忙了一下午，使用了离线压缩包可是没成功。又使用了翻墙软件。可能使用的是免费版的，也没有链接上所需要的内容。</p>
-<p>最好的方法还是改hosts文件的方法，更新速度较快。<br>Windows在C:\WINDOWS\system32\drivers\etc目录下<br>Linux用户打开/etc/hosts文件。<br>打开文件后添加以下内容。</p>
-<h3 id="Google主页"><a href="#Google主页" class="headerlink" title="Google主页"></a>Google主页</h3><p>203.208.46.146 www.google.com<br>这行是为了方便打开Android开发官网 现在好像不翻墙也可以打开<br>74.125.113.121 developer.android.com</p>
-<h3 id="更新的内容从以下地址下载"><a href="#更新的内容从以下地址下载" class="headerlink" title="更新的内容从以下地址下载"></a>更新的内容从以下地址下载</h3><p>203.208.46.146 dl.google.com<br>203.208.46.146 dl-ssl.google.com</p>
+<h3 id="设置中国镜像"><a href="#设置中国镜像" class="headerlink" title="设置中国镜像"></a>设置中国镜像</h3><p><a href="https://pkg.phpcomposer.com/" target="_blank" rel="external">中国镜像</a><br>配合 composer的config设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">step1.通过 composer config -l -g 命令可以列出 composer 的全局配置信息，在这些信息中查找 [home] 配置项就是 composer 的主目录。然后vim config.json  修改配置。</div><div class="line">&#123;</div><div class="line">    &quot;config&quot;: &#123;</div><div class="line">    &#125;,</div><div class="line">    &quot;repositories&quot;: [</div><div class="line">        &#123;&quot;type&quot;: &quot;composer&quot;, &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;&#125;,</div><div class="line">        &#123;&quot;packagist&quot;: false&#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>step2.修改yii项目或者 laravel 项目的composer.json 文件 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">（老式写法）</div><div class="line">   &quot;repositories&quot;: [</div><div class="line">         &#123;&quot;type&quot;: &quot;composer&quot;, </div><div class="line">           &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;&#125;,</div><div class="line">         &#123;&quot;packagist&quot;: false&#125;</div><div class="line">     ],</div><div class="line">或者这样</div><div class="line">&quot;repositories&quot;: &#123;</div><div class="line">    &quot;packagist&quot;: &#123;</div><div class="line">        &quot;type&quot;: &quot;composer&quot;,</div><div class="line">        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>{<br>    “config”: {},<br>    “repositories”: {<br>        “packagist”: {<br>            “type”: “composer”,<br>            “url”: “<a href="https://packagist.phpcomposer.com" target="_blank" rel="external">https://packagist.phpcomposer.com</a>“<br>        }<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">file_put_contents(/Users/liujian/.composer/cache/repo/https---packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied</div><div class="line">https://packagist.phpcomposer.com could not be fully loaded, package information was loaded from the local cache and may be out of date</div><div class="line">file_put_contents(/Users/liujian/.composer/cache/repo/https---packagist.phpcomposer.com/provider-doctrine$lexer.json): failed to open stream: Permission denied</div><div class="line">https://packagist.phpcomposer.com could not be fully loaded, package information was loaded from the local cache and may be out of date</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记:&quot;&gt;&lt;/a&gt;前记:&lt;/h2&gt;&lt;p&gt;   在寒假空闲之余，本来打算自学安卓的开发，就看了百度云中的学习资料…计算机视频文件夹中的安卓开发。&lt;br&gt;   首先是安卓环境的搭建&lt;br&gt;   需要三个部分1.java的环境搭建&lt;br&gt;             2.开发ide:android studio&lt;br&gt;             3.android  sdk虚拟机&lt;/p&gt;
+      &lt;p&gt;composer global require “fxp/composer-asset-plugin:~1.0.2”&lt;br&gt;composer install –ignore-platform-reqs&lt;br&gt;出现问题：&lt;br&gt;        “yii2mod/yii2-braintree”: “^1.0”,&lt;br&gt;        “yii2mod/yii2-enum”: “~1.4”,&lt;/p&gt;
+&lt;h3 id=&quot;强制合并&quot;&gt;&lt;a href=&quot;#强制合并&quot; class=&quot;headerlink&quot; title=&quot;强制合并&quot;&gt;&lt;/a&gt;强制合并&lt;/h3&gt;&lt;p&gt;git fetch –all&lt;br&gt;git reset –hard origin/master&lt;/p&gt;
     
     </summary>
     
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="安卓" scheme="http://yoursite.com/tags/%E5%AE%89%E5%8D%93/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git-commit-的规范化</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/git-commit-%E7%9A%84%E8%A7%84%E8%8C%83%E5%8C%96/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/git-commit-的规范化/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="external">资料来源1 commit 的使用规范介绍</a><br><a href="http://i.she.vc/yuanchuang/199824.html" target="_blank" rel="external">资料来源2 commitzen 的安装指南</a></p>
+<h3 id="commit介绍"><a href="#commit介绍" class="headerlink" title="commit介绍"></a>commit介绍</h3><p>我们在每次提交代码时，都需要编写Commit Message，否则是不允许提交的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;first commit with userInfo service&quot;</div></pre></td></tr></table></figure></p>
+<p>编写Commit Message需要遵循一定的范式，内容应该清晰明了，指明本次提交的目的，便于日后追踪问题。commitizen就是这么样一款工具,他用来规范化我们的commit消息。<br><a id="more"></a></p>
+<h3 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1.安装commitizen sudo npm install -g commitizen</div><div class="line">配置cd到.git所在目录</div><div class="line">2.commitizen init cz-conventional-changelog --save --save-exact</div><div class="line">3.使用用git cz命令来取代git commit</div><div class="line"></div><div class="line">异常情况 有可能提示你缺少[package.json]的下载地址</div><div class="line">配置第二个项目当我们配置第二个项目的时候我们只需要进入到对应的.git文件夹下，</div><div class="line">输入如下的命令commitizen init cz-conventional-changelog --force我们就可以使用git cz命令了</div></pre></td></tr></table></figure>
+<h3 id="commitzen-详解"><a href="#commitzen-详解" class="headerlink" title="commitzen 详解"></a>commitzen 详解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">commitizen详解 Message 格式一般来说，</div><div class="line">Commit Message 应包含三部分内容：Header、Body、Footer</div><div class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt; </div><div class="line">// 空一行</div><div class="line"> &lt;body&gt; </div><div class="line">// 空一行 </div><div class="line">&lt;footer&gt; </div><div class="line"></div><div class="line">HeaderHeader部分应只包含一行，包括三个字段：type、scope和subject</div><div class="line">type ：用于说明Commit的类型，包含一下7种类型</div><div class="line">  feat：新功能（feature） </div><div class="line">  fix：修补bug </div><div class="line">  docs：文档（documentation） </div><div class="line">  style： 格式（不影响代码运行的变动） </div><div class="line">  refactor：重构（即不是新增功能，也不是修改bug的代码变动） </div><div class="line">  test：增加测试 </div><div class="line">  chore：构建过程或辅助工具的变动 </div><div class="line">  </div><div class="line">scope scope用于说明本次Commit所影响的范围，比如controller、user或者 README，视项目的不同而不同。</div><div class="line"></div><div class="line"> subject：是本次Commit目的的简短描述，一般不要超过50个字符</div><div class="line">以动词开头，使用第一人称现在时，比如change，而不是changed或changes </div><div class="line">第一个字母小写 结尾不加句号（.） </div><div class="line"></div><div class="line">  BodyBody是对本地提交的一个详细描述，下面是一个示例</div><div class="line">More detailed explanatory text, if necessary. Wrap it to about 72 characters or so. Further paragraphs come after blank lines. - Bullet points are okay, too - Use a hanging indent </div><div class="line"></div><div class="line">  FooterFooter只用于两种情况</div><div class="line">**不兼容改动**如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。</div><div class="line">**关闭Issue**如果当前Commit是针对某个Issue的提交，那么久可以在Footer中关闭这个Issue：Closes</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;资料来源1 commit 的使用规范介绍&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://i.she.vc/yuanchuang/199824.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;资料来源2 commitzen 的安装指南&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;commit介绍&quot;&gt;&lt;a href=&quot;#commit介绍&quot; class=&quot;headerlink&quot; title=&quot;commit介绍&quot;&gt;&lt;/a&gt;commit介绍&lt;/h3&gt;&lt;p&gt;我们在每次提交代码时，都需要编写Commit Message，否则是不允许提交的。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git commit -m &amp;quot;first commit with userInfo service&amp;quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;编写Commit Message需要遵循一定的范式，内容应该清晰明了，指明本次提交的目的，便于日后追踪问题。commitizen就是这么样一款工具,他用来规范化我们的commit消息。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP 基础知识汇总</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/php-基础知识汇总/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>基础题: </p>
+<h4 id="1-表单中-get与post提交方法的区别"><a href="#1-表单中-get与post提交方法的区别" class="headerlink" title="1.表单中 get与post提交方法的区别?"></a>1.表单中 get与post提交方法的区别?</h4><p> 答:get是发送请求HTTP协议通过url参数传递进行接收,而post是实体数据,可以通过表单提交大量信息.<br>get和post是不同的请求方式。get请求是明文传递，通过url进行参数的传递。post是数据块传递，不在url上面显示传递的参数。get请求传递的参数字节有限制，字节长度小于url的字节长度，而post请求传递可传递的数据较大。<br>get请求是幂等操作，即同一个url请求返回的是同样的结果，get请求只是为了查找数据，而非修改参数，post请求大多数情况是为了修改数据，虽然两者都可以进行增删改查的操作。<br>post请求相对比于get更安全，因为get请求是明文url传递，在浏览器缓存中url是可以被看到的。而post请求的参数是随着urlencode编码而传递的，所以较为安全。<br>相比于http请求，https请求的更为安全。<br><a id="more"></a></p>
+<h4 id="2-Http和Https协议的区别？"><a href="#2-Http和Https协议的区别？" class="headerlink" title="2.Http和Https协议的区别？"></a>2.Http和Https协议的区别？</h4><p>答：https协议需要到ca申请证书，一般免费证书很少，需要交费。<br>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。<br>http和https使用的是完全不同的连接方式用的端口也不一样,前者是80,后者是443。<br>http的连接很简单,是无状态的。<br>HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议 要比http协议安全</p>
+<h4 id="3-session与cookie的区别"><a href="#3-session与cookie的区别" class="headerlink" title="3.session与cookie的区别?"></a>3.session与cookie的区别?</h4><p> 答：<br>session:储存用户访问的全局唯一变量,存储在服务器上的php指定的目录中的（session_dir）的位置进行的存放<br> cookie:用来存储连续訪問一个页面时所使用，是存储在客户端，对于Cookie来说是存储在用户WIN的Temp目录中的。      两者都可通过时间来设置时间长短。<br>session 用于服务器端存储，cookie适用于客户端信息存储。<br>cookie 和session 的区别：<br>cookie数据存放在客户的浏览器上，session数据放在服务器上。<br>cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session。<br>session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用COOKIE。<br>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。<br>所以个人建议：<br>   将登陆信息等重要信息存放为SESSION<br>   其他信息如果需要保留，可以放在COOKIE中</p>
+<h4 id="4-数据库中的事务是什么"><a href="#4-数据库中的事务是什么" class="headerlink" title="4.数据库中的事务是什么?"></a>4.数据库中的事务是什么?</h4><p> 答:事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，   事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;基础题: &lt;/p&gt;
+&lt;h4 id=&quot;1-表单中-get与post提交方法的区别&quot;&gt;&lt;a href=&quot;#1-表单中-get与post提交方法的区别&quot; class=&quot;headerlink&quot; title=&quot;1.表单中 get与post提交方法的区别?&quot;&gt;&lt;/a&gt;1.表单中 get与post提交方法的区别?&lt;/h4&gt;&lt;p&gt; 答:get是发送请求HTTP协议通过url参数传递进行接收,而post是实体数据,可以通过表单提交大量信息.&lt;br&gt;get和post是不同的请求方式。get请求是明文传递，通过url进行参数的传递。post是数据块传递，不在url上面显示传递的参数。get请求传递的参数字节有限制，字节长度小于url的字节长度，而post请求传递可传递的数据较大。&lt;br&gt;get请求是幂等操作，即同一个url请求返回的是同样的结果，get请求只是为了查找数据，而非修改参数，post请求大多数情况是为了修改数据，虽然两者都可以进行增删改查的操作。&lt;br&gt;post请求相对比于get更安全，因为get请求是明文url传递，在浏览器缓存中url是可以被看到的。而post请求的参数是随着urlencode编码而传递的，所以较为安全。&lt;br&gt;相比于http请求，https请求的更为安全。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WAMP XAMPP PHPStudy比较</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/phpStudy-%E5%92%8CXAmpp%EF%BC%8CWAMP/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；<br>XAMPP：许多人通过他们自己的经验认识到安装 Apache 服务器是件不容易的事儿。如果您想添加 MySQL、PHP 和 Perl，那就更难了。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。<br>PHPstudy：能够随意版本却换。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；&lt;br&gt;XAMPP：许多人通过他们自己的经验
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php开发：Twilio-插件在Yii2中的使用</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E5%BC%80%E5%8F%91%EF%BC%9ATwilio-%E6%8F%92%E4%BB%B6%E5%9C%A8Yii2%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/php开发：Twilio-插件在Yii2中的使用/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:45:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4>妈的智障，妈的智障，妈的智障。远程不了公司电脑了，只好本机重新搭建一下环境了</h4>
+
+<p>系统环境：<br>win7<br>命令行操作：<br>composer 管理工具：<br>基于Yii2框架：<br>git 命令：<br>php 环境：xampp 或者 phpstudy：<br><a id="more"></a><br>（步骤1） <a href="https://getcomposer.org/download/" target="_blank" rel="external">安装composer 管理工具：</a><br>记得顺便安装插件 composer global require “fxp/composer-asset-plugin:*”  应该是文件传输插件</p>
+<p>(步骤2)<a href="https://git-scm.com/book/zh/v1/起步-安装-Git" target="_blank" rel="external">安装git管理工具</a></p>
+<p>(步骤3)创建新的yii2框架。<br>composer create-project –prefer-dist yiisoft/yii2-app-basic Twilioproject</p>
+<p>composer update</p>
+<p>最后安装插件<br>注意：过程中需要github的<a href="https://github.com/settings/tokens" target="_blank" rel="external">token:点进去寻找tokens</a></p>
+<p>(步骤4) 添加插件到yii2框架中<br>进入yii2项目目录<br>composer require –prefer-dist filipajdacic/yii2-twilio “*”</p>
+<p>出现问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Your requirements could not be resolved to an installable set of packages.</div><div class="line"></div><div class="line">  Problem 1</div><div class="line">    - The requested package filipajdacic/yii2-twilio * is satisfiable by filipaj</div><div class="line">dacic/yii2-twilio[dev-master] but these conflict with your requirements or minim</div><div class="line">um-stability.</div></pre></td></tr></table></figure></p>
+<p>方案：</p>
+<h1 id="打开项目的composer-phar更改-为-“minimum-stability”-“dev”"><a href="#打开项目的composer-phar更改-为-“minimum-stability”-“dev”" class="headerlink" title="打开项目的composer.phar更改 为   “minimum-stability”: “dev”,"></a>打开项目的composer.phar更改 为   “minimum-stability”: “dev”,</h1><p>（win环境下：正式开始twilio在php开发的使用）<br>1.进入：config/web.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&apos;components&apos; =&gt; array(</div><div class="line"> ...</div><div class="line"> &apos;Yii2Twilio&apos; =&gt; array( &apos;class&apos; =&gt; &apos;filipajdacic\yiitwilio\YiiTwilio&apos;,</div><div class="line"> &apos;account_sid&apos; =&gt; &apos;YOUR_TWILIO_ACCOUNT_SID_HERE&apos;, </div><div class="line"> &apos;auth_key&apos; =&gt; &apos;YOUR_TWILIO_AUTH_KEY_HERE&apos;,  ),</div><div class="line"> ...</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>2.在controller/sitecontroller 添加方法<br>该方法用于测试。twilio是否能在yii框架上运行<br>      /**</p>
+<pre><code> * Displays phonesystem page.
+ *
+ * @展示打电话系统页面
+ */
+public function actionPhonesystem()
+{
+   // return $this-&gt;render(&apos;phonesystem&apos;);
+     $twilioService = Yii::$app-&gt;Yii2Twilio-&gt;initTwilio();
+
+try {
+    $message = $twilioService-&gt;account-&gt;messages-&gt;create(array(
+        &quot;From&quot; =&gt; &quot;+12345678901&quot;, // From a valid Twilio number
+        &quot;To&quot; =&gt; &quot;+12345678901&quot;,   // Text this number
+        &quot;Body&quot; =&gt; &quot;Hello from my Yii2 Application!&quot;,
+    ));
+} catch (\Services_Twilio_RestException $e) {
+        echo $e-&gt;getMessage();
+}
+}
+</code></pre><p>出现问题：</p>
+<p>1 找不到service class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">PHP Fatal Error – [yii\base\ErrorException](http://www.yiiframework.com/doc-2.0/yii-base-errorexception.html)</div><div class="line">Class &apos;Services_Twilio&apos; not found</div><div class="line"></div><div class="line">解决办法：</div><div class="line">在vendor-&gt; composer-&gt; autoload_files.php 中 增加：</div><div class="line">&apos;bccfaf6207f67190a92f35585e9a78b2&apos; =&gt; $vendorDir . &apos;/twilio/sdk/Services/Twilio.php&apos;,</div><div class="line">并且替换掉 /twilio/sdk/Service文件。</div><div class="line"></div><div class="line">文件在360云盘：488087887@qq.com</div><div class="line">https://yunpan.cn/cMbcIphrUH97I （提取码：1f21）</div></pre></td></tr></table></figure></p>
+<p>2.SSL 证书安全<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Services_Twilio_HttpException</div><div class="line">The OpenSSL extension is required but not currently enabled. For more information, see </div><div class="line">http://php.net/manual/en/book.openssl.php</div><div class="line"></div><div class="line">解决办法：</div><div class="line">php文件的php.ini 去掉；</div><div class="line">extension=php_openssl.dll</div><div class="line"></div><div class="line"></div><div class="line">然后：http://stackoverflow.com/questions/29153819/twilio-php-ssl-certificate-self-signed-certificate-in-certificate-chain</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4&gt;妈的智障，妈的智障，妈的智障。远程不了公司电脑了，只好本机重新搭建一下环境了&lt;/h4&gt;
+
+&lt;p&gt;系统环境：&lt;br&gt;win7&lt;br&gt;命令行操作：&lt;br&gt;composer 管理工具：&lt;br&gt;基于Yii2框架：&lt;br&gt;git 命令：&lt;br&gt;php 环境：xampp 或者 phpstudy：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php【discuz-本地测试安装】</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E3%80%90discuz-%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E3%80%91/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/php【discuz-本地测试安装】/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-安装教程链接"><a href="#1-安装教程链接" class="headerlink" title="1.安装教程链接"></a>1.<a href="http://www.discuz.net/thread-3456887-1-1.html" target="_blank" rel="external">安装教程链接</a></h3><a id="more"></a>
+<h3 id="2-注意事项："><a href="#2-注意事项：" class="headerlink" title="2.注意事项："></a>2.注意事项：</h3><p>1）。需要本地拥有 php 工具，mysql 工具。最好 直接安装xampp或者phpstudy 工具箱。<br>2）。如果 找不到文件夹。需要设置 localhost 为 127.0.0.1</p>
+<h3 id="3-安装插件"><a href="#3-安装插件" class="headerlink" title="3.安装插件"></a>3.安装插件</h3><p>需要绑定域名和qq号，输入密码才可以安装。（本人设置密码:qwe123）</p>
+<h3 id="4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。"><a href="#4-后台登录：-直接账号登录，admin-123456-会提示用户是管理员登录。" class="headerlink" title="4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。"></a>4.后台登录： 直接账号登录，admin 123456 会提示用户是管理员登录。</h3><p>前台登录：<a href="http://192.168.0.104:8888/forum.php" target="_blank" rel="external">http://192.168.0.104:8888/forum.php</a></p>
+<h3 id="5-查看数据库字典：http-localhost-phpmyadmin"><a href="#5-查看数据库字典：http-localhost-phpmyadmin" class="headerlink" title="5.查看数据库字典：http://localhost/phpmyadmin/"></a>5.查看数据库字典：<a href="http://localhost/phpmyadmin/" target="_blank" rel="external">http://localhost/phpmyadmin/</a></h3><p>找到数据表，点击结构-》查看数据字典</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-990765ee1adc2466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><a href="http://www.discuz.net/forum.php" target="_blank" rel="external">更多资讯参考官网论坛</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-安装教程链接&quot;&gt;&lt;a href=&quot;#1-安装教程链接&quot; class=&quot;headerlink&quot; title=&quot;1.安装教程链接&quot;&gt;&lt;/a&gt;1.&lt;a href=&quot;http://www.discuz.net/thread-3456887-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装教程链接&lt;/a&gt;&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php 单元测试</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/php的单元测试/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>常用测试工具<br>codeception 和 phpunit<br>codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行</p>
+<a id="more"></a>
+<p>第1步 - 安装 Codeception 框架。运行下面的代码。<br>使用 composer 命令<br>composer global require “codeception/codeception”<br>composer global require “codeception/specify”<br>composer global require “codeception/verify”<br>步骤2 - 运行如下<br>ccomposer global status<br>输出“Changed current directory to <directory>”如下图所示：<br>Changed current directory to C:/Users/luky/AppData/Roaming/Composer<br>No local changes</directory></p>
+<p>添加到环境变量：应该加上’C:/Users/luky/AppData/Roaming/Composer/vendor/bin ‘ 到 PATH 环境变量。在本示例中，运行下面的代码 -<br>export PATH = $PATH:~/.composer/vendor/bin<br>注：windows系统可右键”我的电脑”=&gt;”高级系统设置”=&gt;”环境变量”来添加。</p>
+<p>linux下codecept安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">**codecept: command not found</div><div class="line">on Ubuntu then you should follow these steps:**</div><div class="line">sudo composer global require &quot;codeception/codeception=2.1.*&quot; &quot;codeception/specify=*&quot; &quot;codeception/verify=*&quot;</div><div class="line"></div><div class="line">and then run this command:</div><div class="line">sudo ln -s ~/.composer/vendor/bin/codecept /usr/local/bin/codecept</div><div class="line"></div><div class="line">其他~</div><div class="line">Socodecept build</div><div class="line">andcodecept run</div><div class="line">will work.</div><div class="line">**If you are using Windows then run this command:** </div><div class="line">composer global require &quot;codeception/codeception=2.1.*&quot; &quot;codeception/specify=*&quot; &quot;codeception/verify=*&quot;</div><div class="line"></div><div class="line">Add this line into your path:</div><div class="line">~\AppData\Roaming\Composer\vendor\bin</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">问题：如何将远程服务器的数据库导入到本地</div><div class="line">步骤一：从远程服务器下载数据库</div><div class="line">注：D:\Program Files\MySQL\MySQL Server 5.0\bin&gt;为你安装的MYSQL安装目录,\bin为mysqldump管理工具所有在的目录;</div><div class="line">mysqldump -h[hosname] -u[user_name] -p[password] --default-character-set=[char_set_name] [db_name] &gt; [save_path]</div><div class="line">eg：mysqldump -h119.12.12.11 -umysqluser -pmysqlpwd --default-character-set=utf8 dbname --skip-lock-tables&gt; d:\sqlname.sql</div><div class="line">步骤二：通过phpmyadmin或者其他数据库管理工具导入即可</div><div class="line">或者命令行导入</div><div class="line">http://jingyan.baidu.com/article/cbf0e500d15c762eab289362.html</div><div class="line"></div><div class="line">==</div><div class="line"></div><div class="line">指令：</div><div class="line">codecept bootstrap</div><div class="line">codecept build</div><div class="line">codecept run</div></pre></td></tr></table></figure>
+<p>步骤3 - 开始测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">1 用户测试模块</div><div class="line">①：测试寻找用户id</div><div class="line">过程：</div><div class="line">a.已输入的id</div><div class="line">b.判断id对应的用户名和用户名相同，并返回正确。</div><div class="line">c.不相同，返回错误。</div><div class="line">函数：</div><div class="line">    public function testFindUserById()</div><div class="line">    &#123;</div><div class="line">      //$user = User::findIdentity(1);</div><div class="line">      //print_r($user);</div><div class="line"></div><div class="line">        expect_that($user = User::findIdentity(1));</div><div class="line">        expect($user-&gt;username)-&gt;equals(&apos;aa@cc.cc&apos;);</div><div class="line"></div><div class="line">        expect_not(User::findIdentity(0));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">②：测试寻找用户token</div><div class="line">过程：</div><div class="line">a.已输入的token</div><div class="line">b.判断token对应的用户名和用户名相同，并返回正确。</div><div class="line">c.不相同，或不存在token，返回错误</div><div class="line">函数：</div><div class="line">public function testFindUserByAccessToken()</div><div class="line">    &#123;</div><div class="line">        expect_that($user = User::findIdentityByAccessToken(&apos;asdflawejflwefadsfasdf&apos;));</div><div class="line">        expect($user-&gt;username)-&gt;equals(&apos;aa@cc.cc&apos;);</div><div class="line"></div><div class="line">        expect_not(User::findIdentityByAccessToken(&apos;non-existing&apos;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">③：测试寻找用户用户名</div><div class="line">过程：</div><div class="line">a.判断用户对应的用户名和用户名相同，并返回正确。</div><div class="line">b.不存在，返回错误</div><div class="line">函数：  </div><div class="line">public function testFindUserByUsername()</div><div class="line">    &#123;</div><div class="line">        expect_that($user = User::findByUsername(&apos;aa@cc.cc&apos;));</div><div class="line">        expect_not(User::findByUsername(&apos;not-admin&apos;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">④：测试用户的key是否激活</div><div class="line">过程：</div><div class="line">a.输入用户名和用户的key，判断对应则激活。</div><div class="line">b.判断key和username不对应，则激活失败。</div><div class="line"></div><div class="line"></div><div class="line">c.判断用户的username和密码是否一样，一样返回正确</div><div class="line">d.不一致，返回错误</div><div class="line">函数：</div><div class="line">    /**</div><div class="line">     * @depends testFindUserByUsername</div><div class="line">     */</div><div class="line">    public function testActivationKey($user)</div><div class="line">    &#123;</div><div class="line">        $user = User::findByUsername(&apos;dd&apos;);</div><div class="line">        expect_that($user-&gt;findByActivationKey(&apos;awelvowaslfdf&apos;));</div><div class="line">        expect_not($user-&gt;findByActivationKey(&apos;test102key&apos;));</div><div class="line"></div><div class="line">        expect_that($user-&gt;validatePassword(&apos;abc123&apos;));</div><div class="line">        expect_not($user-&gt;validatePassword(&apos;123456&apos;));</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>1：<br> [Codeception\Exception\ConfigurationException]<br> Configuration file could not be found.<br> Run <code>bootstrap</code> to initialize Codeception.</p>
+<p>原因：无法找到配置文件<br>解决办法：运行codecept bootstrap，初始化</p>
+<p>2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Loading composer repositories with package information</div><div class="line">Updating dependencies (including require-dev)</div><div class="line">Your requirements could not be resolved to an installable set of packages.</div><div class="line"></div><div class="line">  Problem 1</div><div class="line">    - jenssegers/mongodb v3.1.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.0-beta requires mongodb/mongodb ^1.0.0 -&gt; satisfia</div><div class="line">ble by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2,</div><div class="line"> 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.1 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.0.2 requires mongodb/mongodb ^1.0.0 -&gt; satisfiable b</div><div class="line">y mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2, 1.0.</div><div class="line">1, 1.0.2, v1.0.x-dev].</div><div class="line">    - jenssegers/mongodb v3.1.0-alpha requires mongodb/mongodb ^1.0.0 -&gt; satisfi</div><div class="line">able by mongodb/mongodb[1.1.x-dev, 1.0.0, 1.0.0-alpha1, 1.0.0-beta1, 1.0.0-beta2</div><div class="line">, 1.0.1, 1.0.2, v1.0.x-dev].</div><div class="line"></div><div class="line"></div><div class="line">解决办法：</div><div class="line">$ pecl install mongodb</div><div class="line">$ echo &quot;extension=mongodb.so&quot; &gt;&gt; `php --ini | grep &quot;Loaded Configuration&quot; | sed -e &quot;s|.*:\s*||&quot;`</div><div class="line"></div><div class="line">$ composer require &quot;mongodb/mongodb=^1.0.0&quot;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;常用测试工具&lt;br&gt;codeception 和 phpunit&lt;br&gt;codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP常见问题</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/php问题/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:45:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.jb51.net/article/70023.htm" target="_blank" rel="external">FastCGI 进程意外退出造成500错误</a><br><a href="http://www.tuicool.com/articles/6vaqIz" target="_blank" rel="external">Mac 缺少 ImageMagick安装(libpng)</a></p>
+<p><a href="http://www.jb51.net/article/57317.htm" target="_blank" rel="external">Invalid argument supplied for foreach() 强制转换类型</a><br><a href="">is not defined 多数情况是js内部的方法写错了，而非方法名未被定义</a><br><a href="https://segmentfault.com/q/1010000003958979/a-1020000003960387" target="_blank" rel="external">Operation not permitted   &amp;&amp; command not found</a><br>[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]<br><a id="more"></a><br>权限问题：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-05c5abe411a96029.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>原因是：一个文件夹的访问，是有权限的。初始的站点所对应的文件夹，安装的时候已经设置好权限了。<br>现在改了，但权限还没设置，所以被禁止。</p>
+<p>配置文件夹访问权限<br>下面添加该文件夹访问权限：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-d423a6695a376cf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>我们访问一个站点的时候，可以指定要访问的网页，比如：<br><a href="http://www.php34.com/day1/page1.php" target="_blank" rel="external">http://www.php34.com/day1/page1.php</a><br><a href="http://www.php34.com/day1/page2.html" target="_blank" rel="external">http://www.php34.com/day1/page2.html</a><br>也可以不指定，比如：<br><a href="http://www.php34.com" target="_blank" rel="external">http://www.php34.com</a><br><a href="http://www.php34.com/day1/" target="_blank" rel="external">http://www.php34.com/day1/</a><br>则对于后一种情况，apache就可以设定“默认网页”以提供给用户，形式为：<br> （默认配置中）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-ce2faa8fb9cdec83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>此时，对于没有指定要访问明确网页的请求，会按顺序从前往后找这些文件，找到后就“返回”给用户。<br>但是，如果最终都没有找到，此时，Options中的Indexes就发挥作用了：显示该文件夹中的所有文件（和文件夹）<br>我们也可以将DirectoryIndex设置项放在一个单独的站点或单独的文件夹中，则只对该单独的站点或单独的文件夹起作用。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-9633721998e71702.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.jb51.net/article/70023.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FastCGI 进程意外退出造成500错误&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.tuicool.com/articles/6vaqIz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mac 缺少 ImageMagick安装(libpng)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.jb51.net/article/57317.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Invalid argument supplied for foreach() 强制转换类型&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;&quot;&gt;is not defined 多数情况是js内部的方法写错了，而非方法名未被定义&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/q/1010000003958979/a-1020000003960387&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Operation not permitted   &amp;amp;&amp;amp; command not found&lt;/a&gt;&lt;br&gt;[数据库从别的地方导入过来，可能出现情况 视图权限问题，无法打开，解决办法 导出视图，修改视图文件，导入视图]&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【yii2-后台实现】yiiBoot-后台系统的使用经验总结</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90yii2-%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0%E3%80%91yiiBoot-%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/【yii2-后台实现】yiiBoot-后台系统的使用经验总结/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:46:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最初了解yiiBootB是在yii2 论坛和 <a href="https://www.oschina.net/news/80909/2016-oschina-git-top-50" target="_blank" rel="external">年度码云项目排行榜</a><br>1.clone 项目到本地。 git clone <a href="https://git.oschina.net/penngo/chadmin.git" target="_blank" rel="external">https://git.oschina.net/penngo/chadmin.git</a><br>2.导入 doc/db.sql 数据库到本地数据库，进行测试。<br>3.修改common/config/main.php<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">修改host,dbname,username,password 这些设置。</div><div class="line">            &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">            &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,</div><div class="line">            &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">            &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">            &apos;charset&apos; =&gt; &apos;utf8&apos;,</div></pre></td></tr></table></figure></p>
+<p>4.修改美化路由设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根据个人习惯，选择是否美化路由访问方式。</div><div class="line">      &apos;urlManager&apos; =&gt; [</div><div class="line">        &apos;class&apos; =&gt; &apos;yii\web\UrlManager&apos;,</div><div class="line">        &apos;enablePrettyUrl&apos; =&gt; true,</div><div class="line">        &apos;showScriptName&apos; =&gt; false,</div><div class="line">        //&apos;caseSensitive&apos;=&gt;false,</div><div class="line">        &apos;rules&apos; =&gt; [</div><div class="line">          // [&apos;class&apos; =&gt; &apos;yii\rest\UrlRule&apos;, &apos;controller&apos; =&gt; &apos;authapi&apos;],</div><div class="line"></div><div class="line">        ],</div></pre></td></tr></table></figure></p>
+<p>5.添加目录结构。<br><a href="https://git.oschina.net/penngo/chadmin/wikis/tutorial#create_table" target="_blank" rel="external">添加菜单教程</a></p>
+<p>6.分析自身公司所需要的功能实现，和接入。<br>以后，根据个人需求，实现后台系统的迁移。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最初了解yiiBootB是在yii2 论坛和 &lt;a href=&quot;https://www.oschina.net/news/80909/2016-oschina-git-top-50&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;年度码云项目排行榜&lt;/a&gt;&lt;br&gt;1.clone 项目到本地。 git clone &lt;a href=&quot;https://git.oschina.net/penngo/chadmin.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://git.oschina.net/penngo/chadmin.git&lt;/a&gt;&lt;br&gt;2.导入 doc/db.sql 数据库到本地数据库，进行测试。&lt;br&gt;3.修改common/config/main.php&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在yii项目中，连接多数据库进行操作</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E3%80%90Yii-%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E3%80%91%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/【Yii-多数据库连接】配置/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:46:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在yii项目中，连接多数据库进行操作。<br>step1：配置main.php 文件。<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;db&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=127.0.0.1;dbname=bntake-admin&apos;,   //数据库1</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div><div class="line">&apos;db2&apos; =&gt; [</div><div class="line">    &apos;class&apos; =&gt; &apos;yii\db\Connection&apos;,</div><div class="line">    &apos;dsn&apos; =&gt; &apos;mysql:host=localhost;dbname=test&apos;,     //数据库test</div><div class="line">    &apos;username&apos; =&gt; &apos;root&apos;,</div><div class="line">    &apos;password&apos; =&gt; &apos;test&apos;,</div><div class="line">    &apos;charset&apos; =&gt; &apos;utf8&apos;,</div><div class="line">],</div></pre></td></tr></table></figure>
+<p>框架默认是 加载db数据库的，如果想要使用db2数据库的数据。<br>方法一：只需要在现有的model中重写getDb方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public static function getDb()</div><div class="line">&#123;</div><div class="line">  return Yii::$app-&gt;get(&apos;db2&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>方法二：在gii下，进行设置。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-8ef8dfb72caab644.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在yii项目中，连接多数据库进行操作。&lt;br&gt;step1：配置main.php 文件。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP基本资料-了解</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%EF%BC%881%EF%BC%89PHP%E5%9F%BA%E6%9C%AC%E8%B5%84%E6%96%99-%E4%BA%86%E8%A7%A3-/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-17T18:17:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-PHP-介绍"><a href="#1-PHP-介绍" class="headerlink" title="1.PHP 介绍"></a>1.PHP 介绍</h2><p>链接：<a href="http://baike.so.com/doc/7103846-7326839.html" target="_blank" rel="external">PHP 历史百科 </a><br>•缩写：Personal Home Page ==&gt;&gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本<a href="http://baike.so.com/doc/6010-6155.html" target="_blank" rel="external">预处理器</a>“<br>•历史<br>    1995PHP/FI，Rasmus Lorderf，Personal Home Page<br>    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5<br><a id="more"></a></p>
+<h2 id="2-PHP-应用场景"><a href="#2-PHP-应用场景" class="headerlink" title="2.PHP 应用场景"></a>2.PHP 应用场景</h2><p>A). 服务器脚本：ＰＨＰ最主要，最重要的应用场景。<br>具备要求：（１）ＰＨＰ解析器　（２）ｗｅｂ服务器　（３）ｗｅｂ浏览器<br>B). 命令行脚本　不需要任何服务器或者浏览器就可以运行，仅仅需要ＰＨＰ解析器来执行脚本代码。<br>运行环境：<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">Cron</a>  （Unit 或者 Linux）或者　<a href="http://www.cnblogs.com/itech/archive/2011/02/09/1950226.html" target="_blank" rel="external">TASK Schedule</a> （Ｗｉｎｄｏｗ　环境）的日常运行的脚本。<br>脚本也可以处理简单的文本。<br>C). 编写桌面应用程序　能做，但是ＰＨＰ不是开发图形应用程序最好的语言，但如果精通ＰＨＰ，可以通过ＰＨＰ－ＧＴＫ来编写这些程序。ＰＨＰ－ＧＴＫ是ＰＨＰ的扩展，通常发布的ＰＨＰ包中并不包含，需要去网站下载。<br>D).ＰＨＰ扩展库　 例如：mnoGoSearch搜索引擎函数、IRC 网关函数、   多种压缩工具(gzip、bz2)、日历转换、翻译……</p>
+<p><a href="http://www.cnblogs.com/lyyjack/archive/2011/10/22/2221209.html" target="_blank" rel="external">供参考的 php 学习路线</a></p>
+<h2 id="3-PHP运行环境"><a href="#3-PHP运行环境" class="headerlink" title="3.PHP运行环境"></a>3.PHP运行环境</h2><p><img src="http://upload-images.jianshu.io/upload_images/1764965-cd5365f332348b81.png" alt=" "><br>解释：客户通过浏览器或者PC端向服务器（软件Apache）发送请求。服务器开始执行PHP模块代码。并且通过PHP模块代码，获取数据库的数据。从而反馈给Apache想要的数据。最后在反馈给浏览器软件，将信息展示在页面上。。</p>
+<h3 id="安装环境-的选择"><a href="#安装环境-的选择" class="headerlink" title="安装环境 的选择"></a>安装环境 的选择</h3><p>三种方式：通过PHPStudy安装。或者Apache，Mysql，PHP三者分别安装。<br>1.PHPStudy 安装 安装简单，系统已经将环境配置安装好。<br><a href="http://www.phpstudy.net/" target="_blank" rel="external">PHPStudy 安装链接</a></p>
+<p>2.三者分别安装，尽量安装在同一个目录下，便于管理。此方法较为麻烦。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-d6d3344b361b4804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "><br>3.Xampp 安装</p>
+<h2 id="4-安装后检测"><a href="#4-安装后检测" class="headerlink" title="4.安装后检测"></a>4.安装后检测</h2><p>检测：PHP语法是否能运行。<br>//测试php代码可执行<br>$i = 10;<br>$i++;<br>echo “abcd——$i”;</p>
+<p>//显示当前时间（测试时间配置，检测时间是否是当前时间）：<br>echo date(“Y-m-d H:i:s”);</p>
+<p>//连接mysql数据库（测试数据库配置，检测数据库模块是否打开）：<br>$conn = mysql_connect(“localhost”, “root”, “123”);<br>命令行显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-fd9206bfad7f3f65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "></p>
+<p>浏览器显示结果：<br><img src="http://upload-images.jianshu.io/upload_images/1764965-88a507dcf3b7cbe2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "></p>
+<p>##虚拟主机配置<br>端口监听：<br>端口：就是一个数字，目的是让一台电脑（对外只有一个IP）能够对外提供多项服务（多种功能）。<br>行业默认有如下常见的服务和端口对应：<br>web服务： 80<br>ftp服务： 21<br>邮件收取服务：110<br>邮件发送服务：25<br>mysql数据库服务：3306<br>一台电脑中，有6万多个端口，但通常一台服务器，一般只提供几个或10几个服务。<br>apache的端口监听设置，是指设定apache这个软件针对当前服务器的哪些端口提供web服务：<br>即apache是“服务生”，至于“外界”想要当前服务器提供什么服务，由外界提出“申请”（请求）。<br>通常，浏览器提出的都是web请求，但有些请求可能不在apache的服务范围内（端口不符）。<br>端口修改：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-ceb85261992fe08e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "></p>
+<p>// strpos()<br>// 1.strpos()<br>// 定义和用法<br>// strpos() 函数返回字符串在另一个字符串中第一次出现的位置。<br>// 如果没有找到该字符串，则返回 false。<br>// 语法<br>// strpos(string,find,start)<br>// 参数  描述<br>// string  必需。规定被搜索的字符串。<br>// find  必需。规定要查找的字符。<br>// start  可选。规定开始搜索的位置。。<br>在javascriptDOM和BOM之间的区别<br>BOM主要是浏览器对象模型，用来获取浏览器的行为动作，和浏览器的属性。比如浏览器的分辨率浏览器的版本号和浏览器的其他信息。<br>DOM是文档对象模型，用来获取浏览器内部网页document的标签属性input.lable.用来修改和获取文档标签的值。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-PHP-介绍&quot;&gt;&lt;a href=&quot;#1-PHP-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.PHP 介绍&quot;&gt;&lt;/a&gt;1.PHP 介绍&lt;/h2&gt;&lt;p&gt;链接：&lt;a href=&quot;http://baike.so.com/doc/7103846-7326839.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PHP 历史百科 &lt;/a&gt;&lt;br&gt;•缩写：Personal Home Page ==&amp;gt;&amp;gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本&lt;a href=&quot;http://baike.so.com/doc/6010-6155.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;预处理器&lt;/a&gt;“&lt;br&gt;•历史&lt;br&gt;    1995PHP/FI，Rasmus Lorderf，Personal Home Page&lt;br&gt;    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建</title>
+    <link href="http://yoursite.com/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%9C%A8win7%E4%B8%8B%EF%BC%8C%E5%AE%89%E8%A3%85XAMPP%EF%BC%8CComposer%E5%AE%89%E8%A3%85Yii2%E6%A1%86%E6%9E%B6%E6%A1%86%E6%9E%B6%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2017/08/18/PHP成长之路/在win7下，安装XAMPP，Composer安装Yii2框架框架的搭建/</id>
+    <published>2017-08-17T18:17:44.000Z</published>
+    <updated>2017-08-18T11:45:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>MongoDB 3.0.6 Windows 版本的下载： <a href="https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl" target="_blank" rel="external">https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl</a></p>
+<p>下载：<a href="https://getcomposer.org/download/" target="_blank" rel="external">Composer</a><br>eg:</p>
+<p>##What？<br>Composer 是 PHP 的一个依赖管理工具。它允许你申明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 “packages” 和 “libraries”，但它在每个项目的基础上进行管理，在你项目的某个目录中(例如 vendor)进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。<br><a id="more"></a></p>
+<p>##How？<br>选择适合的PHP版本号。我选择的是php5.5<br><img src="http://upload-images.jianshu.io/upload_images/1764965-61b6dc1a8e29975f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>选择代理url时，暂时选择了VPN设置的代理，<br><img src="http://upload-images.jianshu.io/upload_images/1764965-ff286c9b18e90dee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>注意：开启PHP的openssl支持<br>修改D:\phpStudy\php55配置文件php.ini<br>extension=php_openssl.dll  去掉注释；<br><img src="http://upload-images.jianshu.io/upload_images/1764965-372ba2cf63cd35f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>命令行操作Composer</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-74c5b24982dbba44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><a href="http://www.yiiframework.com/download/" target="_blank" rel="external">下载安装YII2框架</a><br><a href="http://www.yiichina.com/tutorial/359" target="_blank" rel="external">无需安装的YII2</a><br>这是安装在phpStudy集成下<br><img src="http://upload-images.jianshu.io/upload_images/1764965-7043badfd3a10f0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>cmd 下打开需要下载的目录</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-c5bd9092cddc1de5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>composer create-project –prefer-dist –stability=dev yiisoft/yii2-app-basic yii_basic</p>
+<p>进入指定目录初始化<br><img src="http://upload-images.jianshu.io/upload_images/1764965-820beb05d9e464f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>init 初始化，并且选择0</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-e6428b519fc7a6ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>测试是否成功：<br>web上打开网址<br><a href="http://localhost/安装目录/yii2-app-advanced-master/frontend/web/" target="_blank" rel="external">http://localhost/安装目录/yii2-app-advanced-master/frontend/web/</a><br>如果显示界面，就成功。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;MongoDB 3.0.6 Windows 版本的下载： &lt;a href=&quot;https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载：&lt;a href=&quot;https://getcomposer.org/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Composer&lt;/a&gt;&lt;br&gt;eg:&lt;/p&gt;
+&lt;p&gt;##What？&lt;br&gt;Composer 是 PHP 的一个依赖管理工具。它允许你申明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 “packages” 和 “libraries”，但它在每个项目的基础上进行管理，在你项目的某个目录中(例如 vendor)进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="专业笔记" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
   </entry>
   
