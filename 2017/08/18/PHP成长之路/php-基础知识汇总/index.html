@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/18/PHP成长之路/php-基础知识汇总/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="基础题:  1.表单中 get与post提交方法的区别? 答:get是发送请求HTTP协议通过url参数传递进行接收,而post是实体数据,可以通过表单提交大量信息.get和post是不同的请求方式。get请求是明文传递，通过url进行参数的传递。post是数据块传递，不在url上面显示传递的参数。get请求传递的参数字节有限制，字节长度小于url的字节长度，而post请求传递可传递的数据较大。g">
-<meta property="og:updated_time" content="2017-08-17T18:17:44.000Z">
+<meta property="og:updated_time" content="2017-10-28T10:06:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP 基础知识汇总">
 <meta name="twitter:description" content="基础题:  1.表单中 get与post提交方法的区别? 答:get是发送请求HTTP协议通过url参数传递进行接收,而post是实体数据,可以通过表单提交大量信息.get和post是不同的请求方式。get请求是明文传递，通过url进行参数的传递。post是数据块传递，不在url上面显示传递的参数。get请求传递的参数字节有限制，字节长度小于url的字节长度，而post请求传递可传递的数据较大。g">
@@ -215,7 +215,20 @@ ga('send', 'pageview');
 <h4 id="2-Http和Https协议的区别？"><a href="#2-Http和Https协议的区别？" class="headerlink" title="2.Http和Https协议的区别？"></a>2.Http和Https协议的区别？</h4><p>答：https协议需要到ca申请证书，一般免费证书很少，需要交费。<br>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。<br>http和https使用的是完全不同的连接方式用的端口也不一样,前者是80,后者是443。<br>http的连接很简单,是无状态的。<br>HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议 要比http协议安全</p>
 <h4 id="3-session与cookie的区别"><a href="#3-session与cookie的区别" class="headerlink" title="3.session与cookie的区别?"></a>3.session与cookie的区别?</h4><p> 答：<br>session:储存用户访问的全局唯一变量,存储在服务器上的php指定的目录中的（session_dir）的位置进行的存放<br> cookie:用来存储连续訪問一个页面时所使用，是存储在客户端，对于Cookie来说是存储在用户WIN的Temp目录中的。      两者都可通过时间来设置时间长短。<br>session 用于服务器端存储，cookie适用于客户端信息存储。<br>cookie 和session 的区别：<br>cookie数据存放在客户的浏览器上，session数据放在服务器上。<br>cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session。<br>session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用COOKIE。<br>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。<br>所以个人建议：<br>   将登陆信息等重要信息存放为SESSION<br>   其他信息如果需要保留，可以放在COOKIE中</p>
 <h4 id="4-数据库中的事务是什么"><a href="#4-数据库中的事务是什么" class="headerlink" title="4.数据库中的事务是什么?"></a>4.数据库中的事务是什么?</h4><p> 答:事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，   事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。</p>
-
+<h4 id="5-编程体系"><a href="#5-编程体系" class="headerlink" title="5.编程体系"></a>5.编程体系</h4><p> 答：b/s 架构 和 c/s 架构<br> B/S 架构 指 Brower 和 Server 主要是一些使用访问的网站和服务器进行交互。<br> 主要语言 html css js 服务器端 java php nodejs<br> C/S 架构 指 Client 和 Server 主要是原生app，嵌入式，电脑软件。<br> 主要语言 Objective-C ，java c#</p>
+<h4 id="6-PHP介绍"><a href="#6-PHP介绍" class="headerlink" title="6.PHP介绍"></a>6.PHP介绍</h4><p> PHP是解释型脚本语言，常用框架 YII2，thinkphp，laravel。语言诞生于1994年，主要用于网站开发。使用的是zend引擎。<br> PHP是跨平台语言，安装环境win，linux，osx（微软，linux，苹果）均可。常用套件xampp，phpstudy。</p>
+<h4 id="7-PHP的常用技术"><a href="#7-PHP的常用技术" class="headerlink" title="7.PHP的常用技术"></a>7.PHP的常用技术</h4><p> PHP如何嵌入到html上？&lt;?php  ?&gt; &lt;?= ?&gt;</p>
+<h4 id="8-如何注释代码？"><a href="#8-如何注释代码？" class="headerlink" title="8.如何注释代码？"></a>8.如何注释代码？</h4><p> 单行注释 // 或者 #<br> 多行注释 /<em>  </em>/</p>
+<h4 id="9-PHP的数据类型"><a href="#9-PHP的数据类型" class="headerlink" title="9.PHP的数据类型"></a>9.PHP的数据类型</h4><p> （integer，String，Double）。命名变量时 $字母或者下划线</p>
+<h4 id="10-引号的作用？"><a href="#10-引号的作用？" class="headerlink" title="10.引号的作用？"></a>10.引号的作用？</h4><p> 单引号转义，表示字符串。双引号，会执行引号里面的代码。反引号执行系统命令</p>
+<h4 id="11-命名规则？"><a href="#11-命名规则？" class="headerlink" title="11.命名规则？"></a>11.命名规则？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">使用驼峰法进行命名，首字母小写。第二个单词首字母大写， </div><div class="line">系统常量 全部大写，并且前后两个__ eg:&apos;__FILE__&apos;</div><div class="line">常量 大写字母</div></pre></td></tr></table></figure>
+<h4 id="12-运算符"><a href="#12-运算符" class="headerlink" title="12.运算符"></a>12.运算符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">算术运算符 + - * / % ++ --</div><div class="line">位运算 &amp; | ~ ^ &gt;&gt; &lt;&lt; </div><div class="line">关系运算符 &gt;  &lt;   &lt;=  &gt;=   != ==</div><div class="line">逻辑运算符 &amp;&amp; || !</div></pre></td></tr></table></figure>
+<h4 id="13-类"><a href="#13-类" class="headerlink" title="13.类"></a>13.类</h4><p>类和面向对象是编程的核心概念。<br>什么是类呢？<br>类是对实体对象的抽象描述。<br>类的三大特性 封装，继承，多态<br>封装：也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。<br>集成：面向对象编程 (OOP) 语言的一个主要功能就是“继承”。继承是指这样一种能力：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。<br>通过继承创建的新类称为“子类”或“派生类”。<br>被继承的类称为“基类”、“父类”或“超类”。<br>继承的过程，就是从一般到特殊的过程。<br>要实现继承，可以通过“继承”（Inheritance）和“组合”（Composition）来实现。<br>在某些 OOP 语言中，一个子类可以继承多个基类。但是一般情况下，一个子类只能有一个基类，要实现多重继承，可以通过多级继承来实现。<br>继承概念的实现方式有三类：实现继承、接口继承和可视继承。<br>Ø         实现继承是指使用基类的属性和方法而无需额外编码的能力；<br>Ø         接口继承是指仅使用属性和方法的名称、但是子类必须提供实现的能力；<br>Ø         可视继承是指子窗体（类）使用基窗体（类）的外观和实现代码的能力。<br>在考虑使用继承时，有一点需要注意，那就是两个类之间的关系应该是“属于”关系。例如，Employee 是一个人，Manager 也是一个人，因此这两个类都可以继承 Person 类。但是 Leg 类却不能继承 Person 类，因为腿并不是一个人。<br>抽象类仅定义将由子类创建的一般属性和方法，创建抽象类时，请使用关键字 Interface 而不是 Class。<br>OO开发范式大致为：划分对象→抽象类→将类组织成为层次化结构(继承和合成) →用类与实例进行设计和实现几个阶段。<br>多态</p>
+<p>多态性（polymorphisn）是允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。简单的说，就是一句话：允许将子类类型的指针赋值给父类类型的指针。<br>实现多态，有二种方式，覆盖，重载。<br>覆盖，是指子类重新定义父类的虚函数的做法。<br>重载，是指允许存在多个同名函数，而这些函数的参数表不同（或许参数个数不同，或许参数类型不同，或许两者都不同）。<br>其实，重载的概念并不属于“面向对象编程”，重载的实现是：编译器根据函数不同的参数表，对同名函数的名称做修饰，然后这些同名函数就成了不同的函数（至少对于编译器来说是这样的）。如，有两个同名函数：function func(p:integer):integer;和function func(p:string):integer;。那么编译器做过修饰后的函数名称可能是这样的：int_func、str_func。对于这两个函数的调用，在编译器间就已经确定了，是静态的（记住：是静态）。也就是说，它们的地址在编译期就绑定了（早绑定），因此，重载和多态无关！真正和多态相关的是“覆盖”。当子类重新定义了父类的虚函数后，父类指针根据赋给它的不同的子类指针，动态（记住：是动态！）的调用属于子类的该函数，这样的函数调用在编译期间是无法确定的（调用的子类的虚函数的地址无法给出）。因此，这样的函数地址是在运行期绑定的（晚绑定）。结论就是：重载只是一种语言特性，与多态无关，与面向对象也无关！引用一句Bruce Eckel的话：“不要犯傻，如果它不是晚绑定，它就不是多态。”<br>那么，多态的作用是什么呢？我们知道，封装可以隐藏实现细节，使得代码模块化；继承可以扩展已存在的代码模块（类）；它们的目的都是为了——代码重用。而多态则是为了实现另一个目的——接口重用！多态的作用，就是为了类在继承和派生的时候，保证使用“家谱”中任一类的实例的某一属性时的正确调用。</p>
+<h4 id="14-public，private，protected区别"><a href="#14-public，private，protected区别" class="headerlink" title="14.public，private，protected区别"></a>14.public，private，protected区别</h4><p> 1、public：public表明该数据成员、成员函数是对所有用户开放的，所有用户都可以直接进行调用<br> 2、private：private表示私有，私有的意思就是除了class自己之外，任何人都不可以直接使用，私有财产神圣不可侵犯嘛，即便是子女，朋友，都不可以使用。<br> 3、protected：protected对于子女、朋友来说，就是public的，可以自由使用，没有任何限制，而对于其他的外部class，protected就变成private。</p>
+<h4 id="15-构造函数-和析构函数"><a href="#15-构造函数-和析构函数" class="headerlink" title="15.构造函数 和析构函数"></a>15.构造函数 和析构函数</h4><p>PHP 5 允行开发者在一个类中定义一个方法作为构造函数。具有构造函数的类会在每次创建新对象时先调用此方法，所以非常适合在使用对象之前做一些初始化工作。<br>Note: 如果子类中定义了构造函数则不会隐式调用其父类的构造函数。要执行父类的构造函数，需要在子类的构造函数中调用 parent::<strong>construct()。如果子类没有定义构造函数则会如同一个普通的类方法一样从父类继承（假如没有被定义为 private 的话）。<br>void </strong>destruct ( void )<br>PHP 5 引入了析构函数的概念，这类似于其它面向对象的语言，如 C++。析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。<br>和构造函数一样，父类的析构函数不会被引擎暗中调用。要执行父类的析构函数，必须在子类的析构函数体中显式调用 parent::__destruct()。此外也和构造函数一样，子类如果自己没有定义析构函数则会继承父类的。<br>析构函数即使在使用 exit() 终止脚本运行时也会被调用。在析构函数中调用 exit() 将会中止其余关闭操作的运行。<br>Note:<br>析构函数在脚本关闭时调用，此时所有的 HTTP 头信息已经发出。脚本关闭时的工作目录有可能和在 SAPI（如 apache）中时不同。<br>Note:<br>试图在析构函数（在脚本终止时被调用）中抛出一个异常会导致致命错误。</p>
+<h4 id="16-php中-this、static、final、const、self-等几个关键字的用法"><a href="#16-php中-this、static、final、const、self-等几个关键字的用法" class="headerlink" title="16.php中$this、static、final、const、self 等几个关键字的用法"></a>16.php中$this、static、final、const、self 等几个关键字的用法</h4><p>引用 <a href="http://www.phpernote.com/php-template-framework/940.html" target="_blank" rel="external">http://www.phpernote.com/php-template-framework/940.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line">$this</div><div class="line"></div><div class="line">$this表示当前实例，在类的内部方法访问未声明为const及static的属性时，使用$this-&gt;value=&apos;phpernote&apos;;的形式。常见用法如：</div><div class="line"></div><div class="line">$this-&gt;属性</div><div class="line"></div><div class="line">$this-&gt;方法</div><div class="line"></div><div class="line">举例如下：</div><div class="line"></div><div class="line">查看代码打印</div><div class="line">&lt;?php</div><div class="line">class MyClass&#123;</div><div class="line">    private $name;</div><div class="line">    public  function __construct($name)&#123;</div><div class="line">        $this-&gt;name=$name;</div><div class="line">    &#125;</div><div class="line">    public function getname()&#123;</div><div class="line">        return $this-&gt;name;</div><div class="line">    &#125;</div><div class="line">    public  function printName()&#123;</div><div class="line">        echo $this-&gt;getname();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">$myclass= new MyClass(&quot;I Like PHP&quot;);</div><div class="line">$myclass-&gt;printName();//输出：I Like PHP</div><div class="line">?&gt;</div><div class="line">在类里面调用当前类的属性和方法有三种方法，分别是self、parent、$this，这三个关键字的区别是：self用来指向当前的类；parent用于指向当前类的父类，可以使用该关键字调用父类的属性和方法；$this用来在类体内调用自身的属性和方法。</div><div class="line"></div><div class="line">static</div><div class="line"></div><div class="line">关键字可以是self（在类内部调用静态成员时所使用）静态成员所在的类名（在类外调用类内部的静态成员时所使用）</div><div class="line"></div><div class="line">声明一个静态变量如下：</div><div class="line"></div><div class="line">static $val=&apos;&apos;;</div><div class="line"></div><div class="line">只存在于函数作用域的变量，函数执行之后变量的值不会丢失，只会初始化一次，初始化静态变量不能使用表达式，不用全局变量代替是因为全局变量会被所有函数访问容易造成维护不宜。</div><div class="line"></div><div class="line">在类中使用static有两种主要用途、定义静态成员和定义静态方法。静态成员只保留一个变量的值，这个值对所有实例都是有效的，如下：</div><div class="line"></div><div class="line">查看代码打印</div><div class="line">&lt;?php</div><div class="line">class MyObject&#123;</div><div class="line">    public static $myStaticVar=0;</div><div class="line">    function myMethod()&#123;</div><div class="line">        self::$myStaticVar+=2;</div><div class="line">        echo self::$myStaticVar;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">$instance1=new MyObject();</div><div class="line">$instance1-&gt;myMethod();</div><div class="line">$instance2=new MyObject();</div><div class="line">$instance2-&gt;myMethod();</div><div class="line">//结果将分别打印2、4</div><div class="line">查看代码打印</div><div class="line">&lt;?php</div><div class="line">class Book&#123;</div><div class="line">    static $num=0;</div><div class="line">    public function showMe()&#123;</div><div class="line">        echo&quot;您是第&quot;.self::$num.&quot;位访客&quot;;</div><div class="line">        self::$num++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">$book1=new Book();</div><div class="line">$book1-&gt;showMe();</div><div class="line">echo&quot;&lt;br&gt;&quot;;</div><div class="line">$book2=new Book();</div><div class="line">$book2-&gt;showMe();</div><div class="line">echo&quot;&lt;br&gt;&quot;;</div><div class="line">echo&quot;您是第&quot;.Book::$num.&quot;位访客&quot;;</div><div class="line">?&gt;</div><div class="line">结果将是：</div><div class="line"></div><div class="line">您是第0位访客</div><div class="line">您是第1位访客</div><div class="line">您是第2位访客</div><div class="line"></div><div class="line">另外需要注意的是如果类的方法是static的，他所访问的属性也必须是static的。</div><div class="line"></div><div class="line">final</div><div class="line"></div><div class="line">最终的类和方法，不能继承，该关键字修饰的方法不能被重写。一般用法如下：</div><div class="line"></div><div class="line">查看代码打印</div><div class="line">&lt;?php</div><div class="line">final class MyClass&#123;//此类将不允许被继承</div><div class="line">    final function fun1()&#123;......&#125;//此方法将不允许被重写</div><div class="line">&#125;</div><div class="line">const</div><div class="line"></div><div class="line">在类的内部方法访问已经声明为const及static的属性时，需要使用self::$name的形式调用。举例如下：</div><div class="line"></div><div class="line">查看代码打印</div><div class="line">&lt;?php</div><div class="line">class clss_a&#123;</div><div class="line">    private static $name=&quot;static class_a&quot;;</div><div class="line">    const PI=3.14;</div><div class="line">    public $value;</div><div class="line">    public static function getName()&#123;</div><div class="line">        return self::$name;</div><div class="line">    &#125;</div><div class="line">    //这种写法有误，静态方法不能访问非静态属性</div><div class="line">    public static function getName2()&#123;</div><div class="line">        return self::$value;</div><div class="line">    &#125;</div><div class="line">    public function getPI()&#123;</div><div class="line">        return self::PI;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">注意const属性的申明格式是const PI=3.14，而不是const $PI=3.14。</div><div class="line"></div><div class="line">self</div><div class="line"></div><div class="line">self表示类本身，指向当前的类。通常用来访问类的静态成员、方法和常量。</div></pre></td></tr></table></figure>
       
 
       
@@ -336,18 +349,18 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/18/融资学习/祭祀相关网站分析/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          WAMP XAMPP PHPStudy比较
+          祭祀相关网站分析
         
       </div>
     </a>
   
   
-    <a href="/2017/08/18/PHP成长之路/php【discuz-本地测试安装】/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">php【discuz-本地测试安装】</div>
+    <a href="/2017/08/18/PHP成长之路/composer-安装-失败/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">composer-安装</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -374,7 +387,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-表单中-get与post提交方法的区别"><span class="toc-number">1.</span> <span class="toc-text">1.表单中 get与post提交方法的区别?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Http和Https协议的区别？"><span class="toc-number">2.</span> <span class="toc-text">2.Http和Https协议的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-session与cookie的区别"><span class="toc-number">3.</span> <span class="toc-text">3.session与cookie的区别?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-数据库中的事务是什么"><span class="toc-number">4.</span> <span class="toc-text">4.数据库中的事务是什么?</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-表单中-get与post提交方法的区别"><span class="toc-number">1.</span> <span class="toc-text">1.表单中 get与post提交方法的区别?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Http和Https协议的区别？"><span class="toc-number">2.</span> <span class="toc-text">2.Http和Https协议的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-session与cookie的区别"><span class="toc-number">3.</span> <span class="toc-text">3.session与cookie的区别?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-数据库中的事务是什么"><span class="toc-number">4.</span> <span class="toc-text">4.数据库中的事务是什么?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-编程体系"><span class="toc-number">5.</span> <span class="toc-text">5.编程体系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-PHP介绍"><span class="toc-number">6.</span> <span class="toc-text">6.PHP介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-PHP的常用技术"><span class="toc-number">7.</span> <span class="toc-text">7.PHP的常用技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-如何注释代码？"><span class="toc-number">8.</span> <span class="toc-text">8.如何注释代码？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-PHP的数据类型"><span class="toc-number">9.</span> <span class="toc-text">9.PHP的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-引号的作用？"><span class="toc-number">10.</span> <span class="toc-text">10.引号的作用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-命名规则？"><span class="toc-number">11.</span> <span class="toc-text">11.命名规则？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-运算符"><span class="toc-number">12.</span> <span class="toc-text">12.运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-类"><span class="toc-number">13.</span> <span class="toc-text">13.类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-public，private，protected区别"><span class="toc-number">14.</span> <span class="toc-text">14.public，private，protected区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-构造函数-和析构函数"><span class="toc-number">15.</span> <span class="toc-text">15.构造函数 和析构函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-php中-this、static、final、const、self-等几个关键字的用法"><span class="toc-number">16.</span> <span class="toc-text">16.php中$this、static、final、const、self 等几个关键字的用法</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -484,10 +497,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
@@ -496,11 +505,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,11 +521,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Wordpress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Map</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,7 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">Wordpress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,7 +545,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fighting</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,6 +554,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fighting</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,10 +573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
               </li>
              
@@ -572,11 +581,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">美句</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">美句</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
             
             <div class="clearfix"></div>
