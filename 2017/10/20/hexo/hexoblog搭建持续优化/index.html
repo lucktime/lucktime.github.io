@@ -15,10 +15,13 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/20/hexo/hexoblog搭建持续优化/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta property="og:description" content="Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。">
-<meta property="og:updated_time" content="2017-10-20T13:26:56.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-d299a5f545c36de0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1764965-e97c1965a312ce00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-10-31T12:19:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 个人博客搭建 --持续优化">
 <meta name="twitter:description" content="Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1764965-d299a5f545c36de0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Luck、Time" type="application/atom+xml">
   
@@ -76,6 +79,23 @@ ga('send', 'pageview');
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Luck、Time</a></h1>
 		</hgroup>
+		<div id="tp-weather-widget"></div>
+		<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+		<script>tpwidget("init", {
+			"flavor": "slim",
+			"location": "WTW3SJ5ZBJUY",
+			"geolocation": "enabled",
+			"language": "zh-chs",
+			"unit": "c",
+			"theme": "chameleon",
+			"container": "tp-weather-widget",
+			"bubble": "enabled",
+			"alarmType": "badge",
+			"color": "#C6C6C6",
+			"uid": "U508924FF9",
+			"hash": "efb01bdf86ec8a34efeb38087980d0d8"
+		});
+		tpwidget("show");</script>
 		
 
 		<nav class="header-menu">
@@ -247,8 +267,16 @@ ga('send', 'pageview');
 <h2 id="自定义打赏功能"><a href="#自定义打赏功能" class="headerlink" title="自定义打赏功能"></a>自定义打赏功能</h2><p>yilia打赏功能默认是支付宝和微信支付，也可以自定义其他。</p>
 <p>此次定义的是 thanks。仅表示谢谢</p>
 <p>打开主题 themes/yilia/layout/article.ejs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;reward-box&quot;&gt;</div><div class="line">&lt;% if(theme.alipay) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.alipay%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;支付宝&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;% if(theme.thanks) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.thanks%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;谢谢你哦&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;% if(theme.weixin) &#123;%&gt;</div><div class="line">&lt;div class=&quot;reward-box-item&quot;&gt;</div><div class="line">    &lt;img class=&quot;reward-img&quot; src=&quot;&lt;%= theme.weixin%&gt;&quot;&gt;</div><div class="line">    &lt;span class=&quot;reward-type&quot;&gt;微信&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="上传到github命令"><a href="#上传到github命令" class="headerlink" title="上传到github命令"></a>上传到github命令</h2><p>  hexo clean<br>  hexo g<br>  hexo d</p>
 <h2 id="google-分析-GA-代码的添加"><a href="#google-分析-GA-代码的添加" class="headerlink" title="google 分析 GA 代码的添加"></a>google 分析 GA 代码的添加</h2><p><a href="http://aryablog.xyz/2016/07/10/%E5%9C%A8%20hexo%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20ga%20%E7%9B%91%E6%B5%8B%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%AD%89%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">链接跳转</a></p>
+<h2 id="主题中添加天气"><a href="#主题中添加天气" class="headerlink" title="主题中添加天气"></a>主题中添加天气</h2><p>step1：找到需要安装插件的位置</p>
+<!-- more -->
+<p>step2：我使用的是 新知天气的一个扩展插件 <a href="https://www.seniverse.com/widget/get" target="_blank" rel="external">https://www.seniverse.com/widget/get</a></p>
+<p>step3：配置新知天气的展示效果，以达到自己的期望效果<br><img src="http://upload-images.jianshu.io/upload_images/1764965-d299a5f545c36de0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>step4：将生成的代码放置到想要 展示html的位置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">复制下面代码粘贴到页面代码的合适位置。第一行的div为插件的容器元素，你也可以通过自定义的CSS来控制其样式和位置，但请不要手动修改其id，否则插件将无法正常使用。</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tp-weather-widget"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">(function(T,h,i,n,k,P,a,g,e)&#123;g=function()&#123;P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)&#125;;T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function()&#123;(T[n].q=T[n].q||[]).push(arguments)&#125;);T[n].l=+new Date();if(T.attachEvent)&#123;T.attachEvent("onload",g)&#125;else&#123;T.addEventListener("load",g,false)&#125;&#125;(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">tpwidget("init", &#123;</span></div><div class="line"><span class="undefined">    "flavor": "slim",</span></div><div class="line"><span class="undefined">    "location": "WX4FBXXFKE4F",</span></div><div class="line"><span class="undefined">    "geolocation": "disabled",</span></div><div class="line"><span class="undefined">    "language": "zh-chs",</span></div><div class="line"><span class="undefined">    "unit": "c",</span></div><div class="line"><span class="undefined">    "theme": "chameleon",</span></div><div class="line"><span class="undefined">    "container": "tp-weather-widget",</span></div><div class="line"><span class="undefined">    "bubble": "enabled",</span></div><div class="line"><span class="undefined">    "alarmType": "badge",</span></div><div class="line"><span class="undefined">    "uid": "U508924FF9",</span></div><div class="line"><span class="undefined">    "hash": "278ad0b97e8ff0ba0e30d331e8b45478"</span></div><div class="line"><span class="undefined">&#125;);</span></div><div class="line"><span class="undefined">tpwidget("show");</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>step5：修改主题  themes/yilia/layout/_partial/left-col.ejs</p>
+<p>实现效果：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1764965-e97c1965a312ce00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="上传到github命令"><a href="#上传到github命令" class="headerlink" title="上传到github命令"></a>上传到github命令</h2><p>  hexo clean<br>  hexo g<br>  hexo d</p>
 
       
 
@@ -359,6 +387,15 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
+    <a href="/2017/10/31/PHP成长之路/网站中添加天气/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何在网站通添加第三方插件--天气
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/10/20/wordpress/Baidu Map 的使用/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">百度地图在wordpress上的使用，wordpress添加地图插件</div>
@@ -388,7 +425,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">    Hexo 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-安装"><span class="toc-number">1.1.</span> <span class="toc-text">Git 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js-安装"><span class="toc-number">1.2.</span> <span class="toc-text">Node.js 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-安装"><span class="toc-number">1.3.</span> <span class="toc-text">Hexo 安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">    创建项目及主题安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建项目"><span class="toc-number">2.1.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装主题"><span class="toc-number">2.2.</span> <span class="toc-text">安装主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装方法"><span class="toc-number">2.2.1.</span> <span class="toc-text">安装方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他主题介绍"><span class="toc-number">2.2.2.</span> <span class="toc-text">其他主题介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">    插件选择安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更多插件介绍"><span class="toc-number">3.0.1.</span> <span class="toc-text">更多插件介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">    持续优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置Yilia菜单"><span class="toc-number">4.1.</span> <span class="toc-text">设置Yilia菜单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置tags"><span class="toc-number">4.2.</span> <span class="toc-text">设置tags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置目录"><span class="toc-number">4.3.</span> <span class="toc-text">设置目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS-设置"><span class="toc-number">4.4.</span> <span class="toc-text">RSS 设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置展示更多"><span class="toc-number">4.5.</span> <span class="toc-text">设置展示更多</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章排序"><span class="toc-number">4.6.</span> <span class="toc-text">文章排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-generator-index"><span class="toc-number">4.6.1.</span> <span class="toc-text">hexo-generator-index</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installation"><span class="toc-number">4.6.2.</span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Options"><span class="toc-number">4.6.3.</span> <span class="toc-text">Options</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义打赏功能"><span class="toc-number">4.7.</span> <span class="toc-text">自定义打赏功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传到github命令"><span class="toc-number">4.8.</span> <span class="toc-text">上传到github命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#google-分析-GA-代码的添加"><span class="toc-number">4.9.</span> <span class="toc-text">google 分析 GA 代码的添加</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">    Hexo 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-安装"><span class="toc-number">1.1.</span> <span class="toc-text">Git 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js-安装"><span class="toc-number">1.2.</span> <span class="toc-text">Node.js 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-安装"><span class="toc-number">1.3.</span> <span class="toc-text">Hexo 安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">    创建项目及主题安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建项目"><span class="toc-number">2.1.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装主题"><span class="toc-number">2.2.</span> <span class="toc-text">安装主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装方法"><span class="toc-number">2.2.1.</span> <span class="toc-text">安装方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他主题介绍"><span class="toc-number">2.2.2.</span> <span class="toc-text">其他主题介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">    插件选择安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更多插件介绍"><span class="toc-number">3.0.1.</span> <span class="toc-text">更多插件介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">    持续优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置Yilia菜单"><span class="toc-number">4.1.</span> <span class="toc-text">设置Yilia菜单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置tags"><span class="toc-number">4.2.</span> <span class="toc-text">设置tags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置目录"><span class="toc-number">4.3.</span> <span class="toc-text">设置目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS-设置"><span class="toc-number">4.4.</span> <span class="toc-text">RSS 设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置展示更多"><span class="toc-number">4.5.</span> <span class="toc-text">设置展示更多</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章排序"><span class="toc-number">4.6.</span> <span class="toc-text">文章排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-generator-index"><span class="toc-number">4.6.1.</span> <span class="toc-text">hexo-generator-index</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installation"><span class="toc-number">4.6.2.</span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Options"><span class="toc-number">4.6.3.</span> <span class="toc-text">Options</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义打赏功能"><span class="toc-number">4.7.</span> <span class="toc-text">自定义打赏功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#google-分析-GA-代码的添加"><span class="toc-number">4.8.</span> <span class="toc-text">google 分析 GA 代码的添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题中添加天气"><span class="toc-number">4.9.</span> <span class="toc-text">主题中添加天气</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传到github命令"><span class="toc-number">4.10.</span> <span class="toc-text">上传到github命令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -498,6 +535,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Weather</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
@@ -510,35 +555,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">推广</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,15 +571,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Wordpress</a>
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Map</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">祭祀</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,11 +599,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">祭祀</a>
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color5">Wordpress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,15 +615,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">美句</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">美句</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
               </li>
             
             <div class="clearfix"></div>
