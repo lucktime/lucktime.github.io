@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-01T09:41:57.000Z</updated>
+  <updated>2017-11-01T09:45:05.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/11/01/SEO-SEM/GTM%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E7%9B%91%E6%8E%A7/"/>
     <id>http://yoursite.com/2017/11/01/SEO-SEM/GTM按钮点击监控/</id>
     <published>2017-11-01T09:41:57.000Z</published>
-    <updated>2017-11-01T09:41:57.000Z</updated>
+    <updated>2017-11-01T09:45:05.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Google-analytics-监控按钮点击次数"><a href="#Google-analytics-监控按钮点击次数" class="headerlink" title="Google analytics 监控按钮点击次数"></a>Google analytics 监控按钮点击次数</h1><h2 id="需要条件"><a href="#需要条件" class="headerlink" title="需要条件"></a>需要条件</h2><p>1.注册谷歌账号<br>2.拥有所管理的网站<br>3.网站中添加Google analytics的分析脚本。</p>
+    <content type="html"><![CDATA[<h1 id="Google-analytics-监控按钮点击次数"><a href="#Google-analytics-监控按钮点击次数" class="headerlink" title="Google analytics 监控按钮点击次数"></a>Google analytics 监控按钮点击次数</h1><h2 id="需要条件"><a href="#需要条件" class="headerlink" title="需要条件"></a>需要条件</h2><p>1.注册谷歌账号<br>2.拥有所管理的网站<br>3.网站中添加Google analytics的分析脚本。<br><a id="more"></a></p>
 <h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><p><a href="https://analytics.google.com/" target="_blank" rel="external">https://analytics.google.com/</a></p>
 <p><a href="https://tagmanager.google.com/" target="_blank" rel="external">https://tagmanager.google.com/</a></p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>step1：登录谷歌账号进入谷歌分析网站 网站</p>
@@ -50,7 +50,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Google-analytics-监控按钮点击次数&quot;&gt;&lt;a href=&quot;#Google-analytics-监控按钮点击次数&quot; class=&quot;headerlink&quot; title=&quot;Google analytics 监控按钮点击次数&quot;&gt;&lt;/a&gt;Google anal
+      &lt;h1 id=&quot;Google-analytics-监控按钮点击次数&quot;&gt;&lt;a href=&quot;#Google-analytics-监控按钮点击次数&quot; class=&quot;headerlink&quot; title=&quot;Google analytics 监控按钮点击次数&quot;&gt;&lt;/a&gt;Google analytics 监控按钮点击次数&lt;/h1&gt;&lt;h2 id=&quot;需要条件&quot;&gt;&lt;a href=&quot;#需要条件&quot; class=&quot;headerlink&quot; title=&quot;需要条件&quot;&gt;&lt;/a&gt;需要条件&lt;/h2&gt;&lt;p&gt;1.注册谷歌账号&lt;br&gt;2.拥有所管理的网站&lt;br&gt;3.网站中添加Google analytics的分析脚本。&lt;br&gt;
     
     </summary>
     
