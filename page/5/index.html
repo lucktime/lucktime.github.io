@@ -7,12 +7,12 @@
   <meta name="google-site-verification" content="HGd8VBpnsiFKca3ICEO1G40jIxwSZJEWsRHAPhKRSOw" />
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://lucktime.github.io">
   <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Luck、Time">
-<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:url" content="https://lucktime.github.io/page/5/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Luck、Time">
@@ -206,19 +206,19 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-开发必备软件/PHP开发-所需软件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-安卓/-Mac下Android-Studio中获取SHA1和MD5-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/开发必备软件/PHP开发-所需软件/">PHP 开发所需软件</a>
+      <a class="article-title" href="/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/">Mac下Android-Studio中获取SHA1和MD5-</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/开发必备软件/PHP开发-所需软件/" class="archive-article-date">
+        <a href="/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -226,11 +226,13 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>php 套件 Xampp 或者Phpstudy<br>php编写工具 <a href="http://www.cr173.com/soft/55484.html" target="_blank" rel="external">sublime3 text3</a></p>
-<p>AndroidStudio</p>
-<p>python 2.7<br>yii2 </p>
-<p>git</p>
-<p>包管理工具 <em>Composer</em></p>
+        <p><a href="http://blog.csdn.net/jackymvc/article/details/50222503" target="_blank" rel="external">http://blog.csdn.net/jackymvc/article/details/50222503</a></p>
+<p>打开Android Studio中的Terminal，也可以直接打开系统的</p>
+<p>获取debug.keystore的SHA1和MD5</p>
+<p>keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
+<p>获取其他keystore的，如正式签名文件的</p>
+<p>keytool -list -v -keystore ~/User/你的用户名/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
+<p>需要把路径和密码改成相应的就可以了</p>
 
       
 
@@ -244,7 +246,81 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PHP成长之路/（7）Yii控制器的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/">Yii 控制器的作用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote><p>控制器是 MVC 模式中的一部分， 是继承yii\base\Controller类的对象，负责处理请求和生成响应。 具体来说，控制器从应用主体接管控制后会分析请求数据并传送到模型， 传送模型结果到视图， 最后生成输出响应信息。</p>
+<footer><strong>[Yii[</strong><cite>source]] [http://www.yiichina.com/doc/guide/2.0/structure-controllers] [控制器]</cite></footer></blockquote>
+<p>控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。<br>
+        
+          <a class="article-more-a" href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/#more">展开全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
         		</li>
       		
 		</ul>
@@ -256,7 +332,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/软件开发/" class="article-tag-list-link color5">软件开发</a>
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
         		</li>
       		
 		</ul>
@@ -291,19 +367,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-PHP成长之路/（1）PHP基本资料-了解-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-飘飘然的清欢/白雪和红玫瑰snow-white-and-rose-red" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/">PHP基本资料-了解</a>
+      <a class="article-title" href="/2017/08/18/飘飘然的清欢/白雪和红玫瑰snow-white-and-rose-red/">白雪与红玫瑰</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/" class="archive-article-date">
+        <a href="/2017/08/18/飘飘然的清欢/白雪和红玫瑰snow-white-and-rose-red/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -311,9 +387,9 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-PHP-介绍"><a href="#1-PHP-介绍" class="headerlink" title="1.PHP 介绍"></a>1.PHP 介绍</h2><p>链接：<a href="http://baike.so.com/doc/7103846-7326839.html" target="_blank" rel="external">PHP 历史百科 </a><br>•缩写：Personal Home Page ==&gt;&gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本<a href="http://baike.so.com/doc/6010-6155.html" target="_blank" rel="external">预处理器</a>“<br>•历史<br>    1995PHP/FI，Rasmus Lorderf，Personal Home Page<br>    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5<br>
+        <p>　　A poor widow once lived in a little cottage with a garden in front of it,in which grew two rose trees,one bearing white roses and the other red.She had two children,who were just like the two rose trees;one was called Snow-white and the other Rose-red,and they were the sweetest and best children in the world,always diligent and always cheerful;<br>
         
-          <a class="article-more-a" href="/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/#more">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/飘飘然的清欢/白雪和红玫瑰snow-white-and-rose-red/#more">展开全文 >></a>
         
       
 
@@ -327,7 +403,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
         		</li>
       		
 		</ul>
@@ -339,7 +415,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/日记/" class="article-tag-list-link color3">日记</a>
         		</li>
       		
 		</ul>
@@ -461,6 +537,87 @@ ga('send', 'pageview');
 
 
   
+    <article id="post-PHP成长之路/phpStudy-和XAmpp，WAMP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/">WAMP XAMPP PHPStudy比较</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；<br>XAMPP：许多人通过他们自己的经验认识到安装 Apache 服务器是件不容易的事儿。如果您想添加 MySQL、PHP 和 Perl，那就更难了。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。<br>PHPstudy：能够随意版本却换。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP/" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-微信小程序/#简单入门学习#" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -543,176 +700,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-飘飘然的清欢/新入职的应届毕业生们做了一次经验分享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/飘飘然的清欢/新入职的应届毕业生们做了一次经验分享/">新入职应届毕业生的经验分享</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/飘飘然的清欢/新入职的应届毕业生们做了一次经验分享/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原创作品，允许转载，转载时请务必以超链接形式标明文章 原始出处 、作者信息和本声明。否则将追究法律责任。<a href="http://ticktick.blog.51cto.com/823160/1528437" target="_blank" rel="external">http://ticktick.blog.51cto.com/823160/1528437</a><br>今天，我作为“前辈”给公司新入职的应届毕业生们做了一次经验分享，简单整理了一下演讲的内容，希望对其他人也能有所帮助。</p>
-<ol>
-<li>进入公司与校园有什么不同 ？</li>
-</ol>
-<p>作为一个技术型的公司，其实公司内部的办公环境与在学校实验室没有太大的区别，每个人都有自己的位置，大家各司其职，为公司的项目贡献自己的代码，偶尔跟学长/学姐们一起调试问题，一起解决Bug，项目空档期还可以看看书，学习提高……</p>
-        
-          <a class="article-more-a" href="/2017/08/18/飘飘然的清欢/新入职的应届毕业生们做了一次经验分享/#more">展开全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日记/" class="article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SEO-SEM/SEM-&amp;-SEO-&amp;-PPC-总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/SEO-SEM/SEM-&-SEO-&-PPC-总结/">SEM-SEO-PPC总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/SEO-SEM/SEM-&-SEO-&-PPC-总结/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="what：做的目的是什么"><a href="#what：做的目的是什么" class="headerlink" title="what：做的目的是什么"></a>what：做的目的是什么</h2><p>SEM 搜索引擎营销  <b>目的</b>：用于网站推广，增加搜索排行。 常用的有google ，百度，360的sem。<br>SEO 搜索引擎优化  <b>目的</b>：用户网站内部优化，质量好的网站能稳定增长网站排行。优化方向（内容质量、浏览体验、可访问性）<br>
-        
-          <a class="article-more-a" href="/2017/08/18/SEO-SEM/SEM-&-SEO-&-PPC-总结/#more">展开全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">推广</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/推广/" class="article-tag-list-link color3">推广</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-PHP成长之路/CentOS下的PHP-环境配置-VMware-+-CentOS-+-PHP5-4-+ａｐａｃｈ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -752,6 +739,94 @@ ga('send', 'pageview');
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-微信小程序/登录的设计思路汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/微信小程序/登录的设计思路汇总/">微信小程序登录设计思路</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/微信小程序/登录的设计思路汇总/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="微信小程序登录设计思路"><a href="#微信小程序登录设计思路" class="headerlink" title="微信小程序登录设计思路"></a>微信小程序登录设计思路</h2><h3 id="一-小程序不支持cookie会话"><a href="#一-小程序不支持cookie会话" class="headerlink" title="一. 小程序不支持cookie会话"></a>一. 小程序不支持cookie会话</h3><p>　　1. 通过传递与检验3rd_session来保持会话<br>　　2. 3rd_session可以执行‘<code>head -n 80 /dev/urandom | tr -dc A-Za-z0-9 | head -c 168</code>该命令生成<br>　　3. 使用Redis或者数据库存储session<br>　　4. 生成的3rd_session发送给客户端，写入storage<br>　　5. 客户端的每次请求必须带上3rd_session</p>
+<h3 id="二、加密数据解码"><a href="#二、加密数据解码" class="headerlink" title="二、加密数据解码"></a>二、加密数据解码</h3><p>　　1. $iv,$code是被加密过的数据，由于请求过程中因为编码原因+号变成了空格，所以我们需要用下面的方法转换回来<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">define_str_replace</span><span class="params">($data)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> str_replace(<span class="string">' '</span>,<span class="string">'+'</span>,$data);</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>
+        
+          <a class="article-more-a" href="/2017/08/18/微信小程序/登录的设计思路汇总/#more">展开全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
         		</li>
       		
 		</ul>
@@ -879,19 +954,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Mysql/数据库主键设置为int(11)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/php的单元测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Mysql/数据库主键设置为int(11)/">数据库主键设置为int(11)</a>
+      <a class="article-title" href="/2017/08/18/PHP成长之路/php的单元测试/">php 单元测试</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/Mysql/数据库主键设置为int(11)/" class="archive-article-date">
+        <a href="/2017/08/18/PHP成长之路/php的单元测试/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -899,93 +974,9 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。</p>
-<p>也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。</p>
-<p>int和bigint的区别 ：int 符号性 -2^32+1 ~ 2^32  -1 符号性 0 - 2^32 大约四十亿条数据，足够一遍公司使用。（4 294 967 296）<br>相比来说，bigint占用的磁盘内存空间较大，会导致过多的无效数据交换，增加额外的io压力，对性能不利</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+        <p>常用测试工具<br>codeception 和 phpunit<br>codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行</p>
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-微信小程序/登录的设计思路汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/微信小程序/登录的设计思路汇总/">微信小程序登录设计思路</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/微信小程序/登录的设计思路汇总/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="微信小程序登录设计思路"><a href="#微信小程序登录设计思路" class="headerlink" title="微信小程序登录设计思路"></a>微信小程序登录设计思路</h2><h3 id="一-小程序不支持cookie会话"><a href="#一-小程序不支持cookie会话" class="headerlink" title="一. 小程序不支持cookie会话"></a>一. 小程序不支持cookie会话</h3><p>　　1. 通过传递与检验3rd_session来保持会话<br>　　2. 3rd_session可以执行‘<code>head -n 80 /dev/urandom | tr -dc A-Za-z0-9 | head -c 168</code>该命令生成<br>　　3. 使用Redis或者数据库存储session<br>　　4. 生成的3rd_session发送给客户端，写入storage<br>　　5. 客户端的每次请求必须带上3rd_session</p>
-<h3 id="二、加密数据解码"><a href="#二、加密数据解码" class="headerlink" title="二、加密数据解码"></a>二、加密数据解码</h3><p>　　1. $iv,$code是被加密过的数据，由于请求过程中因为编码原因+号变成了空格，所以我们需要用下面的方法转换回来<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">define_str_replace</span><span class="params">($data)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> str_replace(<span class="string">' '</span>,<span class="string">'+'</span>,$data);</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>
-        
-          <a class="article-more-a" href="/2017/08/18/微信小程序/登录的设计思路汇总/#more">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/PHP成长之路/php的单元测试/#more">展开全文 >></a>
         
       
 
@@ -1000,10 +991,6 @@ ga('send', 'pageview');
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
         		</li>
       		
 		</ul>
@@ -1175,10 +1162,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -1187,7 +1170,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,7 +1190,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1235,7 +1222,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1243,7 +1230,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">

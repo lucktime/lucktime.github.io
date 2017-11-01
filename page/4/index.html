@@ -7,12 +7,12 @@
   <meta name="google-site-verification" content="HGd8VBpnsiFKca3ICEO1G40jIxwSZJEWsRHAPhKRSOw" />
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://lucktime.github.io">
   <title>Luck、Time</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Luck、Time">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:url" content="https://lucktime.github.io/page/4/index.html">
 <meta property="og:site_name" content="Luck、Time">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Luck、Time">
@@ -293,19 +293,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-PHP成长之路/git-commit-的规范化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/composer-安装-失败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/PHP成长之路/git-commit-的规范化/">git-commit-的规范化</a>
+      <a class="article-title" href="/2017/08/18/PHP成长之路/composer-安装-失败/">composer-安装</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/PHP成长之路/git-commit-的规范化/" class="archive-article-date">
+        <a href="/2017/08/18/PHP成长之路/composer-安装-失败/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -313,11 +313,10 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="external">资料来源1 commit 的使用规范介绍</a><br><a href="http://i.she.vc/yuanchuang/199824.html" target="_blank" rel="external">资料来源2 commitzen 的安装指南</a></p>
-<h3 id="commit介绍"><a href="#commit介绍" class="headerlink" title="commit介绍"></a>commit介绍</h3><p>我们在每次提交代码时，都需要编写Commit Message，否则是不允许提交的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;first commit with userInfo service&quot;</div></pre></td></tr></table></figure></p>
-<p>编写Commit Message需要遵循一定的范式，内容应该清晰明了，指明本次提交的目的，便于日后追踪问题。commitizen就是这么样一款工具,他用来规范化我们的commit消息。<br>
+        <p>composer global require “fxp/composer-asset-plugin:~1.0.2”<br>composer install –ignore-platform-reqs<br>出现问题：<br>        “yii2mod/yii2-braintree”: “^1.0”,<br>        “yii2mod/yii2-enum”: “~1.4”,</p>
+<h3 id="强制合并"><a href="#强制合并" class="headerlink" title="强制合并"></a>强制合并</h3><p>git fetch –all<br>git reset –hard origin/master</p>
         
-          <a class="article-more-a" href="/2017/08/18/PHP成长之路/git-commit-的规范化/#more">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/PHP成长之路/composer-安装-失败/#more">展开全文 >></a>
         
       
 
@@ -378,19 +377,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-PHP成长之路/php的单元测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/git-commit-的规范化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/PHP成长之路/php的单元测试/">php 单元测试</a>
+      <a class="article-title" href="/2017/08/18/PHP成长之路/git-commit-的规范化/">git-commit-的规范化</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/PHP成长之路/php的单元测试/" class="archive-article-date">
+        <a href="/2017/08/18/PHP成长之路/git-commit-的规范化/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -398,9 +397,11 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>常用测试工具<br>codeception 和 phpunit<br>codecept run unit tests/unit/moTest.php –debug   在项目的根目录运行</p>
+        <p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="external">资料来源1 commit 的使用规范介绍</a><br><a href="http://i.she.vc/yuanchuang/199824.html" target="_blank" rel="external">资料来源2 commitzen 的安装指南</a></p>
+<h3 id="commit介绍"><a href="#commit介绍" class="headerlink" title="commit介绍"></a>commit介绍</h3><p>我们在每次提交代码时，都需要编写Commit Message，否则是不允许提交的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;first commit with userInfo service&quot;</div></pre></td></tr></table></figure></p>
+<p>编写Commit Message需要遵循一定的范式，内容应该清晰明了，指明本次提交的目的，便于日后追踪问题。commitizen就是这么样一款工具,他用来规范化我们的commit消息。<br>
         
-          <a class="article-more-a" href="/2017/08/18/PHP成长之路/php的单元测试/#more">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/PHP成长之路/git-commit-的规范化/#more">展开全文 >></a>
         
       
 
@@ -542,19 +543,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-PHP成长之路/phpStudy-和XAmpp，WAMP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PHP成长之路/（1）PHP基本资料-了解-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/">WAMP XAMPP PHPStudy比较</a>
+      <a class="article-title" href="/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/">PHP基本资料-了解</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/PHP成长之路/phpStudy-和XAmpp，WAMP/" class="archive-article-date">
+        <a href="/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -562,8 +563,10 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>WAMP  强烈推荐这款 ：WAMP是基于Windows，Apache，MySQL和PHP的开放资源网络开发平台，Windows是微软的操作系统；Apache是最通用的网络服务器；mySQL是带有基于网络管理附加工具的关系数据库；<br>XAMPP：许多人通过他们自己的经验认识到安装 Apache 服务器是件不容易的事儿。如果您想添加 MySQL、PHP 和 Perl，那就更难了。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。<br>PHPstudy：能够随意版本却换。</p>
-
+        <h2 id="1-PHP-介绍"><a href="#1-PHP-介绍" class="headerlink" title="1.PHP 介绍"></a>1.PHP 介绍</h2><p>链接：<a href="http://baike.so.com/doc/7103846-7326839.html" target="_blank" rel="external">PHP 历史百科 </a><br>•缩写：Personal Home Page ==&gt;&gt;PHP：HypeText Preprocesso(外文名:PHP: Hypertext Preprocessor，中文名:”超文本<a href="http://baike.so.com/doc/6010-6155.html" target="_blank" rel="external">预处理器</a>“<br>•历史<br>    1995PHP/FI，Rasmus Lorderf，Personal Home Page<br>    1997PHP/FI2.0，1998PHP3，2000PHP4，2005PHP5<br>
+        
+          <a class="article-more-a" href="/2017/08/18/PHP成长之路/（1）PHP基本资料-了解-/#more">展开全文 >></a>
+        
       
 
       
@@ -588,7 +591,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/PHP/" class="article-tag-list-link color4">PHP</a>
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
         		</li>
       		
 		</ul>
@@ -706,19 +709,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-PHP成长之路/（7）Yii控制器的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mysql/数据库主键设置为int(11)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/">Yii 控制器的作用</a>
+      <a class="article-title" href="/2017/08/18/Mysql/数据库主键设置为int(11)/">数据库主键设置为int(11)</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/" class="archive-article-date">
+        <a href="/2017/08/18/Mysql/数据库主键设置为int(11)/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -726,12 +729,10 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote><p>控制器是 MVC 模式中的一部分， 是继承yii\base\Controller类的对象，负责处理请求和生成响应。 具体来说，控制器从应用主体接管控制后会分析请求数据并传送到模型， 传送模型结果到视图， 最后生成输出响应信息。</p>
-<footer><strong>[Yii[</strong><cite>source]] [http://www.yiichina.com/doc/guide/2.0/structure-controllers] [控制器]</cite></footer></blockquote>
-<p>控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。<br>
-        
-          <a class="article-more-a" href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/#more">展开全文 >></a>
-        
+        <p>通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。</p>
+<p>也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。</p>
+<p>int和bigint的区别 ：int 符号性 -2^32+1 ~ 2^32  -1 符号性 0 - 2^32 大约四十亿条数据，足够一遍公司使用。（4 294 967 296）<br>相比来说，bigint占用的磁盘内存空间较大，会导致过多的无效数据交换，增加额外的io压力，对性能不利</p>
+
       
 
       
@@ -744,7 +745,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		
 		</ul>
@@ -791,19 +792,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-个人信息/×××（收信人的简书id）！我在情人节等你回信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-个人信息/API-记录--php,ios==-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/个人信息/×××（收信人的简书id）！我在情人节等你回信/">甜言密语，说给自己听</a>
+      <a class="article-title" href="/2017/08/18/个人信息/API-记录--php,ios==-/">常用接口记录</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/个人信息/×××（收信人的简书id）！我在情人节等你回信/" class="archive-article-date">
+        <a href="/2017/08/18/个人信息/API-记录--php,ios==-/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -811,10 +812,9 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>此间，我只有想你才能写出最好的诗。与你分分离离已达四次有余，我不知道如何再去爱你，也不知道怎么才能忘却。
-有你的时光，总是快乐的。肉肉的手心，微暖的笑脸，和甜蜜的话。你从不会主动撩我，也时而对我爱理不理。也许太早熟的你早已不会去伪装甜蜜，也许我不应该再记录这件事，因为过去虽甜，缺不应常常品味。。
-我常想，如果我每一次坚持到最后，而不是因为我们没有共同的言语，因为你繁忙时，不会回复我的话，不是因为我们见面时的尴尬。不是因为我小心的维护着可怜的自尊心。那么我们可能还继续深恋着彼此。。
-</code></pre>
+        <p>#PHP#<br><a href="https://github.com/Stichoza/google-translate-php" target="_blank" rel="external">https://github.com/Stichoza/google-translate-php</a>   Google 翻译api</p>
+<p><a href="https://github.com/yangxu/google_flight_api" target="_blank" rel="external">https://github.com/yangxu/google_flight_api</a>        Google 航班查询api</p>
+
       
 
       
@@ -827,7 +827,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口集合</a>
         		</li>
       		
 		</ul>
@@ -962,19 +962,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-安卓/-Mac下Android-Studio中获取SHA1和MD5-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-开发必备软件/PHP开发-所需软件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/">Mac下Android-Studio中获取SHA1和MD5-</a>
+      <a class="article-title" href="/2017/08/18/开发必备软件/PHP开发-所需软件/">PHP 开发所需软件</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/安卓/-Mac下Android-Studio中获取SHA1和MD5-/" class="archive-article-date">
+        <a href="/2017/08/18/开发必备软件/PHP开发-所需软件/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -982,13 +982,11 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://blog.csdn.net/jackymvc/article/details/50222503" target="_blank" rel="external">http://blog.csdn.net/jackymvc/article/details/50222503</a></p>
-<p>打开Android Studio中的Terminal，也可以直接打开系统的</p>
-<p>获取debug.keystore的SHA1和MD5</p>
-<p>keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
-<p>获取其他keystore的，如正式签名文件的</p>
-<p>keytool -list -v -keystore ~/User/你的用户名/debug.keystore -alias androiddebugkey -storepass android -keypass android</p>
-<p>需要把路径和密码改成相应的就可以了</p>
+        <p>php 套件 Xampp 或者Phpstudy<br>php编写工具 <a href="http://www.cr173.com/soft/55484.html" target="_blank" rel="external">sublime3 text3</a></p>
+<p>AndroidStudio</p>
+<p>python 2.7<br>yii2 </p>
+<p>git</p>
+<p>包管理工具 <em>Composer</em></p>
 
       
 
@@ -1002,13 +1000,24 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/软件开发/" class="article-tag-list-link color5">软件开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -1163,10 +1172,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -1175,7 +1180,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,7 +1200,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1223,7 +1232,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,7 +1240,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">小说鉴赏</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">
