@@ -206,91 +206,6 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-PHP成长之路/（7）Yii控制器的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/">Yii 控制器的作用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote><p>控制器是 MVC 模式中的一部分， 是继承yii\base\Controller类的对象，负责处理请求和生成响应。 具体来说，控制器从应用主体接管控制后会分析请求数据并传送到模型， 传送模型结果到视图， 最后生成输出响应信息。</p>
-<footer><strong>[Yii[</strong><cite>source]] [http://www.yiichina.com/doc/guide/2.0/structure-controllers] [控制器]</cite></footer></blockquote>
-<p>控制器负责处理请求和产生响应。用户请求后，控制器将分析请求数据，将它们传递到模型，模型中获得的结果插入的视图中，并且产生一个响应。<br>
-        
-          <a class="article-more-a" href="/2017/08/18/PHP成长之路/（7）Yii控制器的作用/#more">展开全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-融资学习/一个好的项目参考条件和注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -374,19 +289,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-微信小程序/登录的设计思路汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-融资学习/祭祀相关网站分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/微信小程序/登录的设计思路汇总/">微信小程序登录设计思路</a>
+      <a class="article-title" href="/2017/08/18/融资学习/祭祀相关网站分析/">祭祀相关网站分析</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/微信小程序/登录的设计思路汇总/" class="archive-article-date">
+        <a href="/2017/08/18/融资学习/祭祀相关网站分析/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -394,11 +309,8 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="微信小程序登录设计思路"><a href="#微信小程序登录设计思路" class="headerlink" title="微信小程序登录设计思路"></a>微信小程序登录设计思路</h2><h3 id="一-小程序不支持cookie会话"><a href="#一-小程序不支持cookie会话" class="headerlink" title="一. 小程序不支持cookie会话"></a>一. 小程序不支持cookie会话</h3><p>　　1. 通过传递与检验3rd_session来保持会话<br>　　2. 3rd_session可以执行‘<code>head -n 80 /dev/urandom | tr -dc A-Za-z0-9 | head -c 168</code>该命令生成<br>　　3. 使用Redis或者数据库存储session<br>　　4. 生成的3rd_session发送给客户端，写入storage<br>　　5. 客户端的每次请求必须带上3rd_session</p>
-<h3 id="二、加密数据解码"><a href="#二、加密数据解码" class="headerlink" title="二、加密数据解码"></a>二、加密数据解码</h3><p>　　1. $iv,$code是被加密过的数据，由于请求过程中因为编码原因+号变成了空格，所以我们需要用下面的方法转换回来<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">define_str_replace</span><span class="params">($data)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> str_replace(<span class="string">' '</span>,<span class="string">'+'</span>,$data);</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>
-        
-          <a class="article-more-a" href="/2017/08/18/微信小程序/登录的设计思路汇总/#more">展开全文 >></a>
-        
+        <p>把名人的事件做成页游模式，是对名人最大的不尊重。<br>这个网站 只可参考实现功能的筛选，却不应该做个类型的网站。<br><a href="http://www.hxbaibai.com/launcher/SacrificeSystem.html?hallNum=885100&amp;type=1" target="_blank" rel="external">http://www.hxbaibai.com/launcher/SacrificeSystem.html?hallNum=885100&amp;type=1</a></p>
+
       
 
       
@@ -411,11 +323,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
         		</li>
       		
 		</ul>
@@ -427,7 +335,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
         		</li>
       		
 		</ul>
@@ -550,87 +458,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-软件/计算机系统的知识总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/软件/计算机系统的知识总结/">计算机系统知识总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/软件/计算机系统的知识总结/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="计算机硬件操作系统"><a href="#计算机硬件操作系统" class="headerlink" title="计算机硬件操作系统"></a>计算机硬件操作系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">计算机硬件操作系统是由运算器，控制器，存储器，输入设备和输出设备五大部分组成。</div><div class="line">中心处理单元（CPU）：运算器和控制器，寄存器和内部总线等部件集合在一起被称为中央处理单元。</div><div class="line">CPU的特性。程序控制，操作控制，时间控制，数据处理。</div><div class="line">程序控制：CPU的主要功能，cpu通过执行指令来控制程序执行顺序。</div><div class="line">操作控制：</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算机系统/" class="article-tag-list-link color1">计算机系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-阅读笔记/人间失格-太宰治" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -683,6 +510,170 @@ ga('send', 'pageview');
 			 
         		<li class="article-tag-list-item">
         			<a href="/categories/小说鉴赏/" class="article-tag-list-link color5">小说鉴赏</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-融资学习/网上祭扫的优势" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/融资学习/网上祭扫的优势/">网上祭扫的优势分析</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/融资学习/网上祭扫的优势/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其一体现文明快捷。我们传统的祭扫总是伴随着缭绕的炉烟，鞭炮的声音，如果在网上进行祭祀的话，没有呛人的烟雾，没有震耳的声响，有的却是催人泪下的音乐和感人肺腑的留言。</p>
+<p>其二跨越时空。现实的祭扫让那些远在他乡，工作繁忙的人群，没有办法前去参加祭祀。如果在互联网上，有这样一个可以给这类人群，提供寄托追思和缅怀的地方，岂不是很好。</p>
+<p>其三精神永恒。互联网的时间永恒，空间无限。网上纪念馆可以无限地存放照片、影集、文集，逝者的音容笑貌，这些可以让亲友们没有办法参加清明祭扫的时候，对其深切怀念，追思和缅怀，这些都会化为多媒体文件，永久保存，无限扩容，不因岁月的流逝而磨蚀，不因空间的转移而损耗。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-软件/计算机系统的知识总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/软件/计算机系统的知识总结/">计算机系统知识总结</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/软件/计算机系统的知识总结/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="计算机硬件操作系统"><a href="#计算机硬件操作系统" class="headerlink" title="计算机硬件操作系统"></a>计算机硬件操作系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">计算机硬件操作系统是由运算器，控制器，存储器，输入设备和输出设备五大部分组成。</div><div class="line">中心处理单元（CPU）：运算器和控制器，寄存器和内部总线等部件集合在一起被称为中央处理单元。</div><div class="line">CPU的特性。程序控制，操作控制，时间控制，数据处理。</div><div class="line">程序控制：CPU的主要功能，cpu通过执行指令来控制程序执行顺序。</div><div class="line">操作控制：</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/计算机系统/" class="article-tag-list-link color1">计算机系统</a>
         		</li>
       		
 		</ul>
@@ -885,89 +876,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Mysql/数据库主键设置为int(11)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/Mysql/数据库主键设置为int(11)/">数据库主键设置为int(11)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/Mysql/数据库主键设置为int(11)/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>通常情况下设置为int(11)。原因是因为 数据储存足够多，并且占用较小的磁盘空间。与底层insert, update交互较好。</p>
-<p>也可以设置成 varchar，或者联合主键。根据情况选择一个合适的即可。</p>
-<p>int和bigint的区别 ：int 符号性 -2^32+1 ~ 2^32  -1 符号性 0 - 2^32 大约四十亿条数据，足够一遍公司使用。（4 294 967 296）<br>相比来说，bigint占用的磁盘内存空间较大，会导致过多的无效数据交换，增加额外的io压力，对性能不利</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-阅读笔记/英语美句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1005,6 +913,92 @@ ga('send', 'pageview');
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">美句</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/小说鉴赏/" class="article-tag-list-link color5">小说鉴赏</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-阅读笔记/鲁迅的世界" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/阅读笔记/鲁迅的世界/">鲁迅的世界</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/阅读笔记/鲁迅的世界/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote><ol>
+<li>凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不比以为不幸的。</li>
+</ol>
+<footer><strong>——呐喊：鲁迅</strong></footer></blockquote>
+        
+          <a class="article-more-a" href="/2017/08/18/阅读笔记/鲁迅的世界/#more">展开全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">小说鉴赏</a>
         		</li>
       		
 		</ul>
@@ -1176,6 +1170,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
@@ -1184,15 +1182,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Wordpress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,14 +1207,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">自学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Wordpress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1236,11 +1230,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
+                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">太宰治</a>
+                <a href="javascript:void(0)" class="js-tag color5">知识总结</a>
               </li>
              
               <li class="article-tag-list-item">
