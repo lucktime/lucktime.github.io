@@ -129,10 +129,11 @@
     <link href="https://lucktime.github.io/2017/10/31/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E7%BD%91%E7%AB%99%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%A4%A9%E6%B0%94/"/>
     <id>https://lucktime.github.io/2017/10/31/PHP成长之路/网站中添加天气/</id>
     <published>2017-10-31T12:09:30.000Z</published>
-    <updated>2017-10-31T12:09:30.000Z</updated>
+    <updated>2017-11-05T03:15:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>现在越来越多的网站开始添加天气插件，用来方便用户的查看。以下两个案例为了方便大家学习如何插入天气插件。欢迎打call。。</p>
 <h1 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h1><p>wordpress 或 其他网站<br>新知天气的一个插件</p>
+<a id="more"></a>
 <h1 id="在wordpress中添加插件"><a href="#在wordpress中添加插件" class="headerlink" title="在wordpress中添加插件"></a>在wordpress中添加插件</h1><p>step1：找到需要安装插件的位置</p>
 <p>step2：我使用的是 新知天气的一个扩展插件 <a href="https://www.seniverse.com/widget/get" target="_blank" rel="external">https://www.seniverse.com/widget/get</a></p>
 <p>step3：配置新知天气的展示效果，以达到自己的期望效果<br><img src="http://upload-images.jianshu.io/upload_images/1764965-d299a5f545c36de0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>step4：将生成的代码放置到想要 展示html的位置</p>
@@ -147,7 +148,7 @@
     <summary type="html">
     
       &lt;p&gt;现在越来越多的网站开始添加天气插件，用来方便用户的查看。以下两个案例为了方便大家学习如何插入天气插件。欢迎打call。。&lt;/p&gt;
-&lt;h1 id=&quot;工具：&quot;&gt;&lt;a href=&quot;#工具：&quot; class=&quot;headerlink&quot; title=&quot;工具：&quot;&gt;&lt;/a&gt;工具：&lt;/h1&gt;&lt;
+&lt;h1 id=&quot;工具：&quot;&gt;&lt;a href=&quot;#工具：&quot; class=&quot;headerlink&quot; title=&quot;工具：&quot;&gt;&lt;/a&gt;工具：&lt;/h1&gt;&lt;p&gt;wordpress 或 其他网站&lt;br&gt;新知天气的一个插件&lt;/p&gt;
     
     </summary>
     
