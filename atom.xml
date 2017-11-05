@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lucktime.github.io/"/>
-  <updated>2017-11-01T09:45:05.000Z</updated>
+  <updated>2017-11-05T02:54:27.000Z</updated>
   <id>https://lucktime.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo个人博客中添加gitment评论插件 --持续优化</title>
+    <link href="https://lucktime.github.io/2017/11/05/hexo/hexo%E5%8D%9A%E5%AE%A2yilia%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%B7%BB%E5%8A%A0gitment%E8%AF%84%E8%AE%BA/"/>
+    <id>https://lucktime.github.io/2017/11/05/hexo/hexo博客yilia主题中添加gitment评论/</id>
+    <published>2017-11-05T02:45:01.000Z</published>
+    <updated>2017-11-05T02:54:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Gitment 是作者实现的一款基于 GitHub Issues 的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的 Markdown / GFM 和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。<br><a id="more"></a><br>gitment只支持github评论。</p>
+<p>由于网上有很多的文档教学，就不反复写了。<br>具体参考一下的文章：<br><a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">https://imsun.net/posts/gitment-introduction/</a><br><a href="http://webcaiqingchong.github.io/2017/06/12/hexo-add-comments/" target="_blank" rel="external">http://webcaiqingchong.github.io/2017/06/12/hexo-add-comments/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Gitment 是作者实现的一款基于 GitHub Issues 的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的 Markdown / GFM 和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://lucktime.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Google analytics 监控按钮点击次数</title>
@@ -143,7 +165,7 @@
     <link href="https://lucktime.github.io/2017/10/20/hexo/hexoblog%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96/"/>
     <id>https://lucktime.github.io/2017/10/20/hexo/hexoblog搭建持续优化/</id>
     <published>2017-10-20T13:26:56.000Z</published>
-    <updated>2017-11-01T11:02:07.000Z</updated>
+    <updated>2017-11-05T02:43:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。<br><a id="more"></a></p>
 <h1><br>    <center>Hexo 安装<center><br></center></center></h1>
@@ -192,7 +214,7 @@
 <p>实现效果：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1764965-e97c1965a312ce00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="百度和谷歌收录文章"><a href="#百度和谷歌收录文章" class="headerlink" title="百度和谷歌收录文章"></a>百度和谷歌收录文章</h2><p>具体内容：参考<a href="http://www.franktly.com/2016/07/06/%E8%AE%A9Baidu%E5%92%8CGoogle%E6%94%B6%E5%BD%95Hexo%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">让Baidu和Google收录Hexo博客</a></p>
-<h2 id="上传到github命令"><a href="#上传到github命令" class="headerlink" title="上传到github命令"></a>上传到github命令</h2><p>  hexo clean<br>  hexo g<br>  hexo d</p>
+<h2 id="yilia主题添加gitment评论"><a href="#yilia主题添加gitment评论" class="headerlink" title="yilia主题添加gitment评论"></a>yilia主题添加gitment评论</h2><h2 id="上传到github命令"><a href="#上传到github命令" class="headerlink" title="上传到github命令"></a>上传到github命令</h2><p>  hexo clean<br>  hexo g<br>  hexo d</p>
 ]]></content>
     
     <summary type="html">
@@ -1010,65 +1032,6 @@
     </summary>
     
       <category term="PHP" scheme="https://lucktime.github.io/categories/PHP/"/>
-    
-    
-      <category term="PHP" scheme="https://lucktime.github.io/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php开发：Twilio-插件在Yii2中的使用</title>
-    <link href="https://lucktime.github.io/2017/08/18/PHP%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/php%E5%BC%80%E5%8F%91%EF%BC%9ATwilio-%E6%8F%92%E4%BB%B6%E5%9C%A8Yii2%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://lucktime.github.io/2017/08/18/PHP成长之路/php开发：Twilio-插件在Yii2中的使用/</id>
-    <published>2017-08-18T11:45:26.000Z</published>
-    <updated>2017-08-18T11:45:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4>妈的智障，妈的智障，妈的智障。远程不了公司电脑了，只好本机重新搭建一下环境了</h4>
-
-<p>系统环境：<br>win7<br>命令行操作：<br>composer 管理工具：<br>基于Yii2框架：<br>git 命令：<br>php 环境：xampp 或者 phpstudy：<br><a id="more"></a><br>（步骤1） <a href="https://getcomposer.org/download/" target="_blank" rel="external">安装composer 管理工具：</a><br>记得顺便安装插件 composer global require “fxp/composer-asset-plugin:*”  应该是文件传输插件</p>
-<p>(步骤2)<a href="https://git-scm.com/book/zh/v1/起步-安装-Git" target="_blank" rel="external">安装git管理工具</a></p>
-<p>(步骤3)创建新的yii2框架。<br>composer create-project –prefer-dist yiisoft/yii2-app-basic Twilioproject</p>
-<p>composer update</p>
-<p>最后安装插件<br>注意：过程中需要github的<a href="https://github.com/settings/tokens" target="_blank" rel="external">token:点进去寻找tokens</a></p>
-<p>(步骤4) 添加插件到yii2框架中<br>进入yii2项目目录<br>composer require –prefer-dist filipajdacic/yii2-twilio “*”</p>
-<p>出现问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Your requirements could not be resolved to an installable set of packages.</div><div class="line"></div><div class="line">  Problem 1</div><div class="line">    - The requested package filipajdacic/yii2-twilio * is satisfiable by filipaj</div><div class="line">dacic/yii2-twilio[dev-master] but these conflict with your requirements or minim</div><div class="line">um-stability.</div></pre></td></tr></table></figure></p>
-<p>方案：</p>
-<h1 id="打开项目的composer-phar更改-为-“minimum-stability”-“dev”"><a href="#打开项目的composer-phar更改-为-“minimum-stability”-“dev”" class="headerlink" title="打开项目的composer.phar更改 为   “minimum-stability”: “dev”,"></a>打开项目的composer.phar更改 为   “minimum-stability”: “dev”,</h1><p>（win环境下：正式开始twilio在php开发的使用）<br>1.进入：config/web.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&apos;components&apos; =&gt; array(</div><div class="line"> ...</div><div class="line"> &apos;Yii2Twilio&apos; =&gt; array( &apos;class&apos; =&gt; &apos;filipajdacic\yiitwilio\YiiTwilio&apos;,</div><div class="line"> &apos;account_sid&apos; =&gt; &apos;YOUR_TWILIO_ACCOUNT_SID_HERE&apos;, </div><div class="line"> &apos;auth_key&apos; =&gt; &apos;YOUR_TWILIO_AUTH_KEY_HERE&apos;,  ),</div><div class="line"> ...</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>2.在controller/sitecontroller 添加方法<br>该方法用于测试。twilio是否能在yii框架上运行<br>      /**</p>
-<pre><code> * Displays phonesystem page.
- *
- * @展示打电话系统页面
- */
-public function actionPhonesystem()
-{
-   // return $this-&gt;render(&apos;phonesystem&apos;);
-     $twilioService = Yii::$app-&gt;Yii2Twilio-&gt;initTwilio();
-
-try {
-    $message = $twilioService-&gt;account-&gt;messages-&gt;create(array(
-        &quot;From&quot; =&gt; &quot;+12345678901&quot;, // From a valid Twilio number
-        &quot;To&quot; =&gt; &quot;+12345678901&quot;,   // Text this number
-        &quot;Body&quot; =&gt; &quot;Hello from my Yii2 Application!&quot;,
-    ));
-} catch (\Services_Twilio_RestException $e) {
-        echo $e-&gt;getMessage();
-}
-}
-</code></pre><p>出现问题：</p>
-<p>1 找不到service class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">PHP Fatal Error – [yii\base\ErrorException](http://www.yiiframework.com/doc-2.0/yii-base-errorexception.html)</div><div class="line">Class &apos;Services_Twilio&apos; not found</div><div class="line"></div><div class="line">解决办法：</div><div class="line">在vendor-&gt; composer-&gt; autoload_files.php 中 增加：</div><div class="line">&apos;bccfaf6207f67190a92f35585e9a78b2&apos; =&gt; $vendorDir . &apos;/twilio/sdk/Services/Twilio.php&apos;,</div><div class="line">并且替换掉 /twilio/sdk/Service文件。</div><div class="line"></div><div class="line">文件在360云盘：488087887@qq.com</div><div class="line">https://yunpan.cn/cMbcIphrUH97I （提取码：1f21）</div></pre></td></tr></table></figure></p>
-<p>2.SSL 证书安全<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Services_Twilio_HttpException</div><div class="line">The OpenSSL extension is required but not currently enabled. For more information, see </div><div class="line">http://php.net/manual/en/book.openssl.php</div><div class="line"></div><div class="line">解决办法：</div><div class="line">php文件的php.ini 去掉；</div><div class="line">extension=php_openssl.dll</div><div class="line"></div><div class="line"></div><div class="line">然后：http://stackoverflow.com/questions/29153819/twilio-php-ssl-certificate-self-signed-certificate-in-certificate-chain</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4&gt;妈的智障，妈的智障，妈的智障。远程不了公司电脑了，只好本机重新搭建一下环境了&lt;/h4&gt;
-
-&lt;p&gt;系统环境：&lt;br&gt;win7&lt;br&gt;命令行操作：&lt;br&gt;composer 管理工具：&lt;br&gt;基于Yii2框架：&lt;br&gt;git 命令：&lt;br&gt;php 环境：xampp 或者 phpstudy：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="专业笔记" scheme="https://lucktime.github.io/categories/%E4%B8%93%E4%B8%9A%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="PHP" scheme="https://lucktime.github.io/tags/PHP/"/>
