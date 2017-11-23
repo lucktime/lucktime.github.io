@@ -288,19 +288,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-融资学习/网上祭扫的优势" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-微信小程序/登录的设计思路汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/融资学习/网上祭扫的优势/">网上祭扫的优势分析</a>
+      <a class="article-title" href="/2017/08/18/微信小程序/登录的设计思路汇总/">微信小程序登录设计思路</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/融资学习/网上祭扫的优势/" class="archive-article-date">
+        <a href="/2017/08/18/微信小程序/登录的设计思路汇总/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -308,9 +308,96 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>其一体现文明快捷。我们传统的祭扫总是伴随着缭绕的炉烟，鞭炮的声音，如果在网上进行祭祀的话，没有呛人的烟雾，没有震耳的声响，有的却是催人泪下的音乐和感人肺腑的留言。</p>
-<p>其二跨越时空。现实的祭扫让那些远在他乡，工作繁忙的人群，没有办法前去参加祭祀。如果在互联网上，有这样一个可以给这类人群，提供寄托追思和缅怀的地方，岂不是很好。</p>
-<p>其三精神永恒。互联网的时间永恒，空间无限。网上纪念馆可以无限地存放照片、影集、文集，逝者的音容笑貌，这些可以让亲友们没有办法参加清明祭扫的时候，对其深切怀念，追思和缅怀，这些都会化为多媒体文件，永久保存，无限扩容，不因岁月的流逝而磨蚀，不因空间的转移而损耗。</p>
+        <h2 id="微信小程序登录设计思路"><a href="#微信小程序登录设计思路" class="headerlink" title="微信小程序登录设计思路"></a>微信小程序登录设计思路</h2><h3 id="一-小程序不支持cookie会话"><a href="#一-小程序不支持cookie会话" class="headerlink" title="一. 小程序不支持cookie会话"></a>一. 小程序不支持cookie会话</h3><p>　　1. 通过传递与检验3rd_session来保持会话<br>　　2. 3rd_session可以执行‘<code>head -n 80 /dev/urandom | tr -dc A-Za-z0-9 | head -c 168</code>该命令生成<br>　　3. 使用Redis或者数据库存储session<br>　　4. 生成的3rd_session发送给客户端，写入storage<br>　　5. 客户端的每次请求必须带上3rd_session</p>
+<h3 id="二、加密数据解码"><a href="#二、加密数据解码" class="headerlink" title="二、加密数据解码"></a>二、加密数据解码</h3><p>　　1. $iv,$code是被加密过的数据，由于请求过程中因为编码原因+号变成了空格，所以我们需要用下面的方法转换回来<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">define_str_replace</span><span class="params">($data)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> str_replace(<span class="string">' '</span>,<span class="string">'+'</span>,$data);</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>
+        
+          <a class="article-more-a" href="/2017/08/18/微信小程序/登录的设计思路汇总/#more">展开全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mysql/mysql-时间管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/Mysql/mysql-时间管理/">mysql 时间管理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/Mysql/mysql-时间管理/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://blog.csdn.net/winter13292/article/details/7888358" target="_blank" rel="external">http://blog.csdn.net/winter13292/article/details/7888358</a><br><a href="http://stackoverflow.com/questions/4654961/mysql-only-within-the-current-month" target="_blank" rel="external">获取这个月起始时间</a></p>
+<p><a href="http://www.w3resource.com/mysql/date-and-time-functions/mysql-month-function.php" target="_blank" rel="external">数据库Date操作</a></p>
 
       
 
@@ -324,7 +411,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		
 		</ul>
@@ -336,7 +423,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
+        			<a href="/categories/专业笔记/" class="article-tag-list-link color5">专业笔记</a>
         		</li>
       		
 		</ul>
@@ -502,6 +589,177 @@ ga('send', 'pageview');
 			 
         		<li class="article-tag-list-item">
         			<a href="/categories/计算机系统/" class="article-tag-list-link color1">计算机系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-融资学习/一个好的项目参考条件和注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/融资学习/一个好的项目参考条件和注意事项/">祭祀优势分析</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/融资学习/一个好的项目参考条件和注意事项/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h2><p>一个好的产品，应该符合行业发展趋势。有着广阔的市场。。</p>
+<h2 id="二："><a href="#二：" class="headerlink" title="二："></a>二：</h2><p>好的产品要有独特的创意，帮助客户解决切实存在的问题。</p>
+<h2 id="三："><a href="#三：" class="headerlink" title="三："></a>三：</h2><p>营销成本低，如果一个产品的营销成本过高，只能说明产品本身不受欢迎。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-融资学习/融资-思路图-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/融资学习/融资-思路图-/">祭祀融资思路</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/18/融资学习/融资-思路图-/" class="archive-article-date">
+  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>融资的项目：冥界烧纸网络化和现实的相结合</p>
+<p>通过网络化的烧纸，和现实中宗教的大师亲自祈祷完成烧纸的流程。</p>
+<p>网页设计，可以通过网页端进行烧纸的设计。</p>
+<p>网站能实现的功能，登录，查看， 祭祀 ，请愿，留言，烧纸，观看视频，语音。</p>
+<p>1.行业痛点：<br>缺少的 仪式感  和  归属感</p>
+<p>2.如何解决这个痛点：<br>如何解决这两方面的问题。1.o2o的经营模式，采用线上线下相结合。<br>线上祭祀，线下通过工作人员或专业的大师请愿。VR体验馆，大师专业烧纸，传达对亲人的思念。<br>线上：通过送花，祭酒，留言来实现功能。亲人开通祭祀活动后，可以开启访问。还有直播随时可以看到祭祀情况。<br>3.产品的盈利模式。可持续性的服务和前期的祭坛的位置。<br>通过线上服务和线下相结合。</p>
+<p>为自己打造一个留言笔记，生前为自己打造一个温馨的或者悲惨的</p>
+<p>链接推荐：<br><a href="http://www.chinabz.org/bzwh/lltt/4775.html" target="_blank" rel="external">公墓行业的互联网探讨</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
         		</li>
       		
 		</ul>
@@ -706,19 +964,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-微信小程序/#简单入门学习#" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-阅读笔记/英语美句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/微信小程序/#简单入门学习#/">小程序入门总结</a>
+      <a class="article-title" href="/2017/08/18/阅读笔记/英语美句/">英语美句</a>
     </h1>
   
 
         
-        <a href="/2017/08/18/微信小程序/#简单入门学习#/" class="archive-article-date">
+        <a href="/2017/08/18/阅读笔记/英语美句/" class="archive-article-date">
   	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
@@ -726,270 +984,9 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>仅适用于原生小程序 技巧1：快速创建page页面。在项目app.json的pages写下路径，运行。则会自动创建文件夹及路径文件。</p>
-<p>[css flax 布局] (<a href="http://www.wxapp-union.com/article-902-1.html" target="_blank" rel="external">http://www.wxapp-union.com/article-902-1.html</a>)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/小程序/" class="article-tag-list-link color4">小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+        <p>超经典美句收藏<br>
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-融资学习/融资-思路图-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/融资学习/融资-思路图-/">祭祀融资思路</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/融资学习/融资-思路图-/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>融资的项目：冥界烧纸网络化和现实的相结合</p>
-<p>通过网络化的烧纸，和现实中宗教的大师亲自祈祷完成烧纸的流程。</p>
-<p>网页设计，可以通过网页端进行烧纸的设计。</p>
-<p>网站能实现的功能，登录，查看， 祭祀 ，请愿，留言，烧纸，观看视频，语音。</p>
-<p>1.行业痛点：<br>缺少的 仪式感  和  归属感</p>
-<p>2.如何解决这个痛点：<br>如何解决这两方面的问题。1.o2o的经营模式，采用线上线下相结合。<br>线上祭祀，线下通过工作人员或专业的大师请愿。VR体验馆，大师专业烧纸，传达对亲人的思念。<br>线上：通过送花，祭酒，留言来实现功能。亲人开通祭祀活动后，可以开启访问。还有直播随时可以看到祭祀情况。<br>3.产品的盈利模式。可持续性的服务和前期的祭坛的位置。<br>通过线上服务和线下相结合。</p>
-<p>为自己打造一个留言笔记，生前为自己打造一个温馨的或者悲惨的</p>
-<p>链接推荐：<br><a href="http://www.chinabz.org/bzwh/lltt/4775.html" target="_blank" rel="external">公墓行业的互联网探讨</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">祭祀</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网上祭祀/" class="article-tag-list-link color5">网上祭祀</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-个人信息/软考中级-软件设计师-准备指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/个人信息/软考中级-软件设计师-准备指南/">软考中级设计师指南</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/个人信息/软考中级-软件设计师-准备指南/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>可以直接考中级，高级需要资质。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　[报名时间：此为四川时间，不一定准确。我省上半年考试的报名时间统一定于2017年2月15日至3月15日;下半年考试的报名时间统一定于2017年8月1日至8月31日](http://www.exam8.com/computer/spks/baoming/)</div><div class="line">2017年软考考试时间预计为：上半年2017年5月20日，下半年2017年11月11日。</div><div class="line">       (1)高级资格：信息系统项目管理师、系统分析师(原系统分析员)、系统构架设计师;</div><div class="line">       (2)中级资格：软件设计师(原高级程序员)、网络工程师、信息系统监理师、电子商务设计师、软件评测师、多媒体应用设计师、数据库系统工程师、嵌入式系统设计师、计算机辅助设计师、信息系统管理工程师、信息技术支持工程师;</div><div class="line">       (3)初级资格：程序员(原初级程序员、程序员)、网络管理员、信息处理技术员、电子商务技术员、多媒体应用制作技术员、信息系统运行管理员</div></pre></td></tr></table></figure></p>
-<p><a href="http://www.educity.cn/tiku/g7.html" target="_blank" rel="external">题库</a></p>
-<p><a href="http://search.dangdang.com/?key=%C8%ED%BC%FE%C9%E8%BC%C6%CA%A6&amp;act=input" target="_blank" rel="external">软件设计书</a></p>
-<p><a href="http://www.educity.cn/shipin/v3582.html" target="_blank" rel="external">软件设计师的资料详解</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">fighting</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/个人信息/" class="article-tag-list-link color5">个人信息</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-阅读笔记/鲁迅的世界" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/18/阅读笔记/鲁迅的世界/">鲁迅的世界</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/18/阅读笔记/鲁迅的世界/" class="archive-article-date">
-  	<time datetime="2017-08-17T18:17:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote><ol>
-<li>凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不比以为不幸的。</li>
-</ol>
-<footer><strong>——呐喊：鲁迅</strong></footer></blockquote>
-        
-          <a class="article-more-a" href="/2017/08/18/阅读笔记/鲁迅的世界/#more">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/18/阅读笔记/英语美句/#more">展开全文 >></a>
         
       
 
@@ -1003,7 +1000,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">小说鉴赏</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">美句</a>
         		</li>
       		
 		</ul>
@@ -1052,7 +1049,7 @@ ga('send', 'pageview');
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -1163,11 +1160,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,10 +1180,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">推广</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GTM</a>
               </li>
              
@@ -1195,35 +1188,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">自学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+                <a href="javascript:void(0)" class="js-tag color3">推广</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1235,7 +1208,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">插件集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fighting</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">自学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1260,10 +1261,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">梭罗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fighting</a>
               </li>
              
               <li class="article-tag-list-item">
